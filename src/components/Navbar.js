@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
@@ -9,13 +9,13 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("accueil");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const internalSections = [
+  const internalSections = useMemo(()=>[
     { id: "accueil", label: "Accueil" },
     { id: "valeur-ajoutee", label: "Valeur ajoutée" },
     { id: "services", label: "Nos Services" },
     { id: "approche", label: "Approche personnalisée" },
     { id: "contact", label: "Contact" },
-  ];
+  ]; []);
 
   const handleNavScroll = (id) => {
     setMenuOpen(false);
