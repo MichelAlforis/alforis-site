@@ -53,7 +53,7 @@ export default function Navbar() {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     }
-  }, [location.pathname]);
+  }, [location.pathname, internalSections]);
 
   const isActualitesActive = location.pathname === "/actualites";
 
