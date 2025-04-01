@@ -162,6 +162,7 @@ export default function Home() {
 
         <FadeSection id="decider">
           <motion.div
+            style={{ scale: scaleValue }}
             className="max-w-3xl mx-auto text-center space-y-6"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -251,10 +252,10 @@ export default function Home() {
 
 
       {/* Section 3 - Services avec animation */}
-          <section className="snap-start w-full min-h-[200vh] flex flex-col justify-center items-center bg-[#2E3A48] px-4 py-20"
+          <section 
+                id="services"
                 style={{ backgroundImage: "url('/images/Section2.png')" }}
                 className="snap-start w-full min-h-[200vh] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4 py-20"
-                id="services"
               >
                   
                   
