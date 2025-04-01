@@ -15,7 +15,7 @@ export default function Navbar() {
     { id: "services", label: "Nos Services" },
     { id: "approche", label: "Approche personnalisée" },
     { id: "contact", label: "Contact" },
-  ]; []);
+  ], []);
 
   const handleNavScroll = (id) => {
     setMenuOpen(false);
