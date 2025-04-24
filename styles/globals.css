@@ -1,26 +1,188 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ====================== */
+/* 🌐 BASE TYPOGRAPHIE    */
+/* ====================== */
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  main h1:first-of-type,
+  main form:first-of-type {
+    margin-top: 10rem;
+  }
+  
+  
 
-@media (prefers-color-scheme: dark) {
+  h1, h2, h3 {
+    @apply font-title text-anthracite;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  p {
+    @apply font-sans text-base text-anthracite;
+  }
+
+  .animated-h1 {
+    @apply text-4xl md:text-5xl font-title font-semibold text-ardoise;
+  }
+  
+  .animated-h2 {
+    @apply text-3xl md:text-4xl font-title font-semibold text-ardoise;
+  }
+  
+  .animated-wrapper {
+    @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
+  }
+
+  /* 🌐 COULEURS BANDEAU COOKIE CNIL */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --cc-bg: theme('colors.ardoise');
+    --cc-text: theme('colors.ivoire');
+    --cc-btn-primary-bg: theme('colors.doré');
+    --cc-btn-primary-text: theme('colors.anthracite');
+    --cc-btn-secondary-bg: transparent;
+    --cc-btn-secondary-text: theme('colors.ivoire');
+    --cc-btn-secondary-border: theme('colors.doré');
+    --cc-toggle-on-bg: theme('colors.doré');
+    --cc-toggle-off-bg: theme('colors.acier');
+    --cc-toggle-readonly-bg: theme('colors.beigeClair');
+
+    --nav-height: 80px;
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --nav-height: 0px;
+    }
+  }
+
+  html, body {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ====================== */
+/* 🎛️ BOUTONS PERSONNALISÉS */
+/* ====================== */
+@layer components {
+  .btn-alforis-retro {
+    @apply font-title uppercase tracking-widest text-base
+      w-full sm:w-auto block text-center mx-auto
+      text-ivoire bg-ardoise
+      px-8 py-4
+      rounded-md border border-doré
+      hover:text-doré hover:bg-ardoise
+      transition-all duration-200 ease-in-out;
+  }
+
+  .btn-alforis-outline {
+    @apply font-title uppercase tracking-widest text-base
+      w-full sm:w-auto block text-center mx-auto
+      text-doré bg-transparent
+      px-8 py-4
+      rounded-md border border-doré
+      hover:bg-doré hover:text-ardoise
+      transition-all duration-200 ease-in-out;
+  }
+
+  .btn-alforis-rdv {
+    @apply font-title uppercase tracking-widest text-base
+      w-full sm:w-auto block text-center mx-auto
+      text-acier bg-transparent
+      px-4 py-2
+      rounded-md border border-white
+      hover:bg-doré hover:text-ardoise
+      transition-all duration-200 ease-in-out;
+  }
+}
+
+/* ====================== */
+/* 🧩 UTILITAIRES VISUELS  */
+/* ====================== */
+@layer utilities {
+  .fade {
+    @apply transition-opacity duration-700 ease-in-out opacity-0;
+  }
+
+  .fade.visible {
+    @apply opacity-100;
+  }
+
+  .fade-anim {
+    opacity: 0;
+    animation: fadeScale 1.8s ease-out forwards;
+  }
+
+  .main-content {
+    padding-top: var(--nav-height, 4rem);
+  }
+
+  svg {
+    stroke: var(--stroke-color, currentColor);
+    fill: var(--fill-color, none);
+  }
+
+  .draw-animation {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3s ease-out forwards;
+  }
+
+  @keyframes alforis-reveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+      filter: blur(8px) brightness(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+      filter: blur(2px) brightness(1.3);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px) brightness(1);
+    }
+  }
+  
+  .animate-alforis-reveal {
+    animation: alforis-reveal 1.6s ease-out forwards;
+  }
+  
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fadeScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }

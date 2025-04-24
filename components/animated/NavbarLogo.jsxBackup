@@ -1,0 +1,47 @@
+'use client'
+import React from "react"
+import { motion, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
+import Logo from "@/assets/illustrations/NavBar-logo" // fichier importé
+
+export default function NavbarLogo({ className = "" }) {
+  const stroke = useMotionValue(5)
+  const fillColor = useMotionValue("#4A5A6A")
+  const strokeColor = useMotionValue("#4A5A6A")
+
+  const strokeSpring = useSpring(stroke, { stiffness: 200, damping: 20 })
+  const fillSpring = useSpring(fillColor, { stiffness: 100, damping: 15 })
+  const strokeSpringColor = useSpring(strokeColor, { stiffness: 100, damping: 15 })
+
+const fillColorTemplate = useMotionTemplate`${fillSpring}`
+const strokeColorTemplate = useMotionTemplate`${strokeSpringColor}`
+  
+  console.log("🧪 Props envoyés à Logo :", {
+    fillColorTemplate: fillColorTemplate.get(),
+    strokeColorTemplate: strokeColorTemplate.get(),
+    strokeSpring,
+  });
+
+  return (
+    <motion.div
+      className={className}
+      onMouseEnter={() => {
+        console.log("🔶 Mouse enter : changement des couleurs et stroke");
+        stroke.set(12)
+        fillColor.set("#C8A765")
+        strokeColor.set("#C8A765")
+      }}
+      onMouseLeave={() => {
+        console.log("🔷 Mouse leave : retour couleurs et stroke");
+        stroke.set(5)
+        fillColor.set("#4A5A6A")
+        strokeColor.set("#4A5A6A")
+      }}
+    >
+<Logo
+  fillColorTemplate={fillColorTemplate}
+  strokeColorTemplate={strokeColorTemplate}
+  strokeSpring={strokeSpring}
+/>
+    </motion.div>
+  )
+}
