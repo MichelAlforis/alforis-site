@@ -1,103 +1,32 @@
-import { Animated } from '@/components/animated/Animated'
 'use client'
-
 import React from 'react'
 import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { animationSettings } from '@/lib/server/animationSettings'
 
-const animationSettings = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.4 },
-}
+const withMotion = (tag) =>
+  ({ children, className = '', variant = 'fadeInUp' }) => {
+    const settings = animationSettings[variant] ?? animationSettings.fadeInUp
+    return (
+      <ClientOnlyMotion
+        as={tag}
+        {...settings}
+        className={className}
+      >
+        {children}
+      </ClientOnlyMotion>
+    )
+  }
 
 export const Animated = {
-  Page: ({ children, className = '' }) => (
-    <Animated.Div
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={className}
-    >
-      {children}
-    </Animated.Div>
-  ),
-
-  Wrapper: ({ children, className = '' }) => (
-    <Animated.Div
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={`animated-wrapper ${className}`}
-    >
-      {children}
-    </Animated.Div>
-  ),
-
-  H1: ({ children, className = '' }) => (
-    <Animated.H1
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={`animated-h1 ${className}`}
-    >
-      {children}
-    </Animated.H1>
-  ),
-
-  H2: ({ children, className = '' }) => (
-    <Animated.H2
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={`animated-h2 ${className}`}
-    >
-      {children}
-    </Animated.H2>
-  ),
-
-  H3: ({ children, className = '' }) => (
-    <Animated.H3
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={`animated-h3 ${className}`}
-    >
-      {children}
-    </Animated.H3>
-  ),
-
-  P: ({ children, className = '' }) => (
-    <Animated.P
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={`animated-p ${className}`}
-    >
-      {children}
-    </Animated.P>
-  ),
-
-  Section: ({ children, className = '' }) => (
-    <Animated.Section
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={className}
-    >
-      {children}
-    </Animated.Section>
-  ),
-
-  Div: ({ children, className = '' }) => (
-    <Animated.Div
-      initial={animationSettings.initial}
-      animate={animationSettings.animate}
-      transition={animationSettings.transition}
-      className={className}
-    >
-      {children}
-    </Animated.Div>
-  )
+  Page: withMotion('div'),
+  Wrapper: withMotion('div'),
+  Div: withMotion('div'),
+  Section: withMotion('section'),
+  Article: withMotion('article'),
+  H1: withMotion('h1'),
+  H2: withMotion('h2'),
+  H3: withMotion('h3'),
+  P: withMotion('p')
 }
 
-export default Animated;
+export default Animated

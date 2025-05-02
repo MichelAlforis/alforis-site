@@ -1,7 +1,7 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 import React from "react";
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { Animated } from '@/components/animated/Animated'
 import { useInView } from "react-intersection-observer";
 import useCountUp from "@hooks/useCountUp";
 import {GoldLink } from "@/hooks/useGoldEffect"
@@ -12,26 +12,19 @@ const figures = [
   { value: 100, label: "indépendant & confidentiel", suffix: "%" },
 ];
 
-export default function KeyFigures({ height = "min-h-[200vh]" }) {
+export default function KeyFigures({ extraClass = ''}) {
+  
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   const counts = figures.map((fig) => useCountUp(fig.value, 1500, inView));
 
   return (
     <section
-      className={`snap-start w-full relative flex flex-col items-center justify-center text-center px-4 overflow-hidden ${height}`}
+      className={` relative  flex-col text-center overflow-hidden ${extraClass}`}
       id="chiffres"
     >
-      {/* Background parallax */}
-      <div
-        className="absolute inset-0 z-0 bg-fixed bg-center bg-cover transition-transform duration-700 ease-out"
-      ></div>
-
-      {/* Overlays */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#1D1D1D]/60 to-[#2E3A48]/90" />
-      <div className="absolute inset-0 z-20 bg-[#C8A765]/10 mix-blend-soft-light" />
 
       {/* Contenu */}
-      <div className="relative z-30 max-w-5xl mx-auto space-y-32 py-48">
+      <div className="relative bg-ardoise rounded-2xl shadow-lg bg-opacity-40 z-30 space-y-16 py-20 max-w-5xl mx-auto">
         <Animated.Div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +32,7 @@ export default function KeyFigures({ height = "min-h-[200vh]" }) {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-3xl md:text-4xl font-title text-[#C8A765] drop-shadow-lg">
+          <h2 className="text-3xl md:text-4xl font-title text-doré drop-shadow-lg">
           <GoldLink href="/Expertise">L’Expertise derrière Alforis</GoldLink>
           </h2>
           <p className="text-white text-base md:text-lg">

@@ -1,9 +1,9 @@
-import { Animated } from '@/components/animated/Animated'
+
 // MentionsLegales.jsx
 'use client'
 import AlforisHead from '@/components/AlforisHead'
 import React from "react"
-import Animated.Page from "@/components/animated/Animated"
+import { Animated } from '@/components/animated/Animated'
 
 
 export default function MentionsLegales() {

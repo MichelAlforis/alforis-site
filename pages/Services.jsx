@@ -1,12 +1,10 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 import AlforisHead from '@/components/AlforisHead'
-
-import Head from 'next/head'
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { Animated } from '@/components/animated/Animated'
 import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
-import Animated.Page from "@/components/animated/Animated"
+
 
 
 const services = [
@@ -52,18 +50,7 @@ export default function Services() {
   return (
     <>
       <AlforisHead title="Services – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." path="/Services" />
-<Head>
-        <title>Conseil en gestion de patrimoine : nos services | Alforis</title>
-        <meta
-          name="description"
-          content="Découvrez les services d’Alforis : ingénierie patrimoniale, trésorerie long terme, gouvernance familiale et conciergerie premium. Des solutions sur mesure pour accompagner votre trajectoire de vie."
-        />
-        <meta
-          name="keywords"
-          content="conseil patrimonial, ingénierie patrimoniale, trésorerie entreprise, gouvernance familiale, conciergerie patrimoniale, Alforis, gestion de patrimoine, Nogent-sur-Marne"
-        />
-        <link rel="canonical" href="https://www.alforis.fr/services" />
-      </Head>
+
 <Animated.Page>
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -73,7 +60,7 @@ export default function Services() {
 
           <section className="space-y-24">
             {services.map((service, index) => (
-              <ClientOnlyMotion.article className="relative bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-lg group border border-doré/20">
+              <Animated.Article className="relative bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-lg group border border-doré/20">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                   <div className="w-full md:w-48 flex justify-center md:justify-start items-center">
                     <img
@@ -98,7 +85,7 @@ export default function Services() {
                     </NoWidowText>
                   </div>
                 </div>
-              </ClientOnlyMotion.article>
+              </Animated.Article>
             ))}
           </section>
 

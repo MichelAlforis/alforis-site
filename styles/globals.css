@@ -12,11 +12,14 @@
 
   main h1:first-of-type,
   main form:first-of-type {
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
   
   
-
+  label {
+    @apply block text-anthracite font-semibold mb-1
+  }
+      
   h1, h2, h3 {
     @apply font-title text-anthracite;
   }
@@ -68,12 +71,14 @@
       --nav-height: 0px;
     }
   }
+}
 
-  html, body {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
-  }
+html, body, #__next {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y proximity;
 }
 
 /* ====================== */
@@ -132,6 +137,11 @@
     padding-top: var(--nav-height, 4rem);
   }
 
+    /* Home page spécifique : pas de padding-top */
+    .home-content {
+      padding-top: 0;
+    }
+
   svg {
     stroke: var(--stroke-color, currentColor);
     fill: var(--fill-color, none);
@@ -168,6 +178,10 @@
     animation: alforis-reveal 1.6s ease-out forwards;
   }
   
+  .hero-sceau-wrapper {
+    isolation: isolate;
+    will-change: filter, opacity, transform;
+  }
   
   @keyframes draw {
     to {

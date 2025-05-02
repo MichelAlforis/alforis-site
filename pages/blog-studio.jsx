@@ -1,12 +1,9 @@
 import { Animated } from '@/components/animated/Animated'
 import React from 'react';
-import Head from 'next/head';
 import BlogStudioGrid from '@components/blog/BlogStudioGrid';
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion';
 import AlforisHead from '@/components/AlforisHead';
 import { motion } from 'framer-motion';
-import { fetchAllArticles } from '@/lib/server/fetchAllArticles'
-import Animated.Page from "@/components/animated/Animated"
+import { fetchAllContent } from '@/lib/server/fetchAllContent'
 
 export default function BlogStudioPage({ content }) {
   return (
@@ -57,7 +54,7 @@ export default function BlogStudioPage({ content }) {
 }
 
 export async function getStaticProps() {
-  const content = await fetchAllArticles()
+  const content = await fetchAllContent()
   console.log("📦 getStaticProps → content :", content)
   return { props: { content } }
 }

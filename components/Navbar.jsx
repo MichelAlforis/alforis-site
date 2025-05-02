@@ -18,16 +18,16 @@ export default function Navbar() {
   }, [pathname])
 
   const links = [
-    { href: '/', label: 'Accueil' },
-    { href: '/Services', label: 'Nos Services' },
-    { href: '/ApprochePersonnalisee', label: 'Approche' },
-    { href: '/blog-studio', label: 'Blog & Studio' },
-    { href: '/ProfilDeVie', label: 'Votre Profil de Vie' },
-    { href: '/Contact', label: 'Contact' },
+    
+    { href: '/Services', label: 'Nos Services', id: '0' },
+    { href: '/ApprochePersonnalisee', label: 'Approche', id: '1' },
+    { href: '/blog-studio', label: 'Blog & Studio', id:'2' },
+    { href: '/ProfilDeVie', label: 'Votre Profil de Vie', id:'3' },
+    { href: '/home/Contact', label: 'Contact', id:'4' },
   ]
 
   return (
-    <nav className="bg-white/30 backdrop-blur-md shadow-sm border-b border-[#D1C5B0]/50 fixed top-0 w-full z-50">
+    <nav className="bg-white/30 backdrop-blur-md shadow-sm border-b border-ardoise/50 fixed top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -41,11 +41,12 @@ export default function Navbar() {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center space-x-6">
-            {links.map(({ href, label }) => (
+            {links.map(({ href, label, id }) => (
               <GoldLink
                 key={href}
                 href={href}
                 reverse
+                id={id}
                 className={`px-3 py-2 rounded-md text-md ${
                   pathname === href ? 'text-doré font-semibold' : 'text-acier'
                 }`}

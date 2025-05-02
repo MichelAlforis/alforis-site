@@ -5,7 +5,7 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}', // si tu utilises l'App Router
+    './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -30,14 +30,8 @@ module.exports = {
       },
       keyframes: {
         scaleUp: {
-          '0%': {
-            transform: 'scale(1)',
-            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-          },
-          '100%': {
-            transform: 'scale(1.05)',
-            boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.2)',
-          },
+          '0%': { transform: 'scale(1)', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)' },
+          '100%': { transform: 'scale(1.05)', boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.2)' },
         },
         glitch: {
           '0%, 100%': { transform: 'translate(0)' },
@@ -46,10 +40,27 @@ module.exports = {
           '60%': { transform: 'translate(1px, 2px)' },
           '80%': { transform: 'translate(1px, -1px)' },
         },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'scale-up': 'scaleUp 0.2s ease-in-out',
         glitch: 'glitch 0.3s ease-in-out',
+        'fade-in': 'fadeIn 1s ease-out forwards',
+      },
+      backgroundImage: {
+        'hero-mobile': "url('/assets/img/M_intro.png')",
+        'hero-desktop': "url('/assets/img/D_intro.png')",
+        'services-mobile': "url('/assets/img/M_services.png')",
+        'services-desktop': "url('/assets/img/D_services.png')",
+        'approach-mobile': "url('/assets/img/M_approach.png')",
+        'approach-desktop': "url('/assets/img/D_approach.png')",
+        'figures-mobile': "url('/assets/img/M_keyfigures.png')",
+        'figures-desktop': "url('/assets/img/D_keyfigures.png')",
+        'contact-mobile': "url('/assets/img/M_contact.png')",
+        'contact-desktop': "url('/assets/img/D_contact.png')",
       },
     },
   },
@@ -59,18 +70,14 @@ module.exports = {
 
       matchUtilities(
         {
-          fill: (value) => ({
-            '--fill-color': value,
-          }),
+          fill: (value) => ({ '--fill-color': value }),
         },
         { values: colors }
       );
 
       matchUtilities(
         {
-          stroke: (value) => ({
-            '--stroke-color': value,
-          }),
+          stroke: (value) => ({ '--stroke-color': value }),
         },
         { values: colors }
       );

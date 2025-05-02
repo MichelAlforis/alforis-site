@@ -1,10 +1,10 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 
 import AlforisHead from '@/components/AlforisHead'
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { Animated } from '@/components/animated/Animated'
 
 const calMap = {
   appel: "https://cal.com/alforis/appel-telephonique",

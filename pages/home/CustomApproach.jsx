@@ -1,16 +1,16 @@
-import { Animated } from '@/components/animated/Animated'
-'use client'
 
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+'use client'
+import { Animated } from '@/components/animated/Animated'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
 import ApprocheIcon from '@/assets/illustrations/approche.svg'
 
 export default function CustomApproach() {
   return (
     <section>
-      <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 py-16">
 
         {/* SVG animé */}
+        <div className="flex justify-center md:w-1/3">
         <AnimatedSVGRenderer
           SvgComponent={ApprocheIcon}
           strokeColor="var(--stroke-color)"
@@ -33,8 +33,10 @@ export default function CustomApproach() {
           height="100%"
           width="100%"
         />
+         </div>
 
         {/* Texte animé */}
+        <div className="md:w-2/3 flex flex-col justify-center gap-4">
         <Animated.Div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -50,7 +52,8 @@ export default function CustomApproach() {
             de votre horizon personnel, et de vos contraintes concrètes.
           </p>
         </Animated.Div>
-      </div>
+        </div>
+        </div>
     </section>
   )
 }

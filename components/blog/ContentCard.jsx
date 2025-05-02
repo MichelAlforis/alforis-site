@@ -1,11 +1,10 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 
 import React from 'react'
 import Link from 'next/link'
 import useButtonHover from '@/hooks/useButtonHover'
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
-import Animated.Page from "@/components/animated/Animated"
+import { Animated } from '@/components/animated/Animated'
 
 const ContentCard = ({ type = '', title = '', description = '', image = '', slug = '', index = 0 }) => {
   const { getButtonProps } = useButtonHover()

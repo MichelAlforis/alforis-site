@@ -1,6 +1,6 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { Animated } from '@/components/animated/Animated'
 import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer"
 import LifePic from '@assets/illustrations/lifeprofile.svg';
 
@@ -10,6 +10,7 @@ export default function LifeProfile() {
     <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
 
         {/* Illustration côté gauche */}
+        <div className="flex justify-center md:w-1/3">
         <AnimatedSVGRenderer
           SvgComponent={LifePic}
           strokeColor="var(--stroke-color)"
@@ -32,9 +33,10 @@ export default function LifeProfile() {
           height="100%"   /* Hauteur automatique pour ajuster le contenu */
           width="100%"   /* Largeur ajustable selon le conteneur */
         />
-
+        </div>
 
         {/* Texte et bouton */}
+        <div className="md:w-2/3 flex flex-col justify-center gap-4">
         <Animated.Div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -48,9 +50,8 @@ export default function LifeProfile() {
             Le <strong>Profil de Vie</strong> vous permet de faire le point, en quelques questions clés,
             sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.
           </p>
-
-
         </Animated.Div>
+        </div>
       </div>
     </section>
   )

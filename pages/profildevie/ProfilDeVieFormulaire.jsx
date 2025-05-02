@@ -1,13 +1,15 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 
-import { useState, useRef, useEffect } from "react"
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { motion, useState, useRef, useEffect } from "react"
+import { Animated } from '@/components/animated/Animated'
 import useButtonHover from "@/hooks/useButtonHover"
 import { Progress } from "@/components/ui/progress"
 import SceauSuspendu from "@/components/animated/SceauSuspendu"
-import ContactFinal from "@/pages/profildevie/ContactFinal"
-import { questions, profilesData, keywords } from "@/components/profildevie/index"
+import ContactFinal from "@/components/parcours/ContactFinal"
+import { questions, profilesData, keywords } from "@/components/parcours/index"
+import { scoringMatrix } from '@/components/parcours/scoringMatrix'
+import Button from '@/components/ui/Button' // chemin selon ton arborescence exacte
 
 
 export default function ProfilDeVieFormulaire() {
@@ -33,38 +35,77 @@ export default function ProfilDeVieFormulaire() {
     setStep(step + 1)
   }
 
-  const handleFinal = () => {
-    const score = Object.keys(profilesData).reduce((acc, key) => ({ ...acc, [key]: 0 }), {})
-    answers.forEach((ans) => {
-      Object.entries(keywords).forEach(([label, keys]) => {
-        keys.forEach((k) => {
-          if (ans?.toLowerCase().includes(k)) score[label] += 1
+  const calculateProfiles = (answers, textAnswer) => {
+    const profiles = Object.keys(scoringMatrix[0])
+    const scores = profiles.reduce((acc, p) => ({ ...acc, [p]: 0 }), {})
+  
+    answers.forEach((rep, i) => {
+      const question = questions[i]
+      const idx = question?.options?.indexOf(rep)
+      if (idx !== -1 && scoringMatrix[i]) {
+        for (const profil of profiles) {
+          scores[profil] += scoringMatrix[i][profil][idx] || 0
+        }
+      }
+    })
+  
+    if (textAnswer) {
+      Object.entries(keywords).forEach(([profil, mots]) => {
+        mots.forEach((mot) => {
+          if (textAnswer.toLowerCase().includes(mot.toLowerCase())) {
+            scores[profil] += 2
+          }
         })
       })
-    })
-    Object.entries(keywords).forEach(([label, keys]) => {
-      keys.forEach((k) => {
-        if (textAnswer.toLowerCase().includes(k)) score[label] += 2
-      })
-    })
-    const sorted = Object.entries(score).sort((a, b) => b[1] - a[1])
-    if (sorted.length > 0) {
-      const best = sorted[0][0]
-      setProfile(best)
-      setCompleted(true)
-    } else {
-      setProfile(null)
-      setCompleted(true)
+    }
+  
+    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1])
+    const [best, second] = sorted
+    const profilSecondaire = best[1] - second[1] <= 2 ? second[0] : null
+  
+    return { profilPrincipal: best[0], profilSecondaire }
+  }
+  
+  const handleFinal = () => {
+    const { profilPrincipal } = calculateProfiles(answers, textAnswer)
+    setProfile(profilPrincipal)
+    setCompleted(true)
+  }
+  
+  const getProgressValue = () => {
+    const totalSteps = questions.length
+    const baseProgress = (step / totalSteps) * 80
+  
+    if (completed && !contactValidated) return 90
+    if (completed && contactValidated) return 100
+  
+    return baseProgress
+  }
+
+  const handleBack = () => {
+    if (step > 0) {
+      setStep(step - 1)
     }
   }
+  
 
   return (
     <div className="profil-wrapper py-12 px-6 space-y-12">
-      <SceauSuspendu targetId="sceau-formulaire" />
 
-      <div className="progress-bar mb-10">
-        <Progress value={((step + 1) / questions.length) * 100} className="progress-bar-inner" />
+      <div className="sticky top-20 z-30 bg-ivoire/80 backdrop-blur-sm border-b border-light py-4 mb-8">
+        <div className="max-w-2xl mx-auto px-6">
+        <Progress value={getProgressValue()} className="progress-bar-inner" />
+        </div>
       </div>
+{step > 0 && !completed && (
+  <div className="max-w-2xl mx-auto px-6 -mt-4 mb-4 text-left">
+    <Button onClick={handleBack} 
+    className="btn-alforis-rdv" 
+    index={-1}>
+      ← Revenir à la question précédente
+    </Button>
+  </div>
+)}
 
       <div className="space-y-16">
         {questions.map((q, i) => (
@@ -74,13 +115,13 @@ export default function ProfilDeVieFormulaire() {
                 <h2 className="question-title text-xl font-title font-semibold text-anthracite mb-4">{q.text}</h2>
 
                 {q.options ? (
-                  <div className="options-list grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Animated.Div className="options-list grid grid-cols-1 md:grid-cols-2 gap-4">
                     {q.options.map((option, idx) => (
                       <button key={idx} {...getButtonProps(idx)} onClick={() => handleSelect(option)} className="btn-alforis-outline">
                         {option}
                       </button>
                     ))}
-                  </div>
+                  </Animated.Div>
                 ) : (
                   <div className="space-y-6">
                     <textarea

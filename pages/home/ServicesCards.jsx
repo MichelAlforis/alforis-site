@@ -32,20 +32,19 @@ const services = [
 
 const MotionLink = motion(Link)
 
-export default function ServicesCards() {
+export default function ServicesCards(extraClass = '') {
   return (
-    <section className="bg-ivoire py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl text-anthracite font-semibold text-center mb-12">
-          Nos services sur-mesure
-        </h2>
+    <section className="relative w-full overflow-hidden z-10 ${extraClass}">
+      <div className="max-w-7xl mx-auto flex flex-col justify-center items-center w-full z-10">
+        <h2 >Nos services sur-mesure</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Grid des services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {services.map((service, index) => (
             <MotionLink
               key={index}
               href="/Services"
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition group block"
+              className="bg-white bg-opacity-80 rounded-2xl p-6 shadow-sm hover:shadow-lg transition group block"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}

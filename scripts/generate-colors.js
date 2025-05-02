@@ -14,6 +14,6 @@ const customColors = Object.fromEntries(
 );
 
 const output = "export const couleurs = " + JSON.stringify(customColors, null, 2) + ";\n";
-fs.writeFileSync(path.resolve(__dirname, "./styles/colors.js"), output);
+fs.writeFileSync(path.resolve(__dirname, "../styles/colors.js"), output);
 
 console.log("✅ Fichier colors.js mis à jour avec les couleurs personnalisées.");

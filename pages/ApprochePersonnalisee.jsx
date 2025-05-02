@@ -1,13 +1,10 @@
-import { Animated } from '@/components/animated/Animated'
+
 'use client'
 import AlforisHead from '@/components/AlforisHead'
-
 import { useEffect } from 'react'
-import Head from 'next/head'
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
 import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
-import { Animated.Page,AnimatedWrapper,AnimatedH1,AnimatedH2} from '@/components/animated/AnimatedHeadings'
+import { Animated } from '@/components/animated/Animated'
 
 export default function ApprochePersonnalisee() {
   useEffect(() => {
@@ -44,29 +41,18 @@ export default function ApprochePersonnalisee() {
   return (
     <>
       <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/ApprochePersonnalisee" />
-<Head>
-        <title>Approche personnalisée de gestion patrimoniale | Alforis</title>
-        <meta
-          name="description"
-          content="Découvrez la méthode Alforis : une approche structurée et humaine de la gestion patrimoniale."
-        />
-        <meta
-          name="keywords"
-          content="approche gestion de patrimoine, stratégie patrimoniale, modélisation patrimoniale"
-        />
-        <link rel="canonical" href="https://www.alforis.fr/approche-personnalisee" />
-      </Head>
+
     
     <Animated.Page>
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
-        <AnimatedH1 className="mb-20">
+        <Animated.H1 className="mb-20">
             Une approche patrimoniale à la hauteur de vos enjeux de vie
           </Animated.H1>
 
           <section className="relative border-l-2 border-doré/30 pl-6 md:pl-12 space-y-24">
             {steps.map((step, index) => (
-              <ClientOnlyMotion.article
+              <Animated.Article
                 key={index}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +91,7 @@ export default function ApprochePersonnalisee() {
                     “{step.citation}”
                   </p>
                 )}
-              </ClientOnlyMotion.article>
+              </Animated.Article>
             ))}
           </section>
 

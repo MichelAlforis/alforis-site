@@ -68,11 +68,14 @@ export default function HeroSceau(className = "") {
   }, [])
 
   return (
-        <motion.div
-          className={`relative w-[120px] h-auto ${className}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+          <motion.div
+            className={`relative w-[120px] h-auto ${className}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ pointerEvents: 'none', background: 'transparent', backdropFilter: 'none', mixBlendMode: 'normal' }}
+          >
+
+
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 500 500"
