@@ -2,7 +2,7 @@
 'use client'
 import { Animated } from '@/components/animated/Animated'
 import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer"
-import LifePic from '@assets/illustrations/lifeprofile.svg';
+import LifePic from '@/assets/illustrations/lifeprofile.svg';
 
 export default function LifeProfile() {
   return (

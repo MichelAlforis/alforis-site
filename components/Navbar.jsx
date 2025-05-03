@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import NavbarLogo from '@components/animated/NavbarLogo'
+import NavbarLogo from '@/components/animated/NavbarLogo'
 import {GoldLink } from "@/hooks/useGoldEffect"
 
 

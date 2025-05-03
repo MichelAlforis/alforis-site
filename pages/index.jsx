@@ -11,7 +11,7 @@ import useControlledScrollSections from '@/hooks/useControlledScrollSections'
 import useButtonHover from '@/hooks/useButtonHover'
 import Approach from "@/pages/home/ApproachSection"
 import AlforisHead from '@/components/AlforisHead'
-import Sceau from '@components/animated/Sceau'
+import Sceau from '@/components/animated/Sceau'
 
 export default function Home() {
   const sectionsData = [

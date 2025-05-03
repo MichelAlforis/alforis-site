@@ -1,6 +1,6 @@
 import { Animated } from '@/components/animated/Animated'
 import React from 'react';
-import BlogStudioGrid from '@components/blog/BlogStudioGrid';
+import BlogStudioGrid from '@/components/blog/BlogStudioGrid';
 import AlforisHead from '@/components/AlforisHead';
 import { motion } from 'framer-motion';
 import { fetchAllContent } from '@/lib/server/fetchAllContent'

@@ -1,19 +1,18 @@
 'use client'
 import { Animated } from '@/components/animated/Animated'
 import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer"
-import Buste from '@assets/illustrations/buste.svg';
+import Buste from '@/assets/illustrations/buste.svg'
 
-export const profilesData(
+// Définition correcte de l'objet `profilesData`
+export const profilesData = {
   SvgComponent: Buste,
   title: "Notre approche est d’abord humaine.",
   paragraph: "Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire."
-},
-)
-
+}
 
 export default function HumanApproach() {
   return (
-    <section >
+    <section>
       <div className="flex flex-col md:flex-row items-center">
 
         {/* Visuel buste / texture humaine à gauche */}
@@ -29,16 +28,16 @@ export default function HumanApproach() {
             wrapperClassName="
               stroke-ardoise
               fill-doré
-              max-w-[15vw]  /* Limite la largeur max à 15% de la largeur de l'écran */
-              w-[20vw]      /* Ajuste la largeur dynamique en fonction de l'écran */
-              max-h-[500px] /* Limite la hauteur à 500px */
-              mx-auto        /* Centrer le SVG */
-              aspect-[711/1089]  /* Maintien du ratio */
+              max-w-[15vw]
+              w-[20vw]
+              max-h-[500px]
+              mx-auto
+              aspect-[711/1089]
             "
-            viewBox="0 0 711 1089" 
-            preserveAspectRatio="xMidYMid meet" 
-            height="100%"   
-            width="100%"   
+            viewBox="0 0 711 1089"
+            preserveAspectRatio="xMidYMid meet"
+            height="100%"
+            width="100%"
           />
         </div>
 
@@ -51,12 +50,14 @@ export default function HumanApproach() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-semibold mb-4 text-anthracite">
-              Notre approche est d’abord humaine.
+              {profilesData.title}
             </h2>
             <p className="text-base md:text-lg text-acier font-light leading-relaxed">
-              Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé.<br />
-              Vos intuitions, vos blessures, vos moteurs.<br />
-              Car comprendre une trajectoire, c’est d’abord écouter son histoire.
+              {profilesData.paragraph.split('. ').map((sentence, i) => (
+                <span key={i}>
+                  {sentence.trim()}{sentence.endsWith('.') ? '' : '.'}<br />
+                </span>
+              ))}
             </p>
           </Animated.Div>
         </div>

@@ -3,7 +3,7 @@
 import React from "react";
 import { Animated } from '@/components/animated/Animated'
 import { useInView } from "react-intersection-observer";
-import useCountUp from "@hooks/useCountUp";
+import useCountUp from "@/hooks/useCountUp";
 import {GoldLink } from "@/hooks/useGoldEffect"
 
 const figures = [
