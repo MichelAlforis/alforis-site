@@ -1,8 +1,8 @@
 import AlforisHead from '@/components/AlforisHead'
 import { useEffect } from 'react'
 import Layout from '@/components/Layout'
-import '@/styles/globals.css'
-import "@/styles/cookieconsent-theme-alforis.css"; // vérifie ce chemin
+import '../styles/globals.css'
+import "../styles/cookieconsent-theme-alforis.css"; // vérifie ce chemin
 
 
 export default function App({ Component, pageProps }) {
