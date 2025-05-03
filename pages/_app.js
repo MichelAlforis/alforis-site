@@ -1,14 +1,14 @@
-import AlforisHead from '@/components/AlforisHead'
-import { useEffect } from 'react'
-import Layout from '@/components/Layout'
-import '../styles/globals.css'
-import "../styles/cookieconsent-theme-alforis.css"; // vérifie ce chemin
+import '../styles/globals.css';
+import '../styles/cookieconsent-theme-alforis.css';
 
+import AlforisHead from '@/components/AlforisHead';
+import { useEffect } from 'react';
+import Layout from '@/components/Layout';
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.initCookieConsent) {
-      const cc = window.initCookieConsent()
+      const cc = window.initCookieConsent();
 
       cc.run({
         current_lang: 'fr',
@@ -75,10 +75,10 @@ export default function App({ Component, pageProps }) {
             },
           },
         },
-        theme_css: '/styles/cookieconsent-theme-alforis.css',
-      })
+        theme_css: '/styles/cookieconsent-theme-alforis.css', // utilisé côté client depuis /public (optionnel si CSS est importé)
+      });
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -91,5 +91,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  )
+  );
 }

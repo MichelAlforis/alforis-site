@@ -1,5 +1,5 @@
 import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
-import { couleurs } from "@/public/styles/colors"
+import { couleurs } from "@/styles/colors"
 import Link from 'next/link'
 
 export function useGoldEffect({ reverse = false, initial } = {}) {
