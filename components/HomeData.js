@@ -2,7 +2,7 @@ import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer";
 import Buste from '@/assets/illustrations/buste';
 import Approche from '@/assets/illustrations/approche';
 import LifePic from '@/assets/illustrations/Lifepic'
-import { couleurs } from "@/styles/colors";  // Chemin correct vers votre fichier couleurs.js
+import { couleurs } from "@/public/styles/colors";  // Chemin correct vers votre fichier couleurs.js
 
 
 

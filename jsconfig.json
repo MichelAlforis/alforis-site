@@ -6,7 +6,7 @@
       "@components/*": ["components/*"],
       "@assets/*": ["assets/*"],
       "@hooks/*": ["hooks/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["public/styles/*"]
     }
   }
 }

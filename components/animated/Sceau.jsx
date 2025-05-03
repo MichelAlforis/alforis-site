@@ -5,7 +5,8 @@ import { Physics, RigidBody, BallCollider, CuboidCollider, useRopeJoint, useSphe
 import * as THREE from "three";
 import { useRef, useState, Suspense } from "react";
 
-const SEAL_GLB_URL = "https://alforis.fr/assets/mon-sceau.glb";
+const SEAL_GLB_URL = "/assets/mon-sceau.glb";
+
 
 function Seal() {
   const { nodes } = useGLTF(SEAL_GLB_URL);
