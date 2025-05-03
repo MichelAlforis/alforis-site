@@ -52,16 +52,17 @@
 
   /* 🌐 COULEURS BANDEAU COOKIE CNIL */
   :root {
-    --cc-bg: theme('colors.ardoise');
-    --cc-text: theme('colors.ivoire');
-    --cc-btn-primary-bg: theme('colors.doré');
-    --cc-btn-primary-text: theme('colors.anthracite');
-    --cc-btn-secondary-bg: transparent;
-    --cc-btn-secondary-text: theme('colors.ivoire');
-    --cc-btn-secondary-border: theme('colors.doré');
-    --cc-toggle-on-bg: theme('colors.doré');
-    --cc-toggle-off-bg: theme('colors.acier');
-    --cc-toggle-readonly-bg: theme('colors.beigeClair');
+      --cc-bg: $ardoise;
+      --cc-text: $ivoire;
+      --cc-btn-primary-bg: $doré;
+      --cc-btn-primary-text: $anthracite;
+      --cc-btn-secondary-bg: transparent;
+      --cc-btn-secondary-text: $ivoire;
+      --cc-btn-secondary-border: $doré;
+      --cc-toggle-on-bg: $doré;
+      --cc-toggle-off-bg: $acier;
+      --cc-toggle-readonly-bg: $beigeClair;
+    
 
     --nav-height: 80px;
   }
