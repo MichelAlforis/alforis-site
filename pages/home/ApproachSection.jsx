@@ -2,7 +2,7 @@
 import Link from "next/link";
 import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer";
 import { Animated } from "@/components/animated/Animated";
-import { sections } from "@/pages/home/HomeData";
+import { sections } from "@/components/HomeData";
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer'; // Utilisation de react-intersection-observer pour détecter la visibilité
 import { couleurs } from "@/styles/colors";

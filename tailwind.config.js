@@ -66,20 +66,30 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
-      const colors = theme('colors');
+      const flattenColorPalette = (colors) =>
+        Object.entries(colors).flatMap(([key, value]) =>
+          typeof value === 'object'
+            ? Object.entries(value).map(([subKey, subValue]) => [
+                `${key}-${subKey}`,
+                subValue,
+              ])
+            : [[key, value]]
+        );
+
+      const colors = flattenColorPalette(theme('colors'));
 
       matchUtilities(
         {
           fill: (value) => ({ '--fill-color': value }),
         },
-        { values: colors }
+        { values: Object.fromEntries(colors) }
       );
 
       matchUtilities(
         {
           stroke: (value) => ({ '--stroke-color': value }),
         },
-        { values: colors }
+        { values: Object.fromEntries(colors) }
       );
     }),
   ],

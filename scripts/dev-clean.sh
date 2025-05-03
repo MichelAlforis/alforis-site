@@ -19,7 +19,7 @@ find . -name ".DS_Store" -type f -delete
 echo "✅ Tous les fichiers .DS_Store ont été supprimés."
 
 echo "🎨 Mise à jour des couleurs à partir de tailwind.config.js..."
-node ./scripts/generate-colors.js
+node ./scripts/generate-colors.cjs
 
 echo "🚀 Lancement du serveur sur le port $PORT..."
 PORT=$PORT npm run dev

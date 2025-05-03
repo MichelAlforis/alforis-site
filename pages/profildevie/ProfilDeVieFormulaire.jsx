@@ -5,7 +5,6 @@ import { motion, useState, useRef, useEffect } from "react"
 import { Animated } from '@/components/animated/Animated'
 import useButtonHover from "@/hooks/useButtonHover"
 import { Progress } from "@/components/ui/progress"
-import SceauSuspendu from "@/components/animated/SceauSuspendu"
 import ContactFinal from "@/components/parcours/ContactFinal"
 import { questions, profilesData, keywords } from "@/components/parcours/index"
 import { scoringMatrix } from '@/components/parcours/scoringMatrix'

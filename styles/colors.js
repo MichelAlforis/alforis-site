@@ -1,8 +1,10 @@
-export const couleurs = {
-  "doré": "#C8A765",
-  "ardoise": "#2E3A48",
-  "acier": "#4A5A6A",
-  "ivoire": "#F5F5F5",
-  "anthracite": "#1D1D1D",
-  "beigeClair": "#D1C5B0"
-};
+// styles/colors.js
+const couleurs = {
+  doré: '#D4AF37',
+  acier: '#B0BFC6',
+  ardoise: '#2F4F4F',
+  ivoire: '#FFFFF0',
+  anthracite: '#333333',
+  beigeClair: '#F5F5DC',
+}
+module.exports = { couleurs }

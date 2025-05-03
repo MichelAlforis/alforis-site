@@ -1,19 +1,28 @@
 // app/parcours/page.jsx
-import fs from 'fs'
+'use server'
 import path from 'path'
+import { promises as fs } from 'fs'
 import matter from 'gray-matter'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Parcours() {
+async function getModules() {
   const contentDir = path.join(process.cwd(), 'content/quizz')
-  const files = fs.readdirSync(contentDir)
+  const files = await fs.readdir(contentDir)
 
-  const modules = files.map((filename) => {
-    const fileContent = fs.readFileSync(path.join(contentDir, filename), 'utf-8')
-    const { data: meta } = matter(fileContent)
-    return { ...meta, slug: `/quizz/${meta.slug}` }
-  })
+  const modules = await Promise.all(
+    files.map(async (filename) => {
+      const fileContent = await fs.readFile(path.join(contentDir, filename), 'utf-8')
+      const { data: meta } = matter(fileContent)
+      return { ...meta, slug: `/quizz/${meta.slug}` }
+    })
+  )
+
+  return modules
+}
+
+export default async function Parcours() {
+  const modules = await getModules()
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">

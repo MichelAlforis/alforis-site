@@ -4,5 +4,3 @@ export { default as ProfilDeVieFormulaire } from "../../pages/profildevie/Profil
 export { default as ContactFinal } from "./ContactFinal"
 export * from "./datas"
 export { default as useAirtable } from "@/hooks/useAirtable"
-
-import styles from '@/styles/ProfilDeVie.module.css'

@@ -62,7 +62,7 @@ export const sections = [
     SvgComponent: LifePic,
     title: "Prêt à vous découvrir autrement ?",
     paragraph: "Le Profil de Vie vous permet de faire le point, en quelques questions clés, sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.",
-    link: "/ProfilDeVie",  // Lien associé à cette section
+    link: "/Profil-De-Vie",  // Lien associé à cette section
   },
   {
     SvgComponent: Buste,

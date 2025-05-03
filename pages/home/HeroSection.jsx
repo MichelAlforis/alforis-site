@@ -20,7 +20,7 @@ export default function HeroSection(extraClass = '') {
             Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
           </Animated.P>
 
-          <Button to="/ProfilDeVie" index={1} className="btn-alforis-rdv">
+          <Button to="/Profil-De-Vie" index={1} className="btn-alforis-rdv">
             Commencer mon diagnostic
           </Button>
         </div>

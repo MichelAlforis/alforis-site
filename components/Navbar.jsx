@@ -22,7 +22,7 @@ export default function Navbar() {
     { href: '/Services', label: 'Nos Services', id: '0' },
     { href: '/ApprochePersonnalisee', label: 'Approche', id: '1' },
     { href: '/blog-studio', label: 'Blog & Studio', id:'2' },
-    { href: '/ProfilDeVie', label: 'Votre Profil de Vie', id:'3' },
+    { href: '/Profil-De-Vie', label: 'Votre Profil de Vie', id:'3' },
     { href: '/home/Contact', label: 'Contact', id:'4' },
   ]
 

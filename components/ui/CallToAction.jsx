@@ -25,7 +25,7 @@ const CallToAction = () => {
     >
       <motion.button
         {...getButtonProps(0)}
-        onClick={() => handleDelayedNavigation('/ProfilDeVie')}
+        onClick={() => handleDelayedNavigation('/Profil-De-Vie')}
         className="w-full md:w-[280px] h-[60px] btn-alforis-retro flex items-center justify-center"
       >
         Explorer mon Profil de Vie
