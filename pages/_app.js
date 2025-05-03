@@ -1,10 +1,9 @@
-'use client'
 import AlforisHead from '@/components/AlforisHead'
-
 import { useEffect } from 'react'
-import Script from 'next/script'
 import Layout from '@/components/Layout'
 import '@/styles/globals.css'
+import "@/styles/cookieconsent-theme-alforis.css"; // vérifie ce chemin
+
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -83,8 +82,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <AlforisHead title="_app – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page _app." path="/_app" />
-<Script src="/cookieconsent.umd.js" strategy="beforeInteractive" />
+      <AlforisHead
+        title="_app – Alforis"
+        description="Découvrez notre approche patrimoniale sur mesure à travers notre page _app."
+        path="/_app"
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>
