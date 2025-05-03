@@ -1,41 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🧭 Alforis – Cabinet de Conseil Patrimonial
 
-## Getting Started
+Bienvenue dans le dépôt officiel du site [Alforis](https://www.alforis.fr), cabinet de design de trajectoire de vie fondé par Michel Marques.  
+Ce site présente l’approche humaine, introspective et indépendante d’Alforis à travers des articles, des profils de vie, et des solutions patrimoniales sur mesure.
 
-First, run the development server:
+---
+
+## 🚀 Déploiement
+
+Le site est déployé automatiquement via [Vercel](https://vercel.com/), depuis la branche `main`.  
+🟢 Chaque `git push` déclenche une mise à jour en production.
+
+---
+
+## 🧱 Stack technique
+
+- **Next.js 15.3.1**
+- **React**
+- **Tailwind CSS**
+- **Node.js**
+- **Vercel** (hébergement)
+- **Airtable API** (gestion de données dynamique)
+
+---
+
+## 📁 Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+.
+├── content/             # Contenu des articles, profils, parcours
+│   ├── blog/
+│   ├── parcours/
+│   └── studio/
+├── pages/               # Routes Next.js
+│   ├── blog/[slug].jsx
+│   ├── parcours/[slug].jsx
+│   ├── studio/[slug].jsx
+│   └── index.jsx
+├── components/          # Composants réutilisables
+├── lib/                 # Logique serveur et utilitaires
+├── public/              # Assets statiques
+├── styles/              # Fichiers CSS
+└── ...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚙️ Scripts utiles
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+npm install          # Installation des dépendances
+npm run dev          # Démarrage en mode développement
+npm run build        # Build de production
+npm run start        # Serveur local de production
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+📬 Contact
+Développé par Michel Marques
+Pour toute contribution ou suggestion, ouvrez une issue ou contactez l’équipe.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-# alforis-site
+© 2025 Alforis. Tous droits réservés.
