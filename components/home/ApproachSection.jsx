@@ -5,7 +5,7 @@ import { Animated } from "@/components/animated/Animated";
 import { sections } from "@/components/HomeData";
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer'; // Utilisation de react-intersection-observer pour détecter la visibilité
-import { couleurs } from "@/styles/colors";
+import { couleurs } from "@/styles/generated-colors";
 
 
 export default function ApproachSection({ extraClass = ''}) {

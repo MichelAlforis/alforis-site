@@ -1,32 +1,34 @@
 'use client'
+
 import React from 'react'
 import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
 import { animationSettings } from '@/lib/server/animationSettings'
 
-const withMotion = (tag) =>
-  ({ children, className = '', variant = 'fadeInUp' }) => {
+// Liste des tags HTML que tu veux animer
+const tags = [
+  'div', 'section', 'article', 'h1', 'h2', 'h3', 'p', 'span', 'button',
+  'ul', 'li', 'nav', 'header', 'footer', 'main'
+]
+
+// Fonction génératrice
+function withMotion(tag) {
+  return function AnimatedComponent({ children, className = '', variant = 'fadeInUp', ...props }) {
     const settings = animationSettings[variant] ?? animationSettings.fadeInUp
+    const MotionTag = ClientOnlyMotion[tag] || ClientOnlyMotion.div
+
     return (
-      <ClientOnlyMotion
-        as={tag}
-        {...settings}
-        className={className}
-      >
+      <MotionTag {...settings} {...props} className={className}>
         {children}
-      </ClientOnlyMotion>
+      </MotionTag>
     )
   }
-
-export const Animated = {
-  Page: withMotion('div'),
-  Wrapper: withMotion('div'),
-  Div: withMotion('div'),
-  Section: withMotion('section'),
-  Article: withMotion('article'),
-  H1: withMotion('h1'),
-  H2: withMotion('h2'),
-  H3: withMotion('h3'),
-  P: withMotion('p')
 }
+
+// Génération automatique des composants : Animated.Div, Animated.Span, etc.
+export const Animated = tags.reduce((acc, tag) => {
+  const key = tag.charAt(0).toUpperCase() + tag.slice(1)
+  acc[key] = withMotion(tag)
+  return acc
+}, {})
 
 export default Animated

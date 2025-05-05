@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const { couleurs } = require('./styles/generated-colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,12 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        doré: '#C8A765',
-        ardoise: '#2E3A48',
-        acier: '#4A5A6A',
-        ivoire: '#F5F5F5',
-        anthracite: '#1D1D1D',
-        beigeClair: '#D1C5B0',
+        colors: couleurs,
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

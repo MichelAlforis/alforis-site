@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,17 +53,17 @@
 
   /* 🌐 COULEURS BANDEAU COOKIE CNIL */
   :root {
-      --cc-bg: $ardoise;
-      --cc-text: $ivoire;
-      --cc-btn-primary-bg: $doré;
-      --cc-btn-primary-text: $anthracite;
+
+      --cc-bg: var(--ardoise);
+      --cc-text: var(--ivoire);
+      --cc-btn-primary-bg: var(--doré);
+      --cc-btn-primary-text: var(--anthracite);
       --cc-btn-secondary-bg: transparent;
-      --cc-btn-secondary-text: $ivoire;
-      --cc-btn-secondary-border: $doré;
-      --cc-toggle-on-bg: $doré;
-      --cc-toggle-off-bg: $acier;
-      --cc-toggle-readonly-bg: $beigeClair;
-    
+      --cc-btn-secondary-text: var(--ivoire);
+      --cc-btn-secondary-border: var(--doré);
+      --cc-toggle-on-bg: var(--doré);
+      --cc-toggle-off-bg: var(--acier);
+      --cc-toggle-readonly-bg: var(--beigeClair);
 
     --nav-height: 80px;
   }

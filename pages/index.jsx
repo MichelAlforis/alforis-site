@@ -2,14 +2,14 @@
 // Ton fichier hébergé en ligne ici
 
 import dynamic from "next/dynamic";
-import HeroSection from '@/pages/home/HeroSection'
-import ServicesCards from '@/pages/home/ServicesCards'
+import HeroSection from '@/components/home/HeroSection'
+import ServicesCards from '@/components/home/ServicesCards'
 import { Animated } from '@/components/animated/Animated'
-import KeyFigures from '@/pages/home/KeyFigures'
-import Contact from '@/pages/home/Contact'
+import KeyFigures from '@/components/home/KeyFigures'
+import Contact from '@/components/home/Contact'
 import useControlledScrollSections from '@/hooks/useControlledScrollSections'
 import useButtonHover from '@/hooks/useButtonHover'
-import Approach from "@/pages/home/ApproachSection"
+import Approach from "@/components/home/ApproachSection"
 import AlforisHead from '@/components/AlforisHead'
 import Sceau from '@/components/animated/Sceau'
 

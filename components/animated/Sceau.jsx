@@ -79,7 +79,7 @@ export default function Sceau() {
         className="w-full h-full"
       >
         <ambientLight intensity={1.2} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="text-anthracite">Chargement du sceau...</div>}>
           <Environment blur={0.6}>
             <Lightformer intensity={5} position={[0, -1, 5]} scale={[10, 1, 1]} />
           </Environment>

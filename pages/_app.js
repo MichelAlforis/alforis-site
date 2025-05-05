@@ -1,5 +1,6 @@
-import '../styles/globals.css';
-import '../styles/cookieconsent-theme-alforis.css';
+import '@/styles/generated-colors.css'; // depuis /public/, sans alias
+import '@/styles/globals.css'; // ⬅ pas de slash en début !
+
 
 import AlforisHead from '@/components/AlforisHead';
 import { useEffect } from 'react';
