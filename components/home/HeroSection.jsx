@@ -1,17 +1,23 @@
-'use client'
+"use client";
 
-import { Animated } from '@/components/animated/Animated'
-import Image from 'next/image'
-import { GoldLink } from "@/hooks/useGoldEffect"
-import Button from '@/components/ui/Button'
+import { useEffect, useState } from "react";
+import { Animated } from '@/components/animated/Animated';
+import { GoldLink } from "@/hooks/useGoldEffect";
+import Button from '@/components/ui/Button';
 
-export default function HeroSection(extraClass = '') {
+export default function HeroSection({ extraClass = '' }) {
+
   return (
-    <section className="relative w-full overflow-hidden z-10 ${extraClass}">
+    <section className={`relative w-full z-10 ${extraClass}`}>
+
+
       {/* Contenu central */}
-      <div className="flex justify-center items-center relative w-full z-10">
-        <div className="text-center">
-          <Animated.H1 className="text-3xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6">
+      <div className="flex justify-center items-center relative w-full z-10 px-4 mt-8 md:mt-12">
+        <div className="text-center max-w-3xl">
+    {/* Sceau positionné au-dessus */}
+
+
+          <Animated.H1 className="text-2xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6">
             Chez Alforis, on ne commence pas par les chiffres. <br />
             On commence par <GoldLink href="/ProfilDeVie">vous</GoldLink>.
           </Animated.H1>
@@ -25,6 +31,8 @@ export default function HeroSection(extraClass = '') {
           </Button>
         </div>
       </div>
+
     </section>
-  )
+    
+  );
 }

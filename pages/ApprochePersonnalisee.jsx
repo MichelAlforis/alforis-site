@@ -43,7 +43,7 @@ export default function ApprochePersonnalisee() {
       <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/ApprochePersonnalisee" />
 
     
-    <Animated.Page>
+    <Animated.Main>
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
         <Animated.H1 className="mb-20">
@@ -98,7 +98,7 @@ export default function ApprochePersonnalisee() {
           <CallToAction />
         </div>
       </main>
-    </Animated.Page>
+    </Animated.Main>
     </>
   )
 }

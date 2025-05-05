@@ -20,7 +20,7 @@ export default function ParcoursPage({ content }) {
         path="/parcours"
       />
 
-<Animated.Page>
+<Animated.Main>
         <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
           <div className="max-w-6xl mx-auto">
             <Animated.H1 className="text-5xl font-semibold text-center mb-6">
@@ -30,7 +30,7 @@ export default function ParcoursPage({ content }) {
             < ParcoursGrid content={content} />
           </div>
         </main>
-      </Animated.Page>
+      </Animated.Main>
     </>
   )
 }

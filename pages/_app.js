@@ -1,4 +1,3 @@
-import '@/styles/generated-colors.css'; // depuis /public/, sans alias
 import '@/styles/globals.css'; // ⬅ pas de slash en début !
 
 

@@ -8,7 +8,7 @@ import { Animated } from '@/components/animated/Animated'
 
 export default function MentionsLegales() {
   return (
-    <Animated.Page>
+    <Animated.Main>
     <AlforisHead title="MentionsLegales – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page mentionslegales." path="/MentionsLegales" />
 
       <div className="min-h-screen bg-ivoire text-anthracite px-6 py-16 max-w-5xl mx-auto shadow-sm rounded-md">
@@ -84,7 +84,7 @@ export default function MentionsLegales() {
       </div>
 
 
-</Animated.Page>
+</Animated.Main>
 
   )
 }

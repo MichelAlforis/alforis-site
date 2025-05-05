@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+
 export default function LifePic({ strokeColor = 'var(--stroke-color)', fillColor = 'var(--fill-color)', strokeWidth = 7 }) {
 
 return (

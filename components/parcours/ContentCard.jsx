@@ -14,7 +14,7 @@ const ContentCard = ({ type = '', title = '', description = '', image = '', slug
   const imageUrl = image || '/img/default-cover.jpg'
 
   return (
-    <Animated.Page>
+    <Animated.Main>
       <Link href={href} passHref>
         <Animated.Div
           {...getButtonProps(
@@ -35,7 +35,7 @@ const ContentCard = ({ type = '', title = '', description = '', image = '', slug
           </div>
         </Animated.Div>
       </Link>
-    </Animated.Page>
+    </Animated.Main>
   )
 }
 

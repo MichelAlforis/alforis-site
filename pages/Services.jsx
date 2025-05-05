@@ -2,6 +2,7 @@
 'use client'
 import AlforisHead from '@/components/AlforisHead'
 import { Animated } from '@/components/animated/Animated'
+console.log('Animated:', Animated)
 import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
 
@@ -51,7 +52,7 @@ export default function Services() {
     <>
       <AlforisHead title="Services – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." path="/Services" />
 
-<Animated.Page>
+<Animated.Main>
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <Animated.H1 className="text-4xl sm:text-5xl font-title font-semibold text-center mb-24">
@@ -92,7 +93,7 @@ export default function Services() {
           <CallToAction />
         </div>
       </main>
-</Animated.Page>
+</Animated.Main>
     </>
   )
 }

@@ -21,6 +21,6 @@ const cssVariables = Object.entries(customColors)
   .join('\n');
 
 const cssContent = `:root {\n${cssVariables}\n}\n`;
-const cssOutputPath = path.resolve(__dirname, '../styles/generated-colors.css');
+const cssOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.css');
 fs.writeFileSync(cssOutputPath, cssContent, 'utf8');
 console.log('✅ Fichier CSS generated-colors.css généré.');

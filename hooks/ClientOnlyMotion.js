@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 import { forwardRef } from 'react'
+
 
 function createComponent(tag) {
   return forwardRef(function ClientOnlyMotionComponent({ children, ...props }, ref) {
