@@ -2,11 +2,14 @@
 import Link from "next/link";
 import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer";
 import { Animated } from "@/components/animated/Animated";
-import { sections } from "@/components/HomeData";
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer'; // Utilisation de react-intersection-observer pour détecter la visibilité
 import { couleurs } from "@/styles/generated-colors";
 
+// Définir les SVG animés sous forme de JSX
+import Buste from '@/assets/illustrations/buste';
+import Approche from '@/assets/illustrations/approche';
+import LifePic from '@/assets/illustrations/Lifepic';
 
 export default function ApproachSection({ extraClass = ''}) {
   const [isSectionVisible, setIsSectionVisible] = useState(false); 
@@ -27,56 +30,128 @@ export default function ApproachSection({ extraClass = ''}) {
       id="approach"
       className={`w-full overflow-hidden z-10 ${extraClass}`}
       ref={sectionRef}
-      
     >
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 py-16">
-        {sections.map((section, index) => (
-          <Link key={index} href={section.link}>
-            <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white  bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-              <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
-                <AnimatedSVGRenderer
-                  SvgComponent={section.SvgComponent}
-                  strokeColor={couleurs.ardoise}
-                  fillColor={couleurs.doré}
-                  strokeWidth={12}
-                  duration={3}
-                  delayStep={0.8}
-                  tiltIntensity={1.5}
-                  className="block w-full h-auto"
-                  wrapperClassName="stroke-doré fill-ardoise w-[auto] max-w-[15vw] mx-auto aspect-[1000/1000]"
-                  viewBox="0 0 1000 1000"
-                  preserveAspectRatio="xMidYMid meet"
-                  height="100%"
-                  width="100%"
-                  hoverEffect={true}
-                  scrollEffect={true}
-                  inView={isSectionVisible} // Utilisation de la visibilité de la section
-                />
-              </div>
+        {/* Section 1 */}
+        <Link href="/ApprochePersonnalisee">
+          <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
+            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+              <Approche
+                strokeColor={couleurs.ardoise}
+                fillColor={couleurs.doré}
+                strokeWidth={12}
+                duration={3}
+                delayStep={0.8}
+                tiltIntensity={1.5}
+                className="block w-full h-auto"
+                preserveAspectRatio="xMidYMid meet"
+                height="100%"
+                width="100%"
+                hoverEffect={false} // Désactive l'effet hover
+                pathLengthEffect={false} // Désactive l'animation du dessin
+                scrollEffect={false} // Désactive l'effet de défilement
+              />
+            </div>
 
-      
+            <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
+              <Animated.Div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-2xl font-semibold text-anthracite">
+                  Notre approche est d’abord humaine.
+                </h2>
+                <p className="text-sm md:text-base text-acier font-light">
+                  Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.
+                </p>
+              </Animated.Div>
+            </div>
+          </div>
+        </Link>
 
+        {/* Section 2 */}
+        <Link href="/Profil-De-Vie">
+          <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
+            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+              <AnimatedSVGRenderer
+                SvgComponent={LifePic}
+                strokeColor={couleurs.ardoise}
+                fillColor={couleurs.doré}
+                strokeWidth={12}
+                duration={3}
+                delayStep={0.8}
+                tiltIntensity={1.5}
+                className="block w-full h-auto"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 1000 1000"
+                height="100%"
+                width="100%"
+                hoverEffect={true} // Désactive l'effet hover
+                pathLengthEffect={true} // Désactive l'animation du dessin
+                scrollEffect={true} // Désactive l'effet de défilement
+              />
+            </div>
 
-                {/* Texte dynamique à droite */}
-                <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
-                  <Animated.Div
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <h2 className="text-2xl font-semibold text-anthracite">
-                      {section.title}
-                    </h2>
-                    <p className="text-sm md:text-base text-acier font-light">
-                      {section.paragraph}
-                    </p>
-                  </Animated.Div>
-                </div>
-              </div>
-            </Link>
-          
-        ))}
+            <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
+              <Animated.Div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-2xl font-semibold text-anthracite">
+                  Prêt à vous découvrir autrement ?
+                </h2>
+                <p className="text-sm md:text-base text-acier font-light">
+                  Le Profil de Vie vous permet de faire le point, en quelques questions clés, sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.
+                </p>
+              </Animated.Div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Section 3 */}
+        <Link href="/Services">
+          <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
+            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+              <AnimatedSVGRenderer
+                SvgComponent={Buste}
+                strokeColor={couleurs.ardoise}
+                fillColor={couleurs.doré}
+                strokeWidth={12}
+                duration={3}
+                delayStep={0.8}
+                tiltIntensity={1.5}
+                className="block w-full h-auto"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 711 1089"
+                height="100%"
+                width="100%"
+                hoverEffect={false} // Désactive l'effet hover
+                pathLengthEffect={false} // Désactive l'animation du dessin
+                scrollEffect={false} // Désactive l'effet de défilement
+              />
+            </div>
+
+            <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
+              <Animated.Div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-2xl font-semibold text-anthracite">
+                  Chaque trajectoire est unique.
+                </h2>
+                <p className="text-sm md:text-base text-acier font-light">
+                  Nous ne croyons pas aux solutions toutes faites. Chaque accompagnement Alforis commence par une cartographie de vos objectifs profonds, de votre horizon personnel, et de vos contraintes concrètes.
+                </p>
+              </Animated.Div>
+            </div>
+          </div>
+        </Link>
       </div>
     </section>
   );

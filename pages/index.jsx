@@ -31,7 +31,7 @@ export default function Home() {
       id: 'approach',
       Component: Approach,
       image: '/assets/img/D_approach.png',
-      extraClass: 'h-[1080px] flex flex-col justify-center items-center',
+      extraClass: 'h-[1080px] overflow: visible flex flex-col justify-center items-center',
     },
     {
       id: 'figures',
@@ -56,12 +56,12 @@ export default function Home() {
     <>
 <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/index" />
 
-    <main className="relative pt-0 min-h-screen w-full overflow-hidden bg-ivoire text-anthracite snap-y snap-mandatory">
+    <main className="relative pt-0 min-h-screen w-full bg-ivoire text-anthracite snap-y snap-mandatory">
       {sectionsData.map(({ id, Component, image, extraClass }, index) => (
         <section
           key={index}
           id={id}
-          className={`snap-start relative overflow-hidden ${extraClass} animate-fade-in`}
+          className={`snap-start relative ${extraClass} animate-fade-in`}
         >
           <img
             src={image}
