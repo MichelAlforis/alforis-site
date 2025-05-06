@@ -11,11 +11,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
-  useEffect(() => {
-    setIsOpen(false)
-  }, [pathname])
-
-  // Liste des liens de la navbar
+  // Liste des liens de la navbar (déplacée ici pour qu'elle soit accessible dans tout le composant)
   const links = [
     { href: '/', label: 'Accueil', id: '0' },
     { href: '/Services', label: 'Nos Services', id: '1' },
@@ -23,7 +19,13 @@ export default function Navbar() {
     { href: '/blog-studio', label: 'Blog & Studio', id: '3' },
     { href: '/Profil-De-Vie', label: 'Votre Profil de Vie', id: '4' },
     { href: '/Contact2', label: 'Contact', id: '5' },
-  ]
+  ];
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
+
+
 
   return (
     <nav className="bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50">
@@ -38,20 +40,18 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center space-x-6">
-          {links.map(({ href, label, id }) => (
-            <Link
-              key={href}
-              href={href}
-              reverse
-              id={id}
-              className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
-                pathname === href ? 'active' : 'text-acier' // Ajout de la classe active et dorée pour le lien actif
-              }`}
-            >
-              {label}
-            </Link>
+            {links.map(({ href, label, id }) => (
+              <Link
+                key={href}
+                href={href}
+                id={id}
+                className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
+                  pathname === href ? 'active' : 'text-acier'
+                }`}
+              >
+                {label}
+              </Link>
             ))}
-
             <Button to="/ContactSection" index={1}>
               Prendre un RDV
             </Button>
@@ -90,5 +90,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  )
+  );
 }
