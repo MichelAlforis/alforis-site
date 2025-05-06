@@ -44,8 +44,8 @@ export default function Navbar() {
                 href={href}
                 reverse
                 id={id}
-                className={`px-3 py-2 rounded-md text-md transition-all duration-300 ease-in-out ${
-                  pathname === href ? 'active' : 'text-acier' // Ajout de la classe active directement ici
+                className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
+                  pathname === href ? 'active text-doré' : 'text-acier' // Ajout de la classe active et dorée pour le lien actif
                 }`}
               >
                 {label}

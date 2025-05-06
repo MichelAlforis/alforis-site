@@ -2,13 +2,29 @@
 
 /* Style de la navbar */
 nav {
-    @apply flex justify-between items-center h-16 px-4 bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50;
-}
-
-/* Style des liens */
+    @apply flex justify-between items-center px-4 bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50;
+    height: 80px; /* Ajouté pour garantir une hauteur fixe de 80px */
+  }
+/* Style des liens dans la navbar */
 nav a {
-    @apply text-acier text-md px-3 py-2 rounded-md transition-all duration-300 ease-in-out;
-}
+    @apply text-acier text-md px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20;
+    height: 80px; /* Définit la hauteur du lien à 80px */
+  }
+  
+  /* Lien actif : Ajout d'un fond et de la couleur dorée */
+  nav .active {
+    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg;
+    background-color: rgba(200, 167, 101, 0.2); /* Exemple de fond doré léger */
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  
+  /* Survol : Retirer l'effet de fond sur le lien actif, mais garder la couleur dorée */
+  nav a:hover:not(.active) {
+    @apply text-doré;
+    background-color: rgba(200, 167, 101, 0.1); /* Effet de survol doré */
+  }
+  
 
 /* Effet de hover */
 nav a:hover {
@@ -71,8 +87,8 @@ button:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100%;
-        flex-wrap: wrap; /* Permet à la navbar de s'adapter sur plusieurs lignes */
+        height: 80px;  /* Fixer la hauteur de la navbar */
+        flex-wrap: wrap; /* Permet à la navbar de s'adapter sur plusieurs lignes si nécessaire */
     }
 
     /* Le menu mobile est caché sur les écrans larges */
@@ -83,12 +99,13 @@ button:hover {
     /* Assurer l'alignement vertical des liens */
     .md:flex a {
         @apply flex items-center; /* Aligner verticalement les liens */
-        height: 100%;  /* Pour garantir que tous les éléments prennent la même hauteur */
+        height: 100%;  /* Chaque lien prendra la hauteur totale de la navbar */
     }
 
     /* Alignement du logo */
     .navbar-logo {
         @apply flex-shrink-0;
+        height: 80px; /* Assurer que le logo ait la même hauteur */
     }
 
     /* Assurer que les liens prennent l'espace disponible */
