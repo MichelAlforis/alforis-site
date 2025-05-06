@@ -11,9 +11,7 @@ export default function Document() {
         <link rel="canonical" href="https://alforis.fr/" />
 
         {/* ✅ Feuilles de style côté client */}
-        <link rel="stylesheet" href="/styles/cookieconsent-theme-alforis.css" />
         <link rel="stylesheet" href="/styles/generated-colors.css" />
-        <link rel="stylesheet" href="/styles/navbar.css" /> {/* Ajout de navbar.css */}
 
         {/* ✅ Script différé */}
         <script src="/cookieconsent.umd.js" defer></script>
