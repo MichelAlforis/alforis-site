@@ -79,7 +79,7 @@ export default function Navbar() {
         href={href}
         onClick={() => setIsOpen(false)}
         className={`block text-ardoise text-lg font-medium transition-all duration-200 ${
-          pathname === href ? 'font-bold underline' : ''
+          pathname === href ? 'font-bold underline text-doré' : ''
         }`}
       >
         {label}

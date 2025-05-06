@@ -35,7 +35,9 @@ export default function ApproachSection({ extraClass = ''}) {
         {/* Section 1 */}
         <Link href="/ApprochePersonnalisee">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+              {/* Version SVG statique visible uniquement sur mobile */}
+
+            <div className="hidden md:block justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
               <AnimatedSVGRenderer
                 SvgComponent={Approche}
                 strokeColor={couleurs.ardoise}
@@ -77,7 +79,7 @@ export default function ApproachSection({ extraClass = ''}) {
         {/* Section 2 */}
         <Link href="/Profil-De-Vie">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+            <div className="hidden md:block flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
               <AnimatedSVGRenderer
                 SvgComponent={LifePic}
                 strokeColor={couleurs.ardoise}
@@ -118,7 +120,7 @@ export default function ApproachSection({ extraClass = ''}) {
         {/* Section 3 */}
         <Link href="/Services">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-            <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+            <div className="hidden md:block flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
               <AnimatedSVGRenderer
                 SvgComponent={Buste}
                 strokeColor={couleurs.ardoise}
