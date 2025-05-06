@@ -1,8 +1,9 @@
+const couleurs = require('./styles/generated-colors.js')?.couleurs ?? {};
+
 module.exports = {
   plugins: {
-    '@tailwindcss/postcss': {},
+    'postcss-simple-vars': { variables: () => couleurs },
+    tailwindcss: {},
     autoprefixer: {},
-    'postcss-simple-vars': {
-      variables: () => couleurs,
   },
-}
+};
