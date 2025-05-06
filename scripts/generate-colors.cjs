@@ -10,7 +10,7 @@ const customColors = Object.fromEntries(
 );
 
 // 2. Générer un JS lisible dans React (à importer ailleurs)
-const jsOutputPath = path.resolve(__dirname, '../styles/generated-colors.js');
+const jsOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.js');
 const jsContent = `export const couleurs = ${JSON.stringify(customColors, null, 2)};\n`;
 fs.writeFileSync(jsOutputPath, jsContent, 'utf8');
 console.log('✅ Fichier JS generated-colors.js généré.');
@@ -21,6 +21,6 @@ const cssVariables = Object.entries(customColors)
   .join('\n');
 
 const cssContent = `:root {\n${cssVariables}\n}\n`;
-const cssOutputPath = path.resolve(__dirname, '../styles/generated-colors.css');
+const cssOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.css');
 fs.writeFileSync(cssOutputPath, cssContent, 'utf8');
 console.log('✅ Fichier CSS generated-colors.css généré.');
