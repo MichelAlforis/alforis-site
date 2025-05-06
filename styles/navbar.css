@@ -10,7 +10,10 @@ nav a {
     @apply text-acier text-md px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20;
     height: 80px; /* Définit la hauteur du lien à 80px */
   }
-  
+  nav .no-hover:hover {
+    pointer-events: auto;  /* Désactive tous les événements sur cette div, excluant le hover */
+  }
+
   /* Lien actif : Ajout d'un fond et de la couleur dorée */
   nav a.active {
     @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg bg-ivoire bg-opacity-80;

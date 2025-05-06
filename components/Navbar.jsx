@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="no-hover flex-shrink-0">
             <Link href="/" className="group flex items-center overflow-hidden">
               <NavbarLogo className="h-[40px] md:h-[50px] w-auto max-h-[60px]" />
             </Link>
