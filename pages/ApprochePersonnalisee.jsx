@@ -4,7 +4,7 @@ import AlforisHead from '@/components/AlforisHead'
 import { useEffect } from 'react'
 import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 
 export default function ApprochePersonnalisee() {
   useEffect(() => {

@@ -1,7 +1,7 @@
 
 'use client'
 import AlforisHead from '@/components/AlforisHead'
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
 

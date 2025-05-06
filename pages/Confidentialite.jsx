@@ -1,7 +1,7 @@
 'use client'
 import AlforisHead from '@/components/AlforisHead'
 import React from "react"
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 
 export default function Confidentialite() {
   return (

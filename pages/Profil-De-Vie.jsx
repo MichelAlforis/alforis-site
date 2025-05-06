@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import AlforisHead from '@/components/AlforisHead'
 import Link from 'next/link'
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 import { fetchAllContent } from '@/lib/server/fetchAllContent'
 import ParcoursGrid from '@/components/parcours/ParcoursGrid'
 

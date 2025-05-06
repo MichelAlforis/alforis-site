@@ -4,7 +4,7 @@
 import AlforisHead from '@/components/AlforisHead'
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 
 const calMap = {
   appel: "https://cal.com/alforis/appel-telephonique",

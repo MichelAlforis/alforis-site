@@ -4,7 +4,7 @@
 import dynamic from "next/dynamic";
 import HeroSection from '@/components/home/HeroSection'
 import ServicesCards from '@/components/home/ServicesCards'
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 import KeyFigures from '@/components/home/KeyFigures'
 import Contact from '@/components/home/Contact'
 import useControlledScrollSections from '@/hooks/useControlledScrollSections'

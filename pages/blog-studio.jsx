@@ -1,4 +1,4 @@
-import { Animated } from '@/components/animated/Animated'
+import Animated from '@/components/animated/Animated'
 import React from 'react';
 import BlogStudioGrid from '@/components/blog/BlogStudioGrid';
 import AlforisHead from '@/components/AlforisHead';
