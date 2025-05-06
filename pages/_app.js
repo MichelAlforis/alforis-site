@@ -1,9 +1,9 @@
-import '../styles/globals.css';
-import '../styles/cookieconsent-theme-alforis.css';
+import '@/styles/globals.css';
+// ❌ Ne surtout pas importer les fichiers de /public via import : ils doivent être liés dans `_document.js`, pas ici
 
-import AlforisHead from '@/components/AlforisHead';
 import { useEffect } from 'react';
 import Layout from '@/components/Layout';
+import AlforisHead from '@/components/AlforisHead';
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -75,7 +75,8 @@ export default function App({ Component, pageProps }) {
             },
           },
         },
-        theme_css: '/styles/cookieconsent-theme-alforis.css', // utilisé côté client depuis /public (optionnel si CSS est importé)
+        // ✅ Ce fichier CSS est chargé côté client via <link> dans _document.js
+        theme_css: '/styles/cookieconsent-theme-alforis.css',
       });
     }
   }, []);

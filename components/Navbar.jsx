@@ -27,13 +27,14 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-white/30 backdrop-blur-md shadow-sm border-b border-ardoise/50 fixed top-0 w-full z-50">
+    <nav className="bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
           <Link href="/" className="group flex items-center overflow-hidden">
-            <NavbarLogo className="h-[60px] md:h-[40px] w-auto" />
+          <NavbarLogo className="h-[40px] md:h-[60px] w-auto max-h-[80px]" />
           </Link>
 
           </div>
