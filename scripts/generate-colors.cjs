@@ -9,18 +9,18 @@ const customColors = Object.fromEntries(
   Object.entries(colors).filter(([key]) => customKeys.includes(key))
 );
 
-// 2. Générer un JS lisible dans React (à importer ailleurs)
-const jsOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.js');
+// 2. Générer un fichier JS à importer dans React (dans /styles)
+const jsOutputPath = path.resolve(__dirname, '../styles/generated-colors.js'); // <= OK
 const jsContent = `export const couleurs = ${JSON.stringify(customColors, null, 2)};\n`;
 fs.writeFileSync(jsOutputPath, jsContent, 'utf8');
 console.log('✅ Fichier JS generated-colors.js généré.');
 
-// 3. Générer un CSS avec les variables :root pour PostCSS/Tailwind
+// 3. Générer un fichier CSS pour le navigateur (dans /public)
 const cssVariables = Object.entries(customColors)
   .map(([key, value]) => `  --${key}: ${value};`)
   .join('\n');
 
 const cssContent = `:root {\n${cssVariables}\n}\n`;
-const cssOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.css');
+const cssOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.css'); // <= OK
 fs.writeFileSync(cssOutputPath, cssContent, 'utf8');
 console.log('✅ Fichier CSS generated-colors.css généré.');

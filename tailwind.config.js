@@ -1,5 +1,4 @@
 const plugin = require('tailwindcss/plugin');
-const { couleurs } = require('./styles/generated-colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
