@@ -11,7 +11,7 @@ import useControlledScrollSections from '@/hooks/useControlledScrollSections'
 import useButtonHover from '@/hooks/useButtonHover'
 import Approach from "@/components/home/ApproachSection"
 import AlforisHead from '@/components/AlforisHead'
-import Sceau from '@/components/animated/Sceau'
+
 
 export default function Home() {
   const sectionsData = [
@@ -57,7 +57,6 @@ export default function Home() {
 <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/index" />
 
     <main className="relative pt-0 min-h-screen w-full overflow-hidden bg-ivoire text-anthracite snap-y snap-mandatory">
-      < Sceau/>
       {sectionsData.map(({ id, Component, image, extraClass }, index) => (
         <section
           key={index}
