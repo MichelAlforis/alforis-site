@@ -36,10 +36,11 @@ export default function ApproachSection({ extraClass = ''}) {
         <Link href="/ApprochePersonnalisee">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
             <div className="flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
-              <Approche
+              <AnimatedSVGRenderer
+                SvgComponent={Approche}
                 strokeColor={couleurs.ardoise}
                 fillColor={couleurs.doré}
-                strokeWidth={12}
+                strokeWidth={20}
                 duration={3}
                 delayStep={0.8}
                 tiltIntensity={1.5}
@@ -47,7 +48,7 @@ export default function ApproachSection({ extraClass = ''}) {
                 preserveAspectRatio="xMidYMid meet"
                 height="100%"
                 width="100%"
-                hoverEffect={false} // Désactive l'effet hover
+                hoverEffect={true} // Désactive l'effet hover
                 pathLengthEffect={false} // Désactive l'animation du dessin
                 scrollEffect={false} // Désactive l'effet de défilement
               />
@@ -70,6 +71,8 @@ export default function ApproachSection({ extraClass = ''}) {
             </div>
           </div>
         </Link>
+
+        
 
         {/* Section 2 */}
         <Link href="/Profil-De-Vie">
@@ -129,7 +132,7 @@ export default function ApproachSection({ extraClass = ''}) {
                 viewBox="0 0 711 1089"
                 height="100%"
                 width="100%"
-                hoverEffect={false} // Désactive l'effet hover
+                hoverEffect={true} // Désactive l'effet hover
                 pathLengthEffect={false} // Désactive l'animation du dessin
                 scrollEffect={false} // Désactive l'effet de défilement
               />
@@ -152,6 +155,7 @@ export default function ApproachSection({ extraClass = ''}) {
             </div>
           </div>
         </Link>
+        
       </div>
     </section>
   );

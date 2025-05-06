@@ -80,6 +80,7 @@ export default function AnimatedSVGRenderer({
             left: 0,
             width: '100%', // Remplir toute la largeur du conteneur
             height: '100%', // Remplir toute la hauteur du conteneur
+            objectFit: 'contain', // Cette ligne permet de s'assurer que le SVG garde son aspect ratio
           }}
         >
           <SvgComponent
