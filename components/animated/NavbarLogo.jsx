@@ -1,7 +1,7 @@
 
 import * as React from "react"
 import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
-import { couleurs } from "@/styles/generated-colors";
+import { couleurs } from "@/public/styles/generated-colors";
 
 export default function NavbarLogo({ className = "" }) {
   const logoControls = useAnimationControls()

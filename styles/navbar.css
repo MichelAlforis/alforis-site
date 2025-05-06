@@ -1,0 +1,98 @@
+/* Navbar CSS */
+
+/* Style de la navbar */
+nav {
+    @apply flex justify-between items-center h-16 px-4 bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50;
+}
+
+/* Style des liens */
+nav a {
+    @apply text-acier text-md px-3 py-2 rounded-md transition-all duration-300 ease-in-out;
+}
+
+/* Effet de hover */
+nav a:hover {
+    @apply text-doré font-semibold;
+}
+
+/* Élément actif */
+nav a.active {
+    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg;
+}
+
+/* Logo */
+nav .logo {
+    @apply h-10 md:h-14 w-auto max-h-20;
+}
+
+/* Bouton */
+button {
+    @apply bg-doré px-6 py-2 rounded-md text-white border-none cursor-pointer transition-all duration-300 ease-in-out;
+}
+
+/* Effet de hover sur le bouton */
+button:hover {
+    @apply bg-beigeClair;
+}
+
+/* Menu mobile : éléments cachés sur les écrans plus grands */
+@media (max-width: 768px) {
+    /* Style du menu mobile */
+    .md:hidden {
+        @apply bg-anthracite px-4 pt-4 pb-6 space-y-4;
+    }
+
+    /* Liens dans le menu mobile */
+    .md:hidden a {
+        @apply block text-white text-lg;
+    }
+
+    /* Lien actif dans le menu mobile */
+    .md:hidden .active {
+        @apply text-doré font-semibold;
+    }
+
+    /* Style du menu mobile lorsqu'il est ouvert */
+    .mobile-menu {
+        @apply fixed top-16 left-0 right-0 bg-anthracite px-4 py-4 space-y-6 text-center;
+        z-index: 1000;
+    }
+
+    .mobile-menu a {
+        @apply block text-white py-2 text-lg;
+    }
+}
+
+/* Dans les grandes résolutions */
+@media (min-width: 769px) {
+    /* Navbar flex container */
+    .md:flex {
+        @apply flex items-center space-x-6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        flex-wrap: wrap; /* Permet à la navbar de s'adapter sur plusieurs lignes */
+    }
+
+    /* Le menu mobile est caché sur les écrans larges */
+    .md:hidden {
+        @apply hidden;
+    }
+
+    /* Assurer l'alignement vertical des liens */
+    .md:flex a {
+        @apply flex items-center; /* Aligner verticalement les liens */
+        height: 100%;  /* Pour garantir que tous les éléments prennent la même hauteur */
+    }
+
+    /* Alignement du logo */
+    .navbar-logo {
+        @apply flex-shrink-0;
+    }
+
+    /* Assurer que les liens prennent l'espace disponible */
+    .nav-links {
+        @apply flex-grow; /* Faire en sorte que le menu prenne tout l'espace disponible */
+    }
+}

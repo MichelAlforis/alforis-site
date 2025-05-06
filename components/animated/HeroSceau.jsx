@@ -6,7 +6,7 @@ import {
   useSpring,
   useMotionTemplate,
 } from 'framer-motion'
-import { couleurs } from "@/styles/generated-colors";
+import { couleurs } from "@/public/styles/generated-colors";
 
 export default function HeroSceau(className = "") {
   const controls = useAnimationControls()

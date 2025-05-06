@@ -6,8 +6,6 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/animated/NavbarLogo'
-import {GoldLink } from "@/hooks/useGoldEffect"
-
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,59 +15,56 @@ export default function Navbar() {
     setIsOpen(false)
   }, [pathname])
 
+  // Liste des liens de la navbar
   const links = [
-    
-    { href: '/Services', label: 'Nos Services', id: '0' },
-    { href: '/ApprochePersonnalisee', label: 'Approche', id: '1' },
-    { href: '/blog-studio', label: 'Blog & Studio', id:'2' },
-    { href: '/Profil-De-Vie', label: 'Votre Profil de Vie', id:'3' },
-    { href: '/Contact2', label: 'Contact', id:'4' },
+    { href: '/', label: 'Accueil', id: '0' },
+    { href: '/Services', label: 'Nos Services', id: '1' },
+    { href: '/ApprochePersonnalisee', label: 'Approche', id: '2' },
+    { href: '/blog-studio', label: 'Blog & Studio', id: '3' },
+    { href: '/Profil-De-Vie', label: 'Votre Profil de Vie', id: '4' },
+    { href: '/Contact2', label: 'Contact', id: '5' },
   ]
 
   return (
     <nav className="bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50">
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-          <Link href="/" className="group flex items-center overflow-hidden">
-          <NavbarLogo className="h-[40px] md:h-[60px] w-auto max-h-[80px]" />
-          </Link>
-
+            <Link href="/" className="group flex items-center overflow-hidden">
+              <NavbarLogo className="h-[40px] md:h-[60px] w-auto max-h-[80px]" />
+            </Link>
           </div>
 
-          
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center space-x-6">
             {links.map(({ href, label, id }) => (
-              <GoldLink
+              <Link
                 key={href}
                 href={href}
                 reverse
                 id={id}
-                className={`px-3 py-2 rounded-md text-md ${
-                  pathname === href ? 'text-doré font-semibold' : 'text-acier'
+                className={`px-3 py-2 rounded-md text-md transition-all duration-300 ease-in-out ${
+                  pathname === href ? 'active' : 'text-acier' // Ajout de la classe active directement ici
                 }`}
               >
                 {label}
-              </GoldLink>
+              </Link>
             ))}
 
-            <Button to="/ContactSection" index={1} className="btn-alforis-rdv">
+            <Button to="/ContactSection" index={1}>
               Prendre un RDV
             </Button>
           </div>
-       </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-acier">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
         </div>
 
+        {/* Mobile menu button */}
+        <div className="md:hidden flex items-center">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-acier">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
 
       {/* Mobile Menu */}
       {isOpen && (
@@ -78,8 +73,8 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className={`block text-white hover:text-doré ${
-                pathname === href ? 'text-doré font-semibold' : ''
+              className={`block text-white transition-all duration-300 ease-in-out ${
+                pathname === href ? 'active' : ''
               }`}
             >
               {label}
@@ -97,5 +92,3 @@ export default function Navbar() {
     </nav>
   )
 }
-
-

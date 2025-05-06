@@ -21,6 +21,9 @@ module.exports = {
         sans: ['Open Sans', 'sans-serif'],
         title: ['Neue Montreal', 'sans-serif'],
       },
+      fontSize: {
+        'md': '1rem',  // Définir text-md à 1rem (taille par défaut)
+      },
       boxShadow: {
         retro: '0 0 0 2px #C8A765, 0 0 10px #C8A76566',
         'pressed-inner': 'inset 0 2px 6px rgba(0, 0, 0, 0.3)',

@@ -1,4 +1,7 @@
 import '@/styles/globals.css';
+import '@/styles/navbar.css';  // Importez votre fichier navbar.css
+import '@/styles/generated-colors.css'; // Importez votre fichier generated-colors.css
+import '@/styles/cookieconsent-theme-alforis.css'; // Importez cookieconsent-theme-alforis.css
 // ❌ Ne surtout pas importer les fichiers de /public via import : ils doivent être liés dans `_document.js`, pas ici
 
 import { useEffect } from 'react';

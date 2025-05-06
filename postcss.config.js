@@ -1,4 +1,4 @@
-const couleurs = require('./styles/generated-colors.js')?.couleurs ?? {};
+const couleurs = require('./public/styles/generated-colors.js')?.couleurs ?? {};
 
 module.exports = {
   plugins: {

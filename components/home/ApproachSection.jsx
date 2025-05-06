@@ -4,7 +4,7 @@ import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer";
 import { Animated } from "@/components/animated/Animated";
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer'; // Utilisation de react-intersection-observer pour détecter la visibilité
-import { couleurs } from "@/styles/generated-colors";
+import { couleurs } from "@/public/styles/generated-colors";
 
 // Définir les SVG animés sous forme de JSX
 import Buste from '@/assets/illustrations/buste';
