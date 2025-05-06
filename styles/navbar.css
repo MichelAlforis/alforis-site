@@ -12,17 +12,15 @@ nav a {
   }
   
   /* Lien actif : Ajout d'un fond et de la couleur dorée */
-  nav .active {
-    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg;
-    background-color: rgba(200, 167, 101, 0.2); /* Exemple de fond doré léger */
+  nav a.active {
+    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg bg-ivoire bg-opacity-80;
     padding: 8px 12px;
     border-radius: 6px;
   }
   
   /* Survol : Retirer l'effet de fond sur le lien actif, mais garder la couleur dorée */
   nav a:hover:not(.active) {
-    @apply text-doré;
-    background-color: rgba(200, 167, 101, 0.1); /* Effet de survol doré */
+    @apply text-doré bg-ivoire;
   }
   
 
@@ -31,10 +29,7 @@ nav a:hover {
     @apply text-doré font-semibold;
 }
 
-/* Élément actif */
-nav a.active {
-    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg;
-}
+
 
 /* Logo */
 nav .logo {

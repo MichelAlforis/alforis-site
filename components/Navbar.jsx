@@ -32,24 +32,24 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="group flex items-center overflow-hidden">
-              <NavbarLogo className="h-[40px] md:h-[60px] w-auto max-h-[80px]" />
+              <NavbarLogo className="h-[40px] md:h-[50px] w-auto max-h-[60px]" />
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center space-x-6">
-            {links.map(({ href, label, id }) => (
-              <Link
-                key={href}
-                href={href}
-                reverse
-                id={id}
-                className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
-                  pathname === href ? 'active text-doré' : 'text-acier' // Ajout de la classe active et dorée pour le lien actif
-                }`}
-              >
-                {label}
-              </Link>
+          {links.map(({ href, label, id }) => (
+            <Link
+              key={href}
+              href={href}
+              reverse
+              id={id}
+              className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
+                pathname === href ? 'active' : 'text-acier' // Ajout de la classe active et dorée pour le lien actif
+              }`}
+            >
+              {label}
+            </Link>
             ))}
 
             <Button to="/ContactSection" index={1}>
