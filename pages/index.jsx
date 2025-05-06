@@ -56,6 +56,7 @@ export default function Home() {
     <>
 <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/index" />
 
+<Animated.Page>
     <main className="relative pt-0 min-h-screen w-full bg-ivoire text-anthracite snap-y snap-mandatory">
       {sectionsData.map(({ id, Component, image, extraClass }, index) => (
         <section
@@ -75,6 +76,8 @@ export default function Home() {
         </section>
       ))}
     </main>
+    </Animated.Page>
     </>
+    
   )
 }

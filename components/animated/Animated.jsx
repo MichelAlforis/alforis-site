@@ -27,17 +27,31 @@ const tags = [
 ]
 
 function withMotion(tag) {
-  return function AnimatedComponent({ children, className = '', variant = 'fadeInUp', ...props }) {
+  return function AnimatedComponent({
+    children,
+    className = '',
+    variant = 'fadeInUp',
+    onAnimationComplete,
+    ...props
+  }) {
     const settings = animationSettings[variant] || animationSettings.fadeInUp
     const MotionTag = ClientOnlyMotion[tag] || ClientOnlyMotion.div
 
     return (
-      <MotionTag {...settings} {...props} className={className}>
+      <MotionTag
+        {...settings}
+        {...props}
+
+
+        
+        className={className}
+      >
         {children}
       </MotionTag>
     )
   }
 }
+
 
 export const Animated = tags.reduce((acc, tag) => {
   const key = tag.charAt(0).toUpperCase() + tag.slice(1)
@@ -60,6 +74,20 @@ export const Raw = tags.reduce((acc, tag) => {
 }, {})
 
 // Ajout du composant Animated.Page
-Animated.Page = withMotion('div'); // ou 'section'
+Animated.Page = function AnimatedPage({ children, className = '', variant = 'fadeInUp', ...props }) {
+  const settings = animationSettings[variant] || animationSettings.fadeInUp
+  const MotionDiv = ClientOnlyMotion.div
+
+  return (
+    <MotionDiv
+      {...settings}
+      {...props}
+      className={className}
+    >
+      {children}
+    </MotionDiv>
+  )
+}
+
 
 export default Animated

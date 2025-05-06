@@ -51,6 +51,8 @@ export default function Services() {
     <>
       <AlforisHead title="Services – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." path="/Services" />
 
+
+
 <Animated.Page>
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -60,7 +62,10 @@ export default function Services() {
 
           <section className="space-y-24">
             {services.map((service, index) => (
-              <Animated.Article className="relative bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-lg group border border-doré/20">
+              <Animated.Article 
+              className="relative bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-lg group border border-doré/20"
+              key={service.id || index}
+              >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                   <div className="w-full md:w-48 flex justify-center md:justify-start items-center">
                     <img

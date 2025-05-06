@@ -5,7 +5,7 @@ import '@/styles/cookieconsent-theme-alforis.css'; // Importez cookieconsent-the
 // ❌ Ne surtout pas importer les fichiers de /public via import : ils doivent être liés dans `_document.js`, pas ici
 
 import { useEffect } from 'react';
-import Layout from '@/components/Layout';
+import Layout from '@/app/Layout';
 import AlforisHead from '@/components/AlforisHead';
 
 export default function App({ Component, pageProps }) {

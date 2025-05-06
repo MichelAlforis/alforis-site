@@ -1,13 +1,11 @@
-
-// Layout.jsx modifié
 'use client'
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
 import Head from 'next/head'
+import Navbar from '@/app/Navbar'
+import Footer from '@/app/Footer'
+import ScrollManager from '@/components/animated/ScrollManager'
+
 
 export default function Layout({ children }) {
-
-
   return (
     <>
       <Head>
@@ -16,11 +14,10 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="site-layout min-h-screen flex flex-col">
+      <div className="site-layout min-h-screen flex flex-col bg-ivoire">
         <Navbar />
-        <div className="fixed inset-0 -z-10 bg-ivoire" />
-
-        <main className="main-content flex-1 pt-16">
+        <main className="flex-1 pt-16">
+        <ScrollManager />
           {children}
         </main>
         <Footer />

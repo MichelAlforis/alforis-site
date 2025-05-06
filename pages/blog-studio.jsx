@@ -15,7 +15,9 @@ export default function BlogStudioPage({ content }) {
           keywords="studio patrimoine, blog gestion de patrimoine, stratégie patrimoniale"
         />
 
-    <Animated.Page>
+    
+
+<Animated.Page>
       <motion.main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6" >
         <div className="max-w-6xl mx-auto">
           <Animated.H1 className="text-5xl font-semibold text-center">

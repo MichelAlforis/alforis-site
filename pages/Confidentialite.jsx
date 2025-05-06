@@ -5,7 +5,9 @@ import Animated from '@/components/animated/Animated'
 
 export default function Confidentialite() {
   return (
-    <Animated.Page>
+    
+
+<Animated.Page>
     <AlforisHead title="Confidentialite – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page confidentialite." path="/Confidentialite" />
 
     <div className="min-h-screen bg-ivoire text-anthracite px-6 py-16 max-w-5xl mx-auto shadow-sm rounded-md">

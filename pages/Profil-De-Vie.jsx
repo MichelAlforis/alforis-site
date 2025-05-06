@@ -8,10 +8,6 @@ import { fetchAllContent } from '@/lib/server/fetchAllContent'
 import ParcoursGrid from '@/components/parcours/ParcoursGrid'
 
 export default function ParcoursPage({ content }) {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
     <>
       <AlforisHead
@@ -19,6 +15,8 @@ export default function ParcoursPage({ content }) {
         description="Découvrez nos parcours personnalisés adaptés à votre trajectoire."
         path="/parcours"
       />
+
+
 
 <Animated.Page>
         <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">

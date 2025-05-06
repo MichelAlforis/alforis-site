@@ -7,9 +7,6 @@ import NoWidowText from '@/components/animated/NoWindowText'
 import Animated from '@/components/animated/Animated'
 
 export default function ApprochePersonnalisee() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   const steps = [
     {
@@ -43,7 +40,10 @@ export default function ApprochePersonnalisee() {
       <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/ApprochePersonnalisee" />
 
     
-    <Animated.Page>
+    
+<Animated.Page>
+
+
       <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
         <div className="max-w-6xl mx-auto">
         <Animated.H1 className="mb-20">

@@ -30,6 +30,7 @@ export default function Navbar() {
   return (
     <nav className="bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* BARRE DU HAUT */}
     <div className="flex justify-between h-16 items-center">
       {/* Logo */}
       <div className="Logo-Cont flex-shrink-0">
@@ -38,7 +39,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Desktop Menu */}
+      {/* Desktop menu */}
       <div className="hidden md:flex md:items-center space-x-6">
         {links.map(({ href, label, id }) => (
           <Link
@@ -57,7 +58,7 @@ export default function Navbar() {
         </Button>
       </div>
 
-      {/* Mobile menu button */}
+      {/* Bouton menu mobile */}
       <div className="md:hidden flex items-center">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -69,29 +70,31 @@ export default function Navbar() {
     </div>
   </div>
 
-  {/* Mobile Menu */}
+  {/* Menu mobile : en dehors du bloc .flex pour qu'il s'affiche dessous */}
   {isOpen && (
-    <div className="md:hidden bg-ivoire/95 backdrop-blur-lg px-6 py-6 space-y-4 shadow-lg border-t border-ardoise/20">
-      {links.map(({ href, label }) => (
-        <Link
-          key={href}
-          href={href}
-          className={`block text-ardoise text-lg font-medium transition-all duration-200 ${
-            pathname === href ? 'font-bold underline' : ''
-          }`}
-        >
-          {label}
-        </Link>
-      ))}
-
+  <div className="md:hidden fixed top-16 left-0 right-0 bg-ivoire/95 backdrop-blur-lg px-6 py-2 space-y-1 shadow-lg border-t border-ardoise/20 z-50">
+    {links.map(({ href, label }) => (
       <Link
-        href="/ContactSection"
-        className="block mt-6 bg-doré text-white text-center hover:bg-white hover:text-doré transition px-4 py-2 rounded-full font-semibold shadow-md"
+        key={href}
+        href={href}
+        onClick={() => setIsOpen(false)}
+        className={`block text-ardoise text-lg font-medium transition-all duration-200 ${
+          pathname === href ? 'font-bold underline' : ''
+        }`}
       >
-        Prendre un RDV
+        {label}
       </Link>
-    </div>
-  )}
+    ))}
+
+    <Link
+      href="/ContactSection"
+      onClick={() => setIsOpen(false)}
+      className="block mt-6 bg-doré text-white text-center hover:bg-white hover:text-doré transition px-2 py-2 rounded-full font-semibold shadow-md"
+    >
+      Prendre un RDV
+    </Link>
+  </div>
+)}
 </nav>
   );
 }
