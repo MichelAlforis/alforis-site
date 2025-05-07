@@ -33,7 +33,7 @@ const CallToAction = () => {
 
       <motion.button
         {...getButtonProps(1)}
-        onClick={() => handleDelayedNavigation('/ContactSection')}
+        onClick={() => handleDelayedNavigation('/prendre-rendez-vous')}
         className="w-full md:w-[280px] h-[60px] btn-alforis-retro flex items-center justify-center"
       >
         Prendre rendez-vous avec Alforis

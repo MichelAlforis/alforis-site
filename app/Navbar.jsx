@@ -53,7 +53,7 @@ export default function Navbar() {
             {label}
           </Link>
         ))}
-        <Button to="/ContactSection" index={1}>
+        <Button to="/prendre-rendez-vous" index={1}>
           Prendre un RDV
         </Button>
       </div>
@@ -87,7 +87,7 @@ export default function Navbar() {
     ))}
 
     <Link
-      href="/ContactSection"
+      href="/prendre-rendez-vous"
       onClick={() => setIsOpen(false)}
       className="block mt-6 bg-doré text-white text-center hover:bg-white hover:text-doré transition px-2 py-2 rounded-full font-semibold shadow-md"
     >
