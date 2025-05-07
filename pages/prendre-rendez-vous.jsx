@@ -31,6 +31,7 @@ export default function PrendreRendezVous() {
             >
               <div className="text-4xl mb-4">{emoji}</div>
               <div className="text-xl font-medium">{label}</div>
+              <div className="text-xl text-acier font-medium">{label}</div>
             </button>
           ))}
         </div>

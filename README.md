@@ -9,6 +9,7 @@ Ce site présente l’approche humaine, introspective et indépendante d’Alfor
 
 Le site est déployé automatiquement via [Vercel](https://vercel.com/), depuis la branche `main`.  
 🟢 Chaque `git push` déclenche une mise à jour en production.
+✨ Nouvelle page `/prendre-rendez-vous` : sélection fluide du type de rendez-vous (appel, visio, patrimonial), avec intégration dynamique Cal.com et mini-navigation contextuelle.
 
 ---
 

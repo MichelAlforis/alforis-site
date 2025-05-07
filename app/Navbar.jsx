@@ -85,14 +85,14 @@ export default function Navbar() {
         {label}
       </Link>
     ))}
-
     <Link
       href="/prendre-rendez-vous"
       onClick={() => setIsOpen(false)}
-      className="block mt-6 bg-doré text-white text-center hover:bg-white hover:text-doré transition px-2 py-2 rounded-full font-semibold shadow-md"
+      className="flex items-center justify-center h-12 mt-6 bg-doré text-white text-center hover:bg-white hover:text-doré transition px-6 py-2 rounded-full font-semibold shadow-md"
     >
       Prendre un RDV
     </Link>
+
   </div>
 )}
 </nav>
