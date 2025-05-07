@@ -28,7 +28,7 @@
   - [x] Balises `og:title`, `og:description`, `og:image`
   - [x] Favicon
 - [x] URL claires (`/prendre-rendez-vous`, `/contact`, etc.)
-- [ ] Sitemap généré (si Next.js app directory : `/sitemap.xml` auto ou manuel)
+- [x] Sitemap généré (si Next.js app directory : `/sitemap.xml` auto ou manuel)
 
 ## 📈 Performance & accessibilité
 - [ ] Google Lighthouse > 90 sur mobile ET desktop

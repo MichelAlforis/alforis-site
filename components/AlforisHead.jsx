@@ -34,8 +34,10 @@ export default function AlforisHead({ title = defaultTitle, description = defaul
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={image} />}
 
-      {/* Canonical */}
+      {/* Canonical et preload */}
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="preload" href="/assets/img/D_intro.webp" as="image" importance="high"/>
+      <link rel="preload" href="/assets/img/M_intro.webp" as="image" media="(max-width: 768px)" importance="high" />
 
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />

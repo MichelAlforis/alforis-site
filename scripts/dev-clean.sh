@@ -18,6 +18,10 @@ echo "🧹 Suppression des fichiers .DS_Store..."
 find . -name ".DS_Store" -type f -delete
 echo "✅ Tous les fichiers .DS_Store ont été supprimés."
 
+echo "🧽 Nettoyage du cache Next.js (.next, .turbo, .cache)..."
+rm -rf .next .turbo .cache
+echo "✅ Cache supprimé."
+
 echo "🎨 Mise à jour des couleurs à partir de tailwind.config.js..."
 node ./scripts/generate-colors.cjs
 
