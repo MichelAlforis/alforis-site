@@ -49,7 +49,11 @@ const services = [
 export default function Services() {
   return (
     <>
-      <AlforisHead title="Services – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." path="/Services" />
+      <AlforisHead 
+      title="Services – Alforis" 
+      description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." 
+      path="/Services" 
+      />
 
 
 

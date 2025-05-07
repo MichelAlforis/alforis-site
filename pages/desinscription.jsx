@@ -37,6 +37,9 @@ export default function DesinscriptionPage() {
   }, [email])
 
   return (
+    <>
+    <AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/index" />
+    
     <div className="min-h-screen flex items-center justify-center bg-ivoire p-8">
       <div className="max-w-md w-full text-center bg-white p-8 rounded-2xl shadow-lg space-y-6">
         
@@ -73,5 +76,6 @@ export default function DesinscriptionPage() {
         )}
       </div>
     </div>
+    </>
   )
 }

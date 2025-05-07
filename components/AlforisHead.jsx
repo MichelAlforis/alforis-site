@@ -1,44 +1,44 @@
-import Head from 'next/head'
+// components/AlforisHead.jsx
+'use client'
 
-export default function AlforisHead({
-  title = 'Alforis – Le patrimoine commence par l’humain',
-  description = 'Un cabinet de design de trajectoire de vie. Découvrez notre approche centrée sur l’humain, la stratégie et la liberté patrimoniale.',
-  path = '',
-  image = '/assets/img/og-cover.jpg',
-}) {
-  const fullUrl = `https://www.alforis.fr${path}`
+import Head from 'next/head'
+import { usePathname } from 'next/navigation'
+
+const defaultTitle = "Alforis – Conseil haut de gamme"
+const defaultDescription = "Alforis est un cabinet de design de trajectoire de vie, alliant expertise patrimoniale, indépendance et approche humaine."
+const baseUrl = "https://www.alforis.fr"
+
+export default function AlforisHead({ title = defaultTitle, description = defaultDescription, path, image }) {
+  const pathname = usePathname()
+  const fullPath = path || pathname
+  const canonicalUrl = `${baseUrl}${fullPath}`
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-
-      {/* Favicons */}
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-      <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
-      <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png" />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={image} />
-      <meta property="og:url" content={fullUrl} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content="Alforis" />
+      {image && <meta property="og:image" content={image} />}
 
-      {/* Twitter Card */}
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      {image && <meta name="twitter:image" content={image} />}
 
       {/* Canonical */}
-      <link rel="canonical" href={fullUrl} />
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.ico" />
     </Head>
   )
 }

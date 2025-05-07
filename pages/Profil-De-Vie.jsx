@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
 import AlforisHead from '@/components/AlforisHead'
-import Link from 'next/link'
 import Animated from '@/components/animated/Animated'
 import { fetchAllContent } from '@/lib/server/fetchAllContent'
 import ParcoursGrid from '@/components/parcours/ParcoursGrid'
@@ -15,8 +13,6 @@ export default function ParcoursPage({ content }) {
         description="Découvrez nos parcours personnalisés adaptés à votre trajectoire."
         path="/parcours"
       />
-
-
 
 <Animated.Page>
         <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">

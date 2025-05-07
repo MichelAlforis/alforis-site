@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import AlforisHead from '@/components/AlforisHead'
 
 export async function getStaticPaths() {
   const studioDir = path.join(process.cwd(), 'content/studio')
@@ -36,11 +37,13 @@ const StudioArticle = ({ slug, meta }) => {
 
   return (
     <main className="main-content bg-ivoire text-anthracite py-16 px-4 md:px-12">
-      <Head>
-        <title>{meta.title} | Studio Alforis</title>
-        <meta name="description" content={meta.description} />
-        {meta.image && <meta property="og:image" content={meta.image} />}
-      </Head>
+        
+        <AlforisHead
+          title={`${meta.title} | Studio Alforis`}
+          description={meta.description}
+          path={`/blog/${slug}`}
+          image={meta.image}
+        />
 
       <article className="max-w-3xl mx-auto fade-anim">
         {meta.image && (

@@ -3,6 +3,7 @@
 
 import { useState } from 'react'
 import ContactSection from '@/components/ContactSection'
+import AlforisHead from '@/components/AlforisHead'
 
 const rdvTypes = [
   { type: 'appel', label: 'Appel téléphonique', emoji: '📞' },
@@ -14,6 +15,12 @@ export default function PrendreRendezVous() {
   const [selectedType, setSelectedType] = useState(null)
 
   return (
+<>
+    <AlforisHead
+  title="Prendre rendez-vous – Alforis"
+  description="Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe."
+    />
+
     <section className="min-h-screen px-6 py-20 bg-ivoire text-anthracite">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-title font-semibold mb-12">
@@ -43,5 +50,7 @@ export default function PrendreRendezVous() {
         )}
       </div>
     </section>
+</>
   )
 }
+
