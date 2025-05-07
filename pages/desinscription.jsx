@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react'
+import AlforisHead from '@/components/AlforisHead'
 
 export default function DesinscriptionPage() {
   const searchParams = useSearchParams()

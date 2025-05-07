@@ -26,7 +26,7 @@
   - [x] Titre dynamique par page
   - [x] Description meta
   - [x] Balises `og:title`, `og:description`, `og:image`
-  - [ ] Favicon
+  - [x] Favicon
 - [x] URL claires (`/prendre-rendez-vous`, `/contact`, etc.)
 - [ ] Sitemap généré (si Next.js app directory : `/sitemap.xml` auto ou manuel)
 
