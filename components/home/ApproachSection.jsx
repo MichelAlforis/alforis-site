@@ -37,24 +37,25 @@ export default function ApproachSection({ extraClass = ''}) {
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
               {/* Version SVG statique visible uniquement sur mobile */}
 
-            <div className="hidden md:block justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
-              <AnimatedSVGRenderer
-                SvgComponent={Approche}
-                strokeColor={couleurs.ardoise}
-                fillColor={couleurs.doré}
-                strokeWidth={20}
-                duration={3}
-                delayStep={0.8}
-                tiltIntensity={1.5}
-                className="block w-full h-auto"
-                preserveAspectRatio="xMidYMid meet"
-                height="100%"
-                width="100%"
-                hoverEffect={true} // Désactive l'effet hover
-                pathLengthEffect={false} // Désactive l'animation du dessin
-                scrollEffect={false} // Désactive l'effet de défilement
-              />
-            </div>
+              <div className="hidden md:flex items-center justify-center md:w-1/3 max-w-[120px]">
+                <AnimatedSVGRenderer
+                  SvgComponent={Approche}
+                  className="w-full h-auto"
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                  strokeColor={couleurs.ardoise}
+                  fillColor={couleurs.doré}
+                  strokeWidth={20}
+                  duration={3}
+                  delayStep={0.8}
+                  tiltIntensity={1.5}
+                  preserveAspectRatio="xMidYMid meet"
+                  hoverEffect={true}
+                  pathLengthEffect={false}
+                  scrollEffect={false}
+                />
+              </div>
+
+
 
             <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
               <Animated.Div
@@ -79,25 +80,24 @@ export default function ApproachSection({ extraClass = ''}) {
         {/* Section 2 */}
         <Link href="/Profil-De-Vie">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-            <div className="hidden md:block flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
-              <AnimatedSVGRenderer
-                SvgComponent={LifePic}
-                strokeColor={couleurs.ardoise}
-                fillColor={couleurs.doré}
-                strokeWidth={12}
-                duration={3}
-                delayStep={0.8}
-                tiltIntensity={1.5}
-                className="block w-full h-auto"
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="0 0 1000 1000"
-                height="100%"
-                width="100%"
-                hoverEffect={true} // Désactive l'effet hover
-                pathLengthEffect={true} // Désactive l'animation du dessin
-                scrollEffect={true} // Désactive l'effet de défilement
-              />
-            </div>
+          <div className="hidden md:flex items-center justify-center md:w-1/3 max-w-[120px]">
+          <AnimatedSVGRenderer
+            SvgComponent={LifePic}
+            className="w-full h-auto"
+            style={{ maxWidth: '100%', height: 'auto' }}
+            strokeColor={couleurs.ardoise}
+            fillColor={couleurs.doré}
+            strokeWidth={20}
+            duration={3}
+            delayStep={0.8}
+            tiltIntensity={1.5}
+            preserveAspectRatio="xMidYMid meet"
+            hoverEffect={true}
+            pathLengthEffect={false}
+            scrollEffect={false}
+          />
+        </div>
+
 
             <div className="md:w-2/3 flex flex-col justify-center gap-4 max-h-[500px] overflow-y-auto md:text-left text-center">
               <Animated.Div
@@ -120,20 +120,19 @@ export default function ApproachSection({ extraClass = ''}) {
         {/* Section 3 */}
         <Link href="/Services">
           <div className="p-8 ml-8 max-h-[25vh] flex flex-col md:flex-row justify-between bg-white bg-opacity-80 shadow-lg rounded-2xl transition-all transform hover:scale-105 cursor-pointer w-full sm:w-full md:w-2/3 lg:w-2/3 mx-auto">
-            <div className="hidden md:block flex justify-between md:w-1/3 max-h-[500px] w-[80%] mx-auto md:mx-0 z40">
+          <div className="hidden md:flex items-center justify-center md:w-1/3 max-w-[100px]">
               <AnimatedSVGRenderer
                 SvgComponent={Buste}
+                className="w-full h-auto"
+                style={{ maxWidth: '100%', height: 'auto' }}
                 strokeColor={couleurs.ardoise}
                 fillColor={couleurs.doré}
                 strokeWidth={12}
                 duration={3}
                 delayStep={0.8}
                 tiltIntensity={1.5}
-                className="block w-full h-auto"
                 preserveAspectRatio="xMidYMid meet"
                 viewBox="0 0 711 1089"
-                height="100%"
-                width="100%"
                 hoverEffect={true} // Désactive l'effet hover
                 pathLengthEffect={false} // Désactive l'animation du dessin
                 scrollEffect={false} // Désactive l'effet de défilement
