@@ -18,31 +18,26 @@ export default function Home() {
     {
       id: 'hero',
       Component: HeroSection,
-      image: '/assets/img/D_intro.png',
       extraClass: 'h-[1080px] flex flex-col justify-center items-center',
     },
     {
       id: 'services',
       Component: ServicesCards,
-      image: '/assets/img/D_services.png',
       extraClass: 'h-[1080px] flex flex-col justify-center items-center',
     },
     {
       id: 'approach',
       Component: Approach,
-      image: '/assets/img/D_approach.png',
       extraClass: 'h-[1080px] overflow: visible flex flex-col justify-center items-center',
     },
     {
       id: 'figures',
       Component: KeyFigures,
-      image: '/assets/img/D_keyfigures.png',
       extraClass: 'h-[1080px] flex flex-col justify-center items-center',
     },
     {
       id: 'contact',
       Component: Contact,
-      image: '/assets/img/D_contact.png',
       extraClass: 'h-[1080px] flex flex-col justify-center items-center bg-opacity-0',
     },
   ];
@@ -64,12 +59,17 @@ export default function Home() {
           id={id}
           className={`snap-start relative ${extraClass} animate-fade-in`}
         >
-          <img
-            src={image}
-            alt={`${id} background`}
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            loading="lazy"
+          <div
+            className={`
+              absolute inset-0 w-full h-full z-0 bg-cover bg-center
+              ${id === 'hero' ? 'bg-hero-mobile sm:bg-hero-desktop' : ''}
+              ${id === 'services' ? 'bg-services-mobile sm:bg-services-desktop' : ''}
+              ${id === 'approach' ? 'bg-approach-mobile sm:bg-approach-desktop' : ''}
+              ${id === 'figures' ? 'bg-figures-mobile sm:bg-figures-desktop' : ''}
+              ${id === 'contact' ? 'bg-contact-mobile sm:bg-contact-desktop' : ''}
+            `}
           />
+
           <div className="relative z-10 w-full h-full flex items-center justify-center">
           <Component extraClass={`w-full px-4 ${extraClass}`} />
           </div>

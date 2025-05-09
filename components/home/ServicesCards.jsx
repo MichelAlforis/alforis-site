@@ -7,25 +7,25 @@ const services = [
   {
     title: 'Ingénierie patrimoniale',
     description: 'Structuration sur mesure de votre patrimoine personnel et professionnel.',
-    icon: '/assets/img/engineering.svg',
+    icon: '/assets/img/engineering.webp',
     alt: 'Icône ingénierie patrimoniale'
   },
   {
     title: 'Trésorerie long terme',
     description: 'Valorisation et sécurisation des excédents de trésorerie d’entreprise.',
-    icon: '/assets/img/cash-flow.svg',
+    icon: '/assets/img/cash-flow.webp',
     alt: 'Icône trésorerie long terme'
   },
   {
     title: 'Gouvernance familiale',
     description: 'Organisation durable autour de la famille, des héritiers et associés.',
-    icon: '/assets/img/family.svg',
+    icon: '/assets/img/family.webp',
     alt: 'Icône gouvernance familiale'
   },
   {
     title: 'Conciergerie premium',
     description: 'Un interlocuteur unique pour centraliser et coordonner tous vos enjeux.',
-    icon: '/assets/img/concierge.svg',
+    icon: '/assets/img/concierge.webp',
     alt: 'Icône conciergerie premium'
   },
 ]

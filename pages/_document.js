@@ -15,6 +15,10 @@ export default function Document() {
 
         {/* ✅ Script différé */}
         <script src="/cookieconsent.umd.js" defer></script>
+
+        {/* ✅ Image en Preload */}
+        <link rel="preload" as="image" href="/assets/img/M_intro.webp" type="image/webp"/>
+        
       </Head>
       <body>
         <Main />
