@@ -21,6 +21,7 @@ export default function Navbar() {
     { href: '/blog-studio', label: 'Blog & Studio', id: '3' },
     { href: '/Profil-De-Vie', label: 'Votre Profil de Vie', id: '4' },
     { href: '/Contact2', label: 'Contact', id: '5' },
+    { href: '/marketplace', label: 'Nos Tarifs', id: '6' },
   ];
 
   useEffect(() => {

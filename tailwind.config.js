@@ -8,18 +8,6 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}', // si tu utilises /app
     './styles/globals.css' 
   ],
-  safelist: [
-    'bg-hero-mobile',
-    'sm:bg-hero-desktop',
-    'bg-services-mobile',
-    'sm:bg-services-desktop',
-    'bg-approach-mobile',
-    'sm:bg-approach-desktop',
-    'bg-figures-mobile',
-    'sm:bg-figures-desktop',
-    'bg-contact-mobile',
-    'sm:bg-contact-desktop',
-  ],
   
   theme: {
     extend: {
@@ -66,18 +54,6 @@ module.exports = {
         'scale-up': 'scaleUp 0.2s ease-in-out',
         glitch: 'glitch 0.3s ease-in-out',
         'fade-in': 'fadeIn 1s ease-out forwards',
-      },
-      backgroundImage: {
-        'hero-mobile': "url('/assets/img/M_intro.webp')",
-        'hero-desktop': "url('/assets/img/D_intro.webp')",
-        'services-mobile': "url('/assets/img/M_services.webp')",
-        'services-desktop': "url('/assets/img/D_services.webp')",
-        'approach-mobile': "url('/assets/img/M_approach.webp')",
-        'approach-desktop': "url('/assets/img/D_approach.webp')",
-        'figures-mobile': "url('/assets/img/M_keyfigures.webp')",
-        'figures-desktop': "url('/assets/img/D_keyfigures.webp')",
-        'contact-mobile': "url('/assets/img/M_contact.webp')",
-        'contact-desktop': "url('/assets/img/D_contact.webp')",
       },
     },
   },

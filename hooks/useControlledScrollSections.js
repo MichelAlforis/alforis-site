@@ -1,67 +1,51 @@
+// hooks/useControlledScrollSections.js
 import { useEffect, useRef, useState } from 'react'
+import { useScrollContainer } from './useScrollContainer'
 
 export default function useControlledScrollSections(sectionIds, cooldown = 1000) {
+  const scrollContainer = useScrollContainer()
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0)
   const [isScrolling, setIsScrolling] = useState(false)
   const touchStartY = useRef(0)
 
   useEffect(() => {
-    const container = document.getElementById('scroll-container')
-    if (!container) return
+    if (!scrollContainer) return
 
     const handleWheel = (e) => {
+      e.preventDefault()
       if (isScrolling) return
-
-      if (e.deltaY > 30) {
-        goToNextSection()
-      } else if (e.deltaY < -30) {
-        goToPrevSection()
-      }
+      if (e.deltaY > 30) goToNextSection()
+      else if (e.deltaY < -30) goToPrevSection()
     }
-
     const handleTouchStart = (e) => {
       touchStartY.current = e.touches[0].clientY
     }
-
     const handleTouchEnd = (e) => {
       if (isScrolling) return
-
-      const touchEndY = e.changedTouches[0].clientY
-      const delta = touchStartY.current - touchEndY
-
-      if (delta > 30) {
-        goToNextSection()
-      } else if (delta < -30) {
-        goToPrevSection()
-      }
+      const delta = touchStartY.current - e.changedTouches[0].clientY
+      if (delta > 30) goToNextSection()
+      else if (delta < -30) goToPrevSection()
     }
 
-    container.addEventListener('wheel', handleWheel, { passive: false })
-    container.addEventListener('touchstart', handleTouchStart, { passive: true })
-    container.addEventListener('touchend', handleTouchEnd, { passive: false })
+    scrollContainer.addEventListener('wheel', handleWheel, { passive: false })
+    scrollContainer.addEventListener('touchstart', handleTouchStart, { passive: true })
+    scrollContainer.addEventListener('touchend', handleTouchEnd, { passive: false })
 
     return () => {
-      container.removeEventListener('wheel', handleWheel)
-      container.removeEventListener('touchstart', handleTouchStart)
-      container.removeEventListener('touchend', handleTouchEnd)
+      scrollContainer.removeEventListener('wheel', handleWheel)
+      scrollContainer.removeEventListener('touchstart', handleTouchStart)
+      scrollContainer.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [currentSectionIndex, isScrolling])
+  }, [scrollContainer, currentSectionIndex, isScrolling])
 
-  const goToSection = (index) => {
-    if (index < 0 || index >= sectionIds.length) return
-
+  const goToSection = (idx) => {
+    if (idx < 0 || idx >= sectionIds.length) return
     setIsScrolling(true)
-    const target = document.getElementById(sectionIds[index])
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-      setCurrentSectionIndex(index)
-    }
-
-    setTimeout(() => {
-      setIsScrolling(false)
-    }, cooldown)
+    const target = document.getElementById(sectionIds[idx])
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setCurrentSectionIndex(idx)
+    setTimeout(() => setIsScrolling(false), cooldown)
   }
-
   const goToNextSection = () => goToSection(currentSectionIndex + 1)
   const goToPrevSection = () => goToSection(currentSectionIndex - 1)
 

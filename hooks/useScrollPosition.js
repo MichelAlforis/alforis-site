@@ -19,3 +19,16 @@ export default function useScrollPosition() {
 
   return scrollPosition
 }
+
+export function useScrollContainer() {
+  const [container, setContainer] = useState(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const el = document.getElementById('scroll-container')
+      setContainer(el)
+    }
+  }, [])
+
+  return container
+}
