@@ -1,5 +1,3 @@
-// hooks/useControlledScrollSections.js
-
 import { useEffect, useRef, useState } from 'react'
 
 export default function useControlledScrollSections(sectionIds, cooldown = 1000) {
@@ -8,6 +6,9 @@ export default function useControlledScrollSections(sectionIds, cooldown = 1000)
   const touchStartY = useRef(0)
 
   useEffect(() => {
+    const container = document.getElementById('scroll-container')
+    if (!container) return
+
     const handleWheel = (e) => {
       if (isScrolling) return
 
@@ -35,14 +36,14 @@ export default function useControlledScrollSections(sectionIds, cooldown = 1000)
       }
     }
 
-    window.addEventListener('wheel', handleWheel, { passive: false })
-    window.addEventListener('touchstart', handleTouchStart, { passive: true })
-    window.addEventListener('touchend', handleTouchEnd, { passive: false })
+    container.addEventListener('wheel', handleWheel, { passive: false })
+    container.addEventListener('touchstart', handleTouchStart, { passive: true })
+    container.addEventListener('touchend', handleTouchEnd, { passive: false })
 
     return () => {
-      window.removeEventListener('wheel', handleWheel)
-      window.removeEventListener('touchstart', handleTouchStart)
-      window.removeEventListener('touchend', handleTouchEnd)
+      container.removeEventListener('wheel', handleWheel)
+      container.removeEventListener('touchstart', handleTouchStart)
+      container.removeEventListener('touchend', handleTouchEnd)
     }
   }, [currentSectionIndex, isScrolling])
 
@@ -61,13 +62,8 @@ export default function useControlledScrollSections(sectionIds, cooldown = 1000)
     }, cooldown)
   }
 
-  const goToNextSection = () => {
-    goToSection(currentSectionIndex + 1)
-  }
-
-  const goToPrevSection = () => {
-    goToSection(currentSectionIndex - 1)
-  }
+  const goToNextSection = () => goToSection(currentSectionIndex + 1)
+  const goToPrevSection = () => goToSection(currentSectionIndex - 1)
 
   return {
     currentSection: sectionIds[currentSectionIndex],

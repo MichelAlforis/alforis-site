@@ -892,6 +892,10 @@ p {
   z-index: 9999;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1097,6 +1101,22 @@ p {
   height: 10rem;
 }
 
+.h-\[1080px\] {
+  height: 1080px;
+}
+
+.h-\[844px\] {
+  height: 844px;
+}
+
+.h-\[100dvh\] {
+  height: 100dvh;
+}
+
+.h-dvh {
+  height: 100dvh;
+}
+
 .max-h-\[25vh\] {
   max-height: 25vh;
 }
@@ -1123,6 +1143,10 @@ p {
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[768px\] {
+  min-height: 768px;
 }
 
 .w-20 {
@@ -1225,6 +1249,10 @@ p {
   max-width: 20rem;
 }
 
+.max-w-none {
+  max-width: none;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1280,8 +1308,20 @@ p {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
+.snap-none {
+  scroll-snap-type: none;
+}
+
 .snap-y {
   scroll-snap-type: y var(--tw-scroll-snap-strictness);
+}
+
+.snap-mandatory {
+  --tw-scroll-snap-strictness: mandatory;
 }
 
 .snap-proximity {
@@ -1424,6 +1464,10 @@ p {
   overflow-y: auto;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
 .whitespace-pre-line {
   white-space: pre-line;
 }
@@ -1561,6 +1605,10 @@ p {
   --tw-bg-opacity: 0.8;
 }
 
+.bg-opacity-0 {
+  --tw-bg-opacity: 0;
+}
+
 .bg-approach-mobile {
   background-image: url('/assets/img/M_approach.webp');
 }
@@ -1581,12 +1629,56 @@ p {
   background-image: url('/assets/img/M_services.webp');
 }
 
+.bg-approach-desktop {
+  background-image: url('/assets/img/D_approach.webp');
+}
+
+.bg-contact-desktop {
+  background-image: url('/assets/img/D_contact.webp');
+}
+
+.bg-figures-desktop {
+  background-image: url('/assets/img/D_keyfigures.webp');
+}
+
+.bg-hero-desktop {
+  background-image: url('/assets/img/D_intro.webp');
+}
+
+.bg-services-desktop {
+  background-image: url('/assets/img/D_services.webp');
+}
+
 .bg-cover {
   background-size: cover;
 }
 
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-\[length\:100\%_100\%\] {
+  background-size: 100% 100%;
+}
+
+.bg-\[length\:100\%\] {
+  background-size: 100%;
+}
+
+.bg-\[length\:_100\%\] {
+  background-size: 100%;
+}
+
+.bg-\[length\:auto_100\%\] {
+  background-size: auto 100%;
+}
+
 .bg-center {
   background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .fill-ardoise {
@@ -2007,6 +2099,10 @@ p {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.will-change-transform {
+  will-change: transform;
+}
+
 .fill-ardoise {
   --fill-color: #2E3A48;
 }
@@ -2235,6 +2331,14 @@ html, body, #__next {
 }
 
 @media (min-width: 640px) {
+  .sm\:block {
+    display: block;
+  }
+
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:h-32 {
     height: 8rem;
   }
@@ -2283,6 +2387,10 @@ html, body, #__next {
     background-image: url('/assets/img/D_services.webp');
   }
 
+  .sm\:bg-cover {
+    background-size: cover;
+  }
+
   .sm\:p-8 {
     padding: 2rem;
   }
@@ -2328,6 +2436,10 @@ html, body, #__next {
     height: 50px;
   }
 
+  .md\:h-\[1080px\] {
+    height: 1080px;
+  }
+
   .md\:min-h-\[1028px\] {
     min-height: 1028px;
   }
@@ -2346,6 +2458,14 @@ html, body, #__next {
 
   .md\:w-\[280px\] {
     width: 280px;
+  }
+
+  .md\:\!snap-none {
+    scroll-snap-type: none !important;
+  }
+
+  .md\:snap-none {
+    scroll-snap-type: none;
   }
 
   .md\:grid-cols-1 {
@@ -2382,6 +2502,10 @@ html, body, #__next {
 
   .md\:justify-start {
     justify-content: flex-start;
+  }
+
+  .md\:overflow-hidden {
+    overflow: hidden;
   }
 
   .md\:p-10 {

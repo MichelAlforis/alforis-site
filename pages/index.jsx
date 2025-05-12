@@ -1,61 +1,29 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-
 import HeroSection from '@/components/home/HeroSection'
 import ServicesCards from '@/components/home/ServicesCards'
 import Animated from '@/components/animated/Animated'
 import KeyFigures from '@/components/home/KeyFigures'
 import Contact from '@/components/home/Contact'
-import Approach from "@/components/home/ApproachSection"
+import useControlledScrollSections from '@/hooks/useControlledScrollSections'
+import useButtonHover from '@/hooks/useButtonHover'
+import Approach from '@/components/home/ApproachSection'
 import AlforisHead from '@/components/AlforisHead'
 
-const bgClasses = {
-  hero: 'bg-hero-mobile sm:bg-hero-desktop',
-  services: 'bg-services-mobile sm:bg-services-desktop',
-  approach: 'bg-approach-mobile sm:bg-approach-desktop',
-  figures: 'bg-figures-mobile sm:bg-figures-desktop',
-  contact: 'bg-contact-mobile sm:bg-contact-desktop',
-}
-
-// ✅ Composant par section avec useInView encapsulé
-function SectionWrapper({ id, Component, onVisible }) {
-  const [ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: false,
-  })
-
-  useEffect(() => {
-    if (inView) {
-      onVisible(id)
-    }
-  }, [inView, id, onVisible])
-
-  return (
-    <section
-      id={id}
-      ref={ref}
-      className="snap-start relative min-h-screen flex flex-col justify-center items-center animate-fade-in"
-    >
-      <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
-        <Component extraClass="w-full" />
-      </div>
-    </section>
-  )
-}
-
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('hero')
-
   const sectionsData = [
     { id: 'hero', Component: HeroSection },
     { id: 'services', Component: ServicesCards },
     { id: 'approach', Component: Approach },
     { id: 'figures', Component: KeyFigures },
     { id: 'contact', Component: Contact },
-  ]
+  ];
+
+  const { currentSection, currentSectionIndex, goToNextSection, goToPrevSection, isScrolling } =
+    useControlledScrollSections(sectionsData.map(section => section.id))
+
+  const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
 
   return (
     <>
@@ -65,34 +33,47 @@ export default function Home() {
         path="/index"
       />
 
-      {/* ✅ FOND animé avec AnimatePresence */}
-      <AnimatePresence mode="wait">
-  <motion.div
-    key={activeSection}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.6 }}
-    className={`
-      fixed inset-0 w-full z-1 bg-cover bg-center
-      min-h-[700px] md:min-h-[1028px]
-      ${bgClasses[activeSection]}`} 
-  />
-</AnimatePresence>
-{console.log('activeSection is:', activeSection)}
-{console.log('🔍 activeSection:', activeSection)}
-{console.log('🧱 classes BG appliquées:', bgClasses[activeSection])}
-
-
       <Animated.Page>
-        <main className="relative pt-0 min-h-screen w-full text-anthracite snap-y snap-proximity">
-          {sectionsData.map(({ id, Component }) => (
-            <SectionWrapper
-              key={id}
-              id={id}
-              Component={Component}
-              onVisible={setActiveSection}
-            />
+        <main
+          id="scroll-container"
+          className="relative w-full overflow-y-auto text-anthracite snap-y snap-mandatory md:overflow-hidden md:snap-none"
+        >
+          {sectionsData.map(({ id, Component }, index) => (
+            <section
+  key={index}
+  id={id}
+  className="relative h-[100dvh] snap-start overflow-hidden"
+>
+  {/* ✅ Fond mobile */}
+  <div
+    className={`
+      absolute inset-0 w-full h-full sm:hidden z-0 bg-center bg-no-repeat bg-[length:auto_100%]
+      ${id === 'hero' ? 'bg-hero-mobile' : ''}
+      ${id === 'services' ? 'bg-services-mobile' : ''}
+      ${id === 'approach' ? 'bg-approach-mobile' : ''}
+      ${id === 'figures' ? 'bg-figures-mobile' : ''}
+      ${id === 'contact' ? 'bg-contact-mobile' : ''}
+    `}
+  />
+
+  {/* ✅ Fond desktop */}
+  <div
+    className={`
+      absolute inset-0 w-full h-full hidden sm:block z-0 bg-cover bg-center
+      ${id === 'hero' ? 'bg-hero-desktop' : ''}
+      ${id === 'services' ? 'bg-services-desktop' : ''}
+      ${id === 'approach' ? 'bg-approach-desktop' : ''}
+      ${id === 'figures' ? 'bg-figures-desktop' : ''}
+      ${id === 'contact' ? 'bg-contact-desktop' : ''}
+    `}
+  />
+
+  {/* ✅ Contenu */}
+  <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
+    <Component extraClass="w-full" />
+  </div>
+</section>
+
           ))}
         </main>
       </Animated.Page>
