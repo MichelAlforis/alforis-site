@@ -67,15 +67,22 @@ export default function Home() {
 
       {/* ✅ FOND animé avec AnimatePresence */}
       <AnimatePresence mode="wait">
-        <motion.div
-          key={activeSection}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`fixed top-0 left-0 w-full h-full z-[-1] bg-cover bg-center ${bgClasses[activeSection]}`}
-        />
-      </AnimatePresence>
+  <motion.div
+    key={activeSection}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.6 }}
+    className={`
+      fixed inset-0 w-full z-1 bg-cover bg-center
+      min-h-[700px] md:min-h-[1028px]
+      ${bgClasses[activeSection]}`} 
+  />
+</AnimatePresence>
+{console.log('activeSection is:', activeSection)}
+{console.log('🔍 activeSection:', activeSection)}
+{console.log('🧱 classes BG appliquées:', bgClasses[activeSection])}
+
 
       <Animated.Page>
         <main className="relative pt-0 min-h-screen w-full text-anthracite snap-y snap-proximity">

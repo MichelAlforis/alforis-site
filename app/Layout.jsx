@@ -6,18 +6,26 @@ import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import { useRef } from 'react'
 
 export default function Layout({ children }) {
-  const layoutRef = useRef(null)
   return (
-    <>
-      <div ref={layoutRef} id="site-layout" className="site-layout min-h-screen flex flex-col bg-ivoire">
-        <Navbar />
-        <main className="flex-1 pt-16">
-        <ScrollManager />
-        <MobileScrollProgress containerRef={layoutRef} />
+    <body className="relative bg-ivoire text-anthracite">
+      <div id="app-root" className="relative z-base">
+        <header className="relative z-nav">
+          <Navbar />
+        </header>
+
+        <main className="relative z-base">
           {children}
         </main>
-        <Footer />
+
+        <footer className="relative z-footer">
+          <Footer />
+        </footer>
+
+        {/* Eléments visuels par-dessus le contenu (ex: sceau, cookie, modales) */}
+        <div className="fixed inset-0 pointer-events-none z-overlay">
+          {/* Sceau, décor scrollé, ou effets visuels */}
+        </div>
       </div>
-    </>
-  )
+    </body>
+  );
 }

@@ -138,6 +138,18 @@ html, body, #__next {
   .main-content {
     padding-top: var(--nav-height, 4rem);
   }
+  .z-base {
+    z-index: 10;
+  }
+  .z-overlay {
+    z-index: 40;
+  }
+  .z-nav {
+    z-index: 50;
+  }
+  .z-modal {
+    z-index: 60;
+  }
 
     /* Home page spécifique : pas de padding-top */
     .home-content {
