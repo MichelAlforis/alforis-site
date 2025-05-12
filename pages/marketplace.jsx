@@ -1,4 +1,4 @@
-// pages/marketplace.jsx
+'use client'
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
@@ -6,11 +6,11 @@ import Animated from '@/components/animated/Animated'
 import AlforisHead from '@/components/AlforisHead'
 import MarketplaceGrid from '@/components/MarketPlace/MarketplaceGrid'
 import HonorairesSimulator from '@/components/MarketPlace/HonorairesSimulator'
-import offres from '@/content/Offres/offres'
+import Image from 'next/image'
 
 export default function MarketplacePage() {
   const [cible, setCible] = useState('particulier')
-  const [view, setView] = useState('offres') // 'offres' ou 'simulator'
+  const [view, setView] = useState('offres')
 
   return (
     <>
@@ -28,63 +28,69 @@ export default function MarketplacePage() {
               Marketplace Alforis
             </Animated.H1>
 
-            <div className="text-center mb-12">
-              <p className="text-lg md:text-xl mb-6">
-                Des prestations de conseil transparentes et premium.
-              </p>
-              <div className="inline-flex gap-4">
-                <button
-                  className={`btn-alforis-outline ${
-                    view === 'offres' && cible === 'particulier'
-                      ? 'bg-doré text-ardoise'
-                      : ''
-                  }`}
-                  onClick={() => {
-                    setCible('particulier')
-                    setView('offres')
-                  }}
-                >
-                  Particulier
-                </button>
-                <button
-                  className={`btn-alforis-outline ${
-                    view === 'offres' && cible === 'dirigeant'
-                      ? 'bg-doré text-ardoise'
-                      : ''
-                  }`}
-                  onClick={() => {
-                    setCible('dirigeant')
-                    setView('offres')
-                  }}
-                >
-                  Dirigeant
-                </button>
-                <button
-                  className={`btn-alforis-outline ${
-                    view === 'simulator' ? 'bg-doré text-ardoise' : ''
-                  }`}
-                  onClick={() => setView('simulator')}
-                >
-                  Honoraires sur encours
-                </button>
-              </div>
+            {/* 🔀 Boutons de filtre – on autorise le retour à la ligne */}
+            <div className="text-center mb-12 inline-flex flex-wrap gap-4 justify-center">
+              <button
+                className={`btn-alforis-outline ${
+                  view === 'offres' && cible === 'particulier'
+                    ? 'bg-doré text-ardoise'
+                    : ''
+                }`}
+                onClick={() => {
+                  setCible('particulier')
+                  setView('offres')
+                }}
+              >
+                Particulier
+              </button>
+
+              <button
+                className={`btn-alforis-outline ${
+                  view === 'offres' && cible === 'dirigeant'
+                    ? 'bg-doré text-ardoise'
+                    : ''
+                }`}
+                onClick={() => {
+                  setCible('dirigeant')
+                  setView('offres')
+                }}
+              >
+                Dirigeant
+              </button>
+
+              <button
+                className={`btn-alforis-outline ${
+                  view === 'simulator' ? 'bg-doré text-ardoise' : ''
+                }`}
+                onClick={() => setView('simulator')}
+              >
+                Honoraires sur encours
+              </button>
             </div>
 
+            {/* Affichage conditionnel */}
             {view === 'offres' && <MarketplaceGrid cible={cible} />}
 
             {view === 'simulator' && (
-                <div className="mt-16 text-center">
-                    {/* En-tête pour le simulateur */}
-                    <img
+              <div className="mt-16 text-center">
+                {/* on cache l’image sur mobile */}
+                <div className="hidden sm:block mx-auto mb-8">
+                  <Image
                     src="/assets/img/marketplace/lordenargent_simul.webp"
                     alt="Simulation d’honoraires"
-                    className="mx-auto mb-8 w-full max-w-2xl rounded-lg shadow-md object-cover"
-                    />
-
-                    <HonorairesSimulator />
+                    width={1600}
+                    height={900}
+                    quality={80}
+                    placeholder="blur"
+                    blurDataURL="/assets/img/marketplace/lordenargent_simul-blur.webp"
+                    loading="lazy"
+                    decoding="async"
+                    className="rounded-lg shadow-md object-cover"
+                  />
                 </div>
-                )}
-
+                <HonorairesSimulator />
+              </div>
+            )}
           </div>
         </motion.main>
       </Animated.Page>

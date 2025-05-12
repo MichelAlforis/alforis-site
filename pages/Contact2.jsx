@@ -14,7 +14,7 @@ export default function Contact({ extraClass = '' }) {
         description="Découvrez notre approche patrimoniale sur mesure à travers notre page contact."
         path="/contact"
       />
-<main className={`pt-[var(--nav-height)] flex items-center justify-center h-screen bg-ardoise shadow-lg rounded-2xl  ${extraClass}`}>
+<main className={`pt-[var(--nav-height)] flex items-center justify-center`}>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 
@@ -25,15 +25,15 @@ export default function Contact({ extraClass = '' }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl text-doré font-semibold mb-6">
+            <h1 className="text-3xl text-ardoise font-semibold mb-6">
               Entrer en contact avec Alforis
             </h1>
-            <p className="text-base text-white font-light mb-6">
+            <p className="text-base text-acier font-light mb-6">
               Vous souhaitez poser une question, planifier une rencontre ou recevoir une documentation ?  
               Laissez-nous un message ou prenez directement rendez-vous.
             </p>
 
-            <ul className="text-sm text-white space-y-2">
+            <ul className="text-sm text-acier space-y-2">
               <li><strong>Email :</strong> michel.marques@alforis.fr</li>
               <li><strong>Téléphone :</strong> 06 46 46 22 91</li>
               <li><strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris</li>

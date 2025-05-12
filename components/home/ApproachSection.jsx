@@ -61,11 +61,10 @@ de votre horizon personnel, et de vos contraintes concrètes.`,
     >
       <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
         {cards.map(({ href, title, text, Svg, strokeWidth }, i) => (
-          <Link key={i} href={href} passHref>
-            <a className="block group">
+          <Link key={i} href={href} passHref className="block group">
               <div className="flex flex-col md:flex-row items-center bg-white bg-opacity-80 shadow-lg rounded-2xl overflow-hidden transition-transform hover:scale-105">
                 {/* Illustration */}
-                <div className="flex-shrink-0 p-6 flex items-center justify-center">
+                <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
                   <AnimatedSVGRenderer
                     SvgComponent={Svg}
                     wrapperClassName="w-20 h-20 md:w-24 md:h-24"
@@ -96,7 +95,6 @@ de votre horizon personnel, et de vos contraintes concrètes.`,
                   </Animated.Div>
                 </div>
               </div>
-            </a>
           </Link>
         ))}
       </div>

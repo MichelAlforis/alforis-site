@@ -1259,6 +1259,10 @@ p {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -2183,6 +2187,14 @@ html, body, #__next {
 }
 
 @media (min-width: 640px) {
+  .sm\:block {
+    display: block;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:h-32 {
     height: 8rem;
   }
