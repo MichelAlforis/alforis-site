@@ -18,7 +18,7 @@ export default function Document() {
 
         {/* ✅ Image en Preload */}
         <link rel="preload" as="image" href="/assets/img/M_intro.webp" type="image/webp"/>
-        
+      
       </Head>
       <body>
         <Main />

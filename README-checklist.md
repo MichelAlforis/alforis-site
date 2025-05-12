@@ -28,20 +28,20 @@
   - [x] Balises `og:title`, `og:description`, `og:image`
   - [x] Favicon
 - [x] URL claires (`/prendre-rendez-vous`, `/contact`, etc.)
-- [ ] Sitemap généré (si Next.js app directory : `/sitemap.xml` auto ou manuel)
+- [x] Sitemap généré (si Next.js app directory : `/sitemap.xml` auto ou manuel)
 
 ## 📈 Performance & accessibilité
-- [ ] Google Lighthouse > 90 sur mobile ET desktop
-- [ ] Balises `alt` sur toutes les images
-- [ ] Contrastes couleurs suffisants
-- [ ] Pas de scroll bloquant
-- [ ] Préchargement des assets critiques (logo, SVG animés…)
+- [x] Google Lighthouse > 90 sur mobile ET desktop
+- [x] Balises `alt` sur toutes les images
+- [x] Contrastes couleurs suffisants
+- [x] Pas de scroll bloquant
+- [x] Préchargement des assets critiques (logo, SVG animés…)
 
 ## 🚀 Déploiement & livraison
 - [x] Déploiement automatique via Vercel
 - [x] Push effectué sur `main`
 - [x] Tag `v1.0.0` posé
-- [ ] Domaine personnalisé validé sur Cal.com (`alforis.vercel.app`, `alforis.fr`)
-- [ ] Domaine en HTTPS / SSL activé
+- [x] Domaine personnalisé validé sur Cal.com (`alforis.vercel.app`, `alforis.fr`)
+- [x] Domaine en HTTPS / SSL activé
 
 _Généré le 07/05/2025_

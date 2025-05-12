@@ -7,6 +7,19 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    'bg-hero-mobile',
+    'sm:bg-hero-desktop',
+    'bg-services-mobile',
+    'sm:bg-services-desktop',
+    'bg-approach-mobile',
+    'sm:bg-approach-desktop',
+    'bg-figures-mobile',
+    'sm:bg-figures-desktop',
+    'bg-contact-mobile',
+    'sm:bg-contact-desktop',
+  ],
+  
   theme: {
     extend: {
       colors: {
@@ -68,7 +81,9 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(
+      
+      function ({ matchUtilities, theme }) {
       const flattenColorPalette = (colors) =>
         Object.entries(colors).flatMap(([key, value]) =>
           typeof value === 'object'
@@ -78,7 +93,7 @@ module.exports = {
               ])
             : [[key, value]]
         );
-
+      
       const colors = flattenColorPalette(theme('colors'));
 
       matchUtilities(
@@ -95,5 +110,13 @@ module.exports = {
         { values: Object.fromEntries(colors) }
       );
     }),
+
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scroll-touch': {
+          '-webkit-overflow-scrolling': 'touch',
+        },
+      });
+    },
   ],
 };

@@ -10,6 +10,8 @@ function createComponent(tag) {
   })
 }
 
+
+
 const ClientOnlyMotion = forwardRef(function ClientOnlyMotion({ as = 'div', children, ...props }, ref) {
   const MotionTag = motion[as] || motion.div
   return <MotionTag ref={ref} {...props}>{children}</MotionTag>

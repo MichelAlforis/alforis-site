@@ -1,83 +1,94 @@
 'use client'
-// Ton fichier hébergé en ligne ici
 
-import dynamic from "next/dynamic";
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
 import HeroSection from '@/components/home/HeroSection'
 import ServicesCards from '@/components/home/ServicesCards'
 import Animated from '@/components/animated/Animated'
 import KeyFigures from '@/components/home/KeyFigures'
 import Contact from '@/components/home/Contact'
-import useControlledScrollSections from '@/hooks/useControlledScrollSections'
-import useButtonHover from '@/hooks/useButtonHover'
 import Approach from "@/components/home/ApproachSection"
 import AlforisHead from '@/components/AlforisHead'
 
+const bgClasses = {
+  hero: 'bg-hero-mobile sm:bg-hero-desktop',
+  services: 'bg-services-mobile sm:bg-services-desktop',
+  approach: 'bg-approach-mobile sm:bg-approach-desktop',
+  figures: 'bg-figures-mobile sm:bg-figures-desktop',
+  contact: 'bg-contact-mobile sm:bg-contact-desktop',
+}
+
+// ✅ Composant par section avec useInView encapsulé
+function SectionWrapper({ id, Component, onVisible }) {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      onVisible(id)
+    }
+  }, [inView, id, onVisible])
+
+  return (
+    <section
+      id={id}
+      ref={ref}
+      className="snap-start relative min-h-screen flex flex-col justify-center items-center animate-fade-in"
+    >
+      <div className="relative z-10 w-full h-full flex items-center justify-center px-4">
+        <Component extraClass="w-full" />
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('hero')
+
   const sectionsData = [
-    {
-      id: 'hero',
-      Component: HeroSection,
-      extraClass: 'h-[1080px] flex flex-col justify-center items-center',
-    },
-    {
-      id: 'services',
-      Component: ServicesCards,
-      extraClass: 'h-[1080px] flex flex-col justify-center items-center',
-    },
-    {
-      id: 'approach',
-      Component: Approach,
-      extraClass: 'h-[1080px] overflow: visible flex flex-col justify-center items-center',
-    },
-    {
-      id: 'figures',
-      Component: KeyFigures,
-      extraClass: 'h-[1080px] flex flex-col justify-center items-center',
-    },
-    {
-      id: 'contact',
-      Component: Contact,
-      extraClass: 'h-[1080px] flex flex-col justify-center items-center bg-opacity-0',
-    },
-  ];
-
-  const { currentSection, currentSectionIndex, goToNextSection, goToPrevSection, isScrolling } =
-    useControlledScrollSections(sectionsData.map(section => section.id))
-
-  const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
+    { id: 'hero', Component: HeroSection },
+    { id: 'services', Component: ServicesCards },
+    { id: 'approach', Component: Approach },
+    { id: 'figures', Component: KeyFigures },
+    { id: 'contact', Component: Contact },
+  ]
 
   return (
     <>
-<AlforisHead title="ApprochePersonnalisee – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee." path="/index" />
+      <AlforisHead
+        title="ApprochePersonnalisee – Alforis"
+        description="Découvrez notre approche patrimoniale sur mesure à travers notre page approchepersonnalisee."
+        path="/index"
+      />
 
-<Animated.Page>
-    <main className="relative pt-0 min-h-screen w-full bg-ivoire text-anthracite snap-y snap-mandatory">
-      {sectionsData.map(({ id, Component, image, extraClass }, index) => (
-        <section
-          key={index}
-          id={id}
-          className={`snap-start relative ${extraClass} animate-fade-in`}
-        >
-          <div
-            className={`
-              absolute inset-0 w-full h-full z-0 bg-cover bg-center
-              ${id === 'hero' ? 'bg-hero-mobile sm:bg-hero-desktop' : ''}
-              ${id === 'services' ? 'bg-services-mobile sm:bg-services-desktop' : ''}
-              ${id === 'approach' ? 'bg-approach-mobile sm:bg-approach-desktop' : ''}
-              ${id === 'figures' ? 'bg-figures-mobile sm:bg-figures-desktop' : ''}
-              ${id === 'contact' ? 'bg-contact-mobile sm:bg-contact-desktop' : ''}
-            `}
-          />
+      {/* ✅ FOND animé avec AnimatePresence */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeSection}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+          className={`fixed top-0 left-0 w-full h-full z-[-1] bg-cover bg-center ${bgClasses[activeSection]}`}
+        />
+      </AnimatePresence>
 
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
-          <Component extraClass={`w-full px-4 ${extraClass}`} />
-          </div>
-        </section>
-      ))}
-    </main>
-    </Animated.Page>
+      <Animated.Page>
+        <main className="relative pt-0 min-h-screen w-full text-anthracite snap-y snap-proximity">
+          {sectionsData.map(({ id, Component }) => (
+            <SectionWrapper
+              key={id}
+              id={id}
+              Component={Component}
+              onVisible={setActiveSection}
+            />
+          ))}
+        </main>
+      </Animated.Page>
     </>
-    
   )
 }
