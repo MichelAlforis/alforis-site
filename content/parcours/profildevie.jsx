@@ -6,7 +6,7 @@ export const meta = {
   slug: "profil-de-vie",
   type: "Parcours",
   description: "Découvrez quel type de trajectoire patrimoniale vous correspond le mieux.",
-  image: "/assets/parcours/pvd.png",
+  image: "/assets/img/parcours/pvd.png",
   tags: ["profil", "patrimoine", "introspection", "parcours de vie"],
   questions,
   profilesData,

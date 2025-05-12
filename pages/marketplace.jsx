@@ -1,8 +1,8 @@
 // pages/marketplace.jsx
 
-import Animated from '@/components/animated/Animated'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import Animated from '@/components/animated/Animated'
 import AlforisHead from '@/components/AlforisHead'
 import MarketplaceGrid from '@/components/MarketPlace/MarketplaceGrid'
 import HonorairesSimulator from '@/components/MarketPlace/HonorairesSimulator'
@@ -10,6 +10,7 @@ import offres from '@/content/Offres/offres'
 
 export default function MarketplacePage() {
   const [cible, setCible] = useState('particulier')
+  const [view, setView] = useState('offres') // 'offres' ou 'simulator'
 
   return (
     <>
@@ -33,25 +34,57 @@ export default function MarketplacePage() {
               </p>
               <div className="inline-flex gap-4">
                 <button
-                  className={`btn-alforis-outline ${cible === 'particulier' ? 'bg-doré text-ardoise' : ''}`}
-                  onClick={() => setCible('particulier')}
+                  className={`btn-alforis-outline ${
+                    view === 'offres' && cible === 'particulier'
+                      ? 'bg-doré text-ardoise'
+                      : ''
+                  }`}
+                  onClick={() => {
+                    setCible('particulier')
+                    setView('offres')
+                  }}
                 >
                   Particulier
                 </button>
                 <button
-                  className={`btn-alforis-outline ${cible === 'dirigeant' ? 'bg-doré text-ardoise' : ''}`}
-                  onClick={() => setCible('dirigeant')}
+                  className={`btn-alforis-outline ${
+                    view === 'offres' && cible === 'dirigeant'
+                      ? 'bg-doré text-ardoise'
+                      : ''
+                  }`}
+                  onClick={() => {
+                    setCible('dirigeant')
+                    setView('offres')
+                  }}
                 >
                   Dirigeant
+                </button>
+                <button
+                  className={`btn-alforis-outline ${
+                    view === 'simulator' ? 'bg-doré text-ardoise' : ''
+                  }`}
+                  onClick={() => setView('simulator')}
+                >
+                  Honoraires sur encours
                 </button>
               </div>
             </div>
 
-            <MarketplaceGrid cible={cible} />
+            {view === 'offres' && <MarketplaceGrid cible={cible} />}
 
-            <div className="mt-16">
-              <HonorairesSimulator />
-            </div>
+            {view === 'simulator' && (
+                <div className="mt-16 text-center">
+                    {/* En-tête pour le simulateur */}
+                    <img
+                    src="/assets/img/marketplace/lordenargent_simul.webp"
+                    alt="Simulation d’honoraires"
+                    className="mx-auto mb-8 w-full max-w-2xl rounded-lg shadow-md object-cover"
+                    />
+
+                    <HonorairesSimulator />
+                </div>
+                )}
+
           </div>
         </motion.main>
       </Animated.Page>

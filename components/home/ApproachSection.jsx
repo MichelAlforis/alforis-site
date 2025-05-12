@@ -75,7 +75,7 @@ de votre horizon personnel, et de vos contraintes concrètes.`,
                     delayStep={0.8}
                     tiltIntensity={1.5}
                     preserveAspectRatio="xMidYMid meet"
-                    hoverEffect={false}
+                    hoverEffect={true}
                     pathLengthEffect={true}
                   />
                 </div>
