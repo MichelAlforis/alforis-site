@@ -7,7 +7,7 @@ export default function HonorairesSimulator() {
 
   return (
     <section className="px-6 py-12 bg-ivoire rounded-2xl shadow-md max-w-4xl mx-auto">
-      <h3 className="text-3xl font-title text-ardoise mb-4">Simulation d’honoraires</h3>
+      <h1>Simulation d’honoraires</h1>
       <p className="mb-6">Entrez votre encours :</p>
       <input
         type="number"
