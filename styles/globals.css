@@ -155,7 +155,10 @@ html, body, #__next {
     .home-content {
       padding-top: 0;
     }
-
+    body.lock-scroll {
+      overflow: hidden;
+    }
+    
   svg {
     stroke: var(--stroke-color, currentColor);
     fill: var(--fill-color, none);

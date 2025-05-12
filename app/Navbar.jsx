@@ -7,10 +7,12 @@ import { Menu, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/animated/NavbarLogo'
 
+
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-
+  
   // Liste des liens de la navbar (déplacée ici pour qu'elle soit accessible dans tout le composant)
   const links = [
     { href: '/', label: 'Accueil', id: '0' },

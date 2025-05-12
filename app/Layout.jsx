@@ -1,12 +1,17 @@
 'use client'
 import Navbar from '@/app/Navbar'
 import Footer from '@/app/Footer'
+import IntroOverlay from '@/components/animated/IntroOverlay'
 import ScrollManager from '@/components/animated/ScrollManager'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
-import { useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Layout({ children }) {
+
+
   return (
+    <>
+
     <body className="relative bg-ivoire text-anthracite">
       <div id="app-root" className="relative z-base">
         <header className="relative z-nav">
@@ -27,5 +32,6 @@ export default function Layout({ children }) {
         </div>
       </div>
     </body>
+    </>
   );
 }
