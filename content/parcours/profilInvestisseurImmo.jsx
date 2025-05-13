@@ -11,5 +11,7 @@ export const meta = {
   image: "/assets/img/parcours/investisseur-immo.png",
   tags: ["immobilier", "investissement", "patrimoine", "risque", "rendement"],
   questions,
-  profilesData
+  profilesData,
+  keywords,
+  scoringMatrix
   }

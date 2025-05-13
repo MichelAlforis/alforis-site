@@ -55,3 +55,9 @@ export const profilesData = {
     }
   }
 }
+
+export const keywords = {
+  prepare: ["donation", "testament", "SCI", "assurance-vie", "planification", "anticipation", "déjà fait"],
+  indecis: ["je ne sais pas", "je devrais", "à faire", "pas encore", "frein", "compliqué", "pas commencé"],
+  delegateur: ["expert", "conseiller", "je délègue", "prise en charge", "je veux qu’on le fasse", "accompagnement"]
+}

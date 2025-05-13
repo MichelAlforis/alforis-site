@@ -84,3 +84,54 @@ export const questions = [
     options: null
   }
 ]
+
+export const scoringMatrix = [
+// Q1
+  {
+    "Le Conservateur": [5, 4, 2, 1, 1],
+    "L'Audacieux": [1, 2, 4, 5, 3],
+    "Le Stratège": [3, 3, 4, 3, 5],
+  },
+  // Q2
+  {
+    "Le Conservateur": [5, 4, 3, 2, 1],
+    "L'Audacieux": [1, 2, 3, 4, 5],
+    "Le Stratège": [2, 3, 5, 3, 2],
+  },
+  // Q3
+  {
+    "Le Conservateur": [5, 2, 4, 1, 3],
+    "L'Audacieux": [2, 5, 3, 4, 5],
+    "Le Stratège": [3, 3, 5, 3, 4],
+  },
+  // Q4
+  {
+    "Le Conservateur": [5, 4, 3, 2, 1],
+    "L'Audacieux": [1, 2, 3, 4, 5],
+    "Le Stratège": [2, 3, 5, 4, 3],
+  },
+  // Q5
+  {
+    "Le Conservateur": [5, 4, 2, 1, 1],
+    "L'Audacieux": [2, 3, 4, 5, 1],
+    "Le Stratège": [3, 4, 5, 3, 2],
+  },
+  // Q6
+  {
+    "Le Conservateur": [5, 4, 3, 2, 1],
+    "L'Audacieux": [1, 2, 3, 4, 5],
+    "Le Stratège": [2, 3, 5, 4, 2],
+  },
+  // Q7
+  {
+    "Le Conservateur": [5, 3, 2, 1, 2],
+    "L'Audacieux": [1, 5, 3, 4, 2],
+    "Le Stratège": [3, 4, 5, 2, 1],
+  },
+  // Q8
+  {
+    "Le Conservateur": [5, 4, 3, 2, 1],
+    "L'Audacieux": [1, 2, 3, 4, 5],
+    "Le Stratège": [2, 3, 5, 4, 2],
+  }
+]

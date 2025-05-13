@@ -55,3 +55,9 @@ export const profilesData = {
     }
   }
 }
+
+export const keywords = {
+  conservateur: ["capital garanti", "long terme", "SCPI", "faible", "sécurité", "stabilité", "peu risqué", "rentabilité modérée"],
+  audacieux: ["rendement élevé", "risque", "vacance locative", "meublé", "opportunité", "levier", "fort potentiel"],
+  stratège: ["équilibre", "diversification", "patrimoine équilibré", "portefeuille mixte", "stabilité et rendement"]
+}

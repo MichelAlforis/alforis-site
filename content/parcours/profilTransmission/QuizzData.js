@@ -64,3 +64,42 @@ export const questions = [
     options: null
   }
 ]
+
+export const scoringMatrix = [
+  // Q1
+  {
+    "Le Préparé": [5, 3, 1, 2, 1],
+    "L'Indécis": [1, 3, 5, 4, 5],
+    "Le Délégateur": [2, 3, 4, 3, 2],
+  },
+  // Q2
+  {
+    "Le Préparé": [5, 4, 3, 2, 1],
+    "L'Indécis": [3, 4, 3, 2, 1],
+    "Le Délégateur": [2, 2, 3, 4, 5],
+  },
+  // Q3
+  {
+    "Le Préparé": [5, 4, 3, 2, 1],
+    "L'Indécis": [2, 3, 4, 5, 5],
+    "Le Délégateur": [3, 3, 3, 3, 3],
+  },
+  // Q4
+  {
+    "Le Préparé": [5, 4, 4, 4, 1],
+    "L'Indécis": [3, 2, 2, 2, 5],
+    "Le Délégateur": [2, 3, 3, 3, 2],
+  },
+  // Q5
+  {
+    "Le Préparé": [5, 4, 3, 2, 1],
+    "L'Indécis": [2, 3, 3, 2, 2],
+    "Le Délégateur": [3, 3, 4, 5, 5],
+  },
+  // Q6
+  {
+    "Le Préparé": [5, 4, 3, 2, 1],
+    "L'Indécis": [2, 3, 3, 3, 4],
+    "Le Délégateur": [3, 3, 3, 4, 5],
+  }
+]

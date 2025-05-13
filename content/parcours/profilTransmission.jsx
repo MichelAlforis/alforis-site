@@ -9,5 +9,7 @@ export const meta = {
   image: "/assets/img/parcours/transmission.png",
   tags: ["transmission", "héritage", "donation", "testament", "SCI"],
   questions,
-  profilesData
+  profilesData,
+    keywords,
+  scoringMatrix
 }
