@@ -7,6 +7,8 @@ import { Progress } from "@/components/ui/progress"
 import ContactFinal from "@/components/parcours/ContactFinal"
 import Button from '@/components/ui/Button'
 import ClapDeFin from "./ClapDeFin"
+import AlforisHead from "../AlforisHead"
+
 
 export default function ParcoursFormulaire({ meta, slug }) {
   const { title, image, questions, scoringMatrix, keywords, profilesData } = meta
@@ -89,9 +91,16 @@ export default function ParcoursFormulaire({ meta, slug }) {
   }
 
   return (
+        <> 
+          <AlforisHead
+        title={`${meta.title} – Alforis`}
+        description={meta.description}
+        path={`/${meta.slug}`}
+      />
+
     <div className="profil-wrapper py-12 px-6 space-y-12">
       {/* Progression */}
-      <div className="sticky top-20 z-30 bg-ivoire/80 backdrop-blur-sm border-b border-light py-4 mb-8">
+      <div className="sticky top-20 z-30 bg-ivoire/80 border-b border-light py-4 mb-8">
         <div className="max-w-2xl mx-auto px-6">
           <Progress value={getProgressValue()} className="progress-bar-inner" />
         </div>
@@ -163,5 +172,6 @@ export default function ParcoursFormulaire({ meta, slug }) {
         <ClapDeFin profil={profile} meta={meta} />
       )}
     </div>
+    </> 
   )
 }

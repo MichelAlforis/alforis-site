@@ -2,7 +2,7 @@
 
 /* Style de la navbar */
 nav {
-    @apply flex justify-between items-center px-4 bg-ivoire/80 backdrop-blur-md shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50;
+    @apply flex justify-between items-center px-4 bg-ivoire/80 shadow-sm border-b border-ardoise/30 fixed top-0 w-full z-50;
     height: 80px; /* Ajouté pour garantir une hauteur fixe de 80px */
   }
 /* Style des liens dans la navbar */

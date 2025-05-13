@@ -1,8 +1,6 @@
 'use client'
 import Navbar from '@/app/Navbar'
 import Footer from '@/app/Footer'
-import IntroOverlay from '@/components/animated/IntroOverlay'
-import ScrollManager from '@/components/animated/ScrollManager'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import React, { useState, useEffect } from 'react'
 
@@ -12,8 +10,7 @@ export default function Layout({ children }) {
   return (
     <>
 
-    <body className="relative bg-ivoire text-anthracite">
-      <div id="app-root" className="relative z-base">
+      <div id="app-root" className="relative bg-ivoire text-anthracite z-base">
         <header className="relative z-nav">
           <Navbar />
         </header>
@@ -31,7 +28,6 @@ export default function Layout({ children }) {
           {/* Sceau, décor scrollé, ou effets visuels */}
         </div>
       </div>
-    </body>
     </>
   );
 }

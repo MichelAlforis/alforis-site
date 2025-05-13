@@ -91,7 +91,7 @@ export default function ProfilDeVieFormulaire() {
   return (
     <div className="profil-wrapper py-12 px-6 space-y-12">
 
-      <div className="sticky top-20 z-30 bg-ivoire/80 backdrop-blur-sm border-b border-light py-4 mb-8">
+      <div className="sticky top-20 z-30 bg-ivoire/80 border-b border-light py-4 mb-8">
         <div className="max-w-2xl mx-auto px-6">
         <Progress value={getProgressValue()} className="progress-bar-inner" />
         </div>

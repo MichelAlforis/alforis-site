@@ -72,7 +72,7 @@ export default function HeroSceau(className = "") {
             className={`relative w-[120px] h-auto ${className}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            style={{ pointerEvents: 'none', background: 'transparent', backdropFilter: 'none', mixBlendMode: 'normal' }}
+            style={{ pointerEvents: 'none', background: 'transparent', mixBlendMode: 'normal' }}
           >
 
 

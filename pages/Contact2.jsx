@@ -50,7 +50,7 @@ export default function Contact({ extraClass = '' }) {
             <form className="bg-white bg-opacity-80 rounded-2xl shadow-md p-6 space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold">Nom complet</label>
-                <input type="text" id="name" className="w-full border border-beigeClair rounded-md px-4 py-2 mt-1" required />
+                <input autoComplete="off" type="text" id="name" className="w-full border border-beigeClair rounded-md px-4 py-2 mt-1" required />
               </div>
 
               <div>
