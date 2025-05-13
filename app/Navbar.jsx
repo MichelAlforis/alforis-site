@@ -49,9 +49,12 @@ export default function Navbar() {
             key={href}
             href={href}
             id={id}
-            className={`px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20 ${
-              pathname === href ? 'active' : 'text-acier'
-            }`}
+            className={`
+              px-3 py-2 rounded-md transition-all duration-300 ease-in-out 
+              flex items-center justify-center h-20
+              ${pathname === href ? 'active' : 'text-acier'}
+              text-xs md:text-sm lg:text-base
+            `}
           >
             {label}
           </Link>
