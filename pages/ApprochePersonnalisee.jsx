@@ -44,7 +44,7 @@ export default function ApprochePersonnalisee() {
 <Animated.Page>
 
 
-      <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
+      <main className="main-content bg-ivoire text-anthracite pb-24 px-6">
         <div className="max-w-6xl mx-auto">
         <Animated.H1 className="mb-20">
             Une approche patrimoniale à la hauteur de vos enjeux de vie

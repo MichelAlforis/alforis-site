@@ -67,12 +67,6 @@
 
     --nav-height: 80px;
   }
-
-  @media (min-width: 1024px) {
-    :root {
-      --nav-height: 0px;
-    }
-  }
 }
 
 html, body, #__next {

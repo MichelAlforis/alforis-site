@@ -14,7 +14,7 @@ export default function Contact({ extraClass = '' }) {
         description="Découvrez notre approche patrimoniale sur mesure à travers notre page contact."
         path="/contact"
       />
-<main className={`pt-[var(--nav-height)] min-h-screen py-12 px-4 md:px-0 flex items-center justify-center ${extraClass}`}>
+<main className={`main-content min-h-screen py-12 px-4 md:px-0 flex items-center justify-center ${extraClass}`}>
 
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">

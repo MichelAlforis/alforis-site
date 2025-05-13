@@ -15,7 +15,7 @@ export default function ParcoursPage({ content }) {
       />
 
 <Animated.Page>
-        <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
+        <main className="main-content bg-ivoire text-anthracite pb-24 px-6">
           <div className="max-w-6xl mx-auto">
             <Animated.H1 className="text-5xl font-semibold text-center mb-6">
               Nos Parcours

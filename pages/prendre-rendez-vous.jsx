@@ -21,7 +21,7 @@ export default function PrendreRendezVous() {
   description="Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe."
     />
 
-    <section className="min-h-screen px-6 py-20 bg-ivoire text-anthracite">
+    <main className="main-content min-h-screen px-6 py-20 bg-ivoire text-anthracite">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-5xl font-title font-semibold mb-12">
           Choisissez votre rendez-vous
@@ -49,7 +49,7 @@ export default function PrendreRendezVous() {
           </div>
         )}
       </div>
-    </section>
+    </main>
 </>
   )
 }

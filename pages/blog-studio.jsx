@@ -18,7 +18,7 @@ export default function BlogStudioPage({ content }) {
     
 
 <Animated.Page>
-      <motion.main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6" >
+      <motion.main className="main-content bg-ivoire text-anthracite pb-24 px-6" >
         <div className="max-w-6xl mx-auto">
           <Animated.H1 className="text-5xl font-semibold text-center">
             Blog & Studio Alforis

@@ -57,7 +57,7 @@ export default function Services() {
 
 
 <Animated.Page>
-      <main className="bg-ivoire text-anthracite pt-[var(--nav-height)] pb-24 px-6">
+      <main className="main-content bg-ivoire text-anthracite pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <Animated.H1 className="text-4xl sm:text-5xl font-title font-semibold text-center mb-24">
             Des expertises au service de votre trajectoire de vie

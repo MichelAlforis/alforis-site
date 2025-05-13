@@ -9,7 +9,7 @@ export default function Confidentialite() {
 
 <Animated.Page>
     <AlforisHead title="Confidentialite – Alforis" description="Découvrez notre approche patrimoniale sur mesure à travers notre page confidentialite." path="/Confidentialite" />
-
+    <main className='main-content'>
     <div className="min-h-screen bg-ivoire text-anthracite px-6 py-16 max-w-5xl mx-auto shadow-sm rounded-md">
       <h1 className="text-4xl font-title font-bold text-anthracite mb-6">Politique de confidentialité</h1>
 
@@ -64,6 +64,7 @@ export default function Confidentialite() {
 
       <p className="mt-4">En cas de doute, vous pouvez demander la liste complète de nos sous-traitants et pays d’hébergement.</p>
     </div>
+    </main>
   </Animated.Page>
   )
 }

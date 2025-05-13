@@ -3,12 +3,12 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import useButtonHover from '@/hooks/useButtonHover'
 import { Animated } from '@/components/animated/Animated'
 
 const OffreCard = ({ type = '', title = '', description = '', image = '', slug = '', price = '', index = 0 }) => {
   const { getButtonProps } = useButtonHover()
-  const imageUrl = image || '/img/default-cover.jpg'
   const href = `/marketplace/${slug}`
 
   return (
@@ -17,11 +17,21 @@ const OffreCard = ({ type = '', title = '', description = '', image = '', slug =
         <Animated.Div
           {...getButtonProps(
             index,
-            'flex flex-col h-full bg-ivoire text-anthracite rounded-xl shadow hover:shadow-lg cursor-pointer overflow-hidden'
+            'flex flex-col h-full bg-ivoire text-anthracite rounded-xl shadow hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer overflow-hidden'
           )}
         >
-          {/* Image de couverture */}
-          <div className="h-48 w-full bg-center bg-cover" style={{ backgroundImage: `url(${imageUrl})` }} />
+          {/* Image de couverture via Next.js Image */}
+          <div className="relative h-48 w-full">
+            <Image
+              src={image || '/img/default-cover.jpg'}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              placeholder="blur"
+              blurDataURL="/assets/img/placeholder.png"
+            />
+          </div>
 
           {/* Contenu textuel */}
           <div className="flex flex-col flex-1 p-4">

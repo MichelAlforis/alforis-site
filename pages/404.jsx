@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <main className="bg-ivoire text-anthracite min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <main className="main-content bg-ivoire text-anthracite min-h-screen flex flex-col items-center justify-center px-6 text-center">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
