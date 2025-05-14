@@ -39,6 +39,7 @@ export default function AlforisHead({ title = defaultTitle, description = defaul
 
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
+      
     </Head>
   )
 }
