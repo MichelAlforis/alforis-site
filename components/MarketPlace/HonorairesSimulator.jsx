@@ -5,6 +5,7 @@ import { couleurs } from '@/public/styles/generated-colors'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Info } from 'lucide-react'
 import Image from 'next/image'
+import Button from '../ui/Button'
 import {
   ResponsiveContainer,
   PieChart,

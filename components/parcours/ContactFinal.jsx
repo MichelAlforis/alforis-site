@@ -1,239 +1,226 @@
-// components/parcours/ParcoursFormulaire.jsx
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { AnimatePresence } from 'framer-motion'
-import { Animated } from '@/components/animated/Animated'
+import React, { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Button from '@/components/ui/Button'
 import { Progress } from '@/components/ui/progress'
-import Button from '@/components/ui/button'
-import ContactFinal from '@/components/parcours/ContactFinal'
-import ClapDeFin from '@/components/parcours/ClapDeFin'
-import ProfileDetails from '@/components/parcours/ProfileDetails'
-import AlforisHead from '@/components/AlforisHead'
 import { GoldText } from '@/hooks/useGoldEffect'
+import ClapDeFin from '@/components/parcours/ClapDeFin'
+import { sanitizeFormData, filterFormData } from '@/components/parcours/ValidationDonnees'
+import AlforisHead from '@/components/AlforisHead'
 
-export default function ParcoursFormulaire({ meta, slug }) {
-  const { title, description, questions, scoringMatrix, keywords } = meta
+export default function ContactFinal({ answers, textAnswer, onSubmit, profile, meta = {}, parcoursSlug = '' }) {
+  const [step, setStep] = useState(1)
+  const [recordId, setRecordId] = useState(null)
+  const [errorFields, setErrorFields] = useState({})
+  const [success, setSuccess] = useState(false)
+  const [formData, setFormData] = useState({
+    Nom: '',
+    Email: '',
+    Age: '',
+    RGPD: false,
+    MarketingOk: false,
+    PhraseLibre: textAnswer || '',
+    PatrimoineActuel: '',
+    SituationActuelle: '',
+    RevenusAnnuels: '',
+    RisquePercu: '',
+    NumeroTelephone: '',
+    Profil: profile || '',
+    FormName: meta?.title || ''
+  })
 
-  // États du parcours
-  const [step, setStep] = useState(0)
-  const [answers, setAnswers] = useState(Array(questions.length).fill(null))
-  const [textAnswer, setTextAnswer] = useState('')
-  const [completed, setCompleted] = useState(false)
-  const [profile, setProfile] = useState(null)
-  const [showProfileKeyword, setShowProfileKeyword] = useState(false)
-  const [showProfileDetails, setShowProfileDetails] = useState(false)
-  const [contactDone, setContactDone] = useState(false)
-
-  // Scroll au sommet pour chaque étape
+  // Scroll to top on step change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [step, showProfileKeyword, showProfileDetails, contactDone])
+  }, [step])
 
-  // Calcul du profil à partir des réponses
-  const calculateProfile = () => {
-    const profils = Object.keys(scoringMatrix[0])
-    const scores = profils.reduce((acc, p) => ({ ...acc, [p]: 0 }), {})
-    answers.forEach((rep, i) => {
-      const idx = questions[i]?.options?.indexOf(rep)
-      if (idx >= 0) {
-        profils.forEach(p => (scores[p] += scoringMatrix[i][p][idx] || 0))
-      }
+  const validateField = (key, value) => {
+    if (['Nom', 'Email', 'Age', 'SituationActuelle', 'NumeroTelephone'].includes(key) && !value) {
+      return 'Requis.'
+    }
+    if (key === 'Email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value)) {
+      return 'Format email invalide.'
+    }
+    if (key === 'Age' && (isNaN(value) || Number(value) < 18)) {
+      return 'Âge minimal: 18.'
+    }
+    if (key === 'NumeroTelephone' && !/^\+?[0-9\s-]{7,20}$/.test(value)) {
+      return 'Téléphone invalide.'
+    }
+    if (key === 'RGPD' && !value) {
+      return 'Vous devez accepter.'
+    }
+    return ''
+  }
+
+  const handleChange = e => {
+    const { name, type, value, checked } = e.target
+    const val = type === 'checkbox' ? checked : value
+    setFormData(prev => ({ ...prev, [name]: val }))
+  }
+
+  const handleBlur = e => {
+    const { name, type, value, checked } = e.target
+    const val = type === 'checkbox' ? checked : value
+    setErrorFields(prev => ({ ...prev, [name]: validateField(name, val) }))
+  }
+
+  const handleSubmitStep1 = async e => {
+    e.preventDefault()
+    const required = ['Nom', 'Email', 'Age', 'RGPD']
+    const errs = {}
+    required.forEach(key => {
+      const err = validateField(key, formData[key])
+      if (err) errs[key] = err
     })
-    if (textAnswer && keywords) {
-      Object.entries(keywords).forEach(([p, mots]) => {
-        mots.forEach(mot => {
-          if (textAnswer.toLowerCase().includes(mot.toLowerCase())) scores[p] += 2
-        })
-      })
-    }
-    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1])
-    return sorted[0][0]
-  }
+    setErrorFields(errs)
+    if (Object.keys(errs).length) return
 
-  // Navigation entre étapes/questions
-  const goNext = () => {
-    if (!completed) {
-      if (step < questions.length - 1) setStep(step + 1)
-      else {
-        const p = calculateProfile()
-        setProfile(p)
-        setCompleted(true)
-      }
-    }
-  }
-  const goBack = () => {
-    if (!completed) {
-      if (step > 0) setStep(step - 1)
-    } else if (showProfileDetails) {
-      setShowProfileDetails(false)
-    } else if (showProfileKeyword) {
-      setShowProfileKeyword(false)
+    const res = await fetch('/api/airtable-partial', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    const data = await res.json()
+    if (data.id) {
+      setRecordId(data.id)
+      setStep(2)
     }
   }
 
-  // Enregistrer une réponse
-  const setOption = val => {
-    const copy = [...answers]
-    copy[step] = val
-    setAnswers(copy)
+  const handleSubmitStep2 = async e => {
+    e.preventDefault()
+    const required = ['SituationActuelle', 'NumeroTelephone']
+    const errs = {}
+    required.forEach(key => {
+      const err = validateField(key, formData[key])
+      if (err) errs[key] = err
+    })
+    setErrorFields(errs)
+    if (Object.keys(errs).length || !recordId) return
+
+    const sanitized = sanitizeFormData(formData)
+    const fields = filterFormData(sanitized)
+    const res = await fetch('/api/airtable-update', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: recordId, fields })
+    })
+    if (res.ok) setSuccess(true)
   }
 
-  // Calcul de la progression sticky
-  const progress = completed
-    ? contactDone
-      ? 100
-      : showProfileDetails
-      ? 95
-      : showProfileKeyword
-      ? 90
-      : 85
-    : Math.round((step / questions.length) * 80)
+  useEffect(() => {
+    if (success && onSubmit) onSubmit()
+  }, [success, onSubmit])
+
+  if (success) {
+    return <ClapDeFin profil={profile} meta={meta} />
+  }
 
   return (
     <>
-      <AlforisHead title={`${title} – Alforis`} description={description} path={`/${slug}`} />
+      <AlforisHead
+        title={`Contact final – ${meta.title}`}
+        description="Vos coordonnées pour un suivi personnalisé"
+        path={`/${parcoursSlug}/contact`}
+      />
 
-      <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
-        {/* Progression (sticky) */}
-        {!contactDone && (
-          <div className="sticky top-16 z-50 bg-ivoire/80 backdrop-blur py-4">
-            <div className="px-2">
-              <Progress value={progress} className="h-2 rounded-full" />
-            </div>
-            {!completed && (
-              <div className="mt-2 flex justify-center space-x-3">
-                {questions.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition
-                      ${i === step ? 'bg-doré text-white' : answers[i] != null ? 'bg-ardoise text-white' : 'bg-light text-ardoise'}`}
-                  >
-                    {i + 1}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+      <div className="max-w-2xl mx-auto p-6 space-y-8">
+        <div className="flex items-center justify-between">
+          <Progress value={step === 1 ? 50 : 100} className="w-3/4 h-2 rounded-full" />
+          <span className="text-sm text-ardoise">Étape {step}/2</span>
+        </div>
 
-        {/* Flow des contenus */}
-        <AnimatePresence exitBeforeEnter initial={false}>
-
-          {/* 1) Questionnaire */}
-          {!completed ? (
-            <Animated.Div
-              key={`q-${step}`}
-              variant="slideFromRight"
-              className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
+        <AnimatePresence mode="wait">
+          {step === 1 && (
+            <motion.form
+              key="step1"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              onSubmit={handleSubmitStep1}
+              className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
             >
               <h2 className="text-2xl font-title text-ardoise">
-                {questions[step].text}
+                <GoldText>Étape 1:</GoldText> Vos infos
               </h2>
 
-              {/* Options ou zone libre */}
-              {questions[step].options ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {questions[step].options.map(opt => (
-                    <Animated.Button
-                      key={opt}
-                      variant="fadeInUp"
-                      onClick={() => setOption(opt)}
-                      className={`p-4 rounded-xl border transition
-                        ${answers[step] === opt
-                          ? 'border-doré bg-doré/10 text-doré font-semibold'
-                          : 'border-light bg-light text-ardoise'}`}
-                    >
-                      {opt}
-                    </Animated.Button>
-                  ))}
+              {['Nom', 'Email', 'Age'].map(key => (
+                <div key={key}>
+                  <label className="block text-anthracite font-medium mb-1">
+                    {key}
+                  </label>
+                  <input
+                    name={key}
+                    type={key === 'Age' ? 'number' : key === 'Email' ? 'email' : 'text'}
+                    value={formData[key]}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+                  />
+                  {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
                 </div>
-              ) : (
-                <textarea
-                  rows={4}
-                  value={textAnswer}
-                  onChange={e => setTextAnswer(e.target.value)}
-                  placeholder="Votre réponse libre..."
-                  className="w-full p-4 border border-light rounded-xl shadow-sm focus:ring-2 focus:ring-doré"
-                />
-              )}
+              ))}
 
-              {/* Navigation */}
-              <div className="flex justify-between pt-4 border-t border-light">
-                <Button variant="outline" onClick={goBack} disabled={step === 0}>
-                  ← Précédent
-                </Button>
-                <Button
-                  onClick={goNext}
-                  disabled={
-                    questions[step].options
-                      ? answers[step] == null
-                      : textAnswer.trim() === ''
-                  }
-                >
-                  {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
-                </Button>
-              </div>
-            </Animated.Div>
+              <label className="flex items-center space-x-2">
+                <input type="checkbox" name="RGPD" checked={formData.RGPD} onChange={handleChange} />
+                <span className="text-sm text-ardoise">J'accepte la politique RGPD</span>
+              </label>
 
-          ) : !showProfileKeyword ? (
-            {/* 2) Mot-clé Intro */}
-            <Animated.Div
-              key="keyword"
-              variant="fadeInUp"
-              className="bg-white p-8 rounded-2xl shadow-lg space-y-4 text-center"
-            >
-              <h2 className="text-3xl font-title text-doré">Votre mot-clé</h2>
-              <p className="mt-2 text-2xl font-semibold text-ardoise">{profile}</p>
-              <Button onClick={() => setShowProfileKeyword(true)}>
-                En savoir plus →
-              </Button>
-            </Animated.Div>
-
-          ) : !showProfileDetails ? (
-            {/* 3) Détails Profil */}
-            <Animated.Div
-              key="details"
-              variant="slideFromLeft"
-              className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
-            >
-              <ProfileDetails profil={profile} />
-              <div className="text-center">
-                <Button onClick={() => setShowProfileDetails(true)}>
-                  Je veux être accompagné →
-                </Button>
-              </div>
-            </Animated.Div>
-
-          ) : !contactDone ? (
-            {/* 4) Contact Final */}
-            <Animated.Div
-              key="contact"
-              variant="fadeInUp"
-              className="p-8"
-            >
-              <ContactFinal
-                answers={answers}
-                textAnswer={textAnswer}
-                profile={profile}
-                meta={meta}
-                parcoursSlug={slug}
-                onSubmit={() => setContactDone(true)}
-              />
-            </Animated.Div>
-
-          ) : (
-            {/* 5) Clap de Fin */}
-            <Animated.Div
-              key="fin"
-              variant="fadeInUp"
-              className="p-8"
-            >
-              <ClapDeFin profil={profile} meta={meta} />
-            </Animated.Div>
-
+              <Button type="submit" className='btn-alforis-outline'>Suivant →</Button>
+            </motion.form>
           )}
 
+          {step === 2 && (
+            <motion.form
+              key="step2"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              onSubmit={handleSubmitStep2}
+              className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+            >
+              <h2 className="text-2xl font-title text-ardoise">
+                <GoldText>Étape 2:</GoldText> Complétez
+              </h2>
+
+              <div>
+                <label className="block text-anthracite font-medium mb-1">Situation actuelle</label>
+                <select
+                  name="SituationActuelle"
+                  value={formData.SituationActuelle}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields.SituationActuelle ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+                >
+                  <option value="">Choisissez...</option>
+                  <option>Célibataire</option>
+                  <option>En couple</option>
+                  <option>Marié(e)</option>
+                </select>
+                {errorFields.SituationActuelle && <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>}
+              </div>
+
+              {['PatrimoineActuel', 'RevenusAnnuels', 'RisquePercu', 'NumeroTelephone'].map(key => (
+                <div key={key}>
+                  <label className="block text-anthracite font-medium mb-1">{key.replace(/([A-Z])/g, ' $1').trim()}</label>
+                  <input
+                    name={key}
+                    value={formData[key]}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+                  />
+                  {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
+                </div>
+              ))}
+
+              <Button type="submit">Terminer</Button>
+            </motion.form>
+          )}
         </AnimatePresence>
       </div>
     </>

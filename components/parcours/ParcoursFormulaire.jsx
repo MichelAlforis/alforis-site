@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Progress } from '@/components/ui/progress'
-import Button from '@/components/ui/button'
+import Button from '@/components/ui/Button'
 import ContactFinal from '@/components/parcours/ContactFinal'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
 import AlforisHead from '@/components/AlforisHead'
@@ -137,7 +137,7 @@ export default function ParcoursFormulaire({ meta, slug }) {
 
               {/* Back / Next */}
               <div className="flex justify-between pt-4 border-t border-light">
-                <Button variant="outline" onClick={goBack} disabled={step === 0}>
+                <Button className="btn-alforis-outline" onClick={goBack} disabled={step === 0}>
                   ← Précédent
                 </Button>
                 <Button

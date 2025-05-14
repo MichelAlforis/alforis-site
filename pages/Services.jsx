@@ -5,7 +5,7 @@ import Animated from '@/components/animated/Animated'
 import NoWidowText from '@/components/animated/NoWindowText'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import Button from '@/components/ui/button'
+import Button from '@/components/ui/Button'
 import { Search, Settings, DollarSign, Users, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState, useMemo } from 'react'
@@ -97,14 +97,14 @@ export default function Services() {
                       <CardContent>
                         <p className="text-base leading-relaxed mb-4">{service.description}</p>
                       </CardContent>
-                      <Button variant="outline">En savoir plus</Button>
+                      <Button className="btn-alforis-outline">En savoir plus</Button>
                     </Card>
                   </motion.div>
                 )
               })}
             </div>
             <div className="mt-12 text-center">
-              <Button>Contactez-nous</Button>
+              <Button className='btn-alforis-outline'>Contactez-nous</Button>
             </div>
           </div>
         </main>

@@ -53,8 +53,8 @@ export default function FAQ() {
 
         {/* Tout déplier / tout refermer */}
         <div className="mb-12 flex gap-4 justify-center">
-          <button onClick={expandAll} variant="retro">Tout déplier</button>
-          <button onClick={collapseAll} variant="outline">Tout refermer</button>
+          <button onClick={expandAll} className="btn-alforis-retro">Tout déplier</button>
+          <button onClick={collapseAll} className="btn-alforis-outline">Tout refermer</button>
         </div>
 
         {/* Affichage */}

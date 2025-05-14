@@ -8,7 +8,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}', // si tu utilises /app
     './styles/globals.css' 
   ],
-  
+
   theme: {
     extend: {
       colors: {
