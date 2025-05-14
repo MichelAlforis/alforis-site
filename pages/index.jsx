@@ -56,7 +56,7 @@ export default function Home() {
             <section
               key={id}
               id={id}
-              className="relative h-[100dvh] snap-start overflow-hidden"
+              className="relative h-auto md:h-[100dvh] snap-start"
             >
               {/* 📷 Fond adaptatif mobile / desktop */}
               <picture className="absolute inset-0 w-full h-full z-0">
@@ -68,7 +68,7 @@ export default function Home() {
                   src={bgImages[id].mobile}
                   alt=""
                   aria-hidden="true"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover"
                 />
               </picture>
 

@@ -34,7 +34,7 @@ const MotionLink = motion(Link)
 
 export default function ServicesCards(extraClass = '') {
   return (
-    <section className="relative w-full overflow-hidden z-10 ${extraClass}">
+    <section className={`relative w-full px-4 z-10 ${extraClass}`}>
       <div className="max-w-7xl mx-auto flex flex-col justify-center items-center w-full z-10">
         <h2 >Nos services sur-mesure</h2>
 
