@@ -16,6 +16,6 @@ git push
 
 # Déploiement Vercel
 echo "🚀 Déploiement Vercel en production..."
-# npx vercel --prod
+npx vercel --prod
 
 echo "✅ Déploiement terminé."
