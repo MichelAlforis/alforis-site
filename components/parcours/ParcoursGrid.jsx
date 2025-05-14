@@ -3,8 +3,6 @@ import ContentCard from './ContentCard' // Assurez-vous que le bon chemin est ut
 import { Animated } from '@/components/animated/Animated'
 
 const ParcoursGrid = ({ content = [] }) => {
-  console.log("📦 ParcrousGrid reçu :", content)
-
     // Filtrage ici
     const filteredContent = content.filter((item) => item.type === 'Parcours')
 

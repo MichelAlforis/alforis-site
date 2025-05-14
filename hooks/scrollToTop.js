@@ -4,8 +4,6 @@ export function scrollToTop() {
       nextRoot.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
-  
-    console.log('[scrollToTop] fallback: window')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   

@@ -13,7 +13,6 @@ const customColors = Object.fromEntries(
 const jsOutputPath = path.resolve(__dirname, '../styles/generated-colors.js'); // <= OK
 const jsContent = `export const couleurs = ${JSON.stringify(customColors, null, 2)};\n`;
 fs.writeFileSync(jsOutputPath, jsContent, 'utf8');
-console.log('✅ Fichier JS generated-colors.js généré.');
 
 // 3. Générer un fichier CSS pour le navigateur (dans /public)
 const cssVariables = Object.entries(customColors)
@@ -23,4 +22,3 @@ const cssVariables = Object.entries(customColors)
 const cssContent = `:root {\n${cssVariables}\n}\n`;
 const cssOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.css'); // <= OK
 fs.writeFileSync(cssOutputPath, cssContent, 'utf8');
-console.log('✅ Fichier CSS generated-colors.css généré.');

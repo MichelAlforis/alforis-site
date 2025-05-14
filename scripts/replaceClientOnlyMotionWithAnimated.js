@@ -43,7 +43,6 @@ function updateFileContent(filePath) {
 
   if (updated) {
     fs.writeFileSync(filePath, content, 'utf-8')
-    console.log(`✅ Modifié : ${filePath}`)
   }
 }
 

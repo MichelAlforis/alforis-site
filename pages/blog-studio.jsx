@@ -57,6 +57,5 @@ export default function BlogStudioPage({ content }) {
 
 export async function getStaticProps() {
   const content = await fetchAllContent()
-  console.log("📦 getStaticProps → content :", content)
   return { props: { content } }
 }

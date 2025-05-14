@@ -4,8 +4,6 @@ import React from 'react'
 import ContentCard from './ContentCard'
 
 const BlogStudioGrid = ({ content = [] }) => {
-  console.log("📦 BlogStudioGrid reçu :", content)
-
   // Filtrage ici
   const filteredContent = content.filter((item) => item.type === 'Blog' || item.type === 'Studio')
 

@@ -2,10 +2,6 @@ import * as React from "react"
 import { motion } from "framer-motion"
 
 export default function Logo({ fillColorTemplate, strokeColorTemplate, strokeSpring, className = "" }) {
-    console.log("🖼️ Logo reçoit :", { fillColorTemplate, strokeColorTemplate, strokeSpring });
-    console.log("🟡 fillColorTemplate:", fillColorTemplate.get?.());
-    console.log("🟠 strokeColorTemplate:", strokeColorTemplate.get?.());
-    console.log("🔴 strokeSpring:", strokeSpring.get?.());
 
   return (
     <motion.svg

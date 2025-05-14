@@ -38,10 +38,8 @@
     }
     
     try {
-      console.log("📦 Données à envoyer :", format)
-  
+
       const record = await base('Reponse').create([format]).then(res => res[0])
-      console.log("✅ Enregistrement créé :", record.id)
       res.status(200).json({ success: true, id: record.id })
   
     } catch (error) {
