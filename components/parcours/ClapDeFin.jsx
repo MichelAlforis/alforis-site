@@ -30,7 +30,7 @@ export default function ClapDeFin({ profil, meta }) {
 
       {/* Call to Action */}
       {cta && (
-        <a href={cta.href} target="_blank" className="btn-alforis-retro inline-block mt-4">
+        <a href={cta.href} target="_blank" variant="retro" className="inline-block mt-4">
           {cta.label}
         </a>
       )}

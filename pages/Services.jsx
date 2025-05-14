@@ -1,106 +1,114 @@
 'use client'
+
 import AlforisHead from '@/components/AlforisHead'
 import Animated from '@/components/animated/Animated'
-import CallToAction from '@/components/ui/CallToAction'
 import NoWidowText from '@/components/animated/NoWindowText'
-
-
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import Button from '@/components/ui/button'
+import { Search, Settings, DollarSign, Users, Star } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useState, useMemo } from 'react'
 
 const services = [
   {
-    title: "Ingénierie patrimoniale",
-    subtitle: "Structurer votre patrimoine, sans trahir vos valeurs",
-    description:
-      "Nous concevons des stratégies sur mesure, adaptées à votre structure personnelle, professionnelle et familiale. L’objectif : fluidifier, optimiser, transmettre, tout en respectant ce qui vous est essentiel.\n\nConcrètement, cela signifie comprendre vos enjeux profonds, vos préférences de gouvernance, et vos impératifs de transmission. Nous faisons dialoguer droit, finance, psychologie familiale et projection à long terme.\n\nChaque scénario est modélisé, testé, challengé. Vous choisissez en connaissance de cause, avec une visibilité claire sur les conséquences juridiques, fiscales et humaines.",
-    citation: "Un bon conseil patrimonial respecte d’abord ce qui vous est cher.",
-    image: "/assets/img/home/engineering.webp",
-    alt: "Icône ingénierie patrimoniale",
+    id: 1,
+    icon: Settings,
+    title: 'Ingénierie patrimoniale',
+    subtitle: 'Structurer votre patrimoine, sans trahir vos valeurs',
+    description: `Stratégies sur mesure alliant droit, finance et psychologie familiale...`,
   },
   {
-    title: "Trésorerie long terme",
-    subtitle: "Faire fructifier sans dénaturer vos réserves",
-    description:
-      "Nous accompagnons les dirigeants dans la valorisation de leur trésorerie excédentaire, avec une approche sécurisée, structurée et alignée avec les objectifs de l’entreprise.\n\nNous analysons la nature des excédents (ponctuels ou structurels), leur horizon d’utilisation, et les contraintes internes de gouvernance.\n\nNos solutions vont des produits garantis aux structures plus dynamiques, en veillant toujours à articuler performance, liquidité, et cohérence stratégique.",
-    citation: "La prudence n’empêche pas la performance, si elle est bien guidée.",
-    image: "/assets/img/home/cash-flow.webp",
-    alt: "Icône trésorerie long terme",
+    id: 2,
+    icon: DollarSign,
+    title: 'Trésorerie long terme',
+    subtitle: 'Faire fructifier sans dénaturer vos réserves',
+    description: `Solutions sécurisées et dynamiques pour vos excédents de trésorerie...`,
   },
   {
-    title: "Gouvernance familiale",
-    subtitle: "Préserver l’harmonie tout en préparant l’avenir",
-    description:
-      "La famille est souvent un atout… à condition d’être organisée. Nous aidons à structurer la gouvernance, anticiper les enjeux successoraux et préserver l’harmonie dans la durée.\n\nCela peut passer par la rédaction d’une charte, la mise en place d’un pacte familial, ou la création d’un organe de concertation.\n\nL’enjeu est toujours de pacifier les transmissions, protéger les plus vulnérables, et rendre la solidarité familiale efficiente et non pesante.",
-    citation: "Un héritage serein se prépare bien avant d’être transmis.",
-    image: "/assets/img/home/family.webp",
-    alt: "Icône gouvernance familiale",
+    id: 3,
+    icon: Users,
+    title: 'Gouvernance familiale',
+    subtitle: 'Préserver l’harmonie tout en préparant l’avenir',
+    description: `Charte familiale, pacte ou organe de concertation pour un héritage serein...`,
   },
   {
-    title: "Conciergerie premium",
-    subtitle: "Vous libérer du temps, sans perdre le fil",
-    description:
-      "Un seul interlocuteur pour coordonner vos besoins patrimoniaux, juridiques, immobiliers, administratifs. Notre conciergerie simplifie votre vie et vous libère du temps.\n\nNous intervenons pour faire avancer vos démarches, vous représenter, organiser les rendez-vous avec vos conseils et assurer un suivi de vos projets patrimoniaux.\n\nC’est une assistance proactive, personnalisée, pilotée par nous mais pensée pour vous, dans le respect de vos priorités et de votre niveau d’implication souhaité.",
-    citation: "La tranquillité d’esprit est une richesse que l’on peut orchestrer.",
-    image: "/assets/img/home/concierge.webp",
-    alt: "Icône conciergerie premium",
+    id: 4,
+    icon: Star,
+    title: 'Conciergerie premium',
+    subtitle: 'Vous libérer du temps, sans perdre le fil',
+    description: `Assistance proactive pour orchestrer tous vos projets patrimoniaux...`,
   },
 ]
 
 export default function Services() {
+  const [filter, setFilter] = useState('')
+  const filtered = useMemo(
+    () => services.filter(s =>
+      s.title.toLowerCase().includes(filter.toLowerCase()) ||
+      s.description.toLowerCase().includes(filter.toLowerCase())
+    ),
+    [filter]
+  )
+
   return (
     <>
-      <AlforisHead 
-      title="Services – Alforis" 
-      description="Découvrez notre approche patrimoniale sur mesure à travers notre page services." 
-      path="/Services" 
+      <AlforisHead
+        title="Services – Alforis"
+        description="Explorez nos expertises pour piloter votre trajectoire de vie"
+        path="/services"
       />
-
-
-
-<Animated.Page>
-      <main className="main-content bg-ivoire text-anthracite pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <Animated.H1 className="text-4xl sm:text-5xl font-title font-semibold text-center mb-24">
-            Des expertises au service de votre trajectoire de vie
-          </Animated.H1>
-
-          <section className="space-y-24">
-            {services.map((service, index) => (
-              <Animated.Article 
-              className="relative bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-lg group border border-doré/20"
-              key={service.id || index}
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                  <div className="w-full md:w-48 flex justify-center md:justify-start items-center">
-                    <img
-                      src={service.image}
-                      alt={service.alt}
-                      className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div>
-                    <NoWidowText as="h2" className="text-2xl md:text-3xl font-title text-anthracite group-hover:text-doré transition font-semibold mb-1">
-                      {service.title}
-                    </NoWidowText>
-                    <NoWidowText as="p" className="text-acier text-sm italic mb-2">
-                      {service.subtitle}
-                    </NoWidowText>
-                    <p className="text-acier text-base sm:text-lg md:text-xl font-light leading-relaxed whitespace-pre-line">
-                      {service.description}
-                    </p>
-                    <NoWidowText as="p" className="text-acier text-base italic opacity-70 mt-4">
-                      “{service.citation}”
-                    </NoWidowText>
-                  </div>
-                </div>
-              </Animated.Article>
-            ))}
-          </section>
-
-          <CallToAction />
-        </div>
-      </main>
-</Animated.Page>
+      <Animated.Page>
+        <main className="main-content bg-ivoire text-anthracite py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <Animated.H1 className="text-4xl md:text-5xl font-title text-center mb-8">
+              Nos expertises, votre sérénité
+            </Animated.H1>
+            <div className="flex justify-center mb-8">
+              <Input
+                placeholder="Rechercher un service..."
+                value={filter}
+                onChange={e => setFilter(e.target.value)}
+                className="max-w-md"
+                icon={<Search className="mr-2" />}
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filtered.map(service => {
+                const Icon = service.icon
+                return (
+                  <motion.div
+                    key={service.id}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Card className="border border-doré/20 rounded-2xl shadow-sm hover:shadow-lg p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="bg-doré text-white p-3 rounded-full mr-4">
+                          <Icon size={20} />
+                        </div>
+                        <div>
+                          <NoWidowText as="h2" className="text-2xl font-title text-anthracite">
+                            {service.title}
+                          </NoWidowText>
+                          <p className="text-acier italic text-sm">{service.subtitle}</p>
+                        </div>
+                      </div>
+                      <CardContent>
+                        <p className="text-base leading-relaxed mb-4">{service.description}</p>
+                      </CardContent>
+                      <Button variant="outline">En savoir plus</Button>
+                    </Card>
+                  </motion.div>
+                )
+              })}
+            </div>
+            <div className="mt-12 text-center">
+              <Button>Contactez-nous</Button>
+            </div>
+          </div>
+        </main>
+      </Animated.Page>
     </>
   )
 }

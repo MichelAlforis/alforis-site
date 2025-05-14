@@ -63,7 +63,7 @@ export default function Contact({ extraClass = '' }) {
                 type="submit"
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                className="btn-alforis-rdv"
+                variant="rdv"
               >
                 Envoyer le message
               </button>

@@ -59,10 +59,10 @@ de votre horizon personnel, et de vos contraintes concrètes.`,
       ref={ref}
       className={`w-full py-16 ${extraClass}`}
     >
-      <div className="space-y-8 px-4 md:px-0 max-w-xl mx-auto">
+      <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
         {cards.map(({ href, title, text, Svg, strokeWidth }, i) => (
           <Link key={i} href={href} passHref className="block group">
-              <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center min-w-[80px]">
+              <div className="flex flex-col md:flex-row items-center bg-white bg-opacity-80 shadow-lg rounded-2xl overflow-hidden transition-transform hover:scale-105">
                 {/* Illustration */}
                 <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
                   <AnimatedSVGRenderer

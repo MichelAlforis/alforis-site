@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import ContactFinal from "@/components/parcours/ContactFinal"
 import { questions, profilesData, keywords } from "@/components/parcours/index"
 import { scoringMatrix } from '@/components/parcours/scoringMatrix'
-import Button from '@/components/ui/Button' // chemin selon ton arborescence exacte
+import Button from '@/components/ui/button' // chemin selon ton arborescence exacte
 
 
 export default function ProfilDeVieFormulaire() {
@@ -99,7 +99,7 @@ export default function ProfilDeVieFormulaire() {
 {step > 0 && !completed && (
   <div className="max-w-2xl mx-auto px-6 -mt-4 mb-4 text-left">
     <Button onClick={handleBack} 
-    className="btn-alforis-rdv" 
+    variant="rdv"
     index={-1}>
       ← Revenir à la question précédente
     </Button>
@@ -116,7 +116,7 @@ export default function ProfilDeVieFormulaire() {
                 {q.options ? (
                   <Animated.Div className="options-list grid grid-cols-1 md:grid-cols-2 gap-4">
                     {q.options.map((option, idx) => (
-                      <button key={idx} {...getButtonProps(idx)} onClick={() => handleSelect(option)} className="btn-alforis-outline">
+                      <button key={idx} {...getButtonProps(idx)} onClick={() => handleSelect(option)} variant="outline">
                         {option}
                       </button>
                     ))}
@@ -131,7 +131,7 @@ export default function ProfilDeVieFormulaire() {
                       className="text-answer w-full p-4 border border-light rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                     <div className="cta-end text-center">
-                      <button {...getButtonProps(999)} onClick={handleFinal} className="btn-alforis-retro">
+                      <button {...getButtonProps(999)} onClick={handleFinal} variant="retro">
                         Découvrir mon profil
                       </button>
                     </div>

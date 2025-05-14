@@ -19,6 +19,7 @@
     "@react-three/fiber": "9.1.2",
     "@react-three/rapier": "^2.1.0",
     "airtable": "^0.12.2",
+    "classnames": "^2.5.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.7.4",
     "gray-matter": "^4.0.3",

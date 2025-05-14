@@ -1,178 +1,241 @@
-// content/parcours/ContactFinal.jsx
+// components/parcours/ParcoursFormulaire.jsx
 'use client'
 
-import { useEffect, useState } from 'react'
-import Button from '@/components/ui/Button'
-import useButtonHover from '@/hooks/useButtonHover'
+import React, { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import { Animated } from '@/components/animated/Animated'
+import { Progress } from '@/components/ui/progress'
+import Button from '@/components/ui/button'
+import ContactFinal from '@/components/parcours/ContactFinal'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
+import ProfileDetails from '@/components/parcours/ProfileDetails'
+import AlforisHead from '@/components/AlforisHead'
 import { GoldText } from '@/hooks/useGoldEffect'
-import { sanitizeFormData, filterFormData } from '@/components/parcours/ValidationDonnees'
 
+export default function ParcoursFormulaire({ meta, slug }) {
+  const { title, description, questions, scoringMatrix, keywords } = meta
 
-export default function ContactFinal({ answers, textAnswer, onSubmit, profile, meta }) {
-  const { getButtonProps } = useButtonHover()
-  const [step, setStep] = useState(1)
-  const [recordId, setRecordId] = useState(null)
-  const [errorFields, setErrorFields] = useState({})
-  const [success, setSuccess] = useState(false)
+  // États du parcours
+  const [step, setStep] = useState(0)
+  const [answers, setAnswers] = useState(Array(questions.length).fill(null))
+  const [textAnswer, setTextAnswer] = useState('')
+  const [completed, setCompleted] = useState(false)
+  const [profile, setProfile] = useState(null)
+  const [showProfileKeyword, setShowProfileKeyword] = useState(false)
+  const [showProfileDetails, setShowProfileDetails] = useState(false)
+  const [contactDone, setContactDone] = useState(false)
 
-  const [formData, setFormData] = useState({
-    Nom: '',
-    Email: '',
-    Age: '',
-    RGPD: false,
-    MarketingOk: false,
-    PhraseLibre: textAnswer || '',
-    PatrimoineActuel: '',
-    SituationActuelle: '',
-    ObjectifVie: false,
-    RevenusAnnuels: '',
-    RisquePercu: '',
-    Q1: answers[0] || '',
-    Q2: answers[1] || '',
-    Q3: answers[2] || '',
-    Q4: answers[3] || '',
-    Q5: answers[4] || '',
-    Q6: answers[5] || '',
-    Q7: answers[6] || '',
-    Q8: answers[7] || '',
-    Q9: answers[8] || '',
-    NumeroTelephone: '',
-    NomDuFormulaire: meta?.title || '',
-    Profil: profile || ''
-  })
-
-  const validateField = (key, value) => {
-    if (['Nom','Email','Age'].includes(key) && !value) return 'Ce champ est requis.'
-    if (key === 'Email' && !/.+@.+\..+/.test(value)) return 'Email invalide.'
-    if (key === 'Age' && (isNaN(value) || Number(value) < 10)) return 'Âge invalide.'
-    if (key === 'NumeroTelephone' && !/^\+?[0-9\s-]{7,20}$/.test(value)) return 'Téléphone invalide.'
-    return ''
-  }
-
-// Après
-const handleChange = e => {
-  const { name, type, value, checked } = e.target
-  const val = type === 'checkbox' ? checked : value
-  setFormData(prev => ({ ...prev, [name]: val }))
-}
-
-// Nouveau handler pour la blur
-const handleBlur = e => {
-  const { name, value, checked, type } = e.target
-  const val = type === 'checkbox' ? checked : value
-  setErrorFields(prev => ({ ...prev, [name]: validateField(name, val) }))
-}
-
-  const handleFirstStepSubmit = async e => {
-    e.preventDefault()
-    const required = ['Nom','Email','Age','RGPD']
-    const errors = {}
-    let hasError = false
-    required.forEach(key => {
-      const err = validateField(key, formData[key])
-      if (err) { errors[key] = err; hasError = true }
-    })
-    setErrorFields(errors)
-    if (hasError) return
-    const response = await fetch('/api/airtable-partial', {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(formData)
-    })
-    const res = await response.json()
-    if (res.id) { setRecordId(res.id); setStep(2) }
-  }
-
-  const handleFinalSubmit = async e => {
-    e.preventDefault()
-    const required = ['SituationActuelle','NumeroTelephone']
-    const errors = {}
-    let hasError = false
-    required.forEach(key => {
-      if (!formData[key]) { errors[key] = 'Champ requis'; hasError = true }
-    })
-    setErrorFields(errors)
-    if (hasError || !recordId) return
-    const sanitized = sanitizeFormData(formData)
-    const fieldsToSend = filterFormData(sanitized)
-    const response = await fetch('/api/airtable-update', {
-      method:'PATCH', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ id: recordId, fields: fieldsToSend })
-    })
-    if (response.ok) setSuccess(true)
-  }
-
+  // Scroll au sommet pour chaque étape
   useEffect(() => {
-    if (success && onSubmit) onSubmit()
-  }, [success, onSubmit])
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [step, showProfileKeyword, showProfileDetails, contactDone])
+
+  // Calcul du profil à partir des réponses
+  const calculateProfile = () => {
+    const profils = Object.keys(scoringMatrix[0])
+    const scores = profils.reduce((acc, p) => ({ ...acc, [p]: 0 }), {})
+    answers.forEach((rep, i) => {
+      const idx = questions[i]?.options?.indexOf(rep)
+      if (idx >= 0) {
+        profils.forEach(p => (scores[p] += scoringMatrix[i][p][idx] || 0))
+      }
+    })
+    if (textAnswer && keywords) {
+      Object.entries(keywords).forEach(([p, mots]) => {
+        mots.forEach(mot => {
+          if (textAnswer.toLowerCase().includes(mot.toLowerCase())) scores[p] += 2
+        })
+      })
+    }
+    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1])
+    return sorted[0][0]
+  }
+
+  // Navigation entre étapes/questions
+  const goNext = () => {
+    if (!completed) {
+      if (step < questions.length - 1) setStep(step + 1)
+      else {
+        const p = calculateProfile()
+        setProfile(p)
+        setCompleted(true)
+      }
+    }
+  }
+  const goBack = () => {
+    if (!completed) {
+      if (step > 0) setStep(step - 1)
+    } else if (showProfileDetails) {
+      setShowProfileDetails(false)
+    } else if (showProfileKeyword) {
+      setShowProfileKeyword(false)
+    }
+  }
+
+  // Enregistrer une réponse
+  const setOption = val => {
+    const copy = [...answers]
+    copy[step] = val
+    setAnswers(copy)
+  }
+
+  // Calcul de la progression sticky
+  const progress = completed
+    ? contactDone
+      ? 100
+      : showProfileDetails
+      ? 95
+      : showProfileKeyword
+      ? 90
+      : 85
+    : Math.round((step / questions.length) * 80)
 
   return (
     <>
-      <div className="mb-6 max-w-2xl mx-auto px-6">
-        <span className="text-sm text-muted">{step === 1 ? 'Informations essentielles' : 'Finalisation du profil'}</span>
-      </div>
-      <form onSubmit={step===1?handleFirstStepSubmit:handleFinalSubmit} className="space-y-6 max-w-2xl mx-auto text-left">
-        {step===1 && (
-          <>
-            {['Nom','Email','Age'].map(field => (
-              <div key={field}>
-                <label className="block text-anthracite font-semibold mb-1">{field}</label>
-                <input 
-                name={field} 
-                type={field==='Email'?'email':field==='Age'?'number':'text'}   
-                value={formData[field]} 
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className={`w-full rounded-xl border p-3 ${errorFields[field]?'border-red-500':'border-light'}`} />
-                
-                {errorFields[field] && <p className="text-red-600 text-sm mt-1">❌ {errorFields[field]}</p>}
-              </div>
-            ))}
-            <label className="flex items-center gap-2"><input type="checkbox" name="RGPD" checked={formData.RGPD} onChange={handleChange} />
-              J’accepte l’utilisation de mes données pour un échange personnalisé.
-            </label>
-            <label className="flex items-center gap-2"><input type="checkbox" name="MarketingOk" checked={formData.MarketingOk} onChange={handleChange} />
-              J’accepte que mes données soient utilisées à des fins commerciales.
-            </label>
-          </>
-        )}
+      <AlforisHead title={`${title} – Alforis`} description={description} path={`/${slug}`} />
 
-        {step===2 && (
-          <>
-            <h3 className="text-anthracite font-semibold">Vous êtes : <GoldText>{profile}</GoldText></h3>
-            <div>
-              <label className="block text-anthracite font-semibold mb-1">Situation actuelle</label>
-              <select name="SituationActuelle" value={formData.SituationActuelle} onChange={handleChange}
-                className={`w-full rounded-xl border p-3 ${errorFields.SituationActuelle?'border-red-500':'border-light'}`}>
-                <option value="">Choisissez...</option>
-                <option value="Célibataire">Célibataire</option>
-                <option value="En couple">En couple</option>
-                <option value="Marié(e)">Marié(e)</option>
-                <option value="Divorcé(e)">Divorcé(e)</option>
-                <option value="Veuf(ve)">Veuf(ve)</option>
-              </select>
-              {errorFields.SituationActuelle && <p className="text-red-600 text-sm mt-1">❌ {errorFields.SituationActuelle}</p>}
+      <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
+        {/* Progression (sticky) */}
+        {!contactDone && (
+          <div className="sticky top-16 z-50 bg-ivoire/80 backdrop-blur py-4">
+            <div className="px-2">
+              <Progress value={progress} className="h-2 rounded-full" />
             </div>
-            {['RevenusAnnuels','PatrimoineActuel','RisquePercu','NumeroTelephone'].map(field => (
-              <div key={field}>
-                <label className="block text-anthracite font-semibold mb-1">{field.replace(/([A-Z])/g, ' $1').trim()}</label>
-                <input name={field} value={formData[field]} onChange={handleChange}
-                  className={`w-full rounded-xl border p-3 ${errorFields[field]?'border-red-500':'border-light'}`} />
-                {errorFields[field] && <p className="text-red-600 text-sm mt-1">❌ {errorFields[field]}</p>}
+            {!completed && (
+              <div className="mt-2 flex justify-center space-x-3">
+                {questions.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition
+                      ${i === step ? 'bg-doré text-white' : answers[i] != null ? 'bg-ardoise text-white' : 'bg-light text-ardoise'}`}
+                  >
+                    {i + 1}
+                  </div>
+                ))}
               </div>
-            ))}
-          </>
+            )}
+          </div>
         )}
 
-        <div className="text-center pt-4">
-          <Button
-            type="submit"
-            {...getButtonProps(0, step === 1 ? 'btn-alforis-outline' : 'btn-alforis-retro')}
-          >
-            {step === 1 ? 'Générer mon profil' : 'En savoir PLUS'}
-          </Button>
-        </div>
-      </form>
+        {/* Flow des contenus */}
+        <AnimatePresence exitBeforeEnter initial={false}>
+
+          {/* 1) Questionnaire */}
+          {!completed ? (
+            <Animated.Div
+              key={`q-${step}`}
+              variant="slideFromRight"
+              className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
+            >
+              <h2 className="text-2xl font-title text-ardoise">
+                {questions[step].text}
+              </h2>
+
+              {/* Options ou zone libre */}
+              {questions[step].options ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {questions[step].options.map(opt => (
+                    <Animated.Button
+                      key={opt}
+                      variant="fadeInUp"
+                      onClick={() => setOption(opt)}
+                      className={`p-4 rounded-xl border transition
+                        ${answers[step] === opt
+                          ? 'border-doré bg-doré/10 text-doré font-semibold'
+                          : 'border-light bg-light text-ardoise'}`}
+                    >
+                      {opt}
+                    </Animated.Button>
+                  ))}
+                </div>
+              ) : (
+                <textarea
+                  rows={4}
+                  value={textAnswer}
+                  onChange={e => setTextAnswer(e.target.value)}
+                  placeholder="Votre réponse libre..."
+                  className="w-full p-4 border border-light rounded-xl shadow-sm focus:ring-2 focus:ring-doré"
+                />
+              )}
+
+              {/* Navigation */}
+              <div className="flex justify-between pt-4 border-t border-light">
+                <Button variant="outline" onClick={goBack} disabled={step === 0}>
+                  ← Précédent
+                </Button>
+                <Button
+                  onClick={goNext}
+                  disabled={
+                    questions[step].options
+                      ? answers[step] == null
+                      : textAnswer.trim() === ''
+                  }
+                >
+                  {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
+                </Button>
+              </div>
+            </Animated.Div>
+
+          ) : !showProfileKeyword ? (
+            {/* 2) Mot-clé Intro */}
+            <Animated.Div
+              key="keyword"
+              variant="fadeInUp"
+              className="bg-white p-8 rounded-2xl shadow-lg space-y-4 text-center"
+            >
+              <h2 className="text-3xl font-title text-doré">Votre mot-clé</h2>
+              <p className="mt-2 text-2xl font-semibold text-ardoise">{profile}</p>
+              <Button onClick={() => setShowProfileKeyword(true)}>
+                En savoir plus →
+              </Button>
+            </Animated.Div>
+
+          ) : !showProfileDetails ? (
+            {/* 3) Détails Profil */}
+            <Animated.Div
+              key="details"
+              variant="slideFromLeft"
+              className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
+            >
+              <ProfileDetails profil={profile} />
+              <div className="text-center">
+                <Button onClick={() => setShowProfileDetails(true)}>
+                  Je veux être accompagné →
+                </Button>
+              </div>
+            </Animated.Div>
+
+          ) : !contactDone ? (
+            {/* 4) Contact Final */}
+            <Animated.Div
+              key="contact"
+              variant="fadeInUp"
+              className="p-8"
+            >
+              <ContactFinal
+                answers={answers}
+                textAnswer={textAnswer}
+                profile={profile}
+                meta={meta}
+                parcoursSlug={slug}
+                onSubmit={() => setContactDone(true)}
+              />
+            </Animated.Div>
+
+          ) : (
+            {/* 5) Clap de Fin */}
+            <Animated.Div
+              key="fin"
+              variant="fadeInUp"
+              className="p-8"
+            >
+              <ClapDeFin profil={profile} meta={meta} />
+            </Animated.Div>
+
+          )}
+
+        </AnimatePresence>
+      </div>
     </>
   )
 }

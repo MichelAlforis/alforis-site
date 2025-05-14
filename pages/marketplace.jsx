@@ -40,8 +40,9 @@ export default function MarketplacePage({ offres }) {
               {OffresTypes.map(({ type, label }) => (
                 <button
                   key={type}
+                  variant="outline"
                   onClick={() => setSelectedType(type)}
-                  className={`btn-alforis-outline ${
+                  className={` ${
                     selectedType === type ? 'bg-doré text-ardoise' : ''
                   }`}
                 >

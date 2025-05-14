@@ -3,7 +3,7 @@
 import { Animated } from '@/components/animated/Animated'
 import Image from 'next/image'
 import { GoldLink } from "@/hooks/useGoldEffect"
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 
 export default function HeroSection(extraClass = '') {
   return (
@@ -20,7 +20,7 @@ export default function HeroSection(extraClass = '') {
             Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
           </Animated.P>
 
-          <Button to="/Profil-De-Vie" index={1} className="btn-alforis-rdv">
+          <Button to="/Profil-De-Vie" index={1} variant="rdv">
             Commencer mon diagnostic
           </Button>
         </div>
