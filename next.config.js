@@ -23,4 +23,16 @@ const nextConfig = {
   },
 }
 
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    // Important pour permettre les exports JS
+    providerImportSource: "@mdx-js/react",
+  },
+})
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'], // ajoute .mdx ici
+})
+
 module.exports = nextConfig

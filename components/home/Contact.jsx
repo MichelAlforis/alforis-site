@@ -9,11 +9,6 @@ export default function Contact({ extraClass = '' }) {
 
   return (
     <>
-      <AlforisHead
-        title="Contact – Alforis"
-        description="Découvrez notre approche patrimoniale sur mesure à travers notre page contact."
-        path="/contact"
-      />
 <main className={`main-content min-h-screen py-12 px-4 md:px-0 flex items-center justify-center ${extraClass}`}>
 
 

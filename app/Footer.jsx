@@ -19,6 +19,7 @@ export default function Footer() {
           <p className="mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
           <Link href="/MentionsLegales" className="hover:text-doré mb-1">Mentions légales</Link>
           <Link href="/Confidentialite" className="hover:text-doré mb-1">Politique de confidentialité</Link>
+          <Link href="/FAQ" className="hover:text-doré mb-1">FAQ du Patrimoine</Link>
           <a href="mailto:michel.marques@alforis.fr" className="hover:text-doré">michel.marques@alforis.fr</a>
         </div>
 

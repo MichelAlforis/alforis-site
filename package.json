@@ -12,6 +12,9 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.3.2",
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "9.1.2",
     "@react-three/rapier": "^2.1.0",
