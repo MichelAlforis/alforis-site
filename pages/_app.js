@@ -16,8 +16,7 @@ export default function App({ Component, pageProps }) {
         src="/cookieconsent.umd.js"
         strategy="lazyOnload"
         onLoad={() => {
-          const cc = window.initCookieConsent()
-          cc.run({
+          const config = {
             current_lang: 'fr',
             autoclear_cookies: true,
             page_scripts: true,
@@ -69,7 +68,26 @@ export default function App({ Component, pageProps }) {
               },
             },
             theme_css: '/styles/cookieconsent-theme-alforis.css',
-          })
+          }
+
+          // Si la factory initCookieConsent est dispo
+          if (typeof window.initCookieConsent === 'function') {
+            window.initCookieConsent().run(config)
+            return
+          }
+
+          // Sinon, si l’API classique est présente
+          if (
+            window.cookieconsent &&
+            typeof window.cookieconsent.initialise === 'function'
+          ) {
+            window.cookieconsent.initialise(config)
+            return
+          }
+
+          console.error(
+            'CookieConsent non initialisé : ni initCookieConsent() ni cookieconsent.initialise() trouvés'
+          )
         }}
       />
 
