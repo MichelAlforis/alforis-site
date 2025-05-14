@@ -1,5 +1,5 @@
 import Airtable from 'airtable';
-import { notifyAdmin, sendProfileToClient } from '@/pages/api/EmailService';
+import { notifyAdmin, sendClientMail } from '@/pages/api/EmailService';
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID);
 const tableName = process.env.AIRTABLE_TABLE_NAME;
@@ -61,7 +61,7 @@ export async function updateRecordInAirtable(recordId, data) {
     ]);
 
     // 📩 Email au client après l'étape 2
-    await sendProfileToClient({
+    await sendClientMail({
       email: data.email,
       profil: data.profil,
     });
