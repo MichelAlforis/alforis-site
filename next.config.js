@@ -1,38 +1,51 @@
 // next.config.js
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+  },
+})
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack(config, { isServer }) {
-    // On filtre les règles pour exclure les fichiers .svg du traitement par file-loader
-    const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test instanceof RegExp && rule.test.test('.svg')
-    )
 
+  // Pour que Next.js traite aussi tes pages .mdx si besoin
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+
+  webpack(config, { defaultLoaders, isServer }) {
+    // --- 1) Gestion des SVG avec SVGR ---
+    const fileLoaderRule = config.module.rules.find(
+      rule => rule.test instanceof RegExp && rule.test.test('.svg')
+    )
     if (fileLoaderRule) {
-      // On exclut les fichiers .svg pour éviter qu'ils soient traités par file-loader
       fileLoaderRule.exclude = /\.svg$/i
     }
-
-    // On ajoute une règle pour traiter les fichiers .svg avec @svgr/webpack
     config.module.rules.push({
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,  // Limite l'utilisation de cette règle aux fichiers .js, .jsx, .ts, .tsx
-      use: ['@svgr/webpack'], // Utilisation de svgr pour convertir les SVG en composants React
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
     })
+
+    // --- 2) (Optionnel) Ajout manuel du loader MDX si nécessaire ---
+    // Avec withMDX, ce bloc n'est généralement pas requis,
+    // mais tu peux le laisser si tu veux forcer le loader MDX ici :
+    /*
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: [
+        defaultLoaders.babel,
+        {
+          loader: '@mdx-js/loader',
+          options: { /* remark/rehype plugins ici *\/ },
+        },
+      ],
+    })
+    */
 
     return config
   },
 }
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    // Important pour permettre les exports JS
-    providerImportSource: "@mdx-js/react",
-  },
-})
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'], // ajoute .mdx ici
-})
-
-module.exports = nextConfig
+// Seule exportation : intègre la config MDX **et** ta config Next principale
+module.exports = withMDX(nextConfig)
