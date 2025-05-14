@@ -7,7 +7,7 @@ import MarketplaceGrid from '@/components/MarketPlace/MarketplaceGrid'
 import { fetchAllOffres } from '@/lib/server/fetAllOffres'
 
 const HonorairesSimulator = dynamic(
-  () => import('@/components/Marketplace/HonorairesSimulator'),
+  () => import('@/components/MarketPlace/HonorairesSimulator'),
   { ssr: false, loading: () => <p className="text-center">Chargement…</p> }
 )
 
