@@ -2,55 +2,60 @@
 
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { motion, useAnimation } from 'framer-motion'
 
 export default function MobileScrollProgress() {
-  const [progress, setProgress] = useState(0)
   const [visible, setVisible] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const controls = useAnimation()
   const pathname = usePathname()
 
   useEffect(() => {
-    const el = document.getElementById('__next')
-    if (!el) return
+    let hideTimeout
 
-    let frame
-    let timeout
-
-    const update = () => {
-      const { scrollTop, scrollHeight, clientHeight } = el
-      const maxScroll = scrollHeight - clientHeight
-      const ratio = maxScroll > 0 ? scrollTop / maxScroll : 0
+    const onScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const ratio = docHeight > 0 ? scrollY / docHeight : 0
       setProgress(ratio)
 
-      if (scrollTop > 10) {
+      if (scrollY > 20) {
         setVisible(true)
-        clearTimeout(timeout)
-        timeout = setTimeout(() => setVisible(false), 1500)
+        clearTimeout(hideTimeout)
+        hideTimeout = setTimeout(() => setVisible(false), 1200)
       }
-
-      frame = requestAnimationFrame(update)
     }
 
-    frame = requestAnimationFrame(update)
-
+    // Listen to scroll events
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      cancelAnimationFrame(frame)
-      clearTimeout(timeout)
+      window.removeEventListener('scroll', onScroll)
+      clearTimeout(hideTimeout)
     }
   }, [pathname])
 
-  // Convert progress to golden gradient (optional visual upgrade)
-  const goldenGradient = `linear-gradient(to right, #bfb8a5, #c8b678, #d4bc5e)`
+  // Animate width smoothly
+  useEffect(() => {
+    controls.start({
+      width: `${progress * 100}%`,
+      transition: { duration: 0.2, ease: 'easeOut' },
+    })
+  }, [progress, controls])
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-1 z-[9999] md:hidden transition-opacity duration-300 pointer-events-none ${
-        visible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`fixed inset-x-0 top-0 h-1 z-50 md:hidden transition-opacity duration-300 pointer-events-none
+        ${visible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div
-        className="h-full transition-all"
-        style={{ width: `${progress * 100}%`, backgroundImage: goldenGradient }}
-      ></div>
+      {/* Track */}
+      <div className="h-full bg-ivoire/20">
+        {/* Progress indicator with golden gradient and soft shadow */}
+        <motion.div
+          className="h-full rounded-r-full bg-gradient-to-r from-doré via-ivoire to-doré shadow-sm"
+          initial={{ width: 0 }}
+          animate={controls}
+        />
+      </div>
     </div>
   )
 }

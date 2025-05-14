@@ -1,33 +1,38 @@
+// app/layout.jsx
 'use client'
+
+import React from 'react'
+import { ScrollRestoration } from 'next/navigation'
 import Navbar from '@/app/Navbar'
 import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
-import React, { useState, useEffect } from 'react'
+import '@/styles/globals.css'
 
-export default function Layout({ children }) {
-
-
+export default function RootLayout({ children }) {
   return (
-    <>
+    <html lang="fr">
+      <body className="scroll-smooth bg-ivoire text-anthracite">
+        {/* Scroll top natif à chaque navigation */}
+        <ScrollRestoration />
 
-      <div id="app-root" className="relative bg-ivoire text-anthracite z-base">
-        <header className="relative z-nav">
+        {/* Progress bar mobile */}
+        <MobileScrollProgress />
+
+        {/* Navbar fixe */}
+        <header className="fixed inset-x-0 top-0 z-nav">
           <Navbar />
         </header>
 
-        <main className="relative z-base">
+        {/* Contenu principal, avec un padding-top pour laisser place à la navbar */}
+        <main className="pt-16">
           {children}
         </main>
 
-        <footer className="relative z-footer">
+        {/* Footer */}
+        <footer className="mt-auto">
           <Footer />
         </footer>
-
-        {/* Eléments visuels par-dessus le contenu (ex: sceau, cookie, modales) */}
-        <div className="fixed inset-0 pointer-events-none z-overlay">
-          {/* Sceau, décor scrollé, ou effets visuels */}
-        </div>
-      </div>
-    </>
-  );
+      </body>
+    </html>
+  )
 }
