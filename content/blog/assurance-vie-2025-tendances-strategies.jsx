@@ -1,5 +1,10 @@
 'use client'
 import React from 'react'
+export const meta = {
+  title: "Assurance vie en 2025 : analyse stratégique, enjeux fiscaux et arbitrages gagnants",
+  description: "Panorama complet des stratégies patrimoniales 2025 via l'assurance vie : fiscalité, transmission, placements innovants.",
+  image: "/assets/blog/AV2025.png",
+}
 
 const BlogArticle = () => {
   return (
@@ -60,11 +65,7 @@ const BlogArticle = () => {
 
   )
 }
-
+BlogArticle.meta = meta
 export default BlogArticle
 
-export const meta = {
-  title: "Assurance vie en 2025 : analyse stratégique, enjeux fiscaux et arbitrages gagnants",
-  description: "Panorama complet des stratégies patrimoniales 2025 via l'assurance vie : fiscalité, transmission, placements innovants.",
-  image: "/assets/blog/AV2025.png",
-}
+

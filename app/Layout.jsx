@@ -1,37 +1,23 @@
 // app/layout.jsx
-'use client'
+import '@/styles/globals.css'
+import '@/styles/navbar.css'
+import '@/styles/generated-colors.css'
+import '@/styles/cookieconsent-theme-alforis.css'
 
 import React from 'react'
-import { ScrollRestoration } from 'next/navigation'
-import Navbar from '@/app/Navbar'
-import Footer from '@/app/Footer'
-import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
-import '@/styles/globals.css'
+import Head from './head'
+import RootClientLayout from './RootClientLayout'
+import ClientSideScrollRestorer from './ClientSideScrollRestorer';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <head><Head /></head>
       <body className="scroll-smooth bg-ivoire text-anthracite">
-        {/* Scroll top natif à chaque navigation */}
-        <ScrollRestoration />
-
-        {/* Progress bar mobile */}
-        <MobileScrollProgress />
-
-        {/* Navbar fixe */}
-        <header className="fixed inset-x-0 top-0 z-nav">
-          <Navbar />
-        </header>
-
-        {/* Contenu principal, avec un padding-top pour laisser place à la navbar */}
-        <main className="pt-16">
+        <ClientSideScrollRestorer />
+        <RootClientLayout>
           {children}
-        </main>
-
-        {/* Footer */}
-        <footer className="mt-auto">
-          <Footer />
-        </footer>
+        </RootClientLayout>
       </body>
     </html>
   )

@@ -1,0 +1,24 @@
+/* app/prendre-rendez-vous/page.jsx */
+export const metadataBase = new URL('https://www.alforis.fr')
+export const metadata = {
+  title: 'Prendre rendez-vous – Alforis',
+  description:
+    'Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe.',
+  openGraph: {
+    title: 'Prendre rendez-vous – Alforis',
+    description:
+      'Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe.',
+    url: 'https://www.alforis.fr/prendre-rendez-vous',
+    siteName: 'Alforis',
+    locale: 'fr_FR',
+    type: 'website',
+    images: ['/assets/img/og/prendre-rendez-vous.png'],
+  },
+  alternates: { canonical: 'https://www.alforis.fr/prendre-rendez-vous' },
+}
+
+import PrendreRDVContent from './PrendreRDVContent'
+
+export default function Page() {
+  return <PrendreRDVContent />
+}

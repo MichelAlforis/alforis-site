@@ -10,7 +10,7 @@ import cn from 'classnames'
  * @param {number} max - maximum progress value
  * @param {string} className - additional container classes
  */
-export default function ProgressBar({ value = 0, max = 100, className = '' }) {
+export default function Progress({ value = 0, max = 100, className = '' }) {
   const controls = useAnimation()
   const percentage = Math.min((value / max) * 100, 100)
 

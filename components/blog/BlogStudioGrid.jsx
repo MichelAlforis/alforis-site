@@ -4,9 +4,11 @@ import React from 'react'
 import ContentCard from './ContentCard'
 
 const BlogStudioGrid = ({ content = [] }) => {
+    console.log('🧪 BlogStudioGrid content:', content)
   // Filtrage ici
   const filteredContent = content.filter((item) => item.type === 'Blog' || item.type === 'Studio')
-
+    console.log('🧪 BlogStudioGrid content filtré:', filteredContent)
+    
   if (!Array.isArray(filteredContent) || filteredContent.length === 0) {
     return (
       <div className="text-center text-anthracite py-8">

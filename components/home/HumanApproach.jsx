@@ -1,67 +1,54 @@
+
+/* components/home/HumanApproach.jsx */
 'use client'
-import { Animated } from '@/components/animated/Animated'
-import AnimatedSVGRenderer from "@/components/animated/AnimatedSVGRenderer"
-import Buste from '@/assets/illustrations/buste.svg'
 
-// Définition correcte de l'objet `profilesData`
-export const profilesData = {
-  SvgComponent: Buste,
-  title: "Notre approche est d’abord humaine.",
-  paragraph: "Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire."
-}
+import { motion } from 'framer-motion'
+import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
+import BusteIcon from '@/assets/illustrations/buste.svg'
 
-export default function HumanApproach() {
+const text =
+  'Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.'
+
+export default function HumanApproach({ extraClass = '' }) {
   return (
-    <section>
-      <div className="flex flex-col md:flex-row items-center">
-
-        {/* Visuel buste / texture humaine à gauche */}
-        <div className="flex justify-center md:w-1/3">
+    <section className={`${extraClass} py-16`}>      
+      <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto gap-12">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/3 flex justify-center"
+        >
           <AnimatedSVGRenderer
-            SvgComponent={Buste}
+            SvgComponent={BusteIcon}
             strokeColor="var(--stroke-color)"
             fillColor="var(--fill-color)"
             strokeWidth={7}
             duration={5}
             delayStep={0.8}
-            className="block w-auto h-auto"
-            wrapperClassName="
-              stroke-ardoise
-              fill-doré
-              max-w-[15vw]
-              w-[20vw]
-              max-h-[500px]
-              mx-auto
-              aspect-[711/1089]
-            "
-            viewBox="0 0 711 1089"
-            preserveAspectRatio="xMidYMid meet"
-            height="100%"
-            width="100%"
+            
+          className="w-auto max-w-[15vw] stroke-ardoise fill-doré"
           />
-        </div>
-
-        {/* Texte narratif à droite */}
-        <div className="md:w-2/3 flex flex-col justify-center gap-4">
-          <Animated.Div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-semibold mb-4 text-anthracite">
-              {profilesData.title}
-            </h2>
-            <p className="text-base md:text-lg text-acier font-light leading-relaxed">
-              {profilesData.paragraph.split('. ').map((sentence, i) => (
-                <span key={i}>
-                  {sentence.trim()}{sentence.endsWith('.') ? '' : '.'}<br />
-                </span>
-              ))}
-            </p>
-          </Animated.Div>
-        </div>
-
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="md:w-2/3 flex flex-col gap-4"
+        >
+          <h2 className="text-3xl font-semibold text-anthracite mb-4">
+            Notre approche est d’abord humaine.
+          </h2>
+          <p className="text-base md:text-lg text-acier leading-relaxed">
+            {text.split('. ').map((s, i) => (
+              <span key={i}>
+                {s.trim()}{s.endsWith('.') ? '' : '.'}<br />
+              </span>
+            ))}
+          </p>
+        </motion.div>
       </div>
     </section>
   )

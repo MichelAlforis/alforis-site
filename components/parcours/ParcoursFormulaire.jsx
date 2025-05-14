@@ -10,6 +10,8 @@ import ContactFinal from '@/components/parcours/ContactFinal'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
 import AlforisHead from '@/components/AlforisHead'
 
+
+
 export default function ParcoursFormulaire({ meta, slug }) {
   const { title, description, questions, scoringMatrix, keywords } = meta
 

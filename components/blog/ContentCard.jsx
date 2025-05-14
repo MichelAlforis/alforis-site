@@ -12,7 +12,7 @@ const ContentCard = ({ type = '', title = '', description = '', image = '', slug
   const safeType = type.toLowerCase().trim()
   const safeSlug = slug.trim()
   const href = `/${safeType}/${safeSlug}`
-  const imageUrl = image || '/img/default-cover.jpg'
+  const imageUrl = image || '/img/placeholder.png'
 
   return (
     <Animated.Page>

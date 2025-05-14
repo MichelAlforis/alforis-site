@@ -1,29 +1,38 @@
+
+/* components/home/HeroSection.jsx */
 'use client'
 
-import { Animated } from '@/components/animated/Animated'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { GoldLink } from "@/hooks/useGoldEffect"
+import { GoldLink } from '@/hooks/useGoldEffect'
 import Button from '@/components/ui/Button'
 
-export default function HeroSection(extraClass = '') {
+export default function HeroSection({ extraClass = '' }) {
   return (
-    <section className="relative w-full overflow-hidden z-10 ${extraClass}">
-      {/* Contenu central */}
-      <div className="flex justify-center items-center relative w-full z-10">
-        <div className="text-center">
-          <Animated.H1 className="text-3xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6">
-            Chez Alforis, on ne commence pas par les chiffres. <br />
-            On commence par <GoldLink href="/ProfilDeVie">vous</GoldLink>.
-          </Animated.H1>
-
-          <Animated.P className="text-base md:text-lg text-acier font-light mb-8 w-full">
-            Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
-          </Animated.P>
-
-          <Button to="/Profil-De-Vie" index={1} className="btn-alforis-rdv">
-            Commencer mon diagnostic
-          </Button>
-        </div>
+    <section className={`relative w-full overflow-hidden ${extraClass}`}>      
+      <div className="flex flex-col items-center text-center px-4 py-20 md:py-32">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6"
+        >
+          Chez Alforis, on ne commence pas par les chiffres.<br />
+          On commence par <GoldLink href="/Profil-De-Vie">vous</GoldLink>.
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-base md:text-lg text-acier font-light mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
+          Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
+        </motion.p>
+        <Button to="/Profil-De-Vie" className="btn-alforis-rdv" index={1}>
+          Commencer mon diagnostic
+        </Button>
       </div>
     </section>
   )

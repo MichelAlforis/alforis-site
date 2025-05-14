@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import ClientOnlyMotion from '@/hooks/ClientOnlyMotion'
+import { motion } from 'framer-motion'
 
 const animationSettings = {
   fadeInUp: {
@@ -18,12 +18,12 @@ const animationSettings = {
     initial: { opacity: 0, x: 50 },
     animate: { opacity: 1, x: 0 },
     transition: { duration: 0.5 },
-  }
+  },
 }
 
 const tags = [
-  'div', 'section', 'article', 'h1', 'h2', 'h3', 'p', 'span', 'button',
-  'ul', 'li', 'nav', 'header', 'footer', 'main'
+  'div','section','article','h1','h2','h3','p','span',
+  'button','ul','li','nav','header','footer','main'
 ]
 
 function withMotion(tag) {
@@ -35,15 +35,14 @@ function withMotion(tag) {
     ...props
   }) {
     const settings = animationSettings[variant] || animationSettings.fadeInUp
-    const MotionTag = ClientOnlyMotion[tag] || ClientOnlyMotion.div
+    // on prend la primitive motion[tag] ou on retombe sur motion.div
+    const MotionTag = motion[tag] || motion.div
 
     return (
       <MotionTag
         {...settings}
         {...props}
-
-
-        
+        onAnimationComplete={onAnimationComplete}
         className={className}
       >
         {children}
@@ -52,42 +51,25 @@ function withMotion(tag) {
   }
 }
 
-
 export const Animated = tags.reduce((acc, tag) => {
-  const key = tag.charAt(0).toUpperCase() + tag.slice(1)
+  const key = tag[0].toUpperCase() + tag.slice(1)
   acc[key] = withMotion(tag)
   return acc
 }, {})
 
-// Raw = les composants non animés, si besoin
-export const Raw = tags.reduce((acc, tag) => {
-  const key = tag.charAt(0).toUpperCase() + tag.slice(1)
-  acc[key] = function RawComponent({ children, className = '', ...props }) {
-    const Tag = tag
-    return (
-      <Tag {...props} className={className}>
-        {children}
-      </Tag>
-    )
-  }
-  return acc
-}, {})
-
-// Ajout du composant Animated.Page
-Animated.Page = function AnimatedPage({ children, className = '', variant = 'fadeInUp', ...props }) {
+// pour la page complète
+Animated.Page = function AnimatedPage({
+  children,
+  className = '',
+  variant = 'fadeInUp',
+  ...props
+}) {
   const settings = animationSettings[variant] || animationSettings.fadeInUp
-  const MotionDiv = ClientOnlyMotion.div
-
   return (
-    <MotionDiv
-      {...settings}
-      {...props}
-      className={className}
-    >
+    <motion.div {...settings} {...props} className={className}>
       {children}
-    </MotionDiv>
+    </motion.div>
   )
 }
-
 
 export default Animated

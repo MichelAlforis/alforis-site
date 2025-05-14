@@ -1,56 +1,102 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import useButtonHover from '@/hooks/useButtonHover'
+import { useState, useEffect, useRef } from 'react'
 
-const CallToAction = () => {
+const CTA_BUTTONS = [
+  {
+    label: 'Explorer mon Profil de Vie',
+    path: '/profil-de-vie',
+  },
+  {
+    label: 'Prendre rendez-vous avec Alforis',
+    path: '/prendre-rendez-vous',
+  },
+]
+
+export default function CallToAction() {
   const router = useRouter()
   const { getButtonProps } = useButtonHover()
+  const [isNavigating, setIsNavigating] = useState(false)
+  const clickSoundRef = useRef(null)
 
-  const handleDelayedNavigation = (path) => {
-    const clickSound = new Audio('/sounds/click-retro.wav')
-    clickSound.volume = 0.5
-    clickSound.play()
-    setTimeout(() => router.push(path), 180)
+  useEffect(() => {
+    clickSoundRef.current = new Audio('/sounds/click-retro.wav')
+    clickSoundRef.current.volume = 0.4
+    clickSoundRef.current.preload = 'auto'
+  }, [])
+
+  const handleClick = (path) => {
+    if (isNavigating) return
+    setIsNavigating(true)
+
+    if (clickSoundRef.current) {
+      clickSoundRef.current.currentTime = 0
+      clickSoundRef.current.play().catch(console.error)
+    }
+
+    setTimeout(() => router.push(path), 400)
+  }
+
+  const buttonVariants = {
+    initial: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.3 + i * 0.2, duration: 0.7, ease: 'easeOut' },
+    }),
+    hover: { scale: 1.04, transition: { duration: 0.2 } },
+    tap: { scale: 0.98, transition: { duration: 0.1 } },
   }
 
   return (
     <motion.div
-      className="mt-24 max-w-5xl mx-auto flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4 px-4"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.5 }}
+      className="mt-24 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-6 px-4"
+      initial="initial"
+      whileInView="visible"
       viewport={{ once: true }}
     >
-      <motion.button
-        {...getButtonProps(0)}
-        onClick={() => handleDelayedNavigation('/Profil-De-Vie')}
-        className="w-full md:w-[280px] h-[60px] btn-alforis-retro flex items-center justify-center"
-      >
-        Explorer mon Profil de Vie
-      </motion.button>
+      {CTA_BUTTONS.map((btn, i) => (
+        <motion.button
+          key={btn.path}
+          {...getButtonProps(i)}
+          custom={i}
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          onClick={() => handleClick(btn.path)}
+          disabled={isNavigating}
+          className={`
+            relative w-full md:w-[320px] h-[65px] rounded-xl 
+            btn-alforis-rdv
+            tracking-wide overflow-hidden shadow-lg shadow-doré/10 transition-all duration-500
+            ${isNavigating ? 'opacity-50 cursor-wait' : 'cursor-pointer'}
+          `}
+        >
+          {/* Effet de fond plus visible au survol */}
+          <motion.span
+            className="absolute inset-0 bg-doré opacity-0"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 0.2 }}
+            transition={{ duration: 0.4 }}
+          />
 
-      <motion.button
-        {...getButtonProps(1)}
-        onClick={() => handleDelayedNavigation('/prendre-rendez-vous')}
-        className="w-full md:w-[280px] h-[60px] btn-alforis-retro flex items-center justify-center"
-      >
-        Prendre rendez-vous avec Alforis
-      </motion.button>
+          {/* Halo net et élégant au clic */}
+          {isNavigating && (
+            <motion.span
+              className="absolute inset-0 rounded-xl ring-2 ring-doré"
+              initial={{ scale: 1, opacity: 0.5 }}
+              animate={{ scale: 1.15, opacity: [0.5, 0] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+            />
+          )}
 
-      {/* 3e bouton si besoin */}
-      {/*
-      <motion.button
-        {...getButtonProps(2)}
-        onClick={() => handleDelayedNavigation('/some-other-page')}
-        className="w-full md:w-[280px] h-[60px] btn-alforis-retro flex items-center justify-center"
-      >
-        Autre action stratégique
-      </motion.button>
-      */}
+          {/* Texte */}
+          <span className="relative z-10">{btn.label}</span>
+        </motion.button>
+      ))}
     </motion.div>
   )
 }
-
-export default CallToAction
