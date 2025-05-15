@@ -4,16 +4,19 @@ import CTA from '@/components/ui/CallToAction'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'
 
-
 const components = { CTA }
 
 export async function generateStaticParams() {
-  return getContentSlugs('blog')
+  const slugs = getContentSlugs('blog')
+  return slugs.map(({ slug }) => ({ slug }))
 }
 
 export default async function BlogPage({ params }) {
-  const result = getContentMeta('blog', params.slug)
-  if (!result || !result.meta) notFound()
+  // 1) params est un Promise<{ slug: string }>
+  const { slug } = await params                                    // ← Next.js 15 impose ça :contentReference[oaicite:0]{index=0}
+  // 2) getContentMeta renvoie aussi une Promise
+  const result = await getContentMeta('blog', slug)
+  if (!result?.meta) notFound()
 
   const { meta, content } = result
 

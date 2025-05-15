@@ -4,53 +4,46 @@ import fs from 'fs'
 import dynamic from 'next/dynamic'
 import AlforisHead from '@/components/AlforisHead'
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const studioDir = path.join(process.cwd(), 'content/studio')
   const files = fs.readdirSync(studioDir)
 
-  const paths = files
+  return files
     .filter((file) => file.endsWith('.js') || file.endsWith('.jsx'))
     .map((file) => ({
-      params: { slug: file.replace(/\.jsx?$/, '') },
+      slug: file.replace(/\.jsx?$/, ''),
     }))
-
-  return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
-  const { slug } = params
-  const mod = await import(`../../content/studio/${slug}.jsx`)
+export default async function StudioPage({ params }) {
+  // ‣ params est un Promise<{ slug: string }>
+  const { slug } = await params                                    // :contentReference[oaicite:0]{index=0}
+
+  // On importe dynamiquement le méta + le composant
+  const mod = await import(`../../../content/studio/${slug}.jsx`)
   const meta = mod.meta || {}
 
-  return {
-    props: {
-      slug,
-      meta,
-    },
-  }
-}
-
-const StudioArticle = ({ slug, meta }) => {
-  const DynamicComponent = dynamic(() =>
-    import(`../../content/studio/${slug}.jsx`).then((mod) => mod.default)
+  // On prépare un DynamicComponent pour le rendu client si besoin
+  const DynamicComponent = dynamic(
+    () =>
+      import(`../../../content/studio/${slug}.jsx`).then((m) => m.default)
   )
 
   return (
     <main className="main-content bg-ivoire text-anthracite py-16 px-4 md:px-12">
-        
-        <AlforisHead
-          title={`${meta.title} | Studio Alforis`}
-          description={meta.description}
-          path={`/blog/${slug}`}
-          image={meta.image}
-        />
+      <AlforisHead
+        title={`${meta.title} | Studio Alforis`}
+        description={meta.description}
+        path={`/studio/${slug}`}
+        image={meta.image}
+      />
 
       <article className="max-w-3xl mx-auto fade-anim">
         {meta.image && (
           <img
             src={meta.image}
             alt={meta.title}
-            className="w-full max-w-[900px] mx-auto h-auto mb-8 rounded-lg shadow"
+            className="w-full max-w-[900px] mx-auto h-auto mb-8 rounded-lg shadow object-cover"
           />
         )}
 
@@ -60,5 +53,3 @@ const StudioArticle = ({ slug, meta }) => {
     </main>
   )
 }
-
-export default StudioArticle

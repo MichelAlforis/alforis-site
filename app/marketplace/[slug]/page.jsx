@@ -7,12 +7,18 @@ import { notFound } from 'next/navigation'
 const components = { CTA }
 
 export async function generateStaticParams() {
-  return getContentSlugs('offres')
+  // On génère un tableau de { slug } pour toutes les offres
+  const slugs = await getContentSlugs('offres')
+  return slugs.map(({ slug }) => ({ slug }))
 }
 
 export default async function OffrePage({ params }) {
-  const result = getContentMeta('offres', params.slug)
-  if (!result || !result.meta) notFound()
+  // ↳ Next.js 15 passe params comme Promise, il faut donc l’awaiter avant d’en extraire slug :contentReference[oaicite:0]{index=0}
+  const { slug } = await params
+
+  // ↳ getContentMeta est asynchrone, on attend donc aussi son résultat
+  const result = await getContentMeta('offres', slug)
+  if (!result?.meta) notFound()
 
   const { meta, content } = result
 

@@ -21,7 +21,6 @@ import ParcoursContent from './ParcoursContent'
 
 export default async function Page() {
   const content = await fetchAllParcours()
-  console.log('[DEBUG] trying import from:', content)
 
   return <ParcoursContent content={content} />
 }
