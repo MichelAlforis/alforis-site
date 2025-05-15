@@ -46,7 +46,6 @@
   padding: 1.5rem 2.5rem;
   border: none;
   opacity: 1;
-  transform: translateY(-30px);
   animation: cc-slide-down 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
   will-change: opacity, transform;
   backdrop-filter: blur(8px);

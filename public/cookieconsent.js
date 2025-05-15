@@ -1772,7 +1772,7 @@ function updateBannerHeight() {
   function listenBannerAnimation() {
     const ccBanner = document.querySelector('.cc-window');
     if (ccBanner) {
-      ccBanner.addEventListener('animationend', updateBannerHeight, { once: true });
+      setTimeout(updateBannerHeight, 40); // seul update rapide
       // Appel immédiat (au cas où il n'y aurait pas d'animation)
       updateBannerHeight();
     }
