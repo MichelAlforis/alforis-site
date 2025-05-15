@@ -111,3 +111,15 @@ button:hover {
         @apply flex-grow; /* Faire en sorte que le menu prenne tout l'espace disponible */
     }
 }
+
+/* Animation apparition bandeau */
+@keyframes cc-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

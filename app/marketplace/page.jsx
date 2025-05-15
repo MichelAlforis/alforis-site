@@ -17,9 +17,9 @@ export const metadata = {
 }
 
 import MarketplaceContent from './MarketplaceContent'
-import { fetchAllOffres } from '@/lib/server/fetAllOffres'
+import { fetchAllContent } from '@/lib/server/fetchAllContent'
 
 export default async function Page() {
-  const offres = await fetchAllOffres()
+  const offres = await fetchAllContent()
   return <MarketplaceContent offres={offres} />
 }

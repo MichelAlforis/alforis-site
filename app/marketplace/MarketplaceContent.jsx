@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Animated from '@/components/animated/Animated'
-import MarketplaceGrid from '@/components/MarketPlace/MarketplaceGrid'
+import SmartResponsive from '@/components/ui/SmartResponsive'
 import dynamic from 'next/dynamic'
 
 const HonorairesSimulator = dynamic(
@@ -46,7 +46,11 @@ export default function MarketplaceContent({ offres }) {
           </div>
 
           {selectedType !== 'encours' ? (
-            <MarketplaceGrid cible={selectedType} offres={offres} />
+             <SmartResponsive
+              data={offres.filter((o) => o.cible === selectedType)}
+              type="marketplace"
+              emptyMessage="Aucune offre disponible pour ce profil."
+            />
           ) : (
             <HonorairesSimulator />
           )}

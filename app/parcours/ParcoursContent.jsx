@@ -1,9 +1,9 @@
-/* app/parcours/ParcoursContent.jsx */
+// app/parcours/ParcoursContent.jsx
 'use client'
 
 import React from 'react'
 import Animated from '@/components/animated/Animated'
-import ParcoursGrid from '@/components/parcours/ParcoursGrid'
+import SmartResponsive from '@/components/ui/SmartResponsive'
 
 export default function ParcoursContent({ content }) {
   return (
@@ -13,7 +13,13 @@ export default function ParcoursContent({ content }) {
           <Animated.H1 className="text-5xl font-semibold text-center mb-6">
             Nos Parcours
           </Animated.H1>
-          <ParcoursGrid content={content} />
+          <SmartResponsive
+            data={content}
+            type="parcours"
+            filterKey="type"
+            filterValue="Parcours"
+            emptyMessage="Aucun parcours disponible."
+          />
         </div>
       </main>
     </Animated.Page>

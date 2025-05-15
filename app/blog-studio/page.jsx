@@ -1,5 +1,6 @@
-/* app/blog-studio/page.jsx */
+// app/blog-studio/page.jsx
 export const metadataBase = new URL('https://www.alforis.fr')
+
 export const metadata = {
   title: 'Blog & Studio – Alforis',
   description:
@@ -23,10 +24,16 @@ export const metadata = {
 }
 
 import BlogStudioContent from './BlogStudioContent'
-import { fetchAllContent } from '@/lib/server/fetchAllContent'  // ✅ Correct (named import)
+import { fetchAllContent } from '@/lib/server/fetchAllContent'
+
 
 export default async function Page() {
-  const content = await fetchAllContent()
-  
+  const all = await fetchAllContent()
+
+  const content = all.filter(
+    (item) => item.type === 'Blog' || item.type === 'Studio')
+    
+ console.log('🟡 FILTERED Blog & Studio :', content)
   return <BlogStudioContent content={content} />
 }
+

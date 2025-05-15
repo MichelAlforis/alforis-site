@@ -1,6 +1,6 @@
+// app/studio/[slug]/page.jsx
 import path from 'path'
 import fs from 'fs'
-import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import AlforisHead from '@/components/AlforisHead'
 

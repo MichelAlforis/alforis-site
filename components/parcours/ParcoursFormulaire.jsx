@@ -8,7 +8,6 @@ import Progress from '@/components/ui/progress'
 import Button from '@/components/ui/Button'
 import ContactFinal from '@/components/parcours/ContactFinal'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
-import AlforisHead from '@/components/AlforisHead'
 
 
 

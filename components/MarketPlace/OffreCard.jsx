@@ -23,7 +23,7 @@ const OffreCard = ({ type = '', title = '', description = '', image = '', slug =
           {/* Image de couverture via Next.js Image */}
           <div className="relative h-48 w-full">
             <Image
-              src={image || '/img/placeholder.png'}
+              src={image || '/assets/img/placeholder.png'}
               alt={title}
               fill
               className="object-cover"

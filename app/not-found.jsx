@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '@/public/assets/img/logo.svg' // adaptez le chemin si besoin
+import logo from '/public/assets/img/logo.svg' // adaptez le chemin si besoin
 
 export default function NotFound() {
   return (

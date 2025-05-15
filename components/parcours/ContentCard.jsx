@@ -11,7 +11,7 @@ const ContentCard = ({ type = '', title = '', description = '', image = '', slug
   const safeType = (type || 'parcours').toLowerCase().trim()
   const safeSlug = slug?.trim() || ''
   const href = `/${safeType}/${safeSlug}`
-  const imageUrl = image || '/img/placeholder.png'
+  const imageUrl = image || '/assets/img/placeholder.png'
 
   return (
     <Animated.Page>

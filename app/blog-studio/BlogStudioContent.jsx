@@ -5,9 +5,10 @@
 import React from 'react'
 import Animated from '@/components/animated/Animated'
 import { motion } from 'framer-motion'
-import BlogStudioGrid from '@/components/blog/BlogStudioGrid'
+import SmartResponsive from '@/components/ui/SmartResponsive'
 
 export default function BlogStudioContent({ content }) {
+
   return (
     <Animated.Page>
       <motion.main className="main-content bg-ivoire text-anthracite pb-24 px-6">
@@ -59,7 +60,11 @@ export default function BlogStudioContent({ content }) {
           </section>
 
           <section>
-            <BlogStudioGrid content={content} />
+            <SmartResponsive
+              data={content}
+              type="blog"
+              emptyMessage="Aucun contenu n'est encore publié."
+            />
           </section>
         </div>
       </motion.main>

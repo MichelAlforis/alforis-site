@@ -1,17 +1,18 @@
-// app/marketplace/[slug]/page.jsx
+// app/blog/[slug]/page.jsx
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'
 
+
 const components = { CTA }
 
 export async function generateStaticParams() {
-  return getContentSlugs('offres')
+  return getContentSlugs('blog')
 }
 
-export default async function OffrePage({ params }) {
-  const result = getContentMeta('offres', params.slug)
+export default async function BlogPage({ params }) {
+  const result = getContentMeta('blog', params.slug)
   if (!result || !result.meta) notFound()
 
   const { meta, content } = result
