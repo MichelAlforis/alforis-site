@@ -1,92 +1,75 @@
-// app/RootClientLayout.jsx
 'use client'
 
-import { ScrollRestoration } from 'next/navigation'
+import { useState } from 'react'
 import Script from 'next/script'
 import Navbar from '@/app/Navbar'
 import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
+import CookieBannerOffsetHandler from '@/components/CookieBannerOffsetHandler'
 
 export default function RootClientLayout({ children }) {
-   const config = {
-    current_lang: 'fr',
-    autoclear_cookies: true,
-    page_scripts: true,
-    gui_options: {
-      consent_modal: {
-        layout: 'cloud',
-        position: 'bottom center',
-        transition: 'slide'
-      },
-      settings_modal: {
-        layout: 'box',
-        transition: 'slide'
-      }
-    },
-    languages: {
-      fr: {
-        consent_modal: {
-          title: '🍪 Gestion des cookies',
-          description:
-            'Ce site utilise des cookies pour garantir son bon fonctionnement et analyser la fréquentation.',
-          primary_btn: { text: 'Accepter tout', role: 'accept_all' },
-          secondary_btn: { text: 'Paramétrer', role: 'settings' }
-        },
-        settings_modal: {
-          title: 'Préférences de cookies',
-          save_settings_btn: 'Enregistrer',
-          accept_all_btn: 'Tout accepter',
-          reject_all_btn: 'Tout refuser',
-          blocks: [
-            {
-              title: 'Utilisation des cookies 📊',
-              description: 'Amélioration de navigation et analyse de trafic.'
-            },
-            {
-              title: 'Cookies essentiels',
-              description: 'Indispensables. Non désactivables.',
-              toggle: { value: 'necessary', enabled: true, readonly: true }
-            },
-            {
-              title: 'Cookies de performance',
-              description: 'Statistiques anonymes.',
-              toggle: { value: 'analytics', enabled: false, readonly: false }
-            }
-          ]
-        }
-      }
-    },
-    theme_css: '/styles/cookieconsent-theme-alforis.css'
-  }
-  
-  
+  const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
+
   return (
     <>
-      {/* Scroll restoration & Progress */}
       <MobileScrollProgress />
 
-      {/* Cookie Consent */}
+      {/* Bandeau CookieConsent injecté dynamiquement */}
       <Script
-        src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"
+        src="/cookieconsent.js"
         strategy="afterInteractive"
         onLoad={() => {
-          // soit la nouvelle API initCookieConsent v4…
-          if (typeof window.initCookieConsent === 'function') {
-            window.initCookieConsent().run(config)
-          }
-          // …soit l’ancienne v3
-          else if (
-            window.cookieconsent &&
-            typeof window.cookieconsent.initialise === 'function'
-          ) {
-            window.cookieconsent.initialise(config)
-          } else {
-            console.error('CookieConsent non initialisé')
+          try {
+            if (
+              window.cookieconsent &&
+              typeof window.cookieconsent.initialise === 'function'
+            ) {
+              window.cookieconsent.initialise({
+                palette: {
+                  popup: {
+                    background: 'var(--ardoise)',
+                    text: 'var(--ivoire)',
+                  },
+                  button: {
+                    background: 'var(--doré)',
+                    text: 'var(--anthracite)',
+                  },
+                },
+                position: 'top',
+                theme: 'classic',
+                type: 'opt-in',
+                layout: 'basic',
+                content: {
+                  header: 'Gestion des cookies',
+                  message:
+                    'Ce site utilise des cookies pour vous garantir la meilleure expérience.',
+                  allow: 'Tout accepter',
+                  deny: 'Tout refuser',
+                  link: 'Personnaliser',
+                  href: '/politique-de-confidentialite',
+                },
+                onInitialise(status) {
+                  if (status === 'allow' || status === 'deny') {
+                    document.body.classList.add('banner-dismissed')
+                  }
+                },
+                onStatusChange(status) {
+                  if (status === 'allow' || status === 'deny') {
+                    document.body.classList.add('banner-dismissed')
+                  }
+                },
+              })
+            }
+          } catch (err) {
+            console.error('Erreur lors de l’initialisation de CookieConsent:', err)
           }
         }}
       />
 
-      {/* Google Tag Manager (noscript) */}
+      {/* Décalage dynamique de la navbar selon la hauteur du bandeau cookie */}
+      <CookieBannerOffsetHandler onChange={setCookieBannerHeight} />
+
+      {/* Google Tag Manager fallback */}
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-WSJ5RW24"
@@ -96,19 +79,26 @@ export default function RootClientLayout({ children }) {
         />
       </noscript>
 
-      {/* Layout */}
-      <header className="fixed inset-x-0 top-0 z-nav">
+      {/* Layout global */}
+      <header
+        className="fixed inset-x-0 z-nav"
+        style={{ top: cookieBannerHeight }}
+      >
         <Navbar />
       </header>
 
-      <main className="pt-16">{children}</main>
+      <main
+        style={{ cookieBannerHeight }}
+      >
+        {children}
+      </main>
 
       <footer className="mt-auto">
         <Footer />
       </footer>
-    <div className="fixed inset-0 pointer-events-none z-overlay">
-          {/* Sceau, décor scrollé, ou effets visuels */}
-    </div>
+
+      {/* Décors ou effets scrollés globaux */}
+      <div className="fixed inset-0 pointer-events-none z-overlay" />
     </>
   )
 }

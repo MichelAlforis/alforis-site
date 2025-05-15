@@ -10,6 +10,15 @@
   body {
     @apply font-sans antialiased;
   }
+  
+  body.banner-dismissed header,
+  body.banner-dismissed nav {
+    top: 0 !important;
+  }
+
+  header, nav {
+  transition: top 0.3s ease;
+}
 
   main h1:first-of-type,
   main form:first-of-type {
@@ -65,7 +74,7 @@
       --cc-toggle-off-bg: var(--acier);
       --cc-toggle-readonly-bg: var(--beigeClair);
 
-    --nav-height: 0px;
+    --nav-height: 80px;
   }
 }
 
@@ -129,9 +138,10 @@ html, body, #__next {
     animation: fadeScale 1.8s ease-out forwards;
   }
 
-  .main-content {
-    padding-top: var(--nav-height, 4rem);
-  }
+.main-content {
+    padding-top: calc(var(--cc-banner-height, 0px) + var(--nav-height, 80px));
+}
+
   .z-base {
     z-index: 10;
   }
@@ -144,6 +154,10 @@ html, body, #__next {
   .z-modal {
     z-index: 60;
   }
+  .cc-window,
+  .cc-revoke {
+  z-index: 99999 !important;
+}
 
     /* Home page spécifique : pas de padding-top */
     .home-content {
