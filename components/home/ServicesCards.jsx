@@ -1,5 +1,5 @@
-/* components/home/ServicesCards.jsx */
 'use client'
+/* components/home/ServicesCards.jsx */
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'

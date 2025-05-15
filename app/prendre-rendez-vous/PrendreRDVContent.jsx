@@ -1,5 +1,6 @@
-/* app/prendre-rendez-vous/PrendreRDVContent.jsx */
 'use client'
+/* app/prendre-rendez-vous/PrendreRDVContent.jsx */
+
 
 import React, { useState } from 'react'
 import Animated from '@/components/animated/Animated'

@@ -1,5 +1,6 @@
-// hooks/useCurrentSection.js
 'use client'
+// hooks/useCurrentSection.js
+
 import { useState, useEffect } from 'react'
 
 export default function useCurrentSection(sectionIds) {

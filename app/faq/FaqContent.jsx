@@ -1,5 +1,6 @@
-/* app/faq/FaqContent.jsx */
 'use client'
+/* app/faq/FaqContent.jsx */
+
 
 import React, { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'

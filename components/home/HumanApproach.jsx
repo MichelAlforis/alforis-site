@@ -1,6 +1,7 @@
 
-/* components/home/HumanApproach.jsx */
 'use client'
+/* components/home/HumanApproach.jsx */
+
 
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'

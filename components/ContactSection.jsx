@@ -1,5 +1,6 @@
-// ContactSection.jsx
 'use client'
+// ContactSection.jsx
+
 
 import { useEffect, useRef } from 'react'
 

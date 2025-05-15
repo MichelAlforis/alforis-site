@@ -1,9 +1,10 @@
-// components/ui/SmartResponsive.jsx
 'use client'
+// components/ui/SmartResponsive.jsx
+
 
 import React from 'react'
-import SmartGrid from '@/components/ui/SmartGrid'
-import SmartList from '@/components/ui/SmartList'
+import SmartGrid from './SmartGrid'
+import SmartList from './SmartList'
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState(false)
@@ -19,24 +20,13 @@ function useIsMobile() {
 }
 
 /**
- * Rend automatiquement une grille ou une liste selon la taille d'écran
+ * Rend SmartGrid ou SmartList selon la largeur
  */
-const SmartResponsive = ({
-  data = [],
-  type = '',
-  filterKey = '',
-  filterValue = '',
-  emptyMessage = 'Aucun contenu disponible.'
-}) => {
+export default function SmartResponsive({ data = [], type = '', filterKey = '', filterValue = '', emptyMessage = 'Aucun contenu disponible.', extra, infiniteRef }) {
   const isMobile = useIsMobile()
+  const sharedProps = { data, type, filterKey, filterValue, emptyMessage, extra, infiniteRef }
 
-  const sharedProps = { data, type, filterKey, filterValue, emptyMessage }
-
-  return isMobile ? (
-    <SmartList {...sharedProps} />
-  ) : (
-    <SmartGrid {...sharedProps} />
-  )
+  return isMobile
+    ? <SmartList {...sharedProps} />
+    : <SmartGrid {...sharedProps} />
 }
-
-export default SmartResponsive

@@ -8,7 +8,7 @@ export default function ClapDeFin({ profil, meta }) {
   const { icon, title, description, color, paragraphs, citation, cta } = data
 
   return (
-    <div className="max-w-xl mx-auto text-center space-y-6 mt-16 p-8 border-2 rounded-2xl shadow-lg" style={{ borderColor: color || '#000' }}>
+    <div className="max-w-xl mx-auto text-center space-y-6 p-8 border-2 rounded-2xl shadow-lg" style={{ borderColor: color || '#000' }}>
       {/* Titre & icône */}
       <div className="text-5xl">{icon}</div>
       <h2 className="text-2xl font-bold">{title}</h2>

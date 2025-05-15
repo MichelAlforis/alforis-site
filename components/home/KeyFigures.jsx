@@ -1,6 +1,7 @@
 
-/* components/home/KeyFigures.jsx */
 'use client'
+/* components/home/KeyFigures.jsx */
+
 
 import { useInView } from 'react-intersection-observer'
 import useCountUp from '@/hooks/useCountUp'

@@ -2,29 +2,29 @@ const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}', // si tu utilises /app
-    './styles/globals.css' 
+    './app/**/*.{js,ts,jsx,tsx}',
+    './styles/**/*.{css,scss}',
   ],
-
   theme: {
     extend: {
       colors: {
-        doré: "#C8A765",
-        ardoise: "#2E3A48",
-        acier: "#4A5A6A",
-        ivoire: "#F5F5F5",
-        anthracite: "#1D1D1D",
-        beigeClair: "#D1C5B0"
+        doré: '#C8A765',
+        ardoise: '#2E3A48',
+        acier: '#4A5A6A',
+        ivoire: '#F5F5F5',
+        anthracite: '#1D1D1D',
+        beigeClair: '#D1C5B0',
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
         title: ['Neue Montreal', 'sans-serif'],
       },
       fontSize: {
-        'md': '1rem',  // Définir text-md à 1rem (taille par défaut)
+        md: '1rem',
       },
       boxShadow: {
         retro: '0 0 0 2px #C8A765, 0 0 10px #C8A76566',
@@ -58,9 +58,10 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(
-      
-      function ({ matchUtilities, theme }) {
+    // Plugin officiel de typographie pour générer les classes 'prose'
+    require('@tailwindcss/typography'),
+    // Personnalisation des utilitaires 'fill' et 'stroke'
+    plugin(function ({ matchUtilities, theme }) {
       const flattenColorPalette = (colors) =>
         Object.entries(colors).flatMap(([key, value]) =>
           typeof value === 'object'
@@ -70,30 +71,21 @@ module.exports = {
               ])
             : [[key, value]]
         );
-      
       const colors = flattenColorPalette(theme('colors'));
-
       matchUtilities(
-        {
-          fill: (value) => ({ '--fill-color': value }),
-        },
+        { fill: (value) => ({ '--fill-color': value }) },
         { values: Object.fromEntries(colors) }
       );
-
       matchUtilities(
-        {
-          stroke: (value) => ({ '--stroke-color': value }),
-        },
+        { stroke: (value) => ({ '--stroke-color': value }) },
         { values: Object.fromEntries(colors) }
       );
     }),
-
-    function ({ addUtilities }) {
+    // Utilitaire pour le scrolling fluide sur iOS
+    plugin(function ({ addUtilities }) {
       addUtilities({
-        '.scroll-touch': {
-          '-webkit-overflow-scrolling': 'touch',
-        },
+        '.scroll-touch': { '-webkit-overflow-scrolling': 'touch' },
       });
-    },
+    }),
   ],
 };

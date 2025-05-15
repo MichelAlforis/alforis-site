@@ -1,5 +1,6 @@
-// hooks/useControlledScrollSections.js
 'use client'
+// hooks/useControlledScrollSections.js
+
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 /**

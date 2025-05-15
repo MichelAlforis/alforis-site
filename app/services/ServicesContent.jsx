@@ -1,5 +1,6 @@
-/* app/services/ServicesContent.jsx */
 'use client'
+/* app/services/ServicesContent.jsx */
+
 
 import React, { useState } from 'react'
 import Animated from '@/components/animated/Animated'

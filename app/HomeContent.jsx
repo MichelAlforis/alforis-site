@@ -1,5 +1,6 @@
-/* app/HomeContent.jsx */
 'use client'
+/* app/HomeContent.jsx */
+
 
 import HeroSection from '@/components/home/HeroSection'
 import ServicesCards from '@/components/home/ServicesCards'

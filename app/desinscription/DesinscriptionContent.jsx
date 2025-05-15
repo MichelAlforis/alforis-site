@@ -1,5 +1,6 @@
-/* app/desinscription/DesinscriptionContent.jsx */
 'use client'
+/* app/desinscription/DesinscriptionContent.jsx */
+
 
 import React, { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'

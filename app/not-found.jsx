@@ -1,5 +1,6 @@
-// app/not-found.jsx
 'use client'
+// app/not-found.jsx
+
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'

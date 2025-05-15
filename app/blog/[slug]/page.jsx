@@ -34,7 +34,7 @@ export default async function BlogPage({ params }) {
         {meta.title}
       </h1>
 
-      <article className="prose prose-lg max-w-none">
+      <article className="prose-alforis">
         {content && <MDXRemote source={content} components={components} />}
       </article>
     </main>

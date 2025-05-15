@@ -1,73 +1,204 @@
-
-/* app/blog-studio/BlogStudioContent.jsx */
 'use client'
 
-import React from 'react'
-import Animated from '@/components/animated/Animated'
+import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Input } from '@/components/ui/input'
+import { CategoryButton } from '@/components/ui/CategoryButton'
+import { ScrollArea } from '@/components/ui/ScrollArea'
 import SmartResponsive from '@/components/ui/SmartResponsive'
+import { ChevronUp, Sun, Moon, Star } from 'lucide-react'
 
-export default function BlogStudioContent({ content }) {
+export default function EnhancedBlogStudioContent({ content }) {
+  // Thème clair/sombre
+  const [dark, setDark] = useState(false)
+  // Appliquer la classe 'dark' sur <html>
+  useEffect(() => {
+    if (dark) document.documentElement.classList.add('dark')
+    else document.documentElement.classList.remove('dark')
+  }, [dark])
+
+  // Onglets : Tous, Studio, Blog, Favoris
+  const types = ['All', 'Studio', 'Blog', 'Favorites']
+  const [activeTab, setActiveTab] = useState('All')
+
+  // Catégories
+  const categories = useMemo(
+    () => Array.from(new Set(content.map(c => c.category))).filter(Boolean),
+    [content]
+  )
+  const [selectedCats, setSelectedCats] = useState(new Set())
+
+  // Recherche
+  const [search, setSearch] = useState('')
+
+  // Pagination infinie
+  const pageSize = 9
+  const [page, setPage] = useState(1)
+
+  // Favoris stockés localement
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('alforisFavorites'))
+      return new Set(Array.isArray(stored) ? stored : [])
+    } catch {
+      return new Set()
+    }
+  })
+  // Persistance des favoris
+  useEffect(() => {
+    localStorage.setItem('alforisFavorites', JSON.stringify(Array.from(favorites)))
+  }, [favorites])
+
+  const toggleFavorite = slug => {
+    setFavorites(prev => {
+      const next = new Set(prev)
+      next.has(slug) ? next.delete(slug) : next.add(slug)
+      return next
+    })
+  }
+
+  // Filtrage selon onglet, catégories, recherche, favoris
+  const filtered = useMemo(() => {
+    return content
+      .filter(item => {
+        if (activeTab === 'Favorites') return favorites.has(item.slug)
+        if (activeTab !== 'All' && item.type !== activeTab) return false
+        return true
+      })
+      .filter(item => !selectedCats.size || selectedCats.has(item.category))
+      .filter(
+        item =>
+          item.title.toLowerCase().includes(search.toLowerCase()) ||
+          (item.excerpt || '').toLowerCase().includes(search.toLowerCase())
+      )
+  }, [content, activeTab, selectedCats, search, favorites])
+
+  // Pagination
+  const sliced = filtered.slice(0, page * pageSize)
+  const observer = useRef(null)
+  const lastRef = useCallback(
+    node => {
+      if (observer.current) observer.current.disconnect()
+      observer.current = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && sliced.length < filtered.length) {
+          setPage(p => p + 1)
+        }
+      })
+      if (node) observer.current.observe(node)
+    },
+    [sliced, filtered]
+  )
+  // Reset pagination quand filtre change
+  useEffect(() => setPage(1), [activeTab, selectedCats, search])
 
   return (
-    <Animated.Page>
-      <motion.main className="main-content bg-ivoire text-anthracite pb-24 px-6">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <Animated.H1 className="text-5xl font-semibold text-center">
-            Blog & Studio Alforis
-          </Animated.H1>
-
-          <section className="text-center mb-16 space-y-8">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-lg md:text-xl text-anthracite"
+    <div>
+      <div className="min-h-screen bg-ivoire dark:bg-gray-900 text-anthracite dark:text-gray-100 transition-colors">
+        {/* En-tête fixe */}
+        <header className="sticky top-0 z-20 bg-ivoire/80 dark:bg-gray-900/80 backdrop-blur py-4">
+          <div className="relative flex justify-center items-center px-6">
+            <h1 className="text-5xl font-semibold font-title text-center">Blog & Studio</h1>
+            <button
+              onClick={() => setDark(d => !d)}
+              aria-label="Toggle theme"
+              className="absolute right-6 p-2 rounded-full hover:bg-light dark:hover:bg-gray-700 transition"
             >
-              Chez Alforis, le patrimoine se vit autant qu’il se comprend.
-            </motion.p>
+              {dark ? (
+                <Sun className="w-6 h-6 text-ardoise dark:text-gray-100" />
+              ) : (
+                <Moon className="w-6 h-6 text-ardoise" />
+              )}
+            </button>
+          </div>
+        </header>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+        <main className="px-6 py-8 max-w-6xl mx-auto space-y-8">
+          {/* Onglets de sélection */}
+          <section className="flex flex-wrap justify-center gap-4">
+            {types.map(tab => (
+              <motion.button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                whileHover={{ scale: 1.05 }}
+                className={`px-6 py-2 rounded-full font-medium transition ${
+                  activeTab === tab
+                    ? 'bg-doré text-white'
+                    : 'bg-light text-doré border border-doré'
+                }`}
+                aria-pressed={activeTab === tab}
               >
-                <h2 className="text-2xl font-title text-anthracite mb-2">🎙️ Le Studio</h2>
-                <p className="leading-relaxed">
-                  <strong>Ce que le banquier ne vous dit pas.</strong><br />
-                  Capsules vidéos, prises de parole tranchées,
-                  réflexions à contre-courant. Le Studio Alforis vous livre
-                  une vision libre et sans filtre du patrimoine.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <h2 className="text-2xl font-title text-anthracite mb-2">📝 Le Blog</h2>
-                <p className="leading-relaxed">
-                  Articles, décodages, inspirations stratégiques. Un espace
-                  pour prendre de la hauteur et enrichir vos décisions.
-                </p>
-              </motion.div>
-            </div>
+                {tab === 'All' && 'Tous'}
+                {tab === 'Studio' && '🎙️ Le Studio'}
+                {tab === 'Blog' && '📝 Le Blog'}
+                {tab === 'Favorites' && '⭐ Favoris'}
+              </motion.button>
+            ))}
           </section>
 
-          <section>
-            <SmartResponsive
-              data={content}
-              type="blog"
-              emptyMessage="Aucun contenu n'est encore publié."
+          {/* Barre de recherche et filtres */}
+          <section className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <Input
+              placeholder="Rechercher..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="flex-1"
             />
+            <ScrollArea className="w-full md:w-auto">
+              <div className="flex space-x-3 py-2">
+                {categories.map(cat => (
+                  <CategoryButton
+                    key={cat}
+                    label={cat}
+                    subtext="Catégorie"
+                    selected={selectedCats.has(cat)}
+                    onClick={() => {
+                      const s = new Set(selectedCats)
+                      s.has(cat) ? s.delete(cat) : s.add(cat)
+                      setSelectedCats(s)
+                    }}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
           </section>
-        </div>
-      </motion.main>
-    </Animated.Page>
+
+          {/* Affichage du contenu */}
+          {filtered.length > 0 ? (
+            <SmartResponsive
+              data={sliced}
+              type="blog"
+              extra={item => (
+                <button
+                  onClick={() => toggleFavorite(item.slug)}
+                  className="absolute z-30 top-2 right-2 p-2 bg-white dark:bg-gray-800 rounded-full shadow hover:bg-doré transition"
+                  aria-label={favorites.has(item.slug) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+                >
+                <Star
+                  className={` w-6 h-6 ${
+                    favorites.has(item.slug)
+                      ? 'fill-doré text-doré'
+                      : 'text-gray-400'
+                  }`}
+                />
+
+                </button>
+              )}
+              infiniteRef={lastRef}
+            />
+          ) : (
+            <p className="text-center text-steel">Aucun contenu pour ces critères.</p>
+          )}
+        </main>
+
+        {/* Bouton remonter */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-doré text-white shadow-lg hover:bg-doré/90 transition"
+          aria-label="Remonter"
+        >
+          <ChevronUp className="w-6 h-6" />
+        </button>
+      </div>
+    </div>
   )
 }

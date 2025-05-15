@@ -1,6 +1,7 @@
 
-/* components/home/LifeProfile.jsx */
 'use client'
+/* components/home/LifeProfile.jsx */
+
 
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'

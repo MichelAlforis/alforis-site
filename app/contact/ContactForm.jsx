@@ -1,5 +1,6 @@
-// app/contact/ContactForm.jsx
 'use client'
+// app/contact/ContactForm.jsx
+
 
 import React from 'react'
 import { motion } from 'framer-motion'

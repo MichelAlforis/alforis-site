@@ -1,16 +1,17 @@
-// components/ui/SmartList.jsx
 'use client'
+// components/ui/SmartList.jsx
+
 
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Animated } from '@/components/animated/Animated'
 import useButtonHover from '@/hooks/useButtonHover'
+import { Animated } from '@/components/animated/Animated'
 
 /**
- * Carte verticale élégante pour mobile-first, style Alforis.
+ * SmartListItem: item list vertical
  */
-const SmartListItem = ({ item, index = 0, type }) => {
+const SmartListItem = ({ item, index = 0, type, extra }) => {
   const { getButtonProps } = useButtonHover()
   const {
     title,
@@ -25,71 +26,40 @@ const SmartListItem = ({ item, index = 0, type }) => {
   const href = `${hrefPrefix}/${slug}`
 
   return (
-    <Link href={href} passHref>
-      <Animated.Div
-        {...getButtonProps(
-          index,
-          'flex items-start gap-4 py-4 border-b border-ivoire/40 hover:bg-ivoire/40 transition-colors rounded-lg px-2 sm:px-4'
-        )}
-      >
-        <div className="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover"
-            sizes="96px"
-            placeholder="blur"
-            blurDataURL="/assets/img/placeholder.png"
-          />
+    <div className="relative">
+      {/* Action flottante (ex: étoile) */}
+      {extra && (
+        <div className="absolute top-3 right-3 z-30">
+          {extra(item)}
         </div>
-        <div className="flex flex-col flex-1 min-w-0">
-          <span className="text-xs font-medium uppercase text-doré mb-1">
-            {itemType}
-          </span>
-          <h3 className="text-lg font-title text-ardoise leading-tight line-clamp-2">
-            {title}
-          </h3>
-          <p className="text-sm text-anthracite/80 mt-1 line-clamp-3">
-            {description}
-          </p>
-          {price && (
-            <p className="text-sm font-semibold text-ardoise mt-2">
-              {price}
-            </p>
+      )}
+
+      <Link href={href} passHref>
+        <Animated.Div
+          {...getButtonProps(
+            index,
+            'flex items-start gap-4 py-4 border-b border-ivoire/40 dark:border-gray-700 hover:bg-ivoire/40 dark:hover:bg-gray-700 transition-colors rounded-lg px-2 sm:px-4 cursor-pointer'
           )}
-        </div>
-      </Animated.Div>
-    </Link>
-  )
-}
-
-/**
- * Liste verticale pour mobile ou affichage linéaire contextuel.
- */
-const SmartList = ({
-  data = [],
-  type = '',
-  filterKey = '',
-  filterValue = '',
-  emptyMessage = 'Aucun contenu disponible.'
-}) => {
-  const filtered =
-    filterKey && filterValue
-      ? data.filter((item) => item[filterKey]?.toLowerCase() === filterValue.toLowerCase())
-      : data
-
-  if (!Array.isArray(filtered) || filtered.length === 0) {
-    return <p className="text-center text-anthracite py-6">{emptyMessage}</p>
-  }
-
-  return (
-    <div className="divide-y divide-ivoire/20 fade-anim">
-      {filtered.map((item, index) => (
-        <SmartListItem key={item.slug || index} item={item} index={index} type={type} />
-      ))}
+        >
+          <div className="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
+            <Image
+              src={image || '/assets/img/placeholder.png'}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="96px"
+              placeholder="blur"
+              blurDataURL="/assets/img/placeholder.png"
+            />
+          </div>
+          <div className="flex flex-col flex-1 min-w-0">
+            <span className="text-xs font-medium uppercase text-doré mb-1 truncate">{itemType}</span>
+            <h3 className="text-lg font-title text-ardoise dark:text-gray-100 leading-tight line-clamp-2 truncate">{title}</h3>
+            <p className="text-sm text-anthracite/80 dark:text-gray-400 mt-1 line-clamp-3 truncate">{description}</p>
+            {price && <p className="text-sm font-semibold text-ardoise mt-2">{price}</p>}
+          </div>
+        </Animated.Div>
+      </Link>
     </div>
   )
 }
-
-export default SmartList

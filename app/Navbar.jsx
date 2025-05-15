@@ -1,5 +1,6 @@
-// components/Navbar.jsx
 'use client'
+// components/Navbar.jsx
+
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'

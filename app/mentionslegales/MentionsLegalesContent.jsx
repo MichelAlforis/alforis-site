@@ -1,5 +1,6 @@
-/* app/mentions-legales/MentionsLegalesContent.jsx */
 'use client'
+/* app/mentions-legales/MentionsLegalesContent.jsx */
+
 
 import React from 'react'
 import Animated from '@/components/animated/Animated'

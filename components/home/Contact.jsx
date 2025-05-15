@@ -1,5 +1,6 @@
-/* components/home/Contact.jsx */
 'use client'
+/* components/home/Contact.jsx */
+
 
 import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'

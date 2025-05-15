@@ -89,6 +89,7 @@ export default function RootClientLayout({ children }) {
 
       <main
         style={{ cookieBannerHeight }}
+        className="dark:bg-anthracite-900"
       >
         {children}
       </main>

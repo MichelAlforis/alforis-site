@@ -1,5 +1,6 @@
-// app/parcours/ParcoursContent.jsx
 'use client'
+// app/parcours/ParcoursContent.jsx
+
 
 import React from 'react'
 import Animated from '@/components/animated/Animated'

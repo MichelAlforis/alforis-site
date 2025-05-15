@@ -1,5 +1,6 @@
-// src/hooks/useAirtable.js
 'use client'
+// src/hooks/useAirtable.js
+
 import { useCallback } from "react"
 
 export default function useAirtable() {

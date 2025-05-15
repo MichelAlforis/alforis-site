@@ -1,5 +1,6 @@
-// components/AlforisHead.jsx
 'use client'
+// components/AlforisHead.jsx
+
 
 import Head from 'next/head'
 import { usePathname } from 'next/navigation'

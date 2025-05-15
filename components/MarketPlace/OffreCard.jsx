@@ -1,5 +1,6 @@
-// components/OffreCard.jsx
 'use client'
+// components/OffreCard.jsx
+
 
 import React from 'react'
 import Link from 'next/link'

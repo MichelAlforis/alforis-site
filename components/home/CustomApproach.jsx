@@ -1,6 +1,6 @@
 
-/* components/home/CustomApproach.jsx */
 'use client'
+/* components/home/CustomApproach.jsx */
 
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'

@@ -1,5 +1,6 @@
-/* components/home/ApproachSection.jsx */
 'use client'
+/* components/home/ApproachSection.jsx */
+
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'

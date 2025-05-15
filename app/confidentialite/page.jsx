@@ -1,5 +1,4 @@
 
-
 /* app/confidentialite/page.jsx */
 export const metadataBase = new URL('https://www.alforis.fr')
 export const metadata = {
@@ -24,3 +23,4 @@ import ConfidentialiteContent from './ConfidentialiteContent'
 export default function Page() {
   return <ConfidentialiteContent />
 }
+

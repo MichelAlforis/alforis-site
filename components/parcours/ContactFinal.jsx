@@ -4,15 +4,12 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Button from '@/components/ui/button'
 import { GoldText } from '@/hooks/useGoldEffect'
-import ClapDeFin from '@/components/parcours/ClapDeFin'
 import { sanitizeFormData, filterFormData } from '@/components/parcours/ValidationDonnees'
-
 
 export default function ContactFinal({ answers, textAnswer, onSubmit, profile, meta = {}, parcoursSlug = '' }) {
   const [step, setStep] = useState(1)
   const [recordId, setRecordId] = useState(null)
   const [errorFields, setErrorFields] = useState({})
-  const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
     Nom: '',
     Email: '',
@@ -42,7 +39,7 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
       return 'Format email invalide.'
     }
     if (key === 'Age' && (isNaN(value) || Number(value) < 18)) {
-      return 'Âge minimal: 18.'
+      return 'Âge minimal : 18.'
     }
     if (key === 'NumeroTelephone' && !/^\+?[0-9\s-]{7,20}$/.test(value)) {
       return 'Téléphone invalide.'
@@ -106,118 +103,109 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: recordId, fields })
     })
-    if (res.ok) setSuccess(true)
-  }
-
-  useEffect(() => {
-    if (success && onSubmit) onSubmit()
-  }, [success, onSubmit])
-
-  if (success) {
-    return <ClapDeFin profil={profile} meta={meta} />
+    if (res.ok) {
+      onSubmit()
+    }
   }
 
   return (
-    <>
+    <div className="max-w-2xl mx-auto px-6 space-y-8">
+      <AnimatePresence mode="wait">
+        {step === 1 && (
+          <motion.form
+            key="step1"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            onSubmit={handleSubmitStep1}
+            className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+          >
+            <h2 className="text-2xl font-title text-ardoise">
+              <GoldText>Étape 1 :</GoldText> Vos infos
+            </h2>
 
-      <div className="main-content max-w-2xl mx-auto pt-[10vh] px-6 space-y-8">
-
-        <AnimatePresence mode="wait">
-          {step === 1 && (
-            <motion.form
-              key="step1"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              onSubmit={handleSubmitStep1}
-              className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
-            >
-              <h2 className="text-2xl font-title text-ardoise">
-                <GoldText>Étape 1:</GoldText> Vos infos
-              </h2>
-
-              {['Nom', 'Email', 'Age'].map(key => (
-                <div key={key}>
-                  <label className="block text-anthracite font-medium mb-1">
-                    {key}
-                  </label>
-                  <input
-                    name={key}
-                    type={key === 'Age' ? 'number' : key === 'Email' ? 'email' : 'text'}
-                    value={formData[key]}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
-                  />
-                  {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
-                </div>
-              ))}
-
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" name="RGPD" checked={formData.RGPD} onChange={handleChange} />
-                <span className="text-sm text-ardoise">J'accepte la politique RGPD</span>
-              </label>
-
-              <Button type="submit">Suivant →</Button>
-            </motion.form>
-          )}
-
-          {step === 2 && (
-            <motion.form
-              key="step2"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              onSubmit={handleSubmitStep2}
-              className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
-            >
-              <h2 className="text-2xl font-title text-ardoise text-center">
-                <GoldText>Votre mot-clé :</GoldText> <br />
-                <span className="text-3xl font-semibold block mt-2 text-doré">{profile}</span>
-              </h2>
-
-              <p className="text-center text-anthracite text-base mt-2">
-                Ce mot-clé reflète votre posture actuelle. Nous vous proposons d'aller plus loin pour affiner votre trajectoire.
-              </p>
-
-              <div>
-                <label className="block text-anthracite font-medium mb-1">Situation actuelle</label>
-                <select
-                  name="SituationActuelle"
-                  value={formData.SituationActuelle}
+            {['Nom', 'Email', 'Age'].map(key => (
+              <div key={key}>
+                <label className="block text-anthracite font-medium mb-1">{key}</label>
+                <input
+                  name={key}
+                  type={key === 'Age' ? 'number' : key === 'Email' ? 'email' : 'text'}
+                  value={formData[key]}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields.SituationActuelle ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
-                >
-                  <option value="">Choisissez...</option>
-                  <option>Célibataire</option>
-                  <option>En couple</option>
-                  <option>Marié(e)</option>
-                </select>
-                {errorFields.SituationActuelle && <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>}
+                  className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+                />
+                {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
               </div>
+            ))}
 
-              {['PatrimoineActuel', 'RevenusAnnuels', 'RisquePercu', 'NumeroTelephone'].map(key => (
-                <div key={key}>
-                  <label className="block text-anthracite font-medium mb-1">{key.replace(/([A-Z])/g, ' $1').trim()}</label>
-                  <input
-                    name={key}
-                    value={formData[key]}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
-                  />
-                  {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
-                </div>
-              ))}
+            <label className="flex items-center space-x-2">
+              <input type="checkbox" name="RGPD" checked={formData.RGPD} onChange={handleChange} />
+              <span className="text-sm text-ardoise">J'accepte la politique RGPD</span>
+            </label>
 
-              <Button type="submit">En savoir plus</Button>
-            </motion.form>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
+            <Button type="submit">Suivant →</Button>
+          </motion.form>
+        )}
+
+        {step === 2 && (
+          <motion.form
+            key="step2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            onSubmit={handleSubmitStep2}
+            className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+          >
+            <h2 className="text-2xl font-title text-ardoise text-center">
+              Votre mot-clé :
+              <br />
+              <span className="text-3xl font-semibold block mt-2 text-doré">
+                <GoldText>{profile}</GoldText>
+              </span>
+            </h2>
+
+            <p className="text-center text-anthracite text-base mt-2">
+              Ce mot-clé reflète votre posture actuelle. Nous vous proposons d'aller plus loin pour affiner votre trajectoire.
+            </p>
+
+            <div>
+              <label className="block text-anthracite font-medium mb-1">Situation actuelle</label>
+              <select
+                name="SituationActuelle"
+                value={formData.SituationActuelle}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields.SituationActuelle ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+              >
+                <option value="">Choisissez...</option>
+                <option>Célibataire</option>
+                <option>En couple</option>
+                <option>Marié(e)</option>
+              </select>
+              {errorFields.SituationActuelle && <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>}
+            </div>
+
+            {['PatrimoineActuel', 'RevenusAnnuels', 'RisquePercu', 'NumeroTelephone'].map(key => (
+              <div key={key}>
+                <label className="block text-anthracite font-medium mb-1">{key.replace(/([A-Z])/g, ' $1').trim()}</label>
+                <input
+                  name={key}
+                  value={formData[key]}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`w-full p-3 border rounded-xl focus:ring-2 ${errorFields[key] ? 'border-red-500 ring-red-200' : 'border-light focus:ring-doré'}`}
+                />
+                {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
+              </div>
+            ))}
+
+            <Button type="submit">En savoir plus</Button>
+          </motion.form>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }

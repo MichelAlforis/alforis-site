@@ -1,6 +1,7 @@
 
-/* components/home/HeroSection.jsx */
 'use client'
+/* components/home/HeroSection.jsx */
+
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'

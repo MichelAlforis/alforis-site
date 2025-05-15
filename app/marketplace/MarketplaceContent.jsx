@@ -1,5 +1,6 @@
-/* app/marketplace/MarketplaceContent.jsx */
 'use client'
+/* app/marketplace/MarketplaceContent.jsx */
+
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
