@@ -1,5 +1,5 @@
-import { questions,scoringMatrix } from '@/content/parcours/profildevie/QuizzData'
-import { profilesData, keywords } from '@/content/parcours/profildevie/profilesData'
+import { questions,scoringMatrix } from './profildevie/QuizzData.js'
+import { profilesData, keywords } from './profildevie/profilesData.js'
 
 export const meta = {
   title: "Profil de Vie",

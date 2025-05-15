@@ -1,5 +1,5 @@
-import { questions,scoringMatrix } from '@/content/parcours/profilTransmission/QuizzData'
-import { profilesData, keywords } from '@/content/parcours/profilTransmission/profilesData'
+import { questions,scoringMatrix } from './profilTransmission/QuizzData.js'
+import { profilesData, keywords } from './profilTransmission/profilesData.js'
 
 export const meta = {
   title: "Transmission de patrimoine",

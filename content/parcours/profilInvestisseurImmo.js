@@ -1,5 +1,5 @@
-import { questions,scoringMatrix } from '@/content/parcours/profilInvestisseurImmo/QuizzData'
-import { profilesData, keywords } from '@/content/parcours/profilInvestisseurImmo/profilesData'
+import { questions,scoringMatrix } from './profilInvestisseurImmo/QuizzData.js'
+import { profilesData, keywords } from './profilInvestisseurImmo/profilesData.js'
 
 
 // content/parcours/profilInvestisseurImmo/meta.js

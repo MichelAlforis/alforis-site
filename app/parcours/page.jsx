@@ -15,11 +15,13 @@ export const metadata = {
   alternates: { canonical: 'https://www.alforis.fr/parcours' },
 }
 
-import { fetchAllParcours } from '@/lib/server/fetchAllContent'
+// app/parcours/page.jsx
+import { fetchAllParcours } from '@/lib/server/fetchAllParcours'
 import ParcoursContent from './ParcoursContent'
 
 export default async function Page() {
   const content = await fetchAllParcours()
- console.log('🟡 All Parcours :', content)
+  console.log('[DEBUG] trying import from:', content)
+
   return <ParcoursContent content={content} />
 }

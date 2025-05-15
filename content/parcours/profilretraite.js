@@ -1,5 +1,5 @@
-import { questions,scoringMatrix } from '@/content/parcours/profilretraite/QuizzData'
-import { profilesData, keywords } from '@/content/parcours/profilretraite/profilesData'
+import { questions,scoringMatrix } from './profilretraite/QuizzData.js'
+import { profilesData, keywords } from './profilretraite/profilesData.js'
 
 // meta export
 export const meta = {
