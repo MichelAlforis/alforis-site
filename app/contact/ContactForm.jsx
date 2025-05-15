@@ -22,7 +22,7 @@ export default function ContactForm() {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <section className="relative z-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="relative z-10 w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Texte & coordonnées */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}

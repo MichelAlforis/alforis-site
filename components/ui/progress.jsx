@@ -29,7 +29,7 @@ export default function Progress({ value = 0, max = 100, className = '' }) {
       )}
     >
       <motion.div
-        className="h-full rounded-full bg-gradient-to-r from-ivoire via-doré to-ivoire shadow-md"
+        className="h-full rounded-full bg-gradient-to-r from-doré to-ivoire shadow-md"
         initial={{ width: 0 }}
         animate={controls}
       />

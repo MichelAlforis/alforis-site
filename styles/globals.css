@@ -65,7 +65,7 @@
       --cc-toggle-off-bg: var(--acier);
       --cc-toggle-readonly-bg: var(--beigeClair);
 
-    --nav-height: 80px;
+    --nav-height: 0px;
   }
 }
 

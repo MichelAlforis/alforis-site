@@ -71,6 +71,10 @@ export default function Head() {
         href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
         rel="stylesheet"
       />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"
+      />
     </>
   )
 }

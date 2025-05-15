@@ -15,14 +15,12 @@ export const metadata = {
   alternates: { canonical: 'https://www.alforis.fr/parcours' },
 }
 
-import ParcoursContent from './ParcoursContent'
 import { fetchAllContent } from '@/lib/server/fetchAllContent'
+import ParcoursContent from './ParcoursContent'
 
-export default async function Page ({ params }) {
-  const slug = params.slug
+export default async function Page() {
   const all = await fetchAllContent()
-  const current = all.find(i => i.type === 'Parcours' && i.slug === slug)
-  if (!current) notFound()
+  const content = all.filter((item) => item.type === 'Parcours')
 
-  return <ParcoursContent meta={current} slug={current.slug} />
+  return <ParcoursContent content={content} />
 }

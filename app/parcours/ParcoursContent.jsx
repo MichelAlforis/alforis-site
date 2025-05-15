@@ -9,7 +9,7 @@ export default function ParcoursContent({ content }) {
   return (
     <Animated.Page>
       <main className="main-content bg-ivoire text-anthracite pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <Animated.H1 className="text-5xl font-semibold text-center mb-6">
             Nos Parcours
           </Animated.H1>

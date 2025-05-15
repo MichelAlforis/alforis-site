@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Progress } from '@/components/ui/progress'
+import Progress from '@/components/ui/progress'
 import Button from '@/components/ui/Button'
 import ContactFinal from '@/components/parcours/ContactFinal'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
@@ -69,7 +69,6 @@ export default function ParcoursFormulaire({ meta, slug }) {
 
   return (
     <>
-      <AlforisHead title={`${title} – Alforis`} description={description} path={`/${slug}`} />
 
       <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
         {/* Progression */}

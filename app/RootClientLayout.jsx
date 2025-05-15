@@ -8,6 +8,58 @@ import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 
 export default function RootClientLayout({ children }) {
+   const config = {
+    current_lang: 'fr',
+    autoclear_cookies: true,
+    page_scripts: true,
+    gui_options: {
+      consent_modal: {
+        layout: 'cloud',
+        position: 'bottom center',
+        transition: 'slide'
+      },
+      settings_modal: {
+        layout: 'box',
+        transition: 'slide'
+      }
+    },
+    languages: {
+      fr: {
+        consent_modal: {
+          title: '🍪 Gestion des cookies',
+          description:
+            'Ce site utilise des cookies pour garantir son bon fonctionnement et analyser la fréquentation.',
+          primary_btn: { text: 'Accepter tout', role: 'accept_all' },
+          secondary_btn: { text: 'Paramétrer', role: 'settings' }
+        },
+        settings_modal: {
+          title: 'Préférences de cookies',
+          save_settings_btn: 'Enregistrer',
+          accept_all_btn: 'Tout accepter',
+          reject_all_btn: 'Tout refuser',
+          blocks: [
+            {
+              title: 'Utilisation des cookies 📊',
+              description: 'Amélioration de navigation et analyse de trafic.'
+            },
+            {
+              title: 'Cookies essentiels',
+              description: 'Indispensables. Non désactivables.',
+              toggle: { value: 'necessary', enabled: true, readonly: true }
+            },
+            {
+              title: 'Cookies de performance',
+              description: 'Statistiques anonymes.',
+              toggle: { value: 'analytics', enabled: false, readonly: false }
+            }
+          ]
+        }
+      }
+    },
+    theme_css: '/styles/cookieconsent-theme-alforis.css'
+  }
+  
+  
   return (
     <>
       {/* Scroll restoration & Progress */}
@@ -15,64 +67,21 @@ export default function RootClientLayout({ children }) {
 
       {/* Cookie Consent */}
       <Script
-        src="/cookieconsent.umd.js"
-        strategy="lazyOnload"
+        src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"
+        strategy="afterInteractive"
         onLoad={() => {
-          const config = {
-            current_lang: 'fr',
-            autoclear_cookies: true,
-            page_scripts: true,
-            gui_options: {
-              consent_modal: { layout: 'cloud', position: 'bottom center', transition: 'slide' },
-              settings_modal: { layout: 'box', transition: 'slide' },
-            },
-            languages: {
-              fr: {
-                consent_modal: {
-                  title: '🍪 Gestion des cookies',
-                  description:
-                    'Ce site utilise des cookies pour garantir son bon fonctionnement et analyser la fréquentation.',
-                  primary_btn: { text: 'Accepter tout', role: 'accept_all' },
-                  secondary_btn: { text: 'Paramétrer', role: 'settings' },
-                },
-                settings_modal: {
-                  title: 'Préférences de cookies',
-                  save_settings_btn: 'Enregistrer',
-                  accept_all_btn: 'Tout accepter',
-                  reject_all_btn: 'Tout refuser',
-                  blocks: [
-                    {
-                      title: 'Utilisation des cookies 📊',
-                      description: 'Amélioration de navigation et analyse de trafic.',
-                    },
-                    {
-                      title: 'Cookies essentiels',
-                      description: 'Indispensables. Non désactivables.',
-                      toggle: { value: 'necessary', enabled: true, readonly: true },
-                    },
-                    {
-                      title: 'Cookies de performance',
-                      description: 'Statistiques anonymes.',
-                      toggle: { value: 'analytics', enabled: false, readonly: false },
-                    },
-                  ],
-                },
-              },
-            },
-            theme_css: '/styles/cookieconsent-theme-alforis.css',
-          }
-
+          // soit la nouvelle API initCookieConsent v4…
           if (typeof window.initCookieConsent === 'function') {
             window.initCookieConsent().run(config)
-          } else if (
+          }
+          // …soit l’ancienne v3
+          else if (
             window.cookieconsent &&
             typeof window.cookieconsent.initialise === 'function'
           ) {
             window.cookieconsent.initialise(config)
           } else {
-            console.error(
-              'CookieConsent non initialisé'
-            )
+            console.error('CookieConsent non initialisé')
           }
         }}
       />

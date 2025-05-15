@@ -2,12 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Button from '@/components/ui/Button'
-import { Progress } from '@/components/ui/progress'
+import Button from '@/components/ui/button'
 import { GoldText } from '@/hooks/useGoldEffect'
 import ClapDeFin from '@/components/parcours/ClapDeFin'
 import { sanitizeFormData, filterFormData } from '@/components/parcours/ValidationDonnees'
-import AlforisHead from '@/components/AlforisHead'
+
 
 export default function ContactFinal({ answers, textAnswer, onSubmit, profile, meta = {}, parcoursSlug = '' }) {
   const [step, setStep] = useState(1)
@@ -120,17 +119,8 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
 
   return (
     <>
-      <AlforisHead
-        title={`Contact final – ${meta.title}`}
-        description="Vos coordonnées pour un suivi personnalisé"
-        path={`/${parcoursSlug}/contact`}
-      />
 
-      <div className="max-w-2xl mx-auto p-6 space-y-8">
-        <div className="flex items-center justify-between">
-          <Progress value={step === 1 ? 50 : 100} className="w-3/4 h-2 rounded-full" />
-          <span className="text-sm text-ardoise">Étape {step}/2</span>
-        </div>
+      <div className="main-content max-w-2xl mx-auto pt-[10vh] px-6 space-y-8">
 
         <AnimatePresence mode="wait">
           {step === 1 && (
@@ -169,7 +159,7 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
                 <span className="text-sm text-ardoise">J'accepte la politique RGPD</span>
               </label>
 
-              <Button type="submit" className='btn-alforis-outline'>Suivant →</Button>
+              <Button type="submit">Suivant →</Button>
             </motion.form>
           )}
 
@@ -183,9 +173,14 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
               onSubmit={handleSubmitStep2}
               className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
             >
-              <h2 className="text-2xl font-title text-ardoise">
-                <GoldText>Étape 2:</GoldText> Complétez
+              <h2 className="text-2xl font-title text-ardoise text-center">
+                <GoldText>Votre mot-clé :</GoldText> <br />
+                <span className="text-3xl font-semibold block mt-2 text-doré">{profile}</span>
               </h2>
+
+              <p className="text-center text-anthracite text-base mt-2">
+                Ce mot-clé reflète votre posture actuelle. Nous vous proposons d'aller plus loin pour affiner votre trajectoire.
+              </p>
 
               <div>
                 <label className="block text-anthracite font-medium mb-1">Situation actuelle</label>
@@ -218,7 +213,7 @@ export default function ContactFinal({ answers, textAnswer, onSubmit, profile, m
                 </div>
               ))}
 
-              <Button type="submit">Terminer</Button>
+              <Button type="submit">En savoir plus</Button>
             </motion.form>
           )}
         </AnimatePresence>
