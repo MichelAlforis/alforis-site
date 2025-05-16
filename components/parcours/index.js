@@ -2,5 +2,5 @@
 
 export { default as ProfilDeVieFormulaire } from "../../app/parcours/ParcoursFormulaire"
 export { default as ContactFinal } from "./ContactFinal"
-export * from "./datas"
+export * from "../../archives/datas"
 export { default as useAirtable } from "@/hooks/useAirtable"

@@ -1,10 +1,9 @@
 'use client'
 // components/ui/SmartResponsive.jsx
 
-
 import React from 'react'
 import SmartGrid from './SmartGrid'
-import SmartList from './SmartList'
+import {SmartList} from './SmartList'
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState(false)

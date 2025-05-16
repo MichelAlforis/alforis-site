@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { CheckCircle2, XCircle, Loader2 } from 'lucide-react'
 import Animated from '@/components/animated/Animated'
+import { motion } from 'framer-motion'
 
 export default function DesinscriptionContent() {
   const searchParams = useSearchParams()

@@ -1,13 +1,13 @@
-'use client'
-/* app/approchepersonnalisee/ApprocheContent.jsx */
+'use client' // Ajouter cette directive pour s'assurer que le composant est exécuté côté client
 
-
+import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react'
 import Animated from '@/components/animated/Animated'
 import NoWidowText from '@/components/animated/NoWindowText'
 import CallToAction from '@/components/ui/CallToAction'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings, DollarSign, Star, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 
 const steps = [
   {
@@ -45,6 +45,11 @@ const steps = [
 ]
 
 export default function ApprocheContent() {
+  const searchParams = useSearchParams() // Utilisation de useSearchParams ici
+  
+  // Exemple d'utilisation : récupérer un paramètre de recherche
+  const someParam = searchParams.get('someParam') || 'defaultValue'
+  
   return (
     <Animated.Page>
       <main className="bg-ivoire text-anthracite py-20 px-6 md:px-12">

@@ -1,75 +1,57 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Script from 'next/script'
+import { usePathname } from 'next/navigation'
 import Navbar from '@/app/Navbar'
 import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import CookieBannerOffsetHandler from '@/components/CookieBannerOffsetHandler'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function RootClientLayout({ children }) {
+  const pathname = usePathname()
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
+
+  // Met à jour la variable CSS --cc-banner-height pour le main-content
+  const handleBannerHeight = useCallback(height => {
+    setCookieBannerHeight(height)
+    document.documentElement.style.setProperty('--cc-banner-height', `${height}px`)
+  }, [])
+
+  useEffect(() => {
+    // Initialisation CookieConsent si présent
+    if (typeof window !== 'undefined' && window.cookieconsent) {
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: 'var(--ardoise)', text: 'var(--ivoire)' },
+          button: { background: 'var(--doré)', text: 'var(--anthracite)' }
+        },
+        position: 'top', theme: 'classic', type: 'opt-in', layout: 'basic',
+        content: {
+          header: 'Gestion des cookies',
+          message: 'Ce site utilise des cookies pour vous garantir la meilleure expérience.',
+          allow: 'Tout accepter', deny: 'Tout refuser', link: 'Personnaliser', href: '/politique-de-confidentialite'
+        },
+        onInitialise: status => { if (['allow','deny'].includes(status)) document.body.classList.add('banner-dismissed') },
+        onStatusChange: status => { if (['allow','deny'].includes(status)) document.body.classList.add('banner-dismissed') }
+      })
+    }
+  }, [])
 
   return (
     <>
       <MobileScrollProgress />
 
-      {/* Bandeau CookieConsent injecté dynamiquement */}
       <Script
         src="/cookieconsent.js"
         strategy="afterInteractive"
-        onLoad={() => {
-          try {
-            if (
-              window.cookieconsent &&
-              typeof window.cookieconsent.initialise === 'function'
-            ) {
-              window.cookieconsent.initialise({
-                palette: {
-                  popup: {
-                    background: 'var(--ardoise)',
-                    text: 'var(--ivoire)',
-                  },
-                  button: {
-                    background: 'var(--doré)',
-                    text: 'var(--anthracite)',
-                  },
-                },
-                position: 'top',
-                theme: 'classic',
-                type: 'opt-in',
-                layout: 'basic',
-                content: {
-                  header: 'Gestion des cookies',
-                  message:
-                    'Ce site utilise des cookies pour vous garantir la meilleure expérience.',
-                  allow: 'Tout accepter',
-                  deny: 'Tout refuser',
-                  link: 'Personnaliser',
-                  href: '/politique-de-confidentialite',
-                },
-                onInitialise(status) {
-                  if (status === 'allow' || status === 'deny') {
-                    document.body.classList.add('banner-dismissed')
-                  }
-                },
-                onStatusChange(status) {
-                  if (status === 'allow' || status === 'deny') {
-                    document.body.classList.add('banner-dismissed')
-                  }
-                },
-              })
-            }
-          } catch (err) {
-            console.error('Erreur lors de l’initialisation de CookieConsent:', err)
-          }
-        }}
+        onError={err => console.error('CookieConsent script error:', err)}
       />
 
-      {/* Décalage dynamique de la navbar selon la hauteur du bandeau cookie */}
-      <CookieBannerOffsetHandler onChange={setCookieBannerHeight} />
+      <CookieBannerOffsetHandler onChange={handleBannerHeight} />
 
-      {/* Google Tag Manager fallback */}
       <noscript>
         <iframe
           src="https://www.googletagmanager.com/ns.html?id=GTM-WSJ5RW24"
@@ -79,26 +61,28 @@ export default function RootClientLayout({ children }) {
         />
       </noscript>
 
-      {/* Layout global */}
-      <header
-        className="fixed inset-x-0 z-nav"
-        style={{ top: cookieBannerHeight }}
-      >
+      <header className="fixed inset-x-0 z-nav bg-ivoire/80 backdrop-blur-md transition-top" style={{ top: cookieBannerHeight }}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-doré text-white p-2 rounded"
+        >Aller au contenu</a>
         <Navbar />
       </header>
 
+      {/* Applique la classe main-content pour le padding automatique, et home-content pour la page d'accueil */}
       <main
-        style={{ cookieBannerHeight }}
-        className="dark:bg-anthracite-900"
+        id="main-content"
+        className={`main-content ${pathname === '/' ? 'home-content' : ''} transition-colors dark:bg-anthracite-900`}
       >
         {children}
       </main>
 
-      <footer className="mt-auto">
+      <footer className="mt-auto bg-ivoire dark:bg-gray-900">
         <Footer />
       </footer>
 
-      {/* Décors ou effets scrollés globaux */}
+      <ToastContainer position="bottom-right" theme="light" autoClose={3000} hideProgressBar />
+
       <div className="fixed inset-0 pointer-events-none z-overlay" />
     </>
   )

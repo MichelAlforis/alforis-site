@@ -1,17 +1,13 @@
 'use client'
-// app/not-found.jsx
-
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '/public/assets/img/logo.svg' // adaptez le chemin si besoin
 
 export default function NotFound() {
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-ivoire to-white text-anthracite p-6">
-      
-      {/* Blobs animés en fond */}
+      {/* Blobs animés */}
       <motion.span
         className="absolute top-10 left-1/4 w-40 h-40 bg-anthracite opacity-10 rounded-full filter blur-3xl"
         animate={{ scale: [1, 1.2, 1] }}
@@ -23,12 +19,10 @@ export default function NotFound() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Contenu principal */}
+      {/* Contenu */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-md">
-        {/* Logo */}
-        <Image src={logo} alt="Alforis" width={120} height={40} className="mb-8" />
+        <Image src="/assets/img/logo.svg" alt="Alforis" width={120} height={40} className="mb-8" />
 
-        {/* Titre animé */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -38,7 +32,6 @@ export default function NotFound() {
           Oups… Page introuvable
         </motion.h1>
 
-        {/* Texte explicatif */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +41,6 @@ export default function NotFound() {
           Désolé, cette page n’existe pas ou a été déplacée.
         </motion.p>
 
-        {/* Bouton de retour */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

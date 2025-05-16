@@ -7,14 +7,15 @@ import { CategoryButton } from '@/components/ui/CategoryButton'
 import { ScrollArea } from '@/components/ui/ScrollArea'
 import SmartResponsive from '@/components/ui/SmartResponsive'
 import { ChevronUp, Sun, Moon, Star } from 'lucide-react'
+import { Suspense } from 'react'
 
 export default function EnhancedBlogStudioContent({ content }) {
   // Thème clair/sombre
   const [dark, setDark] = useState(false)
+
   // Appliquer la classe 'dark' sur <html>
   useEffect(() => {
-    if (dark) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
+    document.documentElement.classList.toggle('dark', dark)
   }, [dark])
 
   // Onglets : Tous, Studio, Blog, Favoris
@@ -37,22 +38,20 @@ export default function EnhancedBlogStudioContent({ content }) {
 
   // Favoris stockés localement
   const [favorites, setFavorites] = useState(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem('alforisFavorites'))
-      return new Set(Array.isArray(stored) ? stored : [])
-    } catch {
-      return new Set()
-    }
+    const stored = localStorage.getItem('alforisFavorites')
+    return new Set(JSON.parse(stored) || [])
   })
+
   // Persistance des favoris
   useEffect(() => {
     localStorage.setItem('alforisFavorites', JSON.stringify(Array.from(favorites)))
   }, [favorites])
 
-  const toggleFavorite = slug => {
+  const toggleFavorite = (slug) => {
     setFavorites(prev => {
       const next = new Set(prev)
-      next.has(slug) ? next.delete(slug) : next.add(slug)
+      if (next.has(slug)) next.delete(slug)
+      else next.add(slug)
       return next
     })
   }
@@ -62,14 +61,12 @@ export default function EnhancedBlogStudioContent({ content }) {
     return content
       .filter(item => {
         if (activeTab === 'Favorites') return favorites.has(item.slug)
-        if (activeTab !== 'All' && item.type !== activeTab) return false
-        return true
+        return activeTab === 'All' || item.type === activeTab
       })
       .filter(item => !selectedCats.size || selectedCats.has(item.category))
-      .filter(
-        item =>
-          item.title.toLowerCase().includes(search.toLowerCase()) ||
-          (item.excerpt || '').toLowerCase().includes(search.toLowerCase())
+      .filter(item =>
+        item.title.toLowerCase().includes(search.toLowerCase()) ||
+        (item.excerpt || '').toLowerCase().includes(search.toLowerCase())
       )
   }, [content, activeTab, selectedCats, search, favorites])
 
@@ -88,18 +85,19 @@ export default function EnhancedBlogStudioContent({ content }) {
     },
     [sliced, filtered]
   )
+
   // Reset pagination quand filtre change
   useEffect(() => setPage(1), [activeTab, selectedCats, search])
 
   return (
-    <div>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="min-h-screen bg-ivoire dark:bg-gray-900 text-anthracite dark:text-gray-100 transition-colors">
         {/* En-tête fixe */}
         <header className="sticky top-0 z-20 bg-ivoire/80 dark:bg-gray-900/80 backdrop-blur py-4">
           <div className="relative flex justify-center items-center px-6">
             <h1 className="text-5xl font-semibold font-title text-center">Blog & Studio</h1>
             <button
-              onClick={() => setDark(d => !d)}
+              onClick={() => setDark(prev => !prev)}
               aria-label="Toggle theme"
               className="absolute right-6 p-2 rounded-full hover:bg-light dark:hover:bg-gray-700 transition"
             >
@@ -152,9 +150,10 @@ export default function EnhancedBlogStudioContent({ content }) {
                     subtext="Catégorie"
                     selected={selectedCats.has(cat)}
                     onClick={() => {
-                      const s = new Set(selectedCats)
-                      s.has(cat) ? s.delete(cat) : s.add(cat)
-                      setSelectedCats(s)
+                      const newSelectedCats = new Set(selectedCats)
+                      if (newSelectedCats.has(cat)) newSelectedCats.delete(cat)
+                      else newSelectedCats.add(cat)
+                      setSelectedCats(newSelectedCats)
                     }}
                   />
                 ))}
@@ -173,14 +172,13 @@ export default function EnhancedBlogStudioContent({ content }) {
                   className="absolute z-30 top-2 right-2 p-2 bg-white dark:bg-gray-800 rounded-full shadow hover:bg-doré transition"
                   aria-label={favorites.has(item.slug) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
                 >
-                <Star
-                  className={` w-6 h-6 ${
-                    favorites.has(item.slug)
-                      ? 'fill-doré text-doré'
-                      : 'text-gray-400'
-                  }`}
-                />
-
+                  <Star
+                    className={`w-6 h-6 ${
+                      favorites.has(item.slug)
+                        ? 'fill-doré text-doré'
+                        : 'text-gray-400'
+                    }`}
+                  />
                 </button>
               )}
               infiniteRef={lastRef}
@@ -199,6 +197,6 @@ export default function EnhancedBlogStudioContent({ content }) {
           <ChevronUp className="w-6 h-6" />
         </button>
       </div>
-    </div>
+    </Suspense>
   )
 }

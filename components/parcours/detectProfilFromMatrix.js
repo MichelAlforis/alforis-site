@@ -1,5 +1,5 @@
-import { scoringMatrix } from './scoringMatrix'
-import { keywords } from '@/components/parcours/datas'
+import { scoringMatrix } from '../../archives/scoringMatrix'
+import { keywords } from '@/archives/datas'
 
 export function detectProfilFromMatrix(answers, textAnswer) {
   const profiles = Object.keys(scoringMatrix[0])

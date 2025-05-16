@@ -9,7 +9,7 @@ import SmartResponsive from '@/components/ui/SmartResponsive'
 import dynamic from 'next/dynamic'
 
 const HonorairesSimulator = dynamic(
-  () => import('@/components/MarketPlace/HonorairesSimulator'),
+  () => import('@/components/HonorairesSimulator'),
   { loading: () => <p className="text-center text-ardoise">Chargement…</p> }
 )
 
