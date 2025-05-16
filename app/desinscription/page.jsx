@@ -16,7 +16,10 @@ export const metadata = {
 }
 
 import DesinscriptionContent from './DesinscriptionContent'
+import { Suspense } from 'react'
 
 export default function Page() {
+  <Suspense fallback={null}>
   return <DesinscriptionContent />
+  </Suspense>
 }

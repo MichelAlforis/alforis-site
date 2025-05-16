@@ -1,26 +1,28 @@
 'use client'
-// app/parcours/[slug]/FormPage.jsx
 
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import ParcoursFormulaire from '@/components/parcours/ParcoursFormulaire'
 
 export default function FormPage({ meta, slug }) {
   const router = useRouter()
-  const searchParams = useSearchParams() // Appel de useSearchParams() ici
+
+  // Callback invoked when the form is completed
+  const handleComplete = ({ profil, answers, textAnswer }) => {
+    // Build query string with encoded values
+    const params = new URLSearchParams()
+    params.set('profil', profil)
+    params.set('answers', JSON.stringify(answers))
+    params.set('textAnswer', textAnswer)
+
+    // Navigate to contact page with parameters
+    router.push(`/parcours/${slug}/contact?${params.toString()}`)
+  }
 
   return (
     <ParcoursFormulaire
       meta={meta}
       slug={slug}
-      onComplete={({ profil, answers, textAnswer }) => {
-        const params = new URLSearchParams({
-          profil,
-          answers: JSON.stringify(answers),
-          textAnswer
-        })
-        router.push(`/parcours/${slug}/contact?${params.toString()}`)
-      }}
+      onComplete={handleComplete}
     />
   )
 }

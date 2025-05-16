@@ -1,25 +1,35 @@
 'use client'
 
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import ContactFinal from '@/components/parcours/ContactFinal'
 
 export default function ContactClient({ meta, slug }) {
-  const router = useRouter()
-  const qp = useSearchParams()
+  const [data, setData] = useState({
+    profil: '',
+    textAnswer: '',
+    answers: []
+  })
 
-  const profil     = qp.get('profil')          || ''
-  const textAnswer = qp.get('textAnswer')      || ''
-  const answers    = JSON.parse(qp.get('answers') || '[]')
+  useEffect(() => {
+    const stored = sessionStorage.getItem('parcoursData')
+    if (stored) {
+      try {
+        setData(JSON.parse(stored))
+      } catch {
+        console.warn('❌ Erreur lecture sessionStorage')
+      }
+    }
+  }, [])
 
   return (
     <ContactFinal
       meta={meta}
-      profile={profil}
-      textAnswer={textAnswer}
-      answers={answers}
-      parcoursSlug={slug}
+      slug={slug}
+      profile={data.profil}
+      textAnswer={data.textAnswer}
+      answers={data.answers}
       onSubmit={() =>
-        router.push(`/parcours/${slug}/clap-de-fin?profil=${encodeURIComponent(profil)}`)
+        window.location.href = `/parcours/${slug}/clap-de-fin?profil=${encodeURIComponent(data.profil)}`
       }
     />
   )

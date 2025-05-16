@@ -3,9 +3,11 @@
 import React, { useState } from 'react'
 import Progress from '@/components/ui/progress'
 import Button from '@/components/ui/Button'
+import { useRouter } from 'next/navigation'
 
 export default function ParcoursFormulaire({ meta, slug, onComplete }) {
   const { questions, scoringMatrix, keywords } = meta
+  const router = useRouter()  // Nécessaire pour la redirection
 
   // États
   const [step, setStep] = useState(0)
@@ -48,10 +50,12 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     if (step < questions.length - 1) {
       setStep(prev => prev + 1)
     } else {
-      const profil = calculateProfile()
-      onComplete({ answers, textAnswer, profil })
+      const profil = calculateProfile()  // Calcul du profil une fois que tout est rempli
+      sessionStorage.setItem('parcoursData', JSON.stringify({ answers, textAnswer, profil }))
+      router.push(`/parcours/${slug}/contact`)
     }
   }
+
   const goBack = () => {
     if (step > 0) setStep(prev => prev - 1)
   }
