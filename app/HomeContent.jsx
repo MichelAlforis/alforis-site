@@ -2,14 +2,14 @@
 /* app/HomeContent.jsx */
 
 
-import HeroSection from '@/components/home/HeroSection'
-import ServicesCards from '@/components/home/ServicesCards'
-import ApproachSection from '@/components/home/ApproachSection'
-import KeyFigures from '@/components/home/KeyFigures'
-import Contact from '@/components/home/Contact'
-import { Animated } from '@/components/animated/Animated'
-import useControlledScrollSections from '@/hooks/useControlledScrollSections'
-import useButtonHover from '@/hooks/useButtonHover'
+import HeroSection from '../components/home/HeroSection'
+import ServicesCards from '../components/home/ServicesCards'
+import ApproachSection from '../components/home/ApproachSection'
+import KeyFigures from '../components/home/KeyFigures'
+import Contact from '../components/home/Contact'
+import { Animated } from '../components/animated/Animated'
+import useControlledScrollSections from '../hooks/useControlledScrollSections'
+import useButtonHover from '../hooks/useButtonHover'
 
 export default function HomeContent() {
   const sections = [

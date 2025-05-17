@@ -1,7 +1,11 @@
-import { scoringMatrix } from '../../archives/scoringMatrix'
-import { keywords } from '@/archives/datas'
+// Nouvelle version de detectProfilFromMatrix.js
+// sans import, avec scoringMatrix et keywords passés en paramètre
 
-export function detectProfilFromMatrix(answers, textAnswer) {
+export function detectProfilFromMatrix(answers, textAnswer, scoringMatrix, keywords) {
+  if (!scoringMatrix || !Array.isArray(scoringMatrix) || scoringMatrix.length === 0) {
+    throw new Error('scoringMatrix manquant ou invalide')
+  }
+
   const profiles = Object.keys(scoringMatrix[0])
   const scores = profiles.reduce((acc, profil) => ({ ...acc, [profil]: 0 }), {})
 
@@ -14,8 +18,8 @@ export function detectProfilFromMatrix(answers, textAnswer) {
     }
   })
 
-  // Traitement de la réponse libre (question 10)
-  if (textAnswer) {
+  // Traitement de la réponse libre
+  if (textAnswer && keywords) {
     Object.entries(keywords).forEach(([profil, mots]) => {
       mots.forEach((mot) => {
         if (textAnswer.toLowerCase().includes(mot.toLowerCase())) {
@@ -25,10 +29,9 @@ export function detectProfilFromMatrix(answers, textAnswer) {
     })
   }
 
-  // Tri décroissant des scores
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1])
   const [profilPrincipal, scorePrincipal] = sorted[0]
-  const [profilSecondaire, scoreSecondaire] = sorted[1]
+  const [profilSecondaire, scoreSecondaire] = sorted[1] || []
 
   const ecart = scorePrincipal - scoreSecondaire
 

@@ -1,4 +1,6 @@
 // app/marketplace/[slug]/page.jsx
+export { generateMetadata } from './generateMetadata'
+
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'

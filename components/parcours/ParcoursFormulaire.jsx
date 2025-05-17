@@ -28,7 +28,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
-      const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer)
+      const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer, meta.scoringMatrix, meta.keywords)
         onComplete({
           answers,
           textAnswer,

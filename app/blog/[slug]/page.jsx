@@ -1,4 +1,6 @@
 // app/blog/[slug]/page.jsx
+export { generateMetadata } from './generateMetadata'
+
 import remarkGfm from 'remark-gfm'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'

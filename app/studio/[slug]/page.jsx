@@ -1,8 +1,9 @@
 // app/studio/[slug]/page.jsx
+export { generateMetadata } from './generateMetadata'
+
 import path from 'path'
 import fs from 'fs'
 import dynamic from 'next/dynamic'
-import AlforisHead from '@/components/AlforisHead'
 
 export async function generateStaticParams() {
   const studioDir = path.join(process.cwd(), 'content/studio')
@@ -31,12 +32,6 @@ export default async function StudioPage({ params }) {
 
   return (
     <main className="main-content bg-ivoire text-anthracite py-16 px-4 md:px-12">
-      <AlforisHead
-        title={`${meta.title} | Studio Alforis`}
-        description={meta.description}
-        path={`/studio/${slug}`}
-        image={meta.image}
-      />
 
       <article className="max-w-3xl mx-auto fade-anim">
         {meta.image && (

@@ -6,7 +6,7 @@ import React, { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search } from 'lucide-react'
 import AccordionCategory from '@/components/ui/AccordionCategory'
-import { categoriesData } from '@/content/dataFAQ.mdx'
+import { categoriesData } from '@/content/dataFAQ'
 import Animated from '@/components/animated/Animated'
 
 export default function FaqContent() {

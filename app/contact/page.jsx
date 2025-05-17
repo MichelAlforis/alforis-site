@@ -1,7 +1,8 @@
 // app/contact/page.jsx
 import ContactForm from './ContactForm'
 
-export const metadata = {
+export async function generateMetadata() {
+  return {
   title: 'Contact – Alforis',
   description:
     'Découvrez notre approche patrimoniale sur mesure à travers notre page contact.',
@@ -22,7 +23,7 @@ export const metadata = {
     images: ['/assets/img/twitter/contact.png'],
   },
   alternates: { canonical: 'https://www.alforis.fr/contact' },
-}
+}}
 
 export default function ContactPage() {
   return <ContactForm />

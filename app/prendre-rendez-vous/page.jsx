@@ -1,6 +1,8 @@
+import PrendreRDVContent from './PrendreRDVContent'
+
 /* app/prendre-rendez-vous/page.jsx */
-export const metadataBase = new URL('https://www.alforis.fr')
-export const metadata = {
+export async function generateMetadata() {
+  return {
   title: 'Prendre rendez-vous – Alforis',
   description:
     'Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe.',
@@ -15,9 +17,9 @@ export const metadata = {
     images: ['/assets/img/og/prendre-rendez-vous.png'],
   },
   alternates: { canonical: 'https://www.alforis.fr/prendre-rendez-vous' },
-}
+}}
 
-import PrendreRDVContent from './PrendreRDVContent'
+
 
 export default function Page() {
   return <PrendreRDVContent />

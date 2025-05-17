@@ -1,6 +1,6 @@
 /* app/faq/page.jsx */
-export const metadataBase = new URL('https://www.alforis.fr')
-export const metadata = {
+export async function generateMetadata() {
+  return {
   title: 'FAQ – Alforis',
   description: 'Questions fréquentes sur nos services et notre expertise patrimoniale.',
   openGraph: {
@@ -13,7 +13,7 @@ export const metadata = {
     images: ['/assets/img/og/faq.png'],
   },
   alternates: { canonical: 'https://www.alforis.fr/faq' },
-}
+}}
 
 import FaqContent from './FaqContent'
 

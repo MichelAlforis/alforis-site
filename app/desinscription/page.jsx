@@ -1,6 +1,7 @@
+import DesinscriptionContent from './DesinscriptionContent'
 /* app/desinscription/page.jsx */
-export const metadataBase = new URL('https://www.alforis.fr')
-export const metadata = {
+export async function generateMetadata() {
+  return {
   title: 'Désinscription – Alforis',
   description: 'Confirmez votre désinscription à notre newsletter Alforis.',
   openGraph: {
@@ -13,9 +14,9 @@ export const metadata = {
     images: ['/assets/img/og/desinscription.png'],
   },
   alternates: { canonical: 'https://www.alforis.fr/desinscription' },
-}
+}}
 
-import DesinscriptionContent from './DesinscriptionContent'
+
 
 
 export default function Page() {
