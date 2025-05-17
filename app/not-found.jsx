@@ -1,4 +1,3 @@
-'use client'
 // app/not-found.jsx
 
 import { motion } from 'framer-motion'
