@@ -20,7 +20,7 @@ export default function HeroSection({ extraClass = '' }) {
           className="text-3xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6"
         >
           Chez Alforis, on ne commence pas par les chiffres.<br />
-          On commence par <GoldLink href="/Profil-De-Vie">vous</GoldLink>.
+          On commence par <GoldLink href="/parcours">vous</GoldLink>.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ export default function HeroSection({ extraClass = '' }) {
         >
           Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
         </motion.p>
-        <Button to="/Profil-De-Vie" className="btn-alforis-rdv" index={1}>
+        <Button to="/parcours" className="btn-alforis-rdv" index={1}>
           Commencer mon diagnostic
         </Button>
       </div>

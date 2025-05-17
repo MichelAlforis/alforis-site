@@ -3,6 +3,8 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: '@mdx-js/react',
+    remarkPlugins: [ require('remark-gfm') ],   // ← active les tableaux GFM
+    rehypePlugins: [],
   },
 })
 

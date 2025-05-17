@@ -1,5 +1,6 @@
 // app/blog/[slug]/page.jsx
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
+import { compileMDX } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'
@@ -12,13 +13,24 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage({ params }) {
-  // 1) params est un Promise<{ slug: string }>
-  const { slug } = await params                                    // ← Next.js 15 impose ça :contentReference[oaicite:0]{index=0}
-  // 2) getContentMeta renvoie aussi une Promise
+  // 1) Await params for Next.js 15 dynamic routes
+  const { slug } = await params
+
+  // 2) Fetch raw MDX & metadata
   const result = await getContentMeta('blog', slug)
   if (!result?.meta) notFound()
+  const { meta, content: rawMd } = result
 
-  const { meta, content } = result
+  // 3) Compile MDX with GFM support & custom components
+  const { content } = await compileMDX({
+    source: rawMd,
+    components,
+    options: {
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+      },
+    },
+  })
 
   return (
     <main className="main-content px-6 py-12 max-w-4xl mx-auto text-anthracite">
@@ -35,7 +47,8 @@ export default async function BlogPage({ params }) {
       </h1>
 
       <article className="prose-alforis">
-        {content && <MDXRemote source={content} components={components} />}
+        {/* Render the compiled MDX React nodes */}
+        {content}
       </article>
     </main>
   )

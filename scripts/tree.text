@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# list_tree.sh - Affiche l'arborescence du projet jusqu'à 5 niveaux,
+# en ignorant node_modules, .next, .git, public, dist, build, et fichiers de log
+# Usage: ./list_tree.sh [répertoire]
+
+# Exécution de la commande tree
+exec tree -L 5 -I 'node_modules|.next|.git|public|dist|build|*.log'

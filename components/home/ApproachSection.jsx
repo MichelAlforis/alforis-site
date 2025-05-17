@@ -12,21 +12,21 @@ import LifePic from '@/assets/illustrations/Lifepic'
 
 const cards = [
   {
-    href: '/ApprochePersonnalisee',
+    href: '/approchepersonnalisee',
     title: 'Notre approche est d’abord humaine.',
     text: `Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.`,
     Svg: ApprocheIcon,
     stroke: 20,
   },
   {
-    href: '/Profil-De-Vie',
+    href: '/parcours',
     title: 'Prêt à vous découvrir autrement ?',
     text: `Le Profil de Vie vous permet de faire le point, en quelques questions clés, sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.`,
     Svg: LifePic,
     stroke: 20,
   },
   {
-    href: '/Services',
+    href: '/services',
     title: 'Chaque trajectoire est unique.',
     text: `Nous ne croyons pas aux solutions toutes faites. Chaque accompagnement Alforis commence par une cartographie de vos objectifs profonds, de votre horizon personnel, et de vos contraintes concrètes.`,
     Svg: Buste,

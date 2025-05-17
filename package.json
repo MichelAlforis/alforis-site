@@ -9,7 +9,8 @@
     "lint": "next lint",
     "devc": "./scripts/dev-clean.sh",
     "deploy": "scripts/deploy.sh",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "treec": "./scripts/tree.sh"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
@@ -27,6 +28,7 @@
     "classnames": "^2.5.1",
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.5.0",
+    "focus-trap-react": "^11.0.3",
     "framer-motion": "^12.7.4",
     "gray-matter": "^4.0.3",
     "javascript": "^1.0.0",
@@ -43,6 +45,7 @@
     "react-toastify": "^11.0.5",
     "react-use": "^17.6.0",
     "recharts": "^2.15.3",
+    "remark-gfm": "^4.0.1",
     "resend": "^4.4.1",
     "three": "^0.176.0",
     "vercel": "^25.2.0"

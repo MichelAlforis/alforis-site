@@ -17,9 +17,9 @@ export default function Footer() {
         {/* Mentions + contact */}
         <div className="flex flex-col text-sm text-beigeClair md:col-start-3 md:items-end text-right">
           <p className="mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
-          <Link href="/MentionsLegales" className="hover:text-doré mb-1">Mentions légales</Link>
-          <Link href="/Confidentialite" className="hover:text-doré mb-1">Politique de confidentialité</Link>
-          <Link href="/FAQ" className="hover:text-doré mb-1">FAQ du Patrimoine</Link>
+          <Link href="/mentionslegales" className="hover:text-doré mb-1">Mentions légales</Link>
+          <Link href="/confidentialite" className="hover:text-doré mb-1">Politique de confidentialité</Link>
+          <Link href="/faq" className="hover:text-doré mb-1">FAQ du Patrimoine</Link>
           <a href="mailto:michel.marques@alforis.fr" className="hover:text-doré">michel.marques@alforis.fr</a>
         </div>
 

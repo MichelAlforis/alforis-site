@@ -29,7 +29,7 @@ export default function KeyFigures({ extraClass = '' }) {
           className="space-y-6 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-title text-doré drop-shadow-lg">
-            <GoldLink href="/Expertise">L’Expertise derrière Alforis</GoldLink>
+            <GoldLink href="/services">L’Expertise derrière Alforis</GoldLink>
           </h2>
           <p className="text-white text-base md:text-lg leading-relaxed">
             Plus de 15 ans d’expérience dans la structuration d’investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.

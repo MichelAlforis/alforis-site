@@ -7,8 +7,8 @@ import { useState, useEffect, useRef } from 'react'
 
 const CTA_BUTTONS = [
   {
-    label: 'Explorer mon Profil de Vie',
-    path: '/profil-de-vie',
+    label: 'Explore nos différents parcours',
+    path: '/parcours',
   },
   {
     label: 'Prendre rendez-vous avec Alforis',

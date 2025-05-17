@@ -30,7 +30,7 @@ export default function ServicesCards({ extraClass = '' }) {
           {services.map((s, i) => (
             <MotionLink
               key={s.title}
-              href="/Services"
+              href="/services"
               className="bg-white bg-opacity-90 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
