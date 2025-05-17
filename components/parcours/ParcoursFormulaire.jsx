@@ -28,8 +28,13 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
-      const { profilPrincipal } = detectProfilFromMatrix(answers, textAnswer)
-      onComplete({ answers, textAnswer, profil: profilPrincipal })
+      const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer)
+        onComplete({
+          answers,
+          textAnswer,
+          profilPrincipal,
+          profilSecondaire,    // ← on ajoute le secondaire
+        })
     }
   }
 
@@ -109,11 +114,11 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
       </AnimatePresence>
 
       <div className="flex justify-between pt-4 border-t border-light">
-        <Button onClick={goBack} disabled={step === 0} className="btn-alforis-outline">
+        <Button onClick={goBack} disabled={step === 0} variant="outline">
           ← Précédent
         </Button>
         <motion.div animate={shake ? { rotate: [0, -10, 10, -10, 0] } : { rotate: 0 }} transition={{ duration: 0.4 }}>
-          <Button onClick={handleNextClick} disabled={questions[step].options ? answers[step] == null : textAnswer.trim() === ''}>
+          <Button variant="outline" onClick={handleNextClick} disabled={questions[step].options ? answers[step] == null : textAnswer.trim() === ''}>
             {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
           </Button>
         </motion.div>

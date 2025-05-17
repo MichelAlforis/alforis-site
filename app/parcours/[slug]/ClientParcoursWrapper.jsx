@@ -9,8 +9,8 @@ export default function ClientParcoursWrapper({ meta, slug }) {
   const [step, setStep] = useState('form')
   const [sessionData, setSessionData] = useState(null)
 
-  const handleFormComplete = (data) => {
-    setSessionData(data)
+   const handleFormComplete = ({ answers, textAnswer, profilPrincipal, profilSecondaire }) => {
+    setSessionData({ answers, textAnswer, profilPrincipal, profilSecondaire })
     setStep('contact')
   }
 
@@ -35,14 +35,15 @@ export default function ClientParcoursWrapper({ meta, slug }) {
           parcoursSlug={slug}
           answers={sessionData.answers}
           textAnswer={sessionData.textAnswer}
-          profile={sessionData.profil}
+          profilPrincipal={sessionData.profilPrincipal}
           onSubmit={handleContactSubmit}
         />
       )}
 
       {step === 'clap' && sessionData && (
         <ClapDeFin
-          profil={sessionData.profil}
+          profilPrincipal={sessionData.profilPrincipal}
+          profilSecondaire={sessionData.profilSecondaire}
           meta={meta}
           slug={slug}
         />

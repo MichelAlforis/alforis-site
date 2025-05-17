@@ -9,9 +9,9 @@ export default function ContactFinal({
   answers,
   textAnswer,
   onSubmit,
-  profile,
+  profilPrincipal,
   meta = {},
-  parcoursSlug = '',
+  slug = '',
 }) {
   const [step, setStep] = useState(1)
   const [recordId, setRecordId] = useState(null)
@@ -28,7 +28,7 @@ export default function ContactFinal({
     RevenusAnnuels: '',
     RisquePercu: '',
     NumeroTelephone: '',
-    Profil: profile || '',
+    Profil: profilPrincipal || '',
     FormName: meta?.title || '',
   })
 
@@ -129,7 +129,7 @@ export default function ContactFinal({
           >
             {/* Étape 1: infos de base */}
             <h2 className="text-2xl font-title text-ardoise">
-              <GoldText>Étape 1 :</GoldText> Vos infos
+              Étape 1 :<GoldText> Vos infos</GoldText>
             </h2>
             {['Nom', 'Email', 'Age'].map((key) => (
               <div key={key}>
@@ -168,7 +168,7 @@ export default function ContactFinal({
             <h2 className="text-2xl font-title text-ardoise text-center">
               Votre mot-clé :<br />
               <span className="text-3xl font-semibold block mt-2 text-doré">
-                <GoldText>{profile}</GoldText>
+                <GoldText>{profilPrincipal}</GoldText>
               </span>
             </h2>
             <p className="text-center text-anthracite text-base mt-2">

@@ -2,8 +2,14 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default function ClapDeFin({ profil, meta }) {
-  const data = meta.profilesData?.[profil]
+export default function ClapDeFin({
+  profilPrincipal,
+  profilSecondaire,
+  meta,
+  slug,
+}) {
+  // On cherche d'abord les données du profil principal
+  const data = meta.profilesData?.[profilPrincipal]
   if (!data) {
     return (
       <p className="text-center mt-12 text-lg text-anthracite">
@@ -14,7 +20,7 @@ export default function ClapDeFin({ profil, meta }) {
 
   const { icon, title, description, color, paragraphs, citation, cta } = data
 
-  // Construire URL de CTA
+  // Construire l'URL de la CTA
   let href = cta?.href || ''
   if (href && !href.startsWith('http') && !href.startsWith('/')) {
     href = `/${href}`
@@ -41,27 +47,32 @@ export default function ClapDeFin({ profil, meta }) {
         </p>
       )}
 
-      {cta && (
-        <div>
-          {href.startsWith('http') ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 btn-alforis-retro"
-            >
-              {cta.label}
-            </a>
-          ) : (
-            <Link href={href} className="inline-block mt-4 btn-alforis-retro">
-              {cta.label}
-            </Link>
-          )}
-        </div>
+      {cta?.label && (
+        href.startsWith('http') ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 btn-alforis-retro"
+          >
+            {cta.label}
+          </a>
+        ) : (
+          <Link href={href} className="inline-block mt-4 btn-alforis-retro">
+            {cta.label}
+          </Link>
+        )
       )}
 
-      {/* Bouton retour au formulaire initial si besoin */}
-      <Link href={`/parcours/${profil}`} className="block mt-4 text-sm text-anthracite">
+      {/* Affichage du profil secondaire si présent */}
+      {profilSecondaire && (
+        <p className="mt-4 text-sm text-ardoise">
+          Profil secondaire : <strong>{profilSecondaire}</strong>
+        </p>
+      )}
+
+      {/* Bouton retour au début du parcours */}
+      <Link href={`/parcours/${slug}`} className="block mt-4 text-sm text-anthracite">
         ← Revenir à la sélection
       </Link>
     </div>
