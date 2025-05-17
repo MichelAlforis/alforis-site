@@ -1,39 +1,22 @@
-export const metadataBase = new URL('https://www.alforis.fr')
-export const metadata = {
-  title: 'Nos Parcours – Alforis',
-  description: 'Découvrez nos parcours personnalisés adaptés à votre trajectoire.',
-  openGraph: {
-    title: 'Nos Parcours – Alforis',
-    description: 'Découvrez nos parcours personnalisés adaptés à votre trajectoire.',
-    url: 'https://www.alforis.fr/parcours',
-    siteName: 'Alforis',
-    locale: 'fr_FR',
-    type: 'website',
-    images: ['/assets/img/og/parcours.png'],
-  },
-  alternates: { canonical: 'https://www.alforis.fr/parcours' },
-}
+// app/parcours/page.jsx
 
 import { fetchAllParcours } from '@/lib/server/fetchAllParcours'
 import ParcoursContent from './ParcoursContent'
 
+export const dynamic = 'force-static'
+
 export default async function Page({ searchParams }) {
-  // 1. fetch all items
-  const all = await fetchAllParcours()
-
-  // 2. determine current page & total pages
-  const pageSize = 5
-  const currentPage = parseInt(searchParams?.page || '1', 10)
-  const totalPages  = Math.ceil(all.length / pageSize)
-
-  // 3. slice out only the 5 items for this page
+  // Pagination côté serveur
+  const allParcours = await fetchAllParcours()
+  const pageSize = 6  // ajustez selon vos besoins
+  const currentPage = parseInt(searchParams?.page ?? '1', 10)
+  const totalPages = Math.ceil(allParcours.length / pageSize)
   const start = (currentPage - 1) * pageSize
-  const pageItems = all.slice(start, start + pageSize)
+  const content = allParcours.slice(start, start + pageSize)
 
   return (
     <ParcoursContent
-      content={pageItems}
-      currentPage={currentPage}
+      content={content}
       totalPages={totalPages}
     />
   )

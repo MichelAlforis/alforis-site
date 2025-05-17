@@ -1,24 +1,15 @@
-import FormPage from './FormPage'
+// app/parcours/[slug]/page.jsx
+import ClientParcoursWrapper from './ClientParcoursWrapper'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
 
 export async function generateStaticParams() {
-  const slugs = getContentSlugs('parcours')
-  return slugs.map(({ slug }) => ({ slug }))
+  return getContentSlugs('parcours').map(({ slug }) => ({ slug }))
 }
 
-export default async function ParcoursPage({ params }) {
-  const { slug } = params
+export default async function Page({ params: { slug } }) {
   const result = await getContentMeta('parcours', slug)
   if (!result?.meta) notFound()
-  const { meta } = result
 
-  return (
-    <main className="main-content px-6 py-12 max-w-4xl mx-auto text-anthracite">
-      <Suspense fallback={null}>
-        <FormPage meta={meta} slug={slug} />
-      </Suspense>
-    </main>
-  )
+  return <ClientParcoursWrapper slug={slug} meta={result.meta} />
 }

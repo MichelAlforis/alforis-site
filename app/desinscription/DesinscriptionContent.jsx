@@ -1,20 +1,20 @@
 'use client'
 /* app/desinscription/DesinscriptionContent.jsx */
 
-
 import React, { useEffect, useState } from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { CheckCircle2, XCircle, Loader2 } from 'lucide-react'
 import Animated from '@/components/animated/Animated'
 import { motion } from 'framer-motion'
 
 export default function DesinscriptionContent() {
-  const searchParams = useSearchParams()
   const router = useRouter()
-  const email = searchParams.get('email')
   const [status, setStatus] = useState('pending') // 'pending' | 'success' | 'error'
 
   useEffect(() => {
+    // On ne court-circuite que côté client
+    const params = new URLSearchParams(window.location.search)
+    const email = params.get('email')
     if (!email) {
       setStatus('error')
       return
@@ -26,7 +26,7 @@ export default function DesinscriptionContent() {
     })
       .then((res) => (res.ok ? setStatus('success') : setStatus('error')))
       .catch(() => setStatus('error'))
-  }, [email])
+  }, [])
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5 },

@@ -3,7 +3,7 @@
 
 import React from 'react'
 import SmartGrid from './SmartGrid'
-import {SmartList} from './SmartList'
+import SmartList from './SmartList'
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState(false)
@@ -19,13 +19,10 @@ function useIsMobile() {
 }
 
 /**
- * Rend SmartGrid ou SmartList selon la largeur
+ * Affiche SmartList sur mobile, SmartGrid sur desktop
  */
-export default function SmartResponsive({ data = [], type = '', filterKey = '', filterValue = '', emptyMessage = 'Aucun contenu disponible.', extra, infiniteRef }) {
+export default function SmartResponsive(props) {
   const isMobile = useIsMobile()
-  const sharedProps = { data, type, filterKey, filterValue, emptyMessage, extra, infiniteRef }
 
-  return isMobile
-    ? <SmartList {...sharedProps} />
-    : <SmartGrid {...sharedProps} />
+  return isMobile ? <SmartList {...props} /> : <SmartGrid {...props} />
 }

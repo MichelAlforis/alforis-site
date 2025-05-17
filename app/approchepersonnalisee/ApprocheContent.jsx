@@ -1,13 +1,12 @@
-'use client' // Ajouter cette directive pour s'assurer que le composant est exécuté côté client
+'use client' // Assure-toi que ça reste un composant client
 
-import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Animated from '@/components/animated/Animated'
-import NoWidowText from '@/components/animated/NoWindowText'
+import NoWindowText from '@/components/animated/NoWindowText'
 import CallToAction from '@/components/ui/CallToAction'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings, DollarSign, Star, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useSearchParams } from 'next/navigation'
 
 const steps = [
   {
@@ -45,11 +44,16 @@ const steps = [
 ]
 
 export default function ApprocheContent() {
-  const searchParams = useSearchParams() // Utilisation de useSearchParams ici
-  
-  // Exemple d'utilisation : récupérer un paramètre de recherche
-  const someParam = searchParams.get('someParam') || 'defaultValue'
-  
+  const [stepIndex, setStepIndex] = useState(0)
+
+  useEffect(() => {
+    // on monte côté client, on lit le ?step= dans l'URL
+    const params = new URLSearchParams(window.location.search)
+    const raw = params.get('step') ?? '0'
+    const idx = Math.min(Math.max(parseInt(raw, 10), 0), steps.length - 1)
+    setStepIndex(idx)
+  }, [])
+
   return (
     <Animated.Page>
       <main className="bg-ivoire text-anthracite py-20 px-6 md:px-12">
@@ -66,32 +70,37 @@ export default function ApprocheContent() {
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-doré/40 h-full" />
+
             <div className="space-y-16">
               {steps.map((step, i) => {
                 const Icon = step.icon
                 const isEven = i % 2 === 0
+                const isActive = i === stepIndex
+
                 return (
                   <motion.div
                     key={step.title}
-                    initial={{ opacity: 0, x: isEven ? -100 : 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={isActive ? { opacity: 0, x: isEven ? -100 : 100 } : {}}
+                    whileInView={isActive ? { opacity: 1, x: 0 } : {}}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: i * 0.2 }}
-                    className={`relative flex flex-col md:flex-row items-center gap-6 ${
-                      isEven ? 'md:flex-row-reverse' : ''
-                    }`}
+                    className={`
+                      ${!isActive && 'hidden'}
+                      relative flex flex-col md:flex-row items-center gap-6
+                      ${isEven ? 'md:flex-row-reverse' : ''}
+                    `}
                   >
                     <div className="z-10 flex items-center justify-center bg-doré text-white rounded-full p-5 shadow-lg">
                       <Icon size={28} />
                     </div>
                     <Card className="flex-1 bg-white bg-opacity-90 rounded-2xl shadow-xl border border-doré/20">
                       <CardHeader>
-                        <NoWidowText
+                        <NoWindowText
                           as="h2"
                           className="text-2xl md:text-3xl font-serif text-doré font-semibold"
                         >
                           {step.title}
-                        </NoWidowText>
+                        </NoWindowText>
                         <p className="text-acier italic mt-1">{step.subtitle}</p>
                       </CardHeader>
                       <CardContent className="p-6">

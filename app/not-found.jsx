@@ -1,10 +1,11 @@
 'use client'
+// app/not-found.jsx
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-ivoire to-white text-anthracite p-6">
       {/* Blobs animés */}
@@ -21,7 +22,13 @@ export default function NotFound() {
 
       {/* Contenu */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-md">
-        <Image src="/assets/img/logo.svg" alt="Alforis" width={120} height={40} className="mb-8" />
+        <Image
+          src="/assets/img/logo.svg"
+          alt="Alforis"
+          width={120}
+          height={40}
+          className="mb-8"
+        />
 
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
@@ -48,8 +55,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="inline-block px-8 py-3 border-2 border-anthracite text-anthracite rounded-full uppercase font-semibold tracking-widest 
-                       hover:bg-anthracite hover:text-ivoire transition-all duration-300"
+            className="inline-block px-8 py-3 border-2 border-anthracite text-anthracite rounded-full uppercase font-semibold tracking-widest hover:bg-anthracite hover:text-ivoire transition-all duration-300"
           >
             Retour à l’accueil
           </Link>

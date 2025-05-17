@@ -15,12 +15,10 @@ export const metadata = {
 }
 
 import ApprocheContent from './ApprocheContent.jsx'
-import { Suspense } from 'react'
+
 
 export default function Page() {
   return (
-    <Suspense fallback={null}>
       <ApprocheContent />
-    </Suspense>
   )
 }
