@@ -15,7 +15,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 const dracoLoader = new DRACOLoader()
 dracoLoader.setDecoderPath('/draco/')
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang="fr">
       <head>
