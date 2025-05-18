@@ -10,7 +10,7 @@ export default function Contact({ extraClass = '' }) {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
 
   return (
-    <section id="contact" className={`relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
+    <section id="contact" className={`relative w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -21,11 +21,11 @@ export default function Contact({ extraClass = '' }) {
         <h2 className="text-3xl md:text-4xl font-extrabold text-doré mb-4">
           Entrer en contact avec Alforis
         </h2>
-        <p className="text-base text-anthracite leading-relaxed">
+        <p className="text-base text-white leading-relaxed">
           Vous souhaitez poser une question, planifier une rencontre ou recevoir une documentation ? <br />
           Laissez-nous un message ou prenez directement rendez-vous.
         </p>
-        <ul className="text-sm text-anthracite space-y-2">
+        <ul className="text-sm text-white space-y-2">
           <li><strong>Email :</strong> <a href="mailto:michel.marques@alforis.fr" className="underline">michel.marques@alforis.fr</a></li>
           <li><strong>Téléphone :</strong> <a href="tel:+33646462291" className="underline">06 46 46 22 91</a></li>
           <li><strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris</li>

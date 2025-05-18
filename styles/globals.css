@@ -60,6 +60,23 @@
     @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
   }
 
+  .hero {
+    position: relative;
+    overflow: hidden;
+    /* Fallback natif pour tous : 100vh - nav */
+    height: calc(100vh - var(--nav-height));
+    /* Unité dynamique récente (iOS15+, Chrome…) */
+    height: calc(100dvh - var(--nav-height));
+    /* Fallback JS / var(--vh) */
+    height: calc(var(--vh) * 100 - var(--nav-height));
+    /* Pour éviter que le contenu se retrouve sous la safe-area iOS */
+    padding-bottom: env(safe-area-inset-bottom);
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   /* 🌐 COULEURS BANDEAU COOKIE CNIL */
   :root {
 
@@ -75,6 +92,7 @@
       --cc-toggle-readonly-bg: var(--beigeClair);
 
     --nav-height: 80px;
+    --vh: 1vh;
   }
 }
 

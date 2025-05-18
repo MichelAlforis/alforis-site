@@ -48,7 +48,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
-      <div className="sticky top-16 z-50 bg-ivoire/80 backdrop-blur py-4">
+      <div className="sticky top-16 bg-ivoire/80 backdrop-blur py-4">
         <div className="px-2">
           <Progress value={progressPercent} className="h-2 rounded-full" />
         </div>

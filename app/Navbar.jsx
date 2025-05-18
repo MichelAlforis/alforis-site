@@ -40,13 +40,13 @@ export default function Navbar() {
   }, [pathname])
 
   const links = [
-    { href: '/', label: 'Accueil' },
+    { href: '/parcours', label: 'Vos Parcours de vie' },
+    { href: '/blog-studio', label: 'Blog & Studio' },
+    { href: '/marketplace', label: 'Nos Tarifs' },
     { href: '/services', label: 'Nos Services' },
     { href: '/approchepersonnalisee', label: 'Approche' },
-    { href: '/blog-studio', label: 'Blog & Studio' },
-    { href: '/parcours', label: 'Vos Parcours' },
     { href: '/contact', label: 'Contact' },
-    { href: '/marketplace', label: 'Nos Tarifs' }
+
   ]
 
   const isActive = href => pathname === href
