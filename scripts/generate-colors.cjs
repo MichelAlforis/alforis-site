@@ -10,7 +10,7 @@ const customColors = Object.fromEntries(
 );
 
 // 2. Générer un fichier JS à importer dans React (dans /styles)
-const jsOutputPath = path.resolve(__dirname, '../styles/generated-colors.js'); // <= OK
+const jsOutputPath = path.resolve(__dirname, '../public/styles/generated-colors.js'); // <= OK
 const jsContent = `export const couleurs = ${JSON.stringify(customColors, null, 2)};\n`;
 fs.writeFileSync(jsOutputPath, jsContent, 'utf8');
 
