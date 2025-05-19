@@ -7,50 +7,26 @@ import CallToAction from '@/components/ui/CallToAction'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings, DollarSign, Star, Users } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useState,useEffect } from 'react'
+import { pageConfig } from './pageConfig'
 
-const steps = [
-  {
-    icon: Settings,
-    title: 'L’écoute stratégique',
-    subtitle: 'Poser les fondations de votre trajectoire',
-    description:
-      'Tout commence par une écoute active, sans filtre ni préjugé, pour comprendre vos aspirations profondes.',
-    citation: 'Toute stratégie lucide commence par une écoute sincère.',
-  },
-  {
-    icon: DollarSign,
-    title: 'Modélisation patrimoniale',
-    subtitle: 'Transformer la complexité en clarté',
-    description:
-      'Visualisez chaque scénario, anticipez chaque décision et structurez votre capital avec précision.',
-    citation: 'On ne pilote bien que ce que l’on visualise clairement.',
-  },
-  {
-    icon: Star,
-    title: 'Stratégie sur-mesure',
-    subtitle: 'Choisir les bons leviers au bon moment',
-    description:
-      'Nous construisons un plan unique, aligné avec vos objectifs et votre rythme de vie.',
-    citation: 'Une bonne décision patrimoniale est toujours synchronisée avec la vie.',
-  },
-  {
-    icon: Users,
-    title: 'Suivi vivant',
-    subtitle: 'Votre trajectoire évolue, votre stratégie aussi',
-    description:
-      'Un accompagnement continu pour ajuster chaque étape à vos nouveaux besoins.',
-    citation: 'La valeur d’une stratégie se mesure à sa capacité d’adaptation.',
-  },
-]
-
+const steps = pageConfig.tabs
+  
 export default function ApprocheContent() {
+  
+  // état thème jour/nuit
+    const [dark, setDark] = useState(false)
+    useEffect(() => {
+      document.documentElement.classList.toggle('dark', dark)
+    }, [dark])
+
   return (
     <Animated.Page>
-      <main className="bg-ivoire text-anthracite py-20 px-6 md:px-12">
+      <main className="bg-ivoire text-anthracite dark:bg-acier text-ivoire py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto space-y-12">
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-doré/40 h-full" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-doré/40 dark:bg-acier/40 h-full" />
             <div className="space-y-16">
               {steps.map((step, i) => {
                 const Icon = step.icon
@@ -66,22 +42,22 @@ export default function ApprocheContent() {
                       isEven ? 'md:flex-row-reverse' : ''
                     }`}
                   >
-                    <div className="z-base flex items-center justify-center bg-doré text-ivoire rounded-full p-5 shadow-lg">
+                    <div className="z-base flex items-center justify-center bg-vertSauge text-ivoire dark:bg-doré rounded-full p-5 shadow-lg">
                       <Icon size={28} />
                     </div>
-                    <Card className="flex-1 bg-ivoire bg-opacity-90 rounded-2xl shadow-xl border border-doré/20">
+                    <Card className="flex-1 bg-ivoire bg-opacity-90 dark:bg-acier bg-opacity-80 text-ivoire rounded-2xl shadow-xl border border-doré/20 dark:border-vertSauge">
                       <CardHeader>
                         <NoWidowText
                           as="h2"
-                          className="text-2xl md:text-3xl font-serif text-doré font-semibold"
+                          className="text-2xl md:text-3xl font-serif text-doré dark:text-vertSauge font-semibold"
                         >
                           {step.title}
                         </NoWidowText>
-                        <p className="text-acier italic mt-1">{step.subtitle}</p>
+                        <p className="text-acier dark:text-ivoire italic mt-1">{step.subtitle}</p>
                       </CardHeader>
                       <CardContent className="p-6">
-                        <p className="text-lg leading-relaxed">{step.description}</p>
-                        <p className="italic opacity-70 mt-4">“{step.citation}”</p>
+                        <p className="text-lg text-anthracite dark:text-white leading-relaxed">{step.description}</p>
+                        <p className="italic text-anthracite dark:text-white opacity-70 mt-4">“{step.citation}”</p>
                       </CardContent>
                     </Card>
                   </motion.div>

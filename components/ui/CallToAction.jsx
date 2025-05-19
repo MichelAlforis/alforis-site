@@ -69,15 +69,15 @@ export default function CallToAction() {
           onClick={() => handleClick(btn.path)}
           disabled={isNavigating}
           className={`
-            relative w-full md:w-[320px] h-[65px] rounded-xl 
+            relative w-full md:w-[320px] h-[65px] rounded-full 
             btn-alforis-rdv
-            tracking-wide overflow-hidden shadow-lg shadow-doré/10 transition-all duration-500
+            tracking-wide overflow-hidden shadow-lg shadow-doré/10 dark:shadow-vertSauge/10 transition-all duration-500
             ${isNavigating ? 'opacity-50 cursor-wait' : 'cursor-pointer'}
           `}
         >
           {/* Effet de fond plus visible au survol */}
           <motion.span
-            className="absolute inset-0 bg-doré opacity-0"
+            className="absolute inset-0 bg-doré dark:vertSauge opacity-0"
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 0.2 }}
             transition={{ duration: 0.4 }}
@@ -86,7 +86,7 @@ export default function CallToAction() {
           {/* Halo net et élégant au clic */}
           {isNavigating && (
             <motion.span
-              className="absolute inset-0 rounded-xl ring-2 ring-doré"
+              className="absolute inset-0 rounded-full ring-2 ring-doré dark:ring-vertSauge"
               initial={{ scale: 1, opacity: 0.5 }}
               animate={{ scale: 1.15, opacity: [0.5, 0] }}
               transition={{ duration: 0.8, repeat: Infinity }}

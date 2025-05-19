@@ -31,6 +31,16 @@ export default async function StudioPage({ params }) {
   )
 
   return (
+         <>
+     <head>
+    {/* Breadcrumb ou lien retour */}
+  <div className="max-w-4xl mx-auto px-4 pt-6 pb-2">
+    <a href="/blog" className="inline-flex items-center gap-2 text-anthracite/80 hover:text-orange-430 text-sm font-medium transition">
+      <span aria-hidden="true">←</span>
+      Retour au blog
+    </a>
+  </div>
+  </head> 
     <main className="main-content bg-ivoire text-anthracite py-16 px-4 md:px-12">
 
       <article className="max-w-3xl mx-auto fade-anim">
@@ -46,5 +56,6 @@ export default async function StudioPage({ params }) {
         <DynamicComponent />
       </article>
     </main>
+    </>
   )
 }

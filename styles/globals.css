@@ -68,13 +68,13 @@ h2 {
 }
 
 h3 {
-  @apply text-xl sm:text-xl font-semibold;
+  @apply text-xl sm:text-xl font-semibold text-acier dark:text-ivoire ;
 }
 
 
   /* PARAGRAPHES */
   p {
-    @apply font-sans text-base text-anthracite;
+    @apply font-sans text-base text-anthracite dark:text-ivoire ;
   }
 
   /* LIENS */

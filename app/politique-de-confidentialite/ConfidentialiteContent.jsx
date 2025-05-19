@@ -18,7 +18,7 @@ export default function ConfidentialiteContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-anthracite dark:bg-acier/80 text-ivoire py-16 px-6"
+        className="main-content bg-ivoire text-acier dark:bg-anthracite text-ivoire py-16 px-6"
       >
         <div className="max-w-3xl mx-auto bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6">
 
@@ -26,7 +26,7 @@ export default function ConfidentialiteContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="leading-relaxed"
+            className="text-anthracite dark:text-ivoire leading-relaxed"
           >
             Chez Alforis Finance, nous accordons une attention particulière à la
             confidentialité et à la sécurité de vos données personnelles. Cette
@@ -40,7 +40,7 @@ export default function ConfidentialiteContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="space-y-4"
+            className="text-anthracite dark:text-ivoire space-y-4"
           >
             <h2 className="mt-6">Conformité au RGPD</h2>
             <p>
@@ -50,7 +50,7 @@ export default function ConfidentialiteContent() {
             </p>
 
             <h3 className="mt-4">Principes fondamentaux :</h3>
-            <ul className="list-disc list-inside ml-4 space-y-2">
+            <ul className="text-anthracite dark:text-ivoire list-disc list-inside ml-4 space-y-2">
               <li><strong>Licéité, loyauté et transparence</strong> : collecte légale, loyale et transparente. Mentions claires au moment de la collecte.</li>
               <li><strong>Limitation des finalités</strong> : aucune utilisation secondaire sans base légale ou consentement.</li>
               <li><strong>Minimisation des données</strong> : collecte strictement nécessaire. Pas de traitement superflu.</li>
@@ -64,7 +64,7 @@ export default function ConfidentialiteContent() {
 
       <h3 className="mt-6">Information des personnes concernées</h3>
       <p>Conformément aux articles 12 à 14 du RGPD, nous informons systématiquement chaque personne concernée des éléments suivants :</p>
-      <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+      <ul className="text-anthracite dark:text-ivoire list-disc list-inside ml-4 mt-2 space-y-1">
         <li>Identité du responsable de traitement</li>
         <li>Finalités et base légale</li>
         <li>Destinataires éventuels</li>
@@ -87,7 +87,7 @@ export default function ConfidentialiteContent() {
 
       <h3 className="mt-6">Transferts hors UE</h3>
       <p>Aucun transfert hors UE n’a lieu par défaut. Si un outil le nécessite (ex. Google), il est encadré par :</p>
-      <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+      <ul className="text-anthracite dark:text-ivoire list-disc list-inside ml-4 mt-2 space-y-1">
         <li>Décision d’adéquation de la Commission européenne</li>
         <li>Clauses contractuelles types (CCT)</li>
         <li>Consentement explicite si aucune autre garantie n’est possible</li>

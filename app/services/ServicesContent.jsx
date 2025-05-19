@@ -27,7 +27,7 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire py-16 px-6"
+        className="main-content bg-ivoire text-anthracite dark:bg-acier text-ivoire py-16 px-6"
       >
         <div className="max-w-4xl mx-auto space-y-8 text-center">
           {/* Tabs */}

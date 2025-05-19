@@ -35,6 +35,16 @@ export default async function BlogPage({ params }) {
   })
 
   return (
+     <>
+     <head>
+    {/* Breadcrumb ou lien retour */}
+  <div className="max-w-4xl mx-auto px-4 pt-6 pb-2">
+    <a href="/blog" className="inline-flex items-center gap-2 text-anthracite/80 hover:text-orange-430 text-sm font-medium transition">
+      <span aria-hidden="true">←</span>
+      Retour au blog
+    </a>
+  </div>
+  </head> 
     <main className="main-content px-6 py-12 max-w-4xl mx-auto text-anthracite">
       {meta.image && (
         <img
@@ -53,5 +63,6 @@ export default async function BlogPage({ params }) {
         {content}
       </article>
     </main>
+    </>
   )
 }
