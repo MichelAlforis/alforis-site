@@ -1,6 +1,9 @@
 // ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 export const pageConfig = {
-  title: "L'offre Alforis",
-  description: 'Vision libre et sans filtre du patrimoine – articles, vidéos et réflexions.',
-  showTabs: false,
+  title: 'FAQ - Questions fréquentes',
+  showTabs: true,
+  tabs: [
+  { label: 'Tout déplier', key: 'expandAll'       },
+  { label: 'Tout refermer', key: 'collapseAll'    },
+  ]
 }

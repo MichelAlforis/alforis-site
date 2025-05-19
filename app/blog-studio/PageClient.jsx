@@ -21,6 +21,7 @@ export default function PageClient({ content }) {
       tabs={pageConfig.tabs}
       activeTab={activeTab}           // ← on passe l’état au header
       onTabChange={setActiveTab}      // ← on passe le setter au header
+      showTabs={pageConfig.showTabs}
     >
       <BlogStudioContent
         content={content}

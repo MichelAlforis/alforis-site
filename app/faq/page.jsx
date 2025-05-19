@@ -1,4 +1,6 @@
 /* app/faq/page.jsx */
+import PageClient from "./PageClient"
+
 export async function generateMetadata() {
   return {
   title: 'FAQ – Alforis',
@@ -18,5 +20,5 @@ export async function generateMetadata() {
 import FaqContent from './FaqContent'
 
 export default function Page() {
-  return <FaqContent />
+  return <PageClient />
 }

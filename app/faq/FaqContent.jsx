@@ -2,14 +2,14 @@
 /* app/faq/FaqContent.jsx */
 
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search } from 'lucide-react'
 import AccordionCategory from '@/components/ui/AccordionCategory'
 import { categoriesData } from '@/content/dataFAQ'
 import Animated from '@/components/animated/Animated'
 
-export default function FaqContent() {
+export default function FaqContent({ content, activeTab, onTabChange }){
   const allIds = useMemo(
     () => categoriesData.flatMap(c => c.questions.map(q => q.id)),
     []
@@ -27,6 +27,17 @@ export default function FaqContent() {
 
   const collapseAll = () =>
     setOpenMap(Object.fromEntries(allIds.map(id => [id, false])))
+
+  useEffect(() => {
+    if (activeTab === 'expandAll') {
+      expandAll()
+      onTabChange('') // reset pour permettre re-click
+    }
+    if (activeTab === 'collapseAll') {
+      collapseAll()
+      onTabChange('')
+    }
+  }, [activeTab, allIds, onTabChange]) // <--- bien ajouter allIds en dépendance
 
   const filtered = useMemo(() => {
     if (!search.trim()) return categoriesData
@@ -47,14 +58,6 @@ export default function FaqContent() {
     <Animated.Page>
       <footer className="bg-ardoise py-16">
         <div className="main-content mx-auto px-6 text-ivoire">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-title mb-8 text-center"
-          >
-            FAQ - Questions fréquentes
-          </motion.h2>
 
           {/* Barre de recherche */}
           <div className="mb-8 flex justify-center">
@@ -78,21 +81,6 @@ export default function FaqContent() {
             </div>
           </div>
 
-          {/* Contrôles d'expansion */}
-          <div className="mb-12 flex gap-4 justify-center">
-            <button
-              onClick={expandAll}
-              className="btn-alforis-retro"
-            >
-              Tout déplier
-            </button>
-            <button
-              onClick={collapseAll}
-              className="btn-alforis-outline"
-            >
-              Tout refermer
-            </button>
-          </div>
 
           {/* Liste de catégories */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

@@ -48,15 +48,6 @@ export default function ApprocheContent() {
     <Animated.Page>
       <main className="bg-ivoire text-anthracite py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto space-y-12">
-          <motion.h1
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-title text-center leading-snug"
-          >
-            Une approche patrimoniale à la hauteur de vos enjeux
-          </motion.h1>
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-doré/40 h-full" />
@@ -75,7 +66,7 @@ export default function ApprocheContent() {
                       isEven ? 'md:flex-row-reverse' : ''
                     }`}
                   >
-                    <div className="z-10 flex items-center justify-center bg-doré text-ivoire rounded-full p-5 shadow-lg">
+                    <div className="z-base flex items-center justify-center bg-doré text-ivoire rounded-full p-5 shadow-lg">
                       <Icon size={28} />
                     </div>
                     <Card className="flex-1 bg-ivoire bg-opacity-90 rounded-2xl shadow-xl border border-doré/20">

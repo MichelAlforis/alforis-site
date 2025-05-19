@@ -1,8 +1,7 @@
 'use client'
 /* app/marketplace/MarketplaceContent.jsx */
 
-
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import Animated from '@/components/animated/Animated'
 import SmartResponsive from '@/components/ui/SmartResponsive'
@@ -19,38 +18,25 @@ const OffresTypes = [
   { type: 'encours',     label: 'Sur encours' },
 ]
 
-export default function MarketplaceContent({ offres }) {
-  const [selectedType, setSelectedType] = useState('particulier')
+export default function MarketplaceContent({ content, activeTab = 'particulier', onTabChange }) {
+  // Le filtre est dicté par activeTab (remonté par TabsBar)
+  const selectedType = activeTab
 
   return (
     <Animated.Page>
-      <motion.main className="main-content bg-ivoire text-anthracite pb-24 px-6">
+      <motion.main className="main-content bg-ivoire text-anthracite dark:bg-acier dark:text-ivoire pb-24 px-6 transition-colors">
         <div className="max-w-6xl mx-auto space-y-8">
-          <Animated.H1 className="text-5xl font-semibold text-center">
-            L'offre Alforis
-          </Animated.H1>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            {OffresTypes.map(({ type, label }) => (
-              <button
-                key={type}
-                onClick={() => setSelectedType(type)}
-                className={
-                  `btn-alforis-outline ${
-                    selectedType === type && 'bg-doré text-ardoise'
-                  }`
-                }
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+          {/* 
+            La TabsBar doit être gérée dans le layout/header, pas ici !
+            Donc PAS de boutons ici.
+          */}
 
           {selectedType !== 'encours' ? (
-             <SmartResponsive
-              data={offres.filter((o) => o.cible === selectedType)}
+            <SmartResponsive
+              data={content.filter((o) => o.cible === selectedType)}
               type="marketplace"
               emptyMessage="Aucune offre disponible pour ce profil."
+              // ASTUCE : SmartResponsive doit afficher les titres et sous-titres dans des <p>, pas <h1/h2/h3>
             />
           ) : (
             <HonorairesSimulator />

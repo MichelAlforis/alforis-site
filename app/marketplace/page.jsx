@@ -1,5 +1,5 @@
-import MarketplaceContent from './MarketplaceContent'
 import { fetchAllContent } from '@/lib/server/fetchAllContent'
+import PageClient from './PageClient'
 
 /* app/marketplace/page.jsx */
 export async function generateMetadata() {
@@ -22,6 +22,8 @@ export async function generateMetadata() {
 
 
 export default async function Page() {
-  const offres = await fetchAllContent()
-  return <MarketplaceContent offres={offres} />
+  const all = await fetchAllContent()
+  console.log(all.map(x => x.type))
+  const content = all.filter(item => ['Offres'].includes(item.type))
+  return <PageClient content={content} />
 }

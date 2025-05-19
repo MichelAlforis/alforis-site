@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { couleurs } from '@/styles/generated-colors'
 import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
 import Confetti from 'react-confetti'                // npm install react-confetti
@@ -70,17 +71,17 @@ export default function ContactForm() {
     <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire to-ivoire text-anthracite p-6 overflow-hidden">
       {/* Cercles d’arrière-plan */}
       <motion.span
-        className="absolute top-16 left-20 w-48 h-48 bg-anthracite opacity-50 rounded-full filter blur-3xl"
+        className="absolute top-16 left-20 w-48 h-48 bg-vertSauge opacity-50 rounded-full filter blur-3xl"
         animate={{ scale: [1, 1.3, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.span
-        className="absolute bottom-16 right-24 w-72 h-72 bg-anthracite opacity-30 rounded-full filter blur-4xl"
+        className="absolute bottom-16 right-24 w-72 h-72 bg-acier opacity-30 rounded-full filter blur-4xl"
         animate={{ x: [0, -40, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <section className="relative z-10 w-full max-w-2xl grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="relative z-base w-full  grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Texte & coordonnées */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -88,9 +89,6 @@ export default function ContactForm() {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-ardoise leading-tight">
-            Entrer en contact avec Alforis
-          </h1>
           <p className="text-lg text-acier">
             Vous souhaitez poser une question, planifier une rencontre ou
             recevoir une documentation ?<br />

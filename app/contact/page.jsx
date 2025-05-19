@@ -1,5 +1,5 @@
 // app/contact/page.jsx
-import ContactForm from './ContactForm'
+import PageClient from "./PageClient"
 
 export async function generateMetadata() {
   return {
@@ -26,5 +26,5 @@ export async function generateMetadata() {
 }}
 
 export default function ContactPage() {
-  return <ContactForm />
+  return <PageClient />
 }

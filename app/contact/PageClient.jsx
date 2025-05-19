@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import ApprocheContent from './ApprocheContent'
+import ContactForm from './ContactForm'
 
 export default function PageClient({ content }) {
   const [activeTab, setActiveTab] = useState('All')
@@ -23,7 +23,7 @@ export default function PageClient({ content }) {
       onTabChange={setActiveTab}      // ← on passe le setter au header
       showTabs={pageConfig.showTabs}
     >
-      <ApprocheContent
+      <ContactForm
         content={content}
         activeTab={activeTab}
         onTabChange={setActiveTab}    // ← et au contenu pour filtrer

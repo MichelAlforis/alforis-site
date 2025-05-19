@@ -4,10 +4,11 @@
 import React, { useState, useEffect } from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import ApprocheContent from './ApprocheContent'
+import MarketplaceContent from './MarketplaceContent'
 
 export default function PageClient({ content }) {
-  const [activeTab, setActiveTab] = useState('All')
+  const [activeTab, setActiveTab] = useState(pageConfig.tabs[0]?.key || '')
+
 
   // debug : tu verras bien ce log à chaque changement d’onglet
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function PageClient({ content }) {
       onTabChange={setActiveTab}      // ← on passe le setter au header
       showTabs={pageConfig.showTabs}
     >
-      <ApprocheContent
+      <MarketplaceContent
         content={content}
         activeTab={activeTab}
         onTabChange={setActiveTab}    // ← et au contenu pour filtrer

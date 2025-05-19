@@ -2,6 +2,7 @@
 export const pageConfig = {
   title: 'Blog & Studio',
   description: 'Vision libre et sans filtre du patrimoine – articles, vidéos et réflexions.',
+  showTabs: true,
   tabs: [
     { label: 'Tous',      key: 'All'       },
     { label: '🎙️ Studio', key: 'Studio'    },
