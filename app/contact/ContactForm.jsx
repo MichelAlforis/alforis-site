@@ -48,7 +48,7 @@ export default function ContactForm() {
       >
         <Confetti width={width} height={height} recycle={false} numberOfPieces={200} />
         <motion.div
-          className="bg-ivoire rounded-2xl shadow-lg p-12 space-y-6 text-center max-w-sm mx-auto"
+          className="bg-ivoire rounded-2xl shadow-lg p-4 space-y-6 text-center max-w-sm mx-auto"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}

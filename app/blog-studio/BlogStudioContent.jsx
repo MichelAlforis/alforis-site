@@ -1,4 +1,3 @@
-// app/blog-studio/BlogStudioContent.jsx
 'use client'
 
 import React, { useState, useMemo, useEffect, Suspense } from 'react'
@@ -17,7 +16,7 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
   }, [dark])
 
   // onglets
-  const types = ['All','Studio','Blog','Favorites']
+  const types = ['All', 'Studio', 'Blog', 'Favorites']
 
   // catégories
   const categories = useMemo(() => {
@@ -64,37 +63,45 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
       )
       .filter(item =>
         item.title.toLowerCase().includes(search.toLowerCase()) ||
-        (item.excerpt||'').toLowerCase().includes(search.toLowerCase())
+        (item.excerpt || '').toLowerCase().includes(search.toLowerCase())
       )
   }, [content, activeTab, selectedCats, search, favorites])
 
+  // Gestion de la sélection des catégories
+  const toggleCategory = (cat) => {
+    setSelectedCats(prev => {
+      const next = new Set(prev)
+      if (next.has(cat)) {
+        next.delete(cat)
+      } else {
+        next.add(cat)
+      }
+      return next
+    })
+  }
 
   return (
     <Suspense fallback={<div>Loading…</div>}>
       <div className="min-h-screen dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
         {/* sous‐header (titre + toggle) */}
-        
-
         <main className="px-6 py-8 max-w-6xl mx-auto space-y-8">
-
           {/* recherche & filtres */}
           <section className="flex flex-col md:flex-row items-center justify-between gap-4">
             <Input
               placeholder="Rechercher…"
               value={search}
-              onChange={e=>setSearch(e.target.value)}
+              onChange={e => setSearch(e.target.value)}
               className="flex-1"
             />
             <ScrollArea className="w-full md:w-auto">
               <div className="flex space-x-3 py-2">
-                {categories.map(cat=>(
+                {categories.map(cat => (
                   <CategoryButton
                     key={cat}
                     label={cat}
                     subtext="Catégorie"
                     selected={selectedCats.has(cat)}
-                    onClick={() => onTabChange(tab)} 
-                    
+                    onClick={() => toggleCategory(cat)} // Corrected onClick handler
                   />
                 ))}
               </div>
@@ -102,13 +109,13 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
           </section>
 
           {/* listing */}
-          {filtered.length>0 ? (
+          {filtered.length > 0 ? (
             <SmartResponsive
               data={filtered}
               type="blog"
-              extra={item=>(
+              extra={item => (
                 <button
-                  onClick={()=>toggleFavorite(item.slug)}
+                  onClick={() => toggleFavorite(item.slug)}
                   className="absolute z-30 top-2 right-2 p-2 bg-ivoire dark:bg-acier/80 rounded-full shadow hover:bg-vertSauge transition"
                   aria-label={favorites.has(item.slug)
                     ? 'Retirer des favoris'
@@ -133,11 +140,11 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
 
         {/* boutons de scroll */}
         <button
-          onClick={()=>window.scrollTo({top:0,behavior:'smooth'})}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-6 right-6 p-3 rounded-full bg-doré text-ivoire shadow-lg hover:bg-doré/90 transition"
           aria-label="Remonter"
         >
-          <ChevronUp className="w-6 h-6"/>
+          <ChevronUp className="w-6 h-6" />
         </button>
       </div>
     </Suspense>

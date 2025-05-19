@@ -1,4 +1,4 @@
-import ServicesContent from './ServicesContent'
+import PageClient from "./PageClient"
 /* app/services/page.jsx */
 export async function generateMetadata() {
   return {
@@ -18,5 +18,5 @@ export async function generateMetadata() {
 
 
 export default function Page() {
-  return <ServicesContent />
+  return <PageClient />
 }

@@ -1,17 +1,20 @@
 'use client'
-import React from 'react'
+import { React, useEffect, useState } from 'react'
 import Animated from '@/components/animated/Animated'
 import ContactSection from '@/components/ContactSection'
 import { motion } from 'framer-motion'
+import { pageConfig } from './pageConfig'
 
-const rdvTypes = [
-  { type: 'appel', label: 'Appel téléphonique', emoji: '📞' },
-  { type: 'visio', label: 'Rendez-vous en visio', emoji: '💻' },
-  { type: 'patrimonial', label: 'Rendez-vous patrimonial', emoji: '📍' },
-]
+
+const rdvTypes = pageConfig.tabs
 
 export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
   // activeTab = 'appel' | 'visio' | 'patrimonial'
+  // état thème jour/nuit
+  const [dark, setDark] = useState(false)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
 
   return (
     <Animated.Page>
