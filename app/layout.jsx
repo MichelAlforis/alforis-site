@@ -1,20 +1,14 @@
 // app/layout.jsx
 import '@/styles/globals.css'
-import '@/styles/navbar.css'
-import '@/public/styles/generated-colors.css'            // corriger l’import ici
-import '@/styles/cookieconsent-theme-alforis.css'
-import '@/styles/articles.css'
-import '@babylonjs/loaders/glTF/2.0/Extensions/KHR_draco_mesh_compression'
+
+
 
 import React, { Suspense } from 'react'
 import Head from './head'
 import RootClientLayout from './RootClientLayout'
 import Script from 'next/script'
 
-// DRACO loader (SSR safe)
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/')
+
 
 export default function Layout({ children }) {
   return (
@@ -24,7 +18,7 @@ export default function Layout({ children }) {
 
         {/* 1) Charger le bundle cookieconsent */}
         <Script
-          src="/cookieconsent/cookieconsent.min.js"
+          src="/cookieconsent.js"
           strategy="afterInteractive"
         />
 

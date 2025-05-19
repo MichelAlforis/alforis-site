@@ -134,7 +134,7 @@ export default function ContactForm() {
               name="name"
               required
               disabled={isSubmitting}
-              className="mt-1 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
+              className="mt-1 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
             />
           </div>
 
@@ -149,7 +149,7 @@ export default function ContactForm() {
               name="email"
               required
               disabled={isSubmitting}
-              className="mt-1 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
+              className="mt-1 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
             />
           </div>
 
@@ -164,7 +164,7 @@ export default function ContactForm() {
               rows="5"
               required
               disabled={isSubmitting}
-              className="mt-1 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
+              className="mt-1 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite disabled:opacity-50"
             />
           </div>
 

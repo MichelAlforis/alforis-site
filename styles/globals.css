@@ -1,257 +1,111 @@
-
+@import './generated-colors.css';
+@import './utilities.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import './components/navbar.css';
+@import './components/cookieconsent.css';
+@import './components/prose.css';
+@import './components/toast.css';
+@import './components/button.css';
+
 /* ====================== */
-/* 🌐 BASE TYPOGRAPHIE    */
+/* 🌐 BASE TYPOGRAPHIE & LAYOUT */
 /* ====================== */
 @layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Corps de page */
   body {
     @apply font-sans antialiased;
   }
-  
+
+  /* Contenu qui pousse le footer */
+  main {
+    flex: 1 0 auto;
+  }
+
+  /* Footer collé en bas */
+  footer {
+    flex-shrink: 0;
+  }
+
+  /* Bannière cookie */
   body.banner-dismissed header,
   body.banner-dismissed nav {
     top: 0 !important;
   }
 
   header, nav {
-  transition: top 0.3s ease;
-}
+    transition: top 0.3s ease;
+  }
 
+  /* Premier titre / formulaire sous la nav */
   main h1:first-of-type,
   main form:first-of-type {
     margin-top: 8rem;
   }
-  
-  
+
+  /* FORMULAIRES & CHAMPS */
   label {
-    @apply block text-anthracite font-semibold mb-1
+    @apply block text-anthracite font-semibold mb-1;
   }
-      
+
+  /* TITRES */
   h1, h2, h3 {
-    @apply font-title text-anthracite;
+    font-family: 'Neue Montreal', serif;
+    color: rgb(var(--doré)); /* accent doré */
   }
+  h1 { @apply text-4xl font-bold; }
+  h2 { @apply text-3xl font-semibold; }
+  h3 { @apply text-2xl font-semibold; }
 
-  h1 {
-    @apply text-4xl font-bold;
-  }
-  h2 {
-    @apply text-3xl font-semibold;
-  }
-  h3 {
-    @apply text-2xl font-semibold;
-  }
-
+  /* PARAGRAPHES */
   p {
     @apply font-sans text-base text-anthracite;
   }
 
-  .animated-h1 {
-    @apply text-4xl md:text-5xl font-title font-semibold text-ardoise;
+  /* LIENS */
+  a {
+    color: rgb(var(--acier));
+    text-decoration: none;
+    transition: color 0.2s;
   }
-  
+  a:hover {
+    color: rgb(var(--ardoise));
+  }
+
+  /* CLASSES ANIMÉES */
+  .animated-h1 {
+    @apply text-4xl md:text-5xl font-title font-semibold text-doré;
+  }
   .animated-h2 {
     @apply text-3xl md:text-4xl font-title font-semibold text-ardoise;
   }
-  
   .animated-wrapper {
     @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
   }
 
+  /* HERO FULL-SCREEN (sous nav) */
   .hero {
     position: relative;
     overflow: hidden;
-    /* Fallback natif pour tous : 100vh - nav */
-    height: calc(100vh - var(--nav-height));
-    /* Unité dynamique récente (iOS15+, Chrome…) */
+    /* 100vh - hauteur nav */
     height: calc(100dvh - var(--nav-height));
-    /* Fallback JS / var(--vh) */
+    /* fallback JS */
     height: calc(var(--vh) * 100 - var(--nav-height));
-    /* Pour éviter que le contenu se retrouve sous la safe-area iOS */
     padding-bottom: env(safe-area-inset-bottom);
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @apply flex items-center justify-center;
   }
-  
-  /* 🌐 COULEURS BANDEAU COOKIE CNIL */
+
+  /* VARIABLES GLOBALES */
   :root {
-
-      --cc-bg: var(--ardoise);
-      --cc-text: var(--ivoire);
-      --cc-btn-primary-bg: var(--doré);
-      --cc-btn-primary-text: var(--anthracite);
-      --cc-btn-secondary-bg: transparent;
-      --cc-btn-secondary-text: var(--ivoire);
-      --cc-btn-secondary-border: var(--doré);
-      --cc-toggle-on-bg: var(--doré);
-      --cc-toggle-off-bg: var(--acier);
-      --cc-toggle-readonly-bg: var(--beigeClair);
-
     --nav-height: 80px;
     --vh: 1vh;
-  }
-}
-
-html, body, #__next {
-  height: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y proximity;
-}
-
-/* ====================== */
-/* 🎛️ BOUTONS PERSONNALISÉS Alforis améliorés */
-/* ====================== */
-@layer components {
-  /* Bouton rétro : ambiance vintage, léger skew et ombre portée */
-  .btn-alforis-retro {
-    @apply font-title uppercase tracking-widest text-base inline-block text-center
-      text-ivoire bg-gradient-to-br from-ardoise to-gray-800
-      px-8 py-4 rounded-lg border-2 border-doré
-      shadow-lg transform hover:-rotate-1 hover:scale-105 active:scale-95
-      transition-all duration-300 ease-in-out;
-    position: relative;
-  }
-  .btn-alforis-retro::before {
-    content: '';
-    @apply absolute inset-0 rounded-lg bg-gradient-to-tr from-doré/30 to-yellow-400/20;
-    transform: skew(-3deg, -1deg);
-    z-index: -1;
-  }
-
-  /* Bouton outline : épuré, animation de fond doré en hover */
-  .btn-alforis-outline {
-    @apply font-title uppercase tracking-widest text-base inline-block text-center
-      text-doré bg-transparent px-8 py-4 rounded-lg border-2 border-doré
-      hover:text-ivoire hover:bg-doré focus:ring-4 focus:ring-doré/50
-      transition bg-clip-padding duration-200 ease-in-out;
-  }
-
-  /* Bouton RDV : forme pill, couleur de marque accentuée, effet pulse */
-  .btn-alforis-rdv {
-    @apply font-title uppercase tracking-widest text-sm inline-block text-center
-      text-white bg-doré px-6 py-3 rounded-full border-none
-      shadow-xl transform hover:scale-105 active:scale-95
-      focus:outline-none focus:ring-4 focus:ring-doré/40
-      transition-all duration-200 ease-out;
-  }
-  .btn-alforis-rdv:hover {
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-}
-
-
-/* ====================== */
-/* 🧩 UTILITAIRES VISUELS  */
-/* ====================== */
-@layer utilities {
-  .fade {
-    @apply transition-opacity duration-700 ease-in-out opacity-0;
-  }
-
-  .fade.visible {
-    @apply opacity-100;
-  }
-
-  .fade-anim {
-    opacity: 0;
-    animation: fadeScale 1.8s ease-out forwards;
-  }
-
-.main-content {
-    padding-top: calc(var(--cc-banner-height, 0px) + var(--nav-height, 80px));
-}
-
-  .z-base {
-    z-index: 10;
-  }
-  .z-overlay {
-    z-index: 40;
-  }
-  .z-nav {
-    z-index: 50;
-  }
-  .z-modal {
-    z-index: 60;
-  }
-  .cc-window,
-  .cc-revoke {
-  z-index: 99999 !important;
-}
-
-    /* Home page spécifique : pas de padding-top */
-    .home-content {
-      padding-top: 0;
-    }
-    body.lock-scroll {
-      overflow: hidden;
-    }
-    
-  svg {
-    stroke: var(--stroke-color, currentColor);
-    fill: var(--fill-color, none);
-  }
-
-  .draw-animation {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 3s ease-out forwards;
-  }
-
-  @keyframes alforis-reveal {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-      filter: blur(8px) brightness(0.5);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.05);
-      filter: blur(2px) brightness(1.3);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-      filter: blur(0px) brightness(1);
-    }
-  }
-  
-  .animate-alforis-reveal {
-    animation: alforis-reveal 1.6s ease-out forwards;
-  }
-  
-  .hero-sceau-wrapper {
-    isolation: isolate;
-    will-change: filter, opacity, transform;
-  }
-  
-  @keyframes draw {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes fadeScale {
-    0% {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
   }
 }

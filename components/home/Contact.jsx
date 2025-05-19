@@ -43,15 +43,15 @@ export default function Contact({ extraClass = '' }) {
       >
         <div>
           <label htmlFor="name" className="block text-sm font-medium">Nom complet</label>
-          <input type="text" id="name" name="name" required className="mt-2 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+          <input type="text" id="name" name="name" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium">Email</label>
-          <input type="email" id="email" name="email" required className="mt-2 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+          <input type="email" id="email" name="email" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
         </div>
         <div>
           <label htmlFor="message" className="block text-sm font-medium">Message</label>
-          <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-beigeClair rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
+          <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
         </div>
         <div className="text-right">
           <button

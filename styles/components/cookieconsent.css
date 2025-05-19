@@ -15,7 +15,7 @@
   --cc-btn-secondary-border: var(--doré, #bf953f);
   --cc-toggle-on-bg: var(--doré, #bf953f);
   --cc-toggle-off-bg: var(--acier, #D5D6DB);
-  --cc-toggle-readonly-bg: var(--beigeClair, #f8f6ef);
+  --cc-toggle-readonly-bg: var(--vertSauge, #f8f6ef);
 }
 
 /* 1. BANDEAU FIXE EN HAUT */

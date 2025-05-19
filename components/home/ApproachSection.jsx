@@ -5,7 +5,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
-import { couleurs } from '@/public/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors'
 import Buste from '@/assets/illustrations/buste'
 import ApprocheIcon from '@/assets/illustrations/approche'
 import LifePic from '@/assets/illustrations/Lifepic'

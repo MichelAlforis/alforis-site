@@ -12,12 +12,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        doré: 'rgb(226 143 90)',          // #E28F5A
-        ardoise: 'rgb(46 58 72)',         // #2E3A48
-        acier: 'rgb(91 109 127)',         // #5B6D7F
-        ivoire: 'rgb(245 245 245)',       // #F5F5F5
-        anthracite: 'rgb(29 29 29)',      // #1D1D1D
-        beigeClair: 'rgb(209 197 176)',   // #D1C5B0
+        doré: 'rgb(242 158 76)',        // #F29E4C → Accent chaud lisible (remplace E28F5A)
+        ardoise: 'rgb(31 59 77)',       // #1F3B4D → Bleu pétrole profond (remplace #2E3A48 si souhaité)
+        acier: 'rgb(91 109 127)',       // #5B6D7F → Support froid doux
+        ivoire: 'rgb(243 243 243)',     // #F3F3F3 → Fond plus lisible que #F5F5F5
+        anthracite: 'rgb(34 34 34)',    // #222222 → Texte légèrement renforcé
+        vertSauge: 'rgb(181 191 161)', // #B5BFA1 → Neutre doux mieux différencié
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

@@ -1,0 +1,53 @@
+@tailwind components;
+
+@layer components {
+/* Conteneur de toasts : mobile-first, puis repositionné en desktop \*/
+.toast-container {
+@apply fixed bottom-4 inset-x-4 flex flex-col gap-2 z-50;
+}
+@media (min-width: 640px) {
+.toast-container {
+@apply bottom-6 right-6 left-auto w-auto;
+}
+}
+
+/* Toast de base */
+.toast {
+@apply flex items-center px-4 py-2 rounded shadow-md bg-ivoire text-anthracite;
+@apply space-x-3; /* espacement entre icon et message \*/
+@apply transition-opacity duration-300;
+}
+.toast-enter { opacity: 0; }
+.toast-enter-active { opacity: 1; }
+.toast-exit { opacity: 1; }
+.toast-exit-active { opacity: 0; }
+
+/* Variantes \*/
+.toast--success {
+border-left: 4px solid rgb(var(--vertSauge));
+}
+.toast--error {
+border-left: 4px solid rgb(var(--doré));
+}
+.toast--info {
+border-left: 4px solid rgb(var(--ardoise));
+}
+.toast--warning {
+border-left: 4px solid rgb(var(--acier));
+}
+
+/* Icone dans le toast (facultatif) \*/
+.toast\_\_icon {
+@apply flex-shrink-0;
+}
+.toast\_\_message {
+@apply flex-1;
+}
+
+/* Bouton de fermeture \*/
+.toast\_\_close {
+@apply ml-3 cursor-pointer font-bold text-xl leading-none;
+@apply text-anthracite;
+@apply hover\:text-acier;
+}
+}

@@ -46,7 +46,7 @@ button {
 
 /* Effet de hover sur le bouton */
 button:hover {
-    @apply bg-beigeClair;
+    @apply bg-vertSauge;
 }
 
 /* Menu mobile : éléments cachés sur les écrans plus grands */

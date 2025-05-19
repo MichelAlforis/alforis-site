@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { couleurs } from '@/public/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Info } from 'lucide-react'
 import Image from 'next/image'

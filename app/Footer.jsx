@@ -9,13 +9,13 @@ export default function Footer() {
         {/* Logo + baseline */}
         <div>
           <h3 className="text-2xl font-title font-bold mb-3 text-doré">Alforis</h3>
-          <p className="text-sm font-light text-beigeClair max-w-xs">
+          <p className="text-sm font-light text-vertSauge max-w-xs">
             Le patrimoine commence par l’humain.
           </p>
         </div>
 
         {/* Mentions + contact */}
-        <div className="flex flex-col text-sm text-beigeClair md:col-start-3 md:items-end text-right">
+        <div className="flex flex-col text-sm text-vertSauge md:col-start-3 md:items-end text-right">
           <p className="mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
           <Link href="/mentionslegales" className="hover:text-doré mb-1">Mentions légales</Link>
           <Link href="/confidentialite" className="hover:text-doré mb-1">Politique de confidentialité</Link>
