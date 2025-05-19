@@ -1,7 +1,6 @@
 'use client'
 /* app/approchepersonnalisee/ApprocheContent.jsx */
 
-
 import Animated from '@/components/animated/Animated'
 import NoWidowText from '@/components/animated/NoWindowText'
 import CallToAction from '@/components/ui/CallToAction'

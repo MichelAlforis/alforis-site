@@ -1,6 +1,6 @@
 // app/approchepersonnalisee/page.jsx
 
-import ApprocheContent from './ApprocheContent.jsx'
+import PageClient from "./PageClient"
 
 export async function generateMetadata() {
   return {
@@ -20,5 +20,5 @@ export async function generateMetadata() {
 }
 
 export default function Page() {
-  return <ApprocheContent />
+  return <PageClient />
 }

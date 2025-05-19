@@ -11,12 +11,13 @@ export default function HeaderFixed({
   tabs = [],
   activeTab: propActiveTab,
   onTabChange,
-  introHeight = '10vh'
+  introHeight = '10vh',
+  showTabs = true,      // <- nouveau, défaut à true
 }) {
   const [activeTab, setActiveTab] = useState(
     () => propActiveTab ?? tabs[0]?.key ?? ''
   )
-  const [showTabs, setShowTabs] = useState(true)
+   const [tabsVisibleOnScroll, setTabsVisibleOnScroll] = useState(true) // <-- nouveau nom
 
   // Si la prop change, on la sync en interne
   useEffect(() => {
@@ -27,10 +28,11 @@ export default function HeaderFixed({
 
   // Scroll listener pour cacher les tabs
   useEffect(() => {
-    const handler = () => setShowTabs(window.scrollY < 64)
+    if (!showTabs) return  // n'active pas l'écouteur si les tabs sont désactivés
+    const handler = () => setTabsVisibleOnScroll(window.scrollY < 64)
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
-  }, [])
+  }, [showTabs])
 
   // Wrapper pour propager le changement
   const handleTabChange = (key) => {
@@ -38,6 +40,9 @@ export default function HeaderFixed({
     setActiveTab(key)
     onTabChange?.(key)
   }
+
+    // State local renommé pour éviter conflit nom (showTabs -> showTabsState)
+  const [showTabsState, setShowTabsState] = useState(true)
 
   return (
     <>
@@ -80,7 +85,7 @@ export default function HeaderFixed({
 
         {/* Onglets sous le titre, collapse sans bouger le titre */}
         <AnimatePresence initial={false}>
-          {showTabs && tabs.length > 0 && (
+          {showTabs && tabsVisibleOnScroll && tabs.length > 0 && (
             <motion.div
               key="tabs"
               initial={{ height: 0, opacity: 0 }}
