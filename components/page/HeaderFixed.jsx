@@ -70,10 +70,10 @@ export default function HeaderFixed({
 
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: '40%' }}
+            animate={{ width: '90%' }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             className="absolute bottom-0 h-1 bg-doré rounded-full"
-            style={{ left: '30%' }}
+            style={{ left: '5%' }}
           />
         </div>
 
