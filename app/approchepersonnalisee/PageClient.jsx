@@ -7,12 +7,11 @@ import { pageConfig } from './pageConfig'                            // title, t
 import ApprocheContent from './ApprocheContent'
 
 export default function PageClient({ content }) {
-  const [activeTab, setActiveTab] = useState('All')
-
-  // debug : tu verras bien ce log à chaque changement d’onglet
-  useEffect(() => {
-    console.log('PageClient activeTab:', activeTab)
-  }, [activeTab])
+  const [activeTab, setActiveTab] = useState(
+    Array.isArray(pageConfig.tabs) && pageConfig.tabs.length > 0
+      ? pageConfig.tabs[0].key
+      : ''
+  )
 
   return (
     <PageLayout

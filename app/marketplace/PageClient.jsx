@@ -1,19 +1,17 @@
-// app/blog-studio/PageClient.jsx
+// app/marketplace/PageClient.jsx
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
 import MarketplaceContent from './MarketplaceContent'
 
 export default function PageClient({ content }) {
-  const [activeTab, setActiveTab] = useState(pageConfig.tabs[0]?.key || '')
-
-
-  // debug : tu verras bien ce log à chaque changement d’onglet
-  useEffect(() => {
-    console.log('PageClient activeTab:', activeTab)
-  }, [activeTab])
+  const [activeTab, setActiveTab] = useState(
+    Array.isArray(pageConfig.tabs) && pageConfig.tabs.length > 0
+      ? pageConfig.tabs[0].key
+      : ''
+  )
 
   return (
     <PageLayout

@@ -16,14 +16,6 @@ export default function ConfidentialiteContent() {
         className="main-content bg-ivoire text-anthracite py-16 px-6"
       >
         <div className="max-w-3xl mx-auto bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6">
-          <motion.h1
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-title text-anthracite text-center mb-4"
-          >
-            Politique de confidentialité
-          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}

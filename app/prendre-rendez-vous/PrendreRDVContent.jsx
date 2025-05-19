@@ -1,8 +1,5 @@
 'use client'
-/* app/prendre-rendez-vous/PrendreRDVContent.jsx */
-
-
-import React, { useState } from 'react'
+import React from 'react'
 import Animated from '@/components/animated/Animated'
 import ContactSection from '@/components/ContactSection'
 import { motion } from 'framer-motion'
@@ -13,8 +10,8 @@ const rdvTypes = [
   { type: 'patrimonial', label: 'Rendez-vous patrimonial', emoji: '📍' },
 ]
 
-export default function PrendreRDVContent() {
-  const [selectedType, setSelectedType] = useState(null)
+export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
+  // activeTab = 'appel' | 'visio' | 'patrimonial'
 
   return (
     <Animated.Page>
@@ -22,35 +19,16 @@ export default function PrendreRDVContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content min-h-screen px-6 py-20 bg-ivoire text-anthracite"
+        className="main-content min-h-screen px-6 py-20 bg-ivoire text-anthracite dark:bg-acier/80 dark:text-ivoire"
       >
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <h1 className="text-3xl md:text-5xl font-title font-semibold">
-            Choisissez votre rendez-vous
-          </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {rdvTypes.map(({ type, label, emoji }) => (
-              <button
-                key={type}
-                onClick={() => setSelectedType(type)}
-                className={`border rounded-2xl p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md hover:border-doré/80 bg-ivoire/70 ${
-                  selectedType === type
-                    ? 'border-doré bg-ivoire'
-                    : 'border-transparent'
-                }`}
-              >
-                <div className="text-5xl mb-4">{emoji}</div>
-                <div className="text-xl font-medium text-anthracite">{label}</div>
-              </button>
-            ))}
-          </div>
-
-          {selectedType && (
+          {/* Section de prise de RDV si un type est sélectionné */}
+          {activeTab && (
             <div className="mt-12">
               <ContactSection
-                type={selectedType}
-                onChangeType={setSelectedType}
+                type={activeTab}
+                onChangeType={onTabChange}
               />
             </div>
           )}

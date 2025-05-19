@@ -1,5 +1,5 @@
 
-import ConfidentialiteContent from './ConfidentialiteContent'
+import PageClient from "./PageClient"
 
 /* app/confidentialite/page.jsx */
 export async function generateMetadata() {
@@ -23,6 +23,6 @@ export async function generateMetadata() {
 
 
 export default function Page() {
-  return <ConfidentialiteContent />
+  return <PageClient />
 }
 

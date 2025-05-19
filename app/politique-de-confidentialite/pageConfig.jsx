@@ -1,5 +1,5 @@
 // ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 export const pageConfig = {
-  title: "Mentions légales",
+  title: "Politique de confidentialité",
   showTabs: false,
 }

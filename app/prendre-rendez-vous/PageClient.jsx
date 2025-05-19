@@ -1,10 +1,10 @@
-// app/blog-studio/PageClient.jsx
+// app/prendre-rendez-vous/PageClient.jsx
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import ContactForm from './ContactForm'
+import PrendreRDVContent from './PrendreRDVContent'
 
 export default function PageClient({ content }) {
   const [activeTab, setActiveTab] = useState(
@@ -22,7 +22,7 @@ export default function PageClient({ content }) {
       onTabChange={setActiveTab}      // ← on passe le setter au header
       showTabs={pageConfig.showTabs}
     >
-      <ContactForm
+      <PrendreRDVContent
         content={content}
         activeTab={activeTab}
         onTabChange={setActiveTab}    // ← et au contenu pour filtrer

@@ -1,4 +1,4 @@
-import MentionsLegalesContent from './MentionsLegalesContent'
+import PageClient from "./PageClient"
 
 /* app/mentions-legales/page.jsx */
 export async function generateMetadata() {
@@ -19,6 +19,6 @@ export async function generateMetadata() {
 
 
 
-export default function Page() {
-  return <MentionsLegalesContent />
+export default function MentionPage() {
+  return <PageClient />
 }

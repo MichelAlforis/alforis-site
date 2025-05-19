@@ -1,7 +1,7 @@
 'use client'
 /* app/marketplace/MarketplaceContent.jsx */
 
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Animated from '@/components/animated/Animated'
 import SmartResponsive from '@/components/ui/SmartResponsive'
@@ -21,6 +21,12 @@ const OffresTypes = [
 export default function MarketplaceContent({ content, activeTab = 'particulier', onTabChange }) {
   // Le filtre est dicté par activeTab (remonté par TabsBar)
   const selectedType = activeTab
+  
+    // état thème jour/nuit
+    const [dark, setDark] = useState(false)
+    useEffect(() => {
+      document.documentElement.classList.toggle('dark', dark)
+    }, [dark])
 
   return (
     <Animated.Page>

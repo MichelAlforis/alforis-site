@@ -1,10 +1,10 @@
-// app/blog-studio/PageClient.jsx
 'use client'
+// app/mentionslegales/PageClient.jsx
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import ContactForm from './ContactForm'
+import ConfidentialiteContent from './ConfidentialiteContent'
 
 export default function PageClient({ content }) {
   const [activeTab, setActiveTab] = useState(
@@ -12,7 +12,6 @@ export default function PageClient({ content }) {
       ? pageConfig.tabs[0].key
       : ''
   )
-
   return (
     <PageLayout
       title={pageConfig.title}
@@ -22,7 +21,7 @@ export default function PageClient({ content }) {
       onTabChange={setActiveTab}      // ← on passe le setter au header
       showTabs={pageConfig.showTabs}
     >
-      <ContactForm
+      <ConfidentialiteContent
         content={content}
         activeTab={activeTab}
         onTabChange={setActiveTab}    // ← et au contenu pour filtrer

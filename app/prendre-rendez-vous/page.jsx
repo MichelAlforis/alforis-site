@@ -1,4 +1,4 @@
-import PrendreRDVContent from './PrendreRDVContent'
+import PageClient from "./PageClient"
 
 /* app/prendre-rendez-vous/page.jsx */
 export async function generateMetadata() {
@@ -22,5 +22,5 @@ export async function generateMetadata() {
 
 
 export default function Page() {
-  return <PrendreRDVContent />
+  return <PageClient />
 }

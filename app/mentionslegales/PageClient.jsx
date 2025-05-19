@@ -1,20 +1,17 @@
-// app/blog-studio/PageClient.jsx
 'use client'
+// app/mentionslegales/PageClient.jsx
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import MarketplaceContent from './MarketplaceContent'
+import MentionsLegalesContent from './MentionsLegalesContent'
 
 export default function PageClient({ content }) {
-  const [activeTab, setActiveTab] = useState(pageConfig.tabs[0]?.key || '')
-
-
-  // debug : tu verras bien ce log à chaque changement d’onglet
-  useEffect(() => {
-    console.log('PageClient activeTab:', activeTab)
-  }, [activeTab])
-
+  const [activeTab, setActiveTab] = useState(
+    Array.isArray(pageConfig.tabs) && pageConfig.tabs.length > 0
+      ? pageConfig.tabs[0].key
+      : ''
+  )
   return (
     <PageLayout
       title={pageConfig.title}
@@ -24,7 +21,7 @@ export default function PageClient({ content }) {
       onTabChange={setActiveTab}      // ← on passe le setter au header
       showTabs={pageConfig.showTabs}
     >
-      <MarketplaceContent
+      <MentionsLegalesContent
         content={content}
         activeTab={activeTab}
         onTabChange={setActiveTab}    // ← et au contenu pour filtrer
