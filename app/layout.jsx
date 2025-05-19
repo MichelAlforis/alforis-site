@@ -1,8 +1,6 @@
 // app/layout.jsx
 import '@/styles/globals.css'
 
-
-
 import React, { Suspense } from 'react'
 import Head from './head'
 import RootClientLayout from './RootClientLayout'

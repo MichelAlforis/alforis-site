@@ -31,12 +31,12 @@ export default function KeyFigures({ extraClass = '' }) {
           <h2 className="text-3xl md:text-4xl font-title text-doré drop-shadow-lg">
             <GoldLink href="/services">L’Expertise derrière Alforis</GoldLink>
           </h2>
-          <p className="text-white text-base md:text-lg leading-relaxed">
+          <p className="text-ivoire text-base md:text-lg leading-relaxed">
             Plus de 15 ans d’expérience dans la structuration d’investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-white text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-ivoire text-center">
           {figures.map((fig, i) => (
             <motion.div
               key={i}
@@ -46,10 +46,10 @@ export default function KeyFigures({ extraClass = '' }) {
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="space-y-2"
             >
-              <p className="text-4xl text-white font-bold drop-shadow-md">
+              <p className="text-4xl text-ivoire font-bold drop-shadow-md">
                 {counts[i]}{fig.suffix}
               </p>
-              <p className="text-white/80 text-sm">{fig.label}</p>
+              <p className="text-ivoire/80 text-sm">{fig.label}</p>
             </motion.div>
           ))}
         </div>

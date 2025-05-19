@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 export default function NotFoundPage() {
   return (
-    <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-ivoire to-white text-anthracite p-6">
+    <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-br from-ivoire to-ivoire text-anthracite p-6">
       {/* Blobs animés */}
       <motion.span
         className="absolute top-10 left-1/4 w-40 h-40 bg-anthracite opacity-10 rounded-full filter blur-3xl"

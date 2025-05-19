@@ -13,7 +13,7 @@ export function CategoryButton({ label, subtext, selected = false, onClick, clas
       className={
         `inline-flex flex-col items-center justify-center px-4 py-2 rounded-lg border transition-all focus:outline-none ` +
         (selected
-          ? 'bg-doré text-white border-doré'
+          ? 'bg-doré text-ivoire border-doré'
           : 'bg-transparent text-doré border-doré') +
         ` ${className}`
       }

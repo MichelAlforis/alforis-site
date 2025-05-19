@@ -21,11 +21,11 @@ export default function Contact({ extraClass = '' }) {
         <h2 className="text-3xl md:text-4xl font-extrabold text-doré mb-4">
           Entrer en contact avec Alforis
         </h2>
-        <p className="text-base text-white leading-relaxed">
+        <p className="text-base text-ivoire leading-relaxed">
           Vous souhaitez poser une question, planifier une rencontre ou recevoir une documentation ? <br />
           Laissez-nous un message ou prenez directement rendez-vous.
         </p>
-        <ul className="text-sm text-white space-y-2">
+        <ul className="text-sm text-ivoire space-y-2">
           <li><strong>Email :</strong> <a href="mailto:michel.marques@alforis.fr" className="underline">michel.marques@alforis.fr</a></li>
           <li><strong>Téléphone :</strong> <a href="tel:+33646462291" className="underline">06 46 46 22 91</a></li>
           <li><strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris</li>
@@ -37,7 +37,7 @@ export default function Contact({ extraClass = '' }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="bg-white bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
+        className="bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
         action="/api/contact"
         method="POST"
       >

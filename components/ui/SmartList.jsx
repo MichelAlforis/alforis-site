@@ -35,7 +35,7 @@ function SmartListItem({ item, index = 0, type, extra }) {
         <Animated.Div
           {...getButtonProps(
             index,
-            'flex items-start gap-4 py-4 border-b border-ivoire/40 dark:border-gray-700 hover:bg-ivoire/40 dark:hover:bg-gray-700 transition-colors rounded-lg px-2 sm:px-4 cursor-pointer'
+            'flex items-start gap-4 py-4 border-b border-ivoire/40 dark:border-acier-700 hover:bg-ivoire/40 dark:hover:bg-acier-700 transition-colors rounded-lg px-2 sm:px-4 cursor-pointer'
           )}
         >
           <div className="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
@@ -53,10 +53,10 @@ function SmartListItem({ item, index = 0, type, extra }) {
             <span className="text-xs font-medium uppercase text-doré mb-1 truncate">
               {itemType}
             </span>
-            <h3 className="text-lg font-title text-ardoise dark:text-gray-100 leading-tight line-clamp-2 truncate">
+            <h3 className="text-lg font-title text-ardoise dark:text-acier-100 leading-tight line-clamp-2 truncate">
               {title}
             </h3>
-            <p className="text-sm text-anthracite/80 dark:text-gray-400 mt-1 line-clamp-3 truncate">
+            <p className="text-sm text-anthracite/80 dark:text-acier-400 mt-1 line-clamp-3 truncate">
               {description}
             </p>
             {price && (

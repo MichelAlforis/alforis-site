@@ -77,7 +77,7 @@ export default function HonorairesModal() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
             >
-              <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
+              <div className="bg-ivoire rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
                 {/* En-tête */}
                 <div className="flex items-center justify-between bg-doré px-6 py-4">
                   <h2 className="text-xl font-semibold text-ardoise flex items-center gap-2">
@@ -151,7 +151,7 @@ export default function HonorairesModal() {
                   {/* Bouton de fermeture */}
                   <button
                     onClick={() => setShow(false)}
-                    className="w-full bg-ardoise text-white font-semibold py-2 rounded-2xl shadow hover:bg-ardoise/90 transition"
+                    className="w-full bg-ardoise text-ivoire font-semibold py-2 rounded-2xl shadow hover:bg-ardoise/90 transition"
                   >
                     Fermer la simulation
                   </button>

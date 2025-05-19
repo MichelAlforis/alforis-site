@@ -125,7 +125,7 @@ export default function ContactFinal({
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
             onSubmit={handleSubmitStep1}
-            className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+            className="bg-ivoire rounded-2xl shadow-lg p-8 space-y-6"
           >
             {/* Étape 1: infos de base */}
             <h2 className="text-2xl font-title text-ardoise">
@@ -162,7 +162,7 @@ export default function ContactFinal({
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
             onSubmit={handleSubmitStep2}
-            className="bg-white rounded-2xl shadow-lg p-8 space-y-6"
+            className="bg-ivoire rounded-2xl shadow-lg p-8 space-y-6"
           >
             {/* Étape 2: précisions */}
             <h2 className="text-2xl font-title text-ardoise text-center">

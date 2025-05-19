@@ -61,9 +61,9 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
                 key={i}
                 className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition ${
                   current
-                    ? 'bg-doré text-white'
+                    ? 'bg-doré text-ivoire'
                     : done
-                    ? 'bg-ardoise text-white'
+                    ? 'bg-ardoise text-ivoire'
                     : 'bg-light text-ardoise'
                 }`}
               >{i + 1}</div>
@@ -79,7 +79,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.4 }}
-          className="bg-white p-8 rounded-2xl shadow-lg space-y-6"
+          className="bg-ivoire p-8 rounded-2xl shadow-lg space-y-6"
         >
           <h2 className="text-2xl font-title text-ardoise">
             {questions[step].text}

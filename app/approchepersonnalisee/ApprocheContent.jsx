@@ -76,10 +76,10 @@ export default function ApprocheContent() {
                       isEven ? 'md:flex-row-reverse' : ''
                     }`}
                   >
-                    <div className="z-10 flex items-center justify-center bg-doré text-white rounded-full p-5 shadow-lg">
+                    <div className="z-10 flex items-center justify-center bg-doré text-ivoire rounded-full p-5 shadow-lg">
                       <Icon size={28} />
                     </div>
-                    <Card className="flex-1 bg-white bg-opacity-90 rounded-2xl shadow-xl border border-doré/20">
+                    <Card className="flex-1 bg-ivoire bg-opacity-90 rounded-2xl shadow-xl border border-doré/20">
                       <CardHeader>
                         <NoWidowText
                           as="h2"

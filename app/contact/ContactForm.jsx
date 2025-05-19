@@ -47,7 +47,7 @@ export default function ContactForm() {
       >
         <Confetti width={width} height={height} recycle={false} numberOfPieces={200} />
         <motion.div
-          className="bg-white rounded-2xl shadow-lg p-12 space-y-6 text-center max-w-sm mx-auto"
+          className="bg-ivoire rounded-2xl shadow-lg p-12 space-y-6 text-center max-w-sm mx-auto"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -57,7 +57,7 @@ export default function ContactForm() {
           <p className="text-lg">Merci, nous vous recontacterons sous 24 h.</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-4 inline-block px-8 py-3 font-semibold uppercase rounded-full bg-doré text-white shadow-lg hover:bg-doré/90 transition"
+            className="mt-4 inline-block px-8 py-3 font-semibold uppercase rounded-full bg-doré text-ivoire shadow-lg hover:bg-doré/90 transition"
           >
             Nouveau message
           </button>
@@ -67,7 +67,7 @@ export default function ContactForm() {
   }
 
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire to-white text-anthracite p-6 overflow-hidden">
+    <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire to-ivoire text-anthracite p-6 overflow-hidden">
       {/* Cercles d’arrière-plan */}
       <motion.span
         className="absolute top-16 left-20 w-48 h-48 bg-anthracite opacity-50 rounded-full filter blur-3xl"
@@ -121,7 +121,7 @@ export default function ContactForm() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-white bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
+          className="bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
         >
           {/* Nom */}
           <div>

@@ -35,7 +35,7 @@ export default function DesinscriptionContent() {
 
   return (
     <Animated.Page>
-      <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire via-white to-ivoire px-4 py-16">
+      <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire via-ivoire to-ivoire px-4 py-16">
         {/* Blobs décoratifs */}
         <motion.div
           className="absolute top-10 left-10 w-36 h-36 bg-doré opacity-10 rounded-full filter blur-3xl"
@@ -48,7 +48,7 @@ export default function DesinscriptionContent() {
           transition={{ duration: 12, repeat: Infinity }}
         />
 
-        <div className="relative z-10 bg-white bg-opacity-90 rounded-2xl shadow-2xl p-8 max-w-md w-full text-center space-y-6">
+        <div className="relative z-10 bg-ivoire bg-opacity-90 rounded-2xl shadow-2xl p-8 max-w-md w-full text-center space-y-6">
           {/* Icône animée */}
           <motion.div
             initial="hidden"
@@ -107,7 +107,7 @@ export default function DesinscriptionContent() {
               </p>
               <button
                 onClick={() => router.push('/')}
-                className="mt-4 inline-block px-6 py-3 bg-doré text-white rounded-full font-semibold hover:bg-yellow-600 transition"
+                className="mt-4 inline-block px-6 py-3 bg-doré text-ivoire rounded-full font-semibold hover:bg-yellow-600 transition"
               >
                 Revenir à l'accueil
               </button>

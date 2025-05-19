@@ -93,10 +93,10 @@ export default function ServicesContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
+                className="bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
               >
                 <div className="flex justify-center mb-6">
-                  <div className="bg-doré text-white p-4 rounded-full">
+                  <div className="bg-doré text-ivoire p-4 rounded-full">
                     <current.icon size={32} />
                   </div>
                 </div>

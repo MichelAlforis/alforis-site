@@ -34,9 +34,9 @@ export default function PrendreRDVContent() {
               <button
                 key={type}
                 onClick={() => setSelectedType(type)}
-                className={`border rounded-2xl p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md hover:border-doré/80 bg-white/70 ${
+                className={`border rounded-2xl p-6 text-left shadow-sm transition-all duration-300 hover:shadow-md hover:border-doré/80 bg-ivoire/70 ${
                   selectedType === type
-                    ? 'border-doré bg-white'
+                    ? 'border-doré bg-ivoire'
                     : 'border-transparent'
                 }`}
               >

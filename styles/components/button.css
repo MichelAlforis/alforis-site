@@ -7,7 +7,7 @@
     /* Bouton rétro : ambiance vintage, léger skew et ombre portée */
     .btn-alforis-retro {
       @apply font-title uppercase tracking-widest text-base inline-block text-center
-        text-ivoire bg-gradient-to-br from-ardoise to-gray-800
+        text-ivoire bg-gradient-to-br from-ardoise to-acier
         px-8 py-4 rounded-lg border-2 border-doré
         shadow-lg transform hover:-rotate-1 hover:scale-105 active:scale-95
         transition-all duration-300 ease-in-out;
@@ -31,7 +31,7 @@
     /* Bouton RDV : forme pill, couleur de marque accentuée, effet pulse */
     .btn-alforis-rdv {
       @apply font-title uppercase tracking-widest text-sm inline-block text-center
-        text-white bg-doré px-6 py-3 rounded-full border-none
+        text-ivoire bg-doré px-6 py-3 rounded-full border-none
         shadow-xl transform hover:scale-105 active:scale-95
         focus:outline-none focus:ring-4 focus:ring-doré/40
         transition-all duration-200 ease-out;

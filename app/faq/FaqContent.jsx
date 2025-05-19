@@ -46,7 +46,7 @@ export default function FaqContent() {
   return (
     <Animated.Page>
       <footer className="bg-ardoise py-16">
-        <div className="main-content mx-auto px-6 text-white">
+        <div className="main-content mx-auto px-6 text-ivoire">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

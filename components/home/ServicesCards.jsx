@@ -31,7 +31,7 @@ export default function ServicesCards({ extraClass = '' }) {
             <MotionLink
               key={s.title}
               href="/services"
-              className="bg-white bg-opacity-90 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
+              className="bg-ivoire bg-opacity-90 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

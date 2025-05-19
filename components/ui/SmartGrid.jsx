@@ -37,7 +37,7 @@ const GenericCard = ({ item, index = 0, type, extra }) => {
           <Animated.Div
             {...getButtonProps(
               index,
-              'flex flex-col h-full bg-ivoire text-anthracite dark:bg-gray-800 dark:text-gray-100 rounded-xl shadow hover:shadow-lg transition-transform transform hover:scale-[1.03] cursor-pointer overflow-hidden'
+              'flex flex-col h-full bg-ivoire text-anthracite dark:bg-acier-800 dark:text-acier-100 rounded-xl shadow hover:shadow-lg transition-transform transform hover:scale-[1.03] cursor-pointer overflow-hidden'
             )}
           >
             {/* Image */}

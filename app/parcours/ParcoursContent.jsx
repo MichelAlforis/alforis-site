@@ -42,7 +42,7 @@ export default function ParcoursContent({ content, totalPages }) {
             <button
               disabled={currentPage <= 1}
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-4 py-2 bg-doré text-white rounded hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-doré text-ivoire rounded hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               ← Précédent
             </button>
@@ -50,7 +50,7 @@ export default function ParcoursContent({ content, totalPages }) {
             <button
               disabled={currentPage >= totalPages}
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-4 py-2 bg-doré text-white rounded hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-doré text-ivoire rounded hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Suivant →
             </button>

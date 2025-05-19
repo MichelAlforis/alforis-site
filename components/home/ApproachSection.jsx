@@ -45,7 +45,7 @@ export default function ApproachSection({ extraClass = '' }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="flex flex-col md:flex-row items-center bg-white bg-opacity-90 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
+              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
             >
               <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
                 <AnimatedSVGRenderer

@@ -41,7 +41,7 @@ nav .logo {
 
 /* Bouton */
 button {
-    @apply bg-doré px-6 py-2 rounded-md text-white border-none cursor-pointer transition-all duration-300 ease-in-out;
+    @apply bg-doré px-6 py-2 rounded-md text-ivoire border-none cursor-pointer transition-all duration-300 ease-in-out;
 }
 
 /* Effet de hover sur le bouton */
@@ -58,7 +58,7 @@ button:hover {
 
     /* Liens dans le menu mobile */
     .md:hidden a {
-        @apply block text-white text-lg;
+        @apply block text-ivoire text-lg;
     }
 
     /* Lien actif dans le menu mobile */
@@ -73,7 +73,7 @@ button:hover {
     }
 
     .mobile-menu a {
-        @apply block text-white py-2 text-lg;
+        @apply block text-ivoire py-2 text-lg;
     }
 }
 

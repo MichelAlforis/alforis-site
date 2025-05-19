@@ -11,7 +11,7 @@ import cn from 'classnames'
 export const Input = forwardRef(({ icon, className = '', ...props }, ref) => (
   <div
     className={cn(
-      'flex items-center border border-gray-300 rounded-lg px-4 py-2',
+      'flex items-center border border-acier-300 rounded-lg px-4 py-2',
       className
     )}
   >

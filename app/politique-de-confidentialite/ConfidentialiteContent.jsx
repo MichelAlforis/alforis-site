@@ -15,7 +15,7 @@ export default function ConfidentialiteContent() {
         transition={{ duration: 0.6 }}
         className="main-content bg-ivoire text-anthracite py-16 px-6"
       >
-        <div className="max-w-3xl mx-auto bg-white bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6">
+        <div className="max-w-3xl mx-auto bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6">
           <motion.h1
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

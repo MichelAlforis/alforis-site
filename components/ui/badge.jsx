@@ -14,7 +14,7 @@ export function Badge({ children, variant = 'outline', className = '', ...props 
       className={clsx(
         'inline-flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors',
         variant === 'solid'
-          ? 'bg-doré text-white'
+          ? 'bg-doré text-ivoire'
           : 'border border-doré text-doré',
         className
       )}

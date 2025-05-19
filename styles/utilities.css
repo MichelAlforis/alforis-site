@@ -21,6 +21,9 @@
       padding-top: calc(var(--cc-banner-height, 0px) + var(--nav-height, 80px));
   }
   
+  .main-content.no-nav-padding {
+  padding-top: 0;
+  }
     .z-base {
       z-index: 10;
     }
@@ -103,5 +106,12 @@
         transform: scale(1);
       }
     }
+    .animate-slideDown {
+    animation: slideDown 0.25s cubic-bezier(0.4,0,0.2,1);
+        }
+        @keyframes slideDown {
+          from { transform: translateY(-16px); opacity: 0.4; }
+          to   { transform: translateY(0); opacity: 1; }
+        }
   }
   
