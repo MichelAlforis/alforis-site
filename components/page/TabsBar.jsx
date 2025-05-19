@@ -30,11 +30,11 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
             onChange(tab.key)
           }}
           className={`
-            relative z-base text-xl sm:text-3xl flex-shrink-0 py-1 px-2 sm:px-10 
+            relative z-base text-xl sm:text-xl flex-shrink-0 py-1 px-2 sm:px-10 
             text-sm sm:text-base font-medium transition rounded-full
             ${activeKey === tab.key
               ? 'text-anthracite dark:text-ivoire'
-              : 'text-ardoise dark:text-ardoise/60'}
+              : 'text-ardoise dark:text-ivoire/70'}
           `}
           aria-pressed={activeKey === tab.key}
         >
