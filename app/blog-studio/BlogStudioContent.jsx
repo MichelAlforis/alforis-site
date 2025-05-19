@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { CategoryButton } from '@/components/ui/CategoryButton'
 import { ScrollArea } from '@/components/ui/scrollarea'
 import SmartResponsive from '@/components/ui/SmartResponsive'
-import { ChevronUp, Sun, Moon, Star } from 'lucide-react'
+import { ChevronUp, Star } from 'lucide-react'
 
 export default function BlogStudioContent({ content }) {
   // état thème jour/nuit
@@ -71,44 +71,11 @@ export default function BlogStudioContent({ content }) {
 
   return (
     <Suspense fallback={<div>Loading…</div>}>
-      <div className="min-h-screen bg-ivoire dark:bg- acier/90 text-anthracite dark:text-acier transition-colors">
+      <div className="min-h-screen dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
         {/* sous‐header (titre + toggle) */}
-        <header className="sticky top-0 z-20 bg-ivoire/80 dark:bg-gray-900/80 backdrop-blur py-4">
-          <div className="relative flex justify-center items-center px-6">
-            <button
-              onClick={() => setDark(d => !d)}
-              aria-label="Toggle theme"
-              className="absolute right-6 p-2 rounded-full hover:bg-light dark:hover:bg-gray-700 transition"
-            >
-              {dark
-                ? <Sun className="w-6 h-6 text-ardoise dark:text-gray-100" />
-                : <Moon className="w-6 h-6 text-ardoise" />}
-            </button>
-          </div>
-        </header>
+        
 
         <main className="px-6 py-8 max-w-6xl mx-auto space-y-8">
-          {/* onglets */}
-          <section className="flex flex-wrap justify-center gap-4">
-            {types.map(tab => (
-              <motion.button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                whileHover={{ scale: 1.05 }}
-                className={`px-6 py-2 rounded-full font-medium transition ${
-                  activeTab===tab
-                    ? 'bg-doré text-ivoire'
-                    : 'bg-light text-doré border border-doré'
-                }`}
-                aria-pressed={activeTab===tab}
-              >
-                {tab==='All'       ? 'Tous'
-                 : tab==='Studio'   ? '🎙️ Le Studio'
-                 : tab==='Blog'     ? '📝 Le Blog'
-                 :                    '⭐ Favoris'}
-              </motion.button>
-            ))}
-          </section>
 
           {/* recherche & filtres */}
           <section className="flex flex-col md:flex-row items-center justify-between gap-4">

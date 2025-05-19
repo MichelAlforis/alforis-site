@@ -1,14 +1,16 @@
 @import './generated-colors.css';
 @import './utilities.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import './components/navbar.css';
 @import './components/cookieconsent.css';
 @import './components/prose.css';
 @import './components/toast.css';
 @import './components/button.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 
 /* ====================== */
 /* 🌐 BASE TYPOGRAPHIE & LAYOUT */
@@ -36,10 +38,11 @@
   }
 
   /* Bannière cookie */
-  body.banner-dismissed header,
-  body.banner-dismissed nav {
+  body.banner-dismissed header.cookie-banner,
+  body.banner-dismissed nav.cookie-banner {
     top: 0 !important;
   }
+
 
   header, nav {
     transition: top 0.3s ease;
@@ -86,7 +89,7 @@ h3 {
 
   /* CLASSES ANIMÉES */
   .animated-h1 {
-    @apply text-3xl md:text-5xl font-title font-semibold text-doré text-center;
+    @apply  text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-extrabold text-anthracite dark:text-ivoire;
   }
   .animated-h2 {
     @apply text-2xl md:text-4xl font-title font-semibold text-ardoise;
@@ -110,10 +113,22 @@ h3 {
   /* VARIABLES GLOBALES */
 :root {
   --vh: 1vh;
-  --nav-height: 80px;
-  --cc-banner-height: 120px;
-  --cc-header-height: 64px;
-  --navbar-total-offset: calc(var(--cc-banner-height) + var(--nav-height) + var(--cc-header-height));
-  --navbar-offset: calc(var(--navbar-offset) + var(--cc-header-height));
+  --cc-banner-height: 0px;    /* hauteur de la bannière cookie (ou 0) */
+  --nav-height: 80px;           /* hauteur de la navbar principale */
+  --cc-header-height: 64px;     /* hauteur de votre bloc titre */
+  --header-gap: 30vh;
+
+  /* 1) Décalage jusqu’au bas de la navbar (bannière + nav) */
+  --navbar-offset: calc(
+    var(--cc-banner-height) + 
+    var(--nav-height)
+  );
+
+  /* 2) Décalage jusqu’au bas du header (bannière + nav + header) */
+  --navbar-total-offset: calc(
+    var(--cc-banner-height) + 
+    var(--nav-height) + 
+    var(--cc-header-height)
+  );
 }
 }

@@ -81,7 +81,7 @@ export default function RootClientLayout({ children }) {
 
       {/* En-tête globale */}
       <header
-        className="fixed inset-x-0 z-nav bg-ivoire/80 backdrop-blur-md transition-top"
+        className="site-header fixed inset-x-0 z-nav bg-ivoire/80 backdrop-blur-md transition-top"
         style={{ top: cookieBannerHeight }}
       >
         <a

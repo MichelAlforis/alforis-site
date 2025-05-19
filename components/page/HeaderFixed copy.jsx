@@ -11,7 +11,7 @@ export default function HeaderFixed({
   tabs = [],
   activeTab: propActiveTab,
   onTabChange,
-  introHeight = '10vh'
+  introHeight = '15vh'
 }) {
   const [activeTab, setActiveTab] = useState(
     () => propActiveTab ?? tabs[0]?.key ?? ''
@@ -59,7 +59,8 @@ export default function HeaderFixed({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="animated-h1"
+            className="animated-h1 text-xl sm:text-2xl md:text-3xl lg:text-4xl
+                       font-extrabold text-anthracite dark:text-ivoire"
           >
             {title}
           </motion.h1>

@@ -41,6 +41,11 @@
     z-index: 99999 !important;
   }
   
+  .mb-header-gap {
+    margin-bottom: var(--header-gap);
+  }
+
+
       /* Home page spécifique : pas de padding-top */
       .home-content {
         padding-top: 0;

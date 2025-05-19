@@ -1,55 +1,63 @@
-'use client'
 // components/AnimatedBackground.jsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
-import { couleurs } from '@/styles/generated-colors';
+'use client'
 
-// Convertit "rgb(r g b)" en "rgba(r, g, b, alpha)"
+import React from 'react'
+import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
+import { couleurs } from '@/styles/generated-colors'
+
+// Passe un "rgb(r g b)" en "rgba(r, g, b, a)"
 const toRgba = (rgbString, alpha) => {
-  const [r, g, b] = rgbString.match(/\d+/g);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-};
+  const [r, g, b] = rgbString.match(/\d+/g)
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
 
 export default function AnimatedBackground() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  const { theme } = useTheme()
+  const isDark = theme === 'dark'
 
-  // Choix des couleurs selon le thème
-  const color1 = isDark
-    ? toRgba(couleurs.ivoire, 0.1)      // ivoire clair en mode sombre
-    : toRgba(couleurs.anthracite, 0.05); // anthracite foncé en mode clair
+  // 1er halo : doré chaud en clair, ivoire léger en sombre
+  const halo1 = isDark
+    ? toRgba(couleurs.ivoire, 0.15)
+    : toRgba(couleurs.doré,    0.1)
 
-  const color2 = isDark
-    ? toRgba(couleurs.acier, 0.05)      // acier moyen en mode sombre
-    : toRgba(couleurs.ardoise, 0.02);    // ardoise plus clair en mode clair
+  // 2ᵉ halo : acier en sombre, vertSauge en clair
+  const halo2 = isDark
+    ? toRgba(couleurs.acier,     0.1)
+    : toRgba(couleurs.vertSauge, 0.08)
+
+
 
   return (
-    <div className="absolute inset-0 -z-base overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      {/* Halo chaud/pâle */}
       <motion.span
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-[100px]"
         style={{
-          width: 300,
-          height: 300,
-          background: `radial-gradient(circle, ${color1}, transparent)`,
-          top: '-10%',
-          left: '-10%',
+          width: 350,
+          height: 350,
+          background: `radial-gradient(circle, ${halo1}, transparent)`,
+          top: '15%',
+          left: '5%',
         }}
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+        transition={{ repeat: Infinity, duration: 70, ease: 'linear' }}
       />
+
+      {/* Halo doux vert/acier */}
       <motion.span
-        className="absolute rounded-full blur-3xl"
+        className="absolute rounded-full blur-[120px]"
         style={{
-          width: 400,
-          height: 400,
-          background: `radial-gradient(circle, ${color2}, transparent)`,
-          bottom: '-15%',
-          right: '-15%',
+          width: 450,
+          height: 450,
+          background: `radial-gradient(circle, ${halo2}, transparent)`,
+          bottom: '10%',
+          right: '8%',
         }}
         animate={{ rotate: -360 }}
-        transition={{ repeat: Infinity, duration: 80, ease: 'linear' }}
+        transition={{ repeat: Infinity, duration: 90, ease: 'linear' }}
       />
     </div>
-  );
+    
+  )
 }

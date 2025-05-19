@@ -52,7 +52,7 @@ export default function Navbar() {
   const isActive = href => pathname === href
 
   return (
-    <nav className={`fixed inset-x-0 top-0 bg-ivoire/80 backdrop-blur-md transition-shadow duration-300 ${hasShadow ? 'shadow-lg' : ''}`}>
+    <nav className={`site-header fixed inset-x-0 top-0 bg-ivoire/80 backdrop-blur-md transition-shadow duration-300 ${hasShadow ? 'shadow-lg' : ''}`}>
       <div className="w-full mx-auto px-2 sm:px-4 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-doré text-ivoire p-2 rounded">
