@@ -10,7 +10,7 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
       {/* Surbrillance partagée */}
       <motion.div
         layoutId="tab-highlight"
-        className="absolute inset-y-0 bg-doré/20 rounded-full pointer-events-none"
+        className="absolute inset-y-0 bg-doré/40 rounded-full pointer-events-none"
         transition={{ type: 'spring', stiffness: 500, damping: 40 }}
         style={{
           // on mesure le bouton actif via CSS custom properties inj. par JS plus bas
@@ -23,6 +23,7 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
         <button
           key={tab.key}
           onClick={e => {
+            console.log('TabsBar onClick:', tab.key)
             // on lit la position/largeur du bouton et qu'on injecte en CSS
             const rect = e.currentTarget.getBoundingClientRect()
             document.documentElement.style.setProperty('--highlight-left', `${rect.left}px`)

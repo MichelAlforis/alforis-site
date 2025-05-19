@@ -34,6 +34,7 @@ export default function HeaderFixed({
 
   // Wrapper pour propager le changement
   const handleTabChange = (key) => {
+    console.log('HeaderFixed onTabChange:', key) 
     setActiveTab(key)
     onTabChange?.(key)
   }
@@ -70,10 +71,10 @@ export default function HeaderFixed({
 
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: '90%' }}
+            animate={{ width: '96%' }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             className="absolute bottom-0 h-1 bg-doré rounded-full"
-            style={{ left: '5%' }}
+            style={{ left: '2%' }}
           />
         </div>
 
@@ -86,8 +87,7 @@ export default function HeaderFixed({
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="overflow-hidden bg-white/10 dark:bg-black/10
-                         backdrop-blur-2xl border-t border-ardoise/20 px-4 pb-2"
+              className="overflow-hidden mt-2 px-4 pb-2"
             >
               <TabsBar
                 tabs={tabs}

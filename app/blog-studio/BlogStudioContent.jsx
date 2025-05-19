@@ -9,7 +9,7 @@ import { ScrollArea } from '@/components/ui/scrollarea'
 import SmartResponsive from '@/components/ui/SmartResponsive'
 import { ChevronUp, Star } from 'lucide-react'
 
-export default function BlogStudioContent({ content }) {
+export default function BlogStudioContent({ content, activeTab, onTabChange }) {
   // état thème jour/nuit
   const [dark, setDark] = useState(false)
   useEffect(() => {
@@ -18,7 +18,6 @@ export default function BlogStudioContent({ content }) {
 
   // onglets
   const types = ['All','Studio','Blog','Favorites']
-  const [activeTab, setActiveTab] = useState('All')
 
   // catégories
   const categories = useMemo(() => {
@@ -69,6 +68,7 @@ export default function BlogStudioContent({ content }) {
       )
   }, [content, activeTab, selectedCats, search, favorites])
 
+
   return (
     <Suspense fallback={<div>Loading…</div>}>
       <div className="min-h-screen dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
@@ -93,11 +93,8 @@ export default function BlogStudioContent({ content }) {
                     label={cat}
                     subtext="Catégorie"
                     selected={selectedCats.has(cat)}
-                    onClick={()=>{
-                      const next=new Set(selectedCats)
-                      next.has(cat)?next.delete(cat):next.add(cat)
-                      setSelectedCats(next)
-                    }}
+                    onClick={() => onTabChange(tab)} 
+                    
                   />
                 ))}
               </div>
@@ -112,7 +109,7 @@ export default function BlogStudioContent({ content }) {
               extra={item=>(
                 <button
                   onClick={()=>toggleFavorite(item.slug)}
-                  className="absolute z-30 top-2 right-2 p-2 bg-ivoire dark:bg-gray-800 rounded-full shadow hover:bg-doré transition"
+                  className="absolute z-30 top-2 right-2 p-2 bg-ivoire dark:bg-acier/80 rounded-full shadow hover:bg-vertSauge transition"
                   aria-label={favorites.has(item.slug)
                     ? 'Retirer des favoris'
                     : 'Ajouter aux favoris'}
