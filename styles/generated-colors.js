@@ -1,8 +1,8 @@
 export const couleurs = {
-  "doré": "rgb(226 143 90)",
-  "ardoise": "rgb(46 58 72)",
+  "doré": "rgb(242 158 76)",
+  "ardoise": "rgb(31 59 77)",
   "acier": "rgb(91 109 127)",
-  "ivoire": "rgb(245 245 245)",
-  "anthracite": "rgb(29 29 29)",
-  "vertSauge": "rgb(209 197 176)"
+  "ivoire": "rgb(243 243 243)",
+  "anthracite": "rgb(34 34 34)",
+  "vertSauge": "rgb(181 191 161)"
 };
