@@ -66,11 +66,10 @@ export default function HeaderFixed({
 
   return (
     <>
-      {/* Spacer (intro) */}
-      <div style={{ height: introHeight }} />
+
 
       {/* Header fixe sous la bannière + navbar */}
-      <header
+      <section
         style={{ top: 'var(--navbar-offset)' }}
         className="
           sticky inset-x-0 z-overlay
@@ -101,10 +100,13 @@ export default function HeaderFixed({
             initial={{ width: 0 }}
             animate={{ width: '96%' }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="absolute bottom-0 h-1 bg-doré rounded-full"
+            className="absolute bottom-0 h-1 bg-vertSauge dark:bg-doré rounded-full"
             style={{ left: '2%' }}
           />
         </div>
+
+      {/* Spacer (intro) */}
+      <div style={{ height: introHeight }} />
 
         {/* Onglets sous le titre, collapse sans bouger le titre */}
         <AnimatePresence initial={false}>
@@ -125,7 +127,7 @@ export default function HeaderFixed({
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
+      </section>
     </>
   )
 }

@@ -1,46 +1,66 @@
 // components/TabsBar.jsx
 'use client'
 
-import React from 'react'
+// components/TabsBar.jsx
+'use client'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function TabsBar({ tabs = [], activeKey, onChange }) {
-  return (
-        <div className="relative flex flex-shrink-0 flex-wrap justify-evenly overflow-x-auto space-x-4 px-4 pb-2">
-      {/* Surbrillance partagée */}
-        <motion.span
-          layoutId="tab-underline"
-          className="absolute bottom-0 h-1 bg-doré/40 rounded-full pointer-events-none"
-          style={{
-            left: 'var(--highlight-left)',
-            width: 'var(--highlight-width)'
-          }}
-          transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-        />
+  // tableau de refs pour pouvoir mesurer chaque bouton
+  const btnRefs = useRef([])
+  const [isTwoColumns, setIsTwoColumns] = useState(false)
 
-      {tabs.map(tab => (
-        <button
-          key={tab.key}
-          onClick={e => {
-            console.log('TabsBar onClick:', tab.key)
-            // on lit la position/largeur du bouton et qu'on injecte en CSS
-            const rect = e.currentTarget.getBoundingClientRect()
-            document.documentElement.style.setProperty('--highlight-left', `${rect.left}px`)
-            document.documentElement.style.setProperty('--highlight-width', `${rect.width}px`)
-            onChange(tab.key)
-          }}
-          className={`
-            relative z-base text-xl sm:text-xl flex-shrink-0 py-1 px-2 sm:px-10 
-            text-sm sm:text-base font-medium transition rounded-full
-            ${activeKey === tab.key
-              ? 'font-semibold text-acier dark:text-ivoire'
-              : 'text-acier/70  dark:text-ivoire/70'}
-          `}
-          aria-pressed={activeKey === tab.key}
-        >
-          {tab.label}
-        </button>
-      ))}
+  useEffect(() => {
+    const checkColumns = () => {
+      const widths = btnRefs.current.map(el => (el ? el.offsetWidth : 0))
+      const maxWidth = Math.max(...widths, 0)
+      setIsTwoColumns(maxWidth * 2 < window.innerWidth)
+    }
+    checkColumns()
+    window.addEventListener('resize', checkColumns)
+    return () => window.removeEventListener('resize', checkColumns)
+  }, [tabs])
+
+  return (
+    <div
+      className={`
+        grid 
+        ${isTwoColumns ? 'grid-cols-2 gap-4' : 'grid-cols-1'} 
+        sm:grid-cols-2 
+        md:flex md:flex-row 
+        justify-center text-center 
+        px-4 pb-2
+      `}
+    >
+      
+      {tabs.map(tab => {
+        const isActive = activeKey === tab.key
+        return (
+              <button
+                key={tab.key}
+                onClick={() => onChange(tab.key)}
+                className={`
+                    relative z-base flex-shrink-0 py-1 px-4 sm:px-10
+                    font-medium transition rounded-full
+                  ${isActive 
+                    ? 'text-acier dark:text-ivoire' 
+                    : 'text-acier/70 dark:text-ivoire/70'}     
+                `}
+                aria-pressed={isActive}
+              >
+            {tab.label}
+
+            {isActive && (
+              <motion.span
+                layoutId="tab-underline"
+                className="absolute bottom-0 inset-x-2 h-1 bg-doré/40 rounded-full pointer-events-none"
+                transition={{ type: 'spring', stiffness: 500, damping: 40 }}
+              />
+            )}
+          </button>
+        )
+      })}
     </div>
   )
 }
