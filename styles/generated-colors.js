@@ -4,5 +4,5 @@ export const couleurs = {
   "acier": "rgb(91 109 127)",
   "ivoire": "rgb(243 243 243)",
   "anthracite": "rgb(34 34 34)",
-  "vertSauge": "rgb(205, 156, 138)"
+  "vertSauge": "rgb(181 191 161)"
 };
