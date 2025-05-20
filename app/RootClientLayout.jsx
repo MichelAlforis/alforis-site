@@ -80,19 +80,8 @@ export default function RootClientLayout({ children }) {
       </noscript>
 
       {/* En-tête globale */}
-      <header
-        className="site-header fixed inset-x-0 z-nav bg-ivoire/80 backdrop-blur-md transition-top"
-        style={{ top: cookieBannerHeight }}
-      >
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4
-                     bg-doré text-white p-2 rounded"
-        >
-          Aller au contenu
-        </a>
         <Navbar />
-      </header>
+
 
       {/* Contenu des routes */}
       <main
@@ -105,9 +94,7 @@ export default function RootClientLayout({ children }) {
       </main>
 
       {/* Pied de page */}
-      <footer className="mt-auto bg-ivoire dark:bg-acier/90">
         <Footer />
-      </footer>
 
       {/* Notifications toast */}
       <ToastContainer

@@ -26,6 +26,10 @@ module.exports = {
       fontSize: {
         md: '1rem',
       },
+      spacing: {
+        nav: 'var(--nav-height)',           // h-nav → hauteur navbar
+        navbarOffset: 'var(--navbar-offset)'  // mt-navbarOffset → marge
+      },
       boxShadow: {
         retro: '0 0 0 2px #C8A765, 0 0 10px #C8A76566',
         'pressed-inner': 'inset 0 2px 6px rgba(0, 0, 0, 0.3)',

@@ -111,24 +111,31 @@ h3 {
   }
 
   /* VARIABLES GLOBALES */
+/* mobile-first : navbar à 56px */
 :root {
-  --vh: 1vh;
-  --cc-banner-height: 0px;    /* hauteur de la bannière cookie (ou 0) */
-  --nav-height: 80px;           /* hauteur de la navbar principale */
-  --cc-header-height: 64px;     /* hauteur de votre bloc titre */
+  --nav-height: 56px;
+  /* tes autres variables… */
+  --cc-banner-height: 0px;
+  --cc-header-height: 64px;
   --header-gap: 30vh;
 
-  /* 1) Décalage jusqu’au bas de la navbar (bannière + nav) */
   --navbar-offset: calc(
-    var(--cc-banner-height) + 
+    var(--cc-banner-height) +
     var(--nav-height)
   );
 
-  /* 2) Décalage jusqu’au bas du header (bannière + nav + header) */
   --navbar-total-offset: calc(
-    var(--cc-banner-height) + 
-    var(--nav-height) + 
+    var(--cc-banner-height) +
+    var(--nav-height) +
     var(--cc-header-height)
   );
 }
+
+/* desktop (≥1024px) : navbar à 80px */
+@media (min-width: 1024px) {
+  :root {
+    --nav-height: 80px;
+  }
+}
+
 }
