@@ -1,13 +1,17 @@
 'use client'
 /* components/home/Contact.jsx */
 
-
 import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
-import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
 export default function Contact({ extraClass = '' }) {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
+  // état thème jour/nuit
+  const [dark, setDark] = useState(false)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
 
   return (
     <section id="contact" className={`relative w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
@@ -37,20 +41,20 @@ export default function Contact({ extraClass = '' }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
+        className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-8 space-y-6"
         action="/api/contact"
         method="POST"
       >
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">Nom complet</label>
+          <label htmlFor="name" className="block text-sm font-medium text-anthracite dark:text-ivoire">Nom complet</label>
           <input type="text" id="name" name="name" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-anthracite dark:text-ivoire">Email</label>
           <input type="email" id="email" name="email" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium">Message</label>
+          <label htmlFor="message" className="block text-sm font-medium text-anthracite dark:text-ivoire">Message</label>
           <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
         </div>
         <div className="text-right">

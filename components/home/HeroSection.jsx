@@ -17,7 +17,7 @@ export default function HeroSection({ extraClass = '' }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-title font-bold text-anthracite leading-snug mb-6"
+          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-ivoire leading-snug mb-6"
         >
           Chez Alforis, on ne commence pas par les chiffres.<br />
           On commence par <GoldLink href="/parcours">vous</GoldLink>.
@@ -27,7 +27,7 @@ export default function HeroSection({ extraClass = '' }) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base md:text-lg text-acier font-light mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-base md:text-lg text-acier dark:text-acier font-light mb-8 max-w-2xl mx-auto leading-relaxed"
         >
           Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
         </motion.p>

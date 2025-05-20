@@ -1,6 +1,6 @@
 'use client'
 /* components/home/ServicesCards.jsx */
-
+import { useEffect,useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -14,6 +14,12 @@ const services = [
 const MotionLink = motion.create(Link)
 
 export default function ServicesCards({ extraClass = '' }) {
+  // état thème jour/nuit
+  const [dark, setDark] = useState(false)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
+
   return (
     <section className={`py-16 ${extraClass}`}>      
       <div className="max-w-7xl mx-auto px-4 text-center">
@@ -22,7 +28,7 @@ export default function ServicesCards({ extraClass = '' }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-semibold text-anthracite"
+          className="text-3xl font-semibold dark:text-anthracite"
         >
           Nos services sur-mesure
         </motion.h2>
@@ -31,7 +37,7 @@ export default function ServicesCards({ extraClass = '' }) {
             <MotionLink
               key={s.title}
               href="/services"
-              className="bg-ivoire bg-opacity-90 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
+              className="bg-ivoire bg-opacity-90 dark:bg-acier/60 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

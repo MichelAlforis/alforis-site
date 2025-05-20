@@ -95,11 +95,42 @@ button.theme-toggle:hover {
    LAYOUT DESKTOP
    ============================ */
 @media (min-width: 769px) {
+/* Masqué sur mobile */
+.nav-links {
+  @apply hidden;
+}
+
+/* À partir de 769px, on affiche et on améliore le flex */
+@media (min-width: 769px) {
   .nav-links {
-    @apply flex items-center space-x-6 flex-grow h-full;
+    @apply flex           /* passe en flex */
+           flex-1         /* prend tout l'espace restant */
+           items-center   /* aligne verticalement */
+           justify-end    /* pousse les items à droite */
+           space-x-6      /* espacement horizontal */
+           h-full         /* hauteur parent */
+           overflow-x-auto/* scroll horizontal si besoin */
+           whitespace-nowrap /* pas de retour à la ligne */
+           transition-colors duration-200; /* hover smooth */
+           
   }
+}
+
+/* (Optionnel) styliser rapidement les liens et l'état actif */
+    .nav-links a {
+    @apply text-acier hover:text-doré;
+    }
+    .nav-links a.active {
+    @apply text-doré;
+    }
+    .nav-links a.active::after {
+    content: "";
+    @apply block absolute bottom-0 left-0 h-0.5 w-full bg-doré transition-transform duration-300 scale-x-100;
+    }
+
+  
   .navbar-logo {
-    @apply flex-shrink-0;
+    @apply flex-shrink-0 py-2;
     height: var(--nav-height);
   }
 }

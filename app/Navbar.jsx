@@ -72,7 +72,7 @@ export default function Navbar() {
         {/* col-1: logo */}
         <div className="flex items-center space-x-4">
           <Link href="/" onClick={() => handleLinkClick('/')}>
-            <NavbarLogo className="h-12 md:h-16 item-center"  />
+            <NavbarLogo className="navbar-logo"  />
           </Link>
         </div>
 

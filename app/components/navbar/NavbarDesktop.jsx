@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import SwitchDarkMode from '@/components/ui/SwitchDarkMode'
 
 export default function NavbarDesktop({
   links,
@@ -11,12 +12,6 @@ export default function NavbarDesktop({
   dark,
   setDark,
 }) {
-  // applique la classe dark/clair sur le html
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark)
-  }, [dark])
-
-
 
   return (
     <div className="nav-links flex items-center space-x-4">
@@ -31,6 +26,8 @@ export default function NavbarDesktop({
         </Link>
       ))}
 
+      {/* → SWITCH MODE JOUR/NUIT */}
+      <SwitchDarkMode/>
 
       <Button
         to="/prendre-rendez-vous"

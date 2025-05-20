@@ -1,7 +1,6 @@
 'use client'
 /* components/home/ApproachSection.jsx */
-
-
+import { useState,useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
@@ -35,6 +34,12 @@ const cards = [
 ]
 
 export default function ApproachSection({ extraClass = '' }) {
+    // état thème jour/nuit
+    const [dark, setDark] = useState(false)
+    useEffect(() => {
+      document.documentElement.classList.toggle('dark', dark)
+    }, [dark])
+
   return (
     <section id="approach" className={`w-full py-16 ${extraClass}`}>      
       <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
@@ -45,13 +50,13 @@ export default function ApproachSection({ extraClass = '' }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
+              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 dark:bg-acier/60 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
             >
               <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
                 <AnimatedSVGRenderer
                   SvgComponent={c.Svg}
                   wrapperClassName="w-24 h-24 stroke-ardoise fill-doré"
-                  strokeColor={couleurs.ardoise}
+                  strokecolor={dark ? couleurs.ivoire : couleurs.acier}
                   fillColor={couleurs.doré}
                   strokeWidth={c.stroke}
                   duration={3}
