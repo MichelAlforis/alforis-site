@@ -8,10 +8,12 @@ import ThemeToggleButton from './ThemeToggleButton'
 
 export default function HeaderFixed({
   title,
+  mdTitle,
   tabs = [],
   activeTab: propActiveTab,
   onTabChange,
   introHeight = '15vh'
+
 }) {
   const [activeTab, setActiveTab] = useState(
     () => propActiveTab ?? tabs[0]?.key ?? ''

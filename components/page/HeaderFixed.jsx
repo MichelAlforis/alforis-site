@@ -2,6 +2,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
 import ThemeToggleButton from './ThemeToggleButton'
@@ -9,125 +10,117 @@ import ThemeToggleButton from './ThemeToggleButton'
 export default function HeaderFixed({
   title,
   mdTitle,
+  description,
   tabs = [],
   activeTab: propActiveTab,
   onTabChange,
   introHeight = '10vh',
-  showTabs = true,      // <- nouveau, défaut à true
+  showTabs = true,
 }) {
   const [activeTab, setActiveTab] = useState(
     () => propActiveTab ?? tabs[0]?.key ?? ''
   )
-   const [tabsVisibleOnScroll, setTabsVisibleOnScroll] = useState(true) // <-- nouveau nom
-   const [isMobile, setIsMobile] = useState(false);
+  
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Si la prop change, on la sync en interne
+  // Sync prop -> state
   useEffect(() => {
-    if (propActiveTab != null) {
-      setActiveTab(propActiveTab)
-    }
+    if (propActiveTab != null) setActiveTab(propActiveTab)
   }, [propActiveTab])
 
-  // Scroll listener pour cacher les tabs
-  useEffect(() => {
-    if (!showTabs) return  // n'active pas l'écouteur si les tabs sont désactivés
-    const handler = () => setTabsVisibleOnScroll(window.scrollY < 64)
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [showTabs])
+  //  Scroll pour tabs + intro
+  const scrollY = useScrollPosition()
 
-  // Wrapper pour propager le changement
-  const handleTabChange = (key) => {
-    console.log('HeaderFixed onTabChange:', key) 
+
+  // tu peux maintenant directement :
+  const introVisible      = scrollY < 1
+  const tabsVisibleOnScroll = scrollY < 64
+
+  // Detect mobile pour titre
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const chooseTitle = !isMobile && mdTitle ? mdTitle : title
+
+  const handleTabChange = key => {
     setActiveTab(key)
     onTabChange?.(key)
   }
-
-    // State local renommé pour éviter conflit nom (showTabs -> showTabsState)
-  const [showTabsState, setShowTabsState] = useState(true)
-
-    // Fonction pour mettre à jour la taille de l'écran
-  // Utilisation de useEffect pour écouter les changements de taille de l'écran
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);  // Si la largeur est inférieure ou égale à 768px, c'est un mobile
-    };
-
-    checkScreenSize();  // Vérifier la taille de l'écran au chargement
-
-    // Ajouter un écouteur d'événements pour la redimensionnement de l'écran
-    window.addEventListener('resize', checkScreenSize);
-
-    return () => window.removeEventListener('resize', checkScreenSize);  // Nettoyage de l'événement
-  }, []);
-
-  // Choisir le titre en fonction de la taille de l'écran et de la présence de mdTitle
-  const chooseTitle = !isMobile && mdTitle ? mdTitle : title;
+  
 
   return (
-    <>
-
-
-      {/* Header fixe sous la bannière + navbar */}
-      <section
-        style={{ top: 'var(--navbar-offset)' }}
-        className="
-          sticky inset-x-0 z-overlay
-          bg-white/10 dark:bg-black/10 backdrop-blur-2xl
-          border-b border-ardoise/20
-          flex flex-col
-        "
-      >
-        {/* Ligne titre + déco */}
-          <div className="relative flex items-center justify-between px-4 py-1 sm:px-6">
-            {/* Colonne pour le titre (90% de largeur) */}
-            <motion.h1
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="animated-h1 flex-grow font-bold" // flex-grow pour occuper l'espace restant
-            >
-              {chooseTitle}
-            </motion.h1>
-
-            {/* Colonne pour le logo (10% de largeur) */}
-            <div className="flex-shrink-0 w-1/10">
-              <ThemeToggleButton />
-            </div>
-
-
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: '96%' }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="absolute bottom-0 h-1 bg-vertSauge dark:bg-doré rounded-full"
-            style={{ left: '2%' }}
-          />
+    <section
+      style={{ top: 'var(--navbar-offset)' }}
+      className="
+        sticky inset-x-0 z-overlay
+        bg-white/10 dark:bg-black/10 backdrop-blur-2xl
+        border-b border-ardoise/20
+        flex flex-col
+      "
+    >
+      {/* titre + toggle */}
+      <div className="relative flex items-center justify-between px-4 py-1 sm:px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex-grow font-bold"
+        >
+          {chooseTitle}
+        </motion.h1>
+        <div className="flex-shrink-0">
+          <ThemeToggleButton />
         </div>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: '96%' }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          className="absolute bottom-0 h-1 bg-vertSauge dark:bg-doré rounded-full"
+          style={{ left: '2%' }}
+        />
+      </div>
 
-      {/* Spacer (intro) */}
-      <div style={{ height: introHeight }} />
+      {/* description “intro” qui disparaît */}
+      <AnimatePresence initial={false}>
+        {introVisible && (
+          <motion.div
+            key="intro"
+            initial={{ height: introHeight, opacity: 1 }}
+            animate={{ height: introHeight, opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="flex items-center justify-center overflow-hidden h-screen"
+          >
+            <h3 className='w-full px-6 text-center'>
+              {description}
+            </h3>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Onglets sous le titre, collapse sans bouger le titre */}
-        <AnimatePresence initial={false}>
-          {showTabs && tabsVisibleOnScroll && tabs.length > 0 && (
-            <motion.div
-              key="tabs"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="overflow-hidden mt-2 px-4 pb-2"
-            >
-              <TabsBar
-                tabs={tabs}
-                activeKey={activeTab}
-                onChange={handleTabChange}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
-    </>
+      {/* onglets qui se cachent sous scroll */}
+      <AnimatePresence initial={false}>
+        {showTabs && tabsVisibleOnScroll && tabs.length > 0 && (
+          <motion.div
+            key="tabs"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="overflow-hidden mt-2 px-4 pb-2"
+          >
+            <TabsBar
+              tabs={tabs}
+              activeKey={activeTab}
+              onChange={handleTabChange}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   )
 }

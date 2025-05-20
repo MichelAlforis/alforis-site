@@ -1,34 +1,22 @@
-'use client'
-import { useEffect, useState } from "react"
+// hooks/useScrollPosition.js
+import { useState, useEffect } from 'react'
 
 export default function useScrollPosition() {
-  const [scrollPosition, setScrollPosition] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY || 0)
+    // on cible <body> (ou document.scrollingElement)
+    const scEl = document.body
+
+    const onScroll = () => {
+      setScrollY(scEl.scrollTop)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Init value
+    scEl.addEventListener('scroll', onScroll, { passive: true })
+    onScroll() // initialise immédiatement
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
+    return () => scEl.removeEventListener('scroll', onScroll)
   }, [])
 
-  return scrollPosition
-}
-
-export function useScrollContainer() {
-  const [container, setContainer] = useState(null)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const el = document.getElementById('scroll-container')
-      setContainer(el)
-    }
-  }, [])
-
-  return container
+  return scrollY
 }

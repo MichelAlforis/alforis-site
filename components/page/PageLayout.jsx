@@ -26,7 +26,7 @@ export default function PageLayout({
         onTabChange={onTabChange}
         showTabs={showTabs}   // <- passe la prop ici
       />
-      <main className="main-content no-nav-padding flex-1 px-4 sm:px-6 md:px-8">
+      <main id="scroll-container" className="main-content no-nav-padding flex-1 px-4 sm:px-6 md:px-8">
         {children}
       </main>
     </div>
