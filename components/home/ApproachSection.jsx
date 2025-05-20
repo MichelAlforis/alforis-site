@@ -13,7 +13,7 @@ import LifePic from '@/assets/illustrations/Lifepic'
 const cards = [
   {
     href: '/approchepersonnalisee',
-    title: 'Notre approche est d’abord humaine.',
+    title: 'Notre approche est d’abord humaine',
     text: `Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.`,
     Svg: ApprocheIcon,
     stroke: 20,
@@ -27,7 +27,7 @@ const cards = [
   },
   {
     href: '/services',
-    title: 'Chaque trajectoire est unique.',
+    title: 'Chaque trajectoire est unique',
     text: `Nous ne croyons pas aux solutions toutes faites. Chaque accompagnement Alforis commence par une cartographie de vos objectifs profonds, de votre horizon personnel, et de vos contraintes concrètes.`,
     Svg: Buste,
     stroke: 12,

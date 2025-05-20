@@ -20,7 +20,7 @@ export default function HeaderFixed({
   const [activeTab, setActiveTab] = useState(
     () => propActiveTab ?? tabs[0]?.key ?? ''
   )
-  
+
   const [isMobile, setIsMobile] = useState(false)
 
   // Sync prop -> state
@@ -32,9 +32,7 @@ export default function HeaderFixed({
   const scrollY = useScrollPosition()
 
 
-  // tu peux maintenant directement :
-  const introVisible      = scrollY < 1
-  const tabsVisibleOnScroll = scrollY < 64
+
 
   // Detect mobile pour titre
   useEffect(() => {
@@ -51,6 +49,13 @@ export default function HeaderFixed({
     onTabChange?.(key)
   }
   
+    // tu peux maintenant directement :
+  const introVisible      = scrollY < 1
+  const threshold = isMobile ? 400 : 200
+
+   // On calcule la visibilité des onglets
+  const tabsVisibleOnScroll = scrollY < threshold
+
 
   return (
     <section
@@ -95,7 +100,7 @@ export default function HeaderFixed({
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="flex items-center justify-center overflow-hidden h-screen"
           >
-            <h3 className='w-full px-6 text-center'>
+            <h3 className='w-full px-6 text-center text-sm sm:text-l md:text-xl font-normal text-base text-anthracite pl-4'>
               {description}
             </h3>
           </motion.div>

@@ -41,11 +41,11 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
                 key={tab.key}
                 onClick={() => onChange(tab.key)}
                 className={`
-                    relative z-base flex-shrink-0 py-1 px-4 sm:px-10
-                    font-medium transition rounded-full
+                    relative z-base flex-shrink-0 py-1 px-1 sm:px-6
+                    text-l sm:text-xl md:text-xl transition rounded-full
                   ${isActive 
-                    ? 'text-acier dark:text-ivoire' 
-                    : 'text-acier/70 dark:text-ivoire/70'}     
+                    ? 'text-acier font-medium bg-doré/50 dark:text-ivoire' 
+                    : 'text-acier/70 font-normal dark:text-ivoire/70'}     
                 `}
                 aria-pressed={isActive}
               >
