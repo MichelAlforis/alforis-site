@@ -17,7 +17,7 @@ module.exports = {
         acier: 'rgb(91 109 127)',       // #5B6D7F → Support froid doux
         ivoire: 'rgb(243 243 243)',     // #F3F3F3 → Fond plus lisible que #F5F5F5
         anthracite: 'rgb(34 34 34)',    // #222222 → Texte légèrement renforcé
-        vertSauge: 'rgb(181 191 161)',  // #B5BFA1 → Neutre doux mieux différencié
+        vertSauge: 'rgb(205, 156, 138)',   //rgb(151, 138, 125) → Transition douce entre doré et ivoire
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
