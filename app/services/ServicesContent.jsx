@@ -17,9 +17,9 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
   }, [dark])
-
+ 
   // Trouver le service actuellement sélectionné
-  const current = services.find(service => service.id === activeTab)
+  const current = services.find(service => service.key === activeTab);
 
   return (
     <Animated.Page>
@@ -27,21 +27,10 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-anthracite dark:bg-acier text-ivoire py-16 px-6"
+        className="main-content bg-ivoire text-doré dark:bg-acier dark:text-ivoire py-16 px-6"
       >
         <div className="max-w-4xl mx-auto space-y-8 text-center">
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {services.map((s) => (
-              <button
-                key={s.id}
-                className={s.id === activeTab ? 'text-doré' : 'text-ardoise'} // Ajout d'une classe pour l'onglet sélectionné
-                onClick={() => onTabChange(s.id)} // Utilisation de l'ID du service
-              >
-                {s.title}
-              </button>
-            ))}
-          </div>
 
           {/* Content */}
           <div className="relative">
@@ -53,17 +42,17 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
+                  className="bg-white dark:bg-acier bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
                 >
                   <div className="flex justify-center mb-6">
                     <div className="bg-vertSauge text-ivoire dark:bg-doré p-4 rounded-full">
                       <current.icon size={32} />
                     </div>
                   </div>
-                  <NoWidowText as="h2" className="text-2xl font-semibold mb-2">
-                    {current.title}
+                  <NoWidowText as="h2" className="Text-doré dark:text-vertSauge text-2xl font-semibold mb-2">
+                    {current.label}
                   </NoWidowText>
-                  <p className="text-acier italic mb-4">{current.subtitle}</p>
+                  <p className="italic mb-4">{current.subtitle}</p>
                   <p className="leading-relaxed mb-6">{current.description}</p>
                   <Button className="btn-alforis-outline">En savoir plus</Button>
                 </motion.div>

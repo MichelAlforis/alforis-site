@@ -36,6 +36,7 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
             ${activeKey === tab.key
               ? 'text-anthracite dark:text-ivoire'
               : 'text-ardoise dark:text-ivoire/70'}
+              whitespace-nowrap overflow-hidden text-ellipsis
           `}
           aria-pressed={activeKey === tab.key}
         >
