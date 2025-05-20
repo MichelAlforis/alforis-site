@@ -1,7 +1,8 @@
 import { Settings, DollarSign, Users, Star } from 'lucide-react'
 // ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 export const pageConfig = {
-  title: "Nos expertises, votre sérénité",
+  title: "Nos expertises",
+  mdTitile: "Nos expertise, votre sérénité",
   showTabs: true,
   tabs: [
   {

@@ -1,6 +1,7 @@
 // ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 export const pageConfig = {
-  title: "L'offre - Alforis",
+  title: "Notre offre",
+  mdTitle: "Découvrez notre offre exclusive chez Alforis",
   showTabs: true,
   tabs: [
   { key: 'particulier', label: 'Particulier' },

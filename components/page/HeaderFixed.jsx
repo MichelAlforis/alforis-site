@@ -19,6 +19,7 @@ export default function HeaderFixed({
     () => propActiveTab ?? tabs[0]?.key ?? ''
   )
    const [tabsVisibleOnScroll, setTabsVisibleOnScroll] = useState(true) // <-- nouveau nom
+   const [isMobile, setIsMobile] = useState(false);
 
   // Si la prop change, on la sync en interne
   useEffect(() => {

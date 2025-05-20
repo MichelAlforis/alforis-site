@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/animated/NavbarLogo'
 import { scrollToTop } from '@/hooks/scrollToTop'
 import { motion, AnimatePresence } from 'framer-motion'
-import FocusTrap from 'focus-trap-react'
+import { FocusTrap } from 'focus-trap-react'
 
 export default function Navbar() {
   const pathname = usePathname()
