@@ -3,6 +3,7 @@ import { Settings, DollarSign, Users, Star } from 'lucide-react'
 export const pageConfig = {
   title: "Nos expertises",
   mdTitle: "Nos expertise, votre sérénité",
+  description:  'Bilans patrimoniaux exclusifs, conseils fiscaux pointus, stratégies d’investissement audacieuses et suivi annuel raffiné — un service d’excellence pour vous.',
   showTabs: true,
   tabs: [
   {

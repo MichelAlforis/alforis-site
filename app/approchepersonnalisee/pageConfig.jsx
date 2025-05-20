@@ -3,7 +3,7 @@ import { Settings, DollarSign, Star, Users } from 'lucide-react'
 export const pageConfig = {
   title: 'Notre approche',
   mdtitle: 'Une approche patrimoniale à la hauteur de vos enjeux',
-  description: 'Vision libre et sans filtre du patrimoine – articles, vidéos et réflexions.',
+  description: 'Notre approche : un diagnostic sur-mesure, une stratégie patrimoniale innovante et un accompagnement continu pour bâtir et protéger votre capital en toute confiance.',
   showTabs: false,
     tabs: [
       {

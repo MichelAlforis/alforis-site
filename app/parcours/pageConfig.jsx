@@ -2,7 +2,7 @@
 export const pageConfig = {
   title: 'Votre Parcours',
   mdTitle: "Votre Parcours Patrimonial",
-  description: 'Vision libre et sans filtre du patrimoine – articles, vidéos et réflexions.',
+  description: 'Votre Profil de Vie : un diagnostic interactif pour révéler vos priorités et tracer votre feuille de route patrimoniale. ',
   showTabs: false,
 
 }

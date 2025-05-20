@@ -2,6 +2,7 @@
 export const pageConfig = {
   title: "Votre rendez-vous",
   mdTitle:"Choisissez votre rendez-vous",
+  description: 'Réservez votre consultation privée (appel, visio ou face-à-face) pour avancer concrètement sur vos objectifs.',
   showTabs: true,
   tabs: [
   { key: 'appel', label: '📞  Appel téléphonique', emoji: '📞' },
