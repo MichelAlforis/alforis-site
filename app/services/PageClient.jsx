@@ -16,6 +16,7 @@ export default function PageClient({ content }) {
   return (
     <PageLayout
       title={pageConfig.title}
+      mdTitle={pageConfig.mdTitle}
       description={pageConfig.description}
       emoji={pageConfig.emoji}
       tabs={pageConfig.tabs}

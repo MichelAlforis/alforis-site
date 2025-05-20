@@ -60,7 +60,7 @@
     color: rgb(var(--doré)); /* accent doré */
   }
 h1 {
-  @apply text-3xl sm:text-4xl md:text-5xl text-acier dark:text-doré font-semibold font-title text-center;
+  @apply text-3xl sm:text-4xl md:text-4xl text-acier dark:text-doré font-semibold font-title text-center;
 }
 
 h2 {
@@ -89,10 +89,10 @@ h3 {
 
   /* CLASSES ANIMÉES */
   .animated-h1 {
-    @apply  text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-extrabold text-anthracite dark:text-ivoire;
+    @apply text-doré dark:text-vertSauge;
   }
   .animated-h2 {
-    @apply text-2xl md:text-4xl font-title font-semibold text-ardoise;
+    @apply text-acier dark:text-ivoire;
   }
   .animated-wrapper {
     @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;

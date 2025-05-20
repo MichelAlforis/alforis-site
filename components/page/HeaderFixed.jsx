@@ -8,6 +8,7 @@ import ThemeToggleButton from './ThemeToggleButton'
 
 export default function HeaderFixed({
   title,
+  mdTitle,
   tabs = [],
   activeTab: propActiveTab,
   onTabChange,
@@ -44,6 +45,24 @@ export default function HeaderFixed({
     // State local renommé pour éviter conflit nom (showTabs -> showTabsState)
   const [showTabsState, setShowTabsState] = useState(true)
 
+    // Fonction pour mettre à jour la taille de l'écran
+  // Utilisation de useEffect pour écouter les changements de taille de l'écran
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);  // Si la largeur est inférieure ou égale à 768px, c'est un mobile
+    };
+
+    checkScreenSize();  // Vérifier la taille de l'écran au chargement
+
+    // Ajouter un écouteur d'événements pour la redimensionnement de l'écran
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);  // Nettoyage de l'événement
+  }, []);
+
+  // Choisir le titre en fonction de la taille de l'écran et de la présence de mdTitle
+  const chooseTitle = !isMobile && mdTitle ? mdTitle : title;
+
   return (
     <>
       {/* Spacer (intro) */}
@@ -60,15 +79,15 @@ export default function HeaderFixed({
         "
       >
         {/* Ligne titre + déco */}
-          <div className="relative flex items-center justify-between px-4 py-4 sm:px-6">
+          <div className="relative flex items-center justify-between px-4 py-1 sm:px-6">
             {/* Colonne pour le titre (90% de largeur) */}
             <motion.h1
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex-grow text-xl font-bold" // flex-grow pour occuper l'espace restant
+              className="animated-h1 flex-grow font-bold" // flex-grow pour occuper l'espace restant
             >
-              {title}
+              {chooseTitle}
             </motion.h1>
 
             {/* Colonne pour le logo (10% de largeur) */}

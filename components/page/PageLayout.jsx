@@ -7,6 +7,7 @@ import HeaderFixed from './HeaderFixed';
 export default function PageLayout({
   children,
   title,
+  mdTitle,
   tabs,
   activeTab,
   onTabChange,
@@ -18,6 +19,7 @@ export default function PageLayout({
       <AnimatedBackground />
       <HeaderFixed
         title={title}
+        mdTitle={mdTitle}
         description={description}
         tabs={tabs}
         activeTab={activeTab}
