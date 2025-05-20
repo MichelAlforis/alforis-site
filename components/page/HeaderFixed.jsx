@@ -6,6 +6,7 @@ import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
 import ThemeToggleButton from './ThemeToggleButton'
+import SwitchDarkMode from '../ui/SwitchDarkMode'
 
 export default function HeaderFixed({
   title,

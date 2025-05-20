@@ -1,119 +1,117 @@
-
-/* Navbar CSS */
-
-/* Style de la navbar */
-nav {
-    @apply flex justify-between items-center px-4 bg-ivoire/80 shadow-sm border-b border-ardoise/30 fixed w-full;
-    height: 80px; /* Ajouté pour garantir une hauteur fixe de 80px */
-    transition: top 0.18s cubic-bezier(.44,.05,.17,1);
-  }
-
-/* Style des liens dans la navbar */
-nav a {
-    @apply text-acier text-md px-3 py-2 rounded-md transition-all duration-300 ease-in-out flex items-center justify-center h-20;
-    height: 80px; /* Définit la hauteur du lien à 80px */
-  }
-
-  
-  /* Lien actif : Ajout d'un fond et de la couleur dorée */
-  nav a.active {
-    @apply text-doré font-semibold border-b-2 border-doré transform scale-105 shadow-lg bg-ivoire bg-opacity-80;
-    padding: 8px 12px;
-    border-radius: 6px;
-  }
-  
-  /* Survol : Retirer l'effet de fond sur le lien actif, mais garder la couleur dorée */
-  nav a:hover:not(.active) {
-    @apply text-doré bg-ivoire;
-  }
-  
-
-/* Effet de hover */
-nav a:hover {
-    @apply text-doré font-semibold;
-}
+/* components/navbar.css */
 
 
-
-/* Logo */
+/* ============================
+   LOGO
+   ============================ */
 nav .logo {
-    @apply h-10 md:h-14 w-auto max-h-20;
+  @apply h-10 md:h-14 w-auto max-h-20 transition-transform duration-300 ease-in-out;
+}
+nav .logo:hover {
+  transform: scale(1.1);
 }
 
-/* Bouton */
+/* ============================
+   LIENS (desktop + mobile)
+   ============================ */
+nav a {
+  @apply relative text-acier text-xl font-bold px-3 py-2 rounded-md
+         transition-all duration-300 ease-in-out
+         flex items-center justify-center h-full;
+}
+
+/* Underline animée */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  @apply bg-doré rounded-sm;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+nav a:hover::after {
+  width: 60%;
+}
+
+/* État actif */
+nav a.active {
+  @apply text-doré font-semibold bg-ivoire bg-opacity-80
+         shadow-lg px-3 py-2 rounded-md;
+}
+nav a.active::after {
+  width: 100%;
+}
+
+/* Hover pour non-actifs */
+nav a:hover:not(.active) {
+  @apply text-doré bg-ivoire;
+}
+
+/* ============================
+   BOUTONS (RDV + THÈME)
+   ============================ */
 button {
-    @apply bg-doré px-6 py-2 rounded-md text-ivoire border-none cursor-pointer transition-all duration-300 ease-in-out;
+  @apply bg-doré text-ivoire px-6 py-2 rounded-md
+         cursor-pointer transition-all duration-300 ease-in-out
+         focus:outline-none focus:ring-2 focus:ring-doré;
 }
-
-/* Effet de hover sur le bouton */
 button:hover {
-    @apply bg-vertSauge;
+  @apply bg-vertSauge;
 }
 
-/* Menu mobile : éléments cachés sur les écrans plus grands */
+/* Toggle jour/nuit */
+button.theme-toggle {
+  @apply w-10 h-10 p-2 flex items-center justify-center
+         bg-ivoire/90 dark:bg-ardoise/90 rounded-full shadow-md
+         transition-transform duration-200 ease-in-out;
+}
+button.theme-toggle:hover {
+  transform: scale(1.15);
+}
+
+/* ============================
+   MOBILE MENU
+   ============================ */
 @media (max-width: 768px) {
-    /* Style du menu mobile */
-    .md:hidden {
-        @apply bg-anthracite px-4 pt-4 pb-6 space-y-4;
-    }
+  .mobile-menu {
+    @apply fixed inset-0 z-50 flex flex-col
+           bg-anthracite/95 backdrop-blur-lg text-ivoire;
+    animation: slide-in 0.3s forwards;
+  }
+  .mobile-menu.exit {
+    animation: slide-out 0.25s forwards;
+  }
 
-    /* Liens dans le menu mobile */
-    .md:hidden a {
-        @apply block text-ivoire text-lg;
-    }
-
-    /* Lien actif dans le menu mobile */
-    .md:hidden .active {
-        @apply text-doré font-semibold;
-    }
-
-    /* Style du menu mobile lorsqu'il est ouvert */
-    .mobile-menu {
-        @apply fixed top-16 left-0 right-0 bg-anthracite px-4 py-4 space-y-6 text-center;
-        z-index: 1000;
-    }
-
-    .mobile-menu a {
-        @apply block text-ivoire py-2 text-lg;
-    }
+  .mobile-menu nav {
+    @apply flex-1 flex flex-col justify-center items-center space-y-6;
+  }
+  .mobile-menu a {
+    @apply text-xl font-semibold;
+  }
+  .mobile-menu a.active {
+    @apply text-doré;
+  }
 }
 
-/* Dans les grandes résolutions */
+/* ============================
+   LAYOUT DESKTOP
+   ============================ */
 @media (min-width: 769px) {
-    /* Navbar flex container */
-    .md:flex {
-        @apply flex items-center space-x-6;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 80px;  /* Fixer la hauteur de la navbar */
-        flex-wrap: wrap; /* Permet à la navbar de s'adapter sur plusieurs lignes si nécessaire */
-    }
-
-    /* Le menu mobile est caché sur les écrans larges */
-    .md:hidden {
-        @apply hidden;
-    }
-
-    /* Assurer l'alignement vertical des liens */
-    .md:flex a {
-        @apply flex items-center; /* Aligner verticalement les liens */
-        height: 100%;  /* Chaque lien prendra la hauteur totale de la navbar */
-    }
-
-    /* Alignement du logo */
-    .navbar-logo {
-        @apply flex-shrink-0;
-        height: 80px; /* Assurer que le logo ait la même hauteur */
-    }
-
-    /* Assurer que les liens prennent l'espace disponible */
-    .nav-links {
-        @apply flex-grow; /* Faire en sorte que le menu prenne tout l'espace disponible */
-    }
+  .nav-links {
+    @apply flex items-center space-x-6 flex-grow h-full;
+  }
+  .navbar-logo {
+    @apply flex-shrink-0;
+    height: var(--nav-height);
+  }
 }
 
-/* Animation apparition bandeau */
+/* ============================
+   KEYFRAMES
+   ============================ */
 @keyframes cc-slide-down {
   from {
     opacity: 0;
@@ -123,4 +121,12 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
 }
