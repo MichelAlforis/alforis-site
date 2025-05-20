@@ -27,9 +27,9 @@ export default function ThemeToggleButton() {
       className="p-2 rounded-full hover:bg-light dark:hover:bg-acier/70 transition"
     >
       {isDark ? (
-        <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-ardoise dark:text-ivoire" />
+        <Sun className="w-5 h-5 sm:w-10 sm:h-10 text-ardoise dark:text-ivoire" />
       ) : (
-        <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-ardoise dark:text-ivoire" />
+        <Moon className="w-5 h-5 sm:w-10 sm:h-10 text-ardoise dark:text-ivoire" />
       )}
     </button>
   )

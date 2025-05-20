@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function TabsBar({ tabs = [], activeKey, onChange }) {
   return (
-        <div className="relative flex justify-center overflow-x-auto space-x-4 px-4 pb-2">
+        <div className="relative flex flex-wrap justify-center overflow-x-auto space-x-4 px-4 pb-2">
       {/* Surbrillance partagée */}
       <motion.div
         layoutId="tab-highlight"

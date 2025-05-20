@@ -60,19 +60,22 @@ export default function HeaderFixed({
         "
       >
         {/* Ligne titre + déco */}
-        <div className="relative flex items-center justify-center px-4 py-4 sm:px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="animated-h1"
-          >
-            {title}
-          </motion.h1>
+          <div className="relative flex items-center justify-between px-4 py-4 sm:px-6">
+            {/* Colonne pour le titre (90% de largeur) */}
+            <motion.h1
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex-grow text-xl font-bold" // flex-grow pour occuper l'espace restant
+            >
+              {title}
+            </motion.h1>
 
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <ThemeToggleButton />
-          </div>
+            {/* Colonne pour le logo (10% de largeur) */}
+            <div className="flex-shrink-0 w-1/10">
+              <ThemeToggleButton />
+            </div>
+
 
           <motion.div
             initial={{ width: 0 }}
