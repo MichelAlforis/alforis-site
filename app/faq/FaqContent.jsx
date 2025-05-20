@@ -4,7 +4,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import AccordionCategory from '@/components/ui/AccordionCategory'
 import { categoriesData } from '@/content/dataFAQ'
 import Animated from '@/components/animated/Animated'
@@ -56,26 +56,27 @@ export default function FaqContent({ content, activeTab, onTabChange }){
 
   return (
     <Animated.Page>
-      <footer className="bg-ardoise py-16">
-        <div className="main-content mx-auto px-6 text-ivoire">
+      <section className="bg-ivoire dark:bg-acier">
+        <div className="main-content mx-auto px-2 text-ivoire">
 
           {/* Barre de recherche */}
           <div className="mb-8 flex justify-center">
             <div className="relative w-full max-w-lg">
-              <Search className="absolute top-1/2 left-3 -translate-y-1/2 text-ivoire/70" />
+              <Search className="absolute top-1/2 left-3 -translate-y-1/2 text-acier" />
               <input
                 type="text"
                 placeholder="Rechercher dans la FAQ..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-full bg-ivoire text-ardoise placeholder-ardoise/60 focus:outline-none focus:ring-2 focus:ring-doré transition"
+                className="w-full pl-10 pr-4 py-3 rounded-full bg-white text-ardoise placeholder-ardoise/60 focus:outline-none focus:ring-2 focus:ring-vertSauge transition"
               />
               {search && (
                 <button
                   onClick={() => setSearch('')}
+                  aria-label="Effacer la recherche"
                   className="absolute top-1/2 right-3 -translate-y-1/2 text-ardoise/80 hover:text-ardoise"
                 >
-                  ✕
+                 <X size={20} />
                 </button>
               )}
             </div>
@@ -109,7 +110,7 @@ export default function FaqContent({ content, activeTab, onTabChange }){
             )}
           </div>
         </div>
-      </footer>
+      </section>
     </Animated.Page>
   )
 }

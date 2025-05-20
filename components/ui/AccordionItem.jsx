@@ -1,15 +1,22 @@
 'use client'
+import { useEffect,useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 export default function AccordionItem({ item, isOpen, onToggle }) {
+    // état thème jour/nuit
+    const [dark, setDark] = useState(false)
+    useEffect(() => {
+      document.documentElement.classList.toggle('dark', dark)
+    }, [dark])
+
   return (
-    <div className="border border-doré bg-ivoire rounded-2xl overflow-hidden shadow-sm">
+    <div className="border border-doré bg-white dark:bg-opacity-80 rounded-2xl overflow-hidden shadow-sm">
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={`panel-${item.id}`}
-        className="w-full flex justify-between items-center px-6 py-4 focus:outline-none focus:ring-2 focus:ring-doré"
+        className="w-full flex justify-between items-center px-6 py-4 bg-vertSauge/40 focus:outline-none focus:ring-2 focus:ring-doré"
       >
         <span className="text-ardoise font-medium text-lg">{item.question}</span>
         <motion.span
