@@ -18,9 +18,9 @@ export default function ConfidentialiteContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-acier dark:bg-anthracite text-ivoire py-16 px-6"
+        className="main-content bg-ivoire text-acier dark:bg-acier text-ivoire py-16 px-6"
       >
-        <div className="max-w-3xl mx-auto bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6">
+        <div className="max-w-3xl mx-auto bg-ivoire bg-opacity-90 dark:bg-opacity-40 rounded-2xl shadow-xl p-8 space-y-6">
 
           <motion.p
             initial={{ opacity: 0 }}

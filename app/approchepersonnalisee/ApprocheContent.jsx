@@ -45,7 +45,7 @@ export default function ApprocheContent() {
                     <div className="z-base flex items-center justify-center bg-vertSauge text-ivoire dark:bg-doré rounded-full p-5 shadow-lg">
                       <Icon size={28} />
                     </div>
-                    <Card className="flex-1 bg-white bg-opacity-90 dark:bg-acier bg-opacity-80 text-ivoire rounded-2xl shadow-xl border border-doré/20 dark:border-vertSauge">
+                    <Card className="flex-1 bg-white bg-opacity-90 dark:bg-ivoire/20 bg-opacity-80 text-ivoire rounded-2xl shadow-xl border border-doré/20 dark:border-vertSauge">
                       <CardHeader>
                         <NoWidowText
                           as="h2"

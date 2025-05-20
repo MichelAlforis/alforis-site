@@ -36,11 +36,17 @@ export default function ContactForm() {
     }
   }
 
+    // état thème jour/nuit
+    const [dark, setDark] = useState(false)
+    useEffect(() => {
+      document.documentElement.classList.toggle('dark', dark)
+    }, [dark])
+
   // Confirmation écran
   if (submitted) {
     return (
       <motion.main
-        className="flex flex-col items-center justify-center min-h-screen bg-ivoire text-anthracite p-6"
+        className="flex flex-col items-center justify-center min-h-screen bg-ivoire dark:bg-acier text-anthracite p-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -58,7 +64,7 @@ export default function ContactForm() {
           <p className="text-lg">Merci, nous vous recontacterons sous 24 h.</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-4 inline-block px-8 py-3 font-semibold uppercase rounded-full bg-doré text-ivoire shadow-lg hover:bg-doré/90 transition"
+            className="mt-4 inline-block px-8 py-3 font-semibold uppercase rounded-full bg-doré/70 text-ivoire shadow-lg hover:bg-doré/90 transition"
           >
             Nouveau message
           </button>
@@ -68,7 +74,7 @@ export default function ContactForm() {
   }
 
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-ivoire to-ivoire text-anthracite p-6 overflow-hidden">
+    <main className="relative flex items-center justify-center min-h-screen bg-ivoire/20 dark:bg-acier/60 p-6 overflow-hidden">
       {/* Cercles d’arrière-plan */}
       <motion.span
         className="absolute top-16 left-20 w-48 h-48 bg-vertSauge opacity-50 rounded-full filter blur-3xl"
@@ -76,7 +82,7 @@ export default function ContactForm() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.span
-        className="absolute bottom-16 right-24 w-72 h-72 bg-acier opacity-30 rounded-full filter blur-4xl"
+        className="absolute bottom-16 right-24 w-72 h-72 bg-doré opacity-30 rounded-full filter blur-4xl"
         animate={{ x: [0, -40, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
@@ -119,7 +125,7 @@ export default function ContactForm() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-ivoire bg-opacity-90 rounded-2xl shadow-xl p-8 space-y-6"
+          className="bg-ivoire bg-opacity-80 rounded-2xl shadow-xl p-8 space-y-6"
         >
           {/* Nom */}
           <div>

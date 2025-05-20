@@ -35,7 +35,7 @@ function SmartListItem({ item, index = 0, type, extra }) {
         <Animated.Div
           {...getButtonProps(
             index,
-            'flex items-start gap-4 py-4 border-b border-ivoire/40 dark:border-acier-700 hover:bg-ivoire/40 dark:hover:bg-acier-700 transition-colors rounded-lg px-2 sm:px-4 cursor-pointer'
+            'flex items-start gap-4 py-4 border-b border-ivoire/40 dark:border-acier/70 hover:bg-ivoire/40 dark:hover:bg-acier/70 dark:bg-acier  transition-colors rounded-lg px-2 sm:px-4 cursor-pointer'
           )}
         >
           <div className="relative flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
@@ -49,7 +49,7 @@ function SmartListItem({ item, index = 0, type, extra }) {
               blurDataURL="/assets/img/placeholder.png"
             />
           </div>
-          <div className="flex flex-col flex-1 min-w-0">
+          <div className="flex flex-col flex-1  min-w-0">
             <span className="text-xs font-medium uppercase text-doré mb-1 truncate">
               {itemType}
             </span>

@@ -16,6 +16,7 @@ export default function PageClient({ content }) {
   return (
     <PageLayout
       title={pageConfig.title}
+      mdTitle={pageConfig.mdTitle}
       description={pageConfig.description}
       tabs={pageConfig.tabs}
       activeTab={activeTab}           // ← on passe l’état au header

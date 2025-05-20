@@ -42,7 +42,7 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-white dark:bg-acier bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
+                  className="bg-white dark:bg-ivoire/40 bg-opacity-90 rounded-2xl shadow-xl p-8 text-center"
                 >
                   <div className="flex justify-center mb-6">
                     <div className="bg-vertSauge text-ivoire dark:bg-doré p-4 rounded-full">
