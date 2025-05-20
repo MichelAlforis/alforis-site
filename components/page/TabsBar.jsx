@@ -8,16 +8,15 @@ export default function TabsBar({ tabs = [], activeKey, onChange }) {
   return (
         <div className="relative flex flex-shrink-0 flex-wrap justify-evenly overflow-x-auto space-x-4 px-4 pb-2">
       {/* Surbrillance partagée */}
-      <motion.div
-        layoutId="tab-highlight"
-        className="absolute inset-y-0 bg-doré/40 rounded-full pointer-events-none"
-        transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-        style={{
-          // on mesure le bouton actif via CSS custom properties inj. par JS plus bas
-          left: `var(--highlight-left, 0px)`,
-          width: `var(--highlight-width, 0px)`
-        }}
-      />
+        <motion.span
+          layoutId="tab-underline"
+          className="absolute bottom-0 h-1 bg-doré/40 rounded-full pointer-events-none"
+          style={{
+            left: 'var(--highlight-left)',
+            width: 'var(--highlight-width)'
+          }}
+          transition={{ type: 'spring', stiffness: 500, damping: 40 }}
+        />
 
       {tabs.map(tab => (
         <button

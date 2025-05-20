@@ -1,10 +1,11 @@
 'use client'
 
-import React from 'react'
+import { useState, useEffect, react } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import useButtonHover from '@/hooks/useButtonHover'
 import { Animated } from '@/components/animated/Animated'
+
 
 /**
  * GenericCard: carte unique avec overlay d'actions (ex: bouton favori)
@@ -22,6 +23,12 @@ const GenericCard = ({ item, index = 0, type, extra }) => {
   } = item
 
   const href = `${hrefPrefix}/${slug}`
+
+  // état thème jour/nuit
+  const [dark, setDark] = useState(false)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
 
   return (
     <div className="relative h-full group">

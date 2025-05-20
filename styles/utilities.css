@@ -118,5 +118,14 @@
           from { transform: translateY(-16px); opacity: 0.4; }
           to   { transform: translateY(0); opacity: 1; }
         }
+    .tab-button {
+      position: relative;
+      padding: 0.5rem 1rem;
+      color: var(--text-inactive);
+      transition: color .2s;
+    }
+    .tab-button[aria-pressed="true"] {
+      color: var(--text-active);
+}
   }
   
