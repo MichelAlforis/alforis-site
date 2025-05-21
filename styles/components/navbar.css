@@ -9,11 +9,7 @@
 /* ============================
    LIENS (desktop + mobile)
    ============================ */
-nav a {
-  @apply relative text-acier text-xl font-bold px-3 py-2 rounded-full
-         transition-all duration-300 ease-in-out
-         flex items-center justify-center h-full;
-}
+
 
 /* Underline animée */
 nav a::after {
@@ -33,9 +29,19 @@ nav a:hover::after {
 
 /* État actif */
 nav a.active {
-  @apply text-doré font-semibold bg-ivoire bg-opacity-80
+  @apply text-doré bg-ivoire bg-opacity-80
          shadow-lg px-3 py-2 rounded-full;
 }
+
+.nav-links > a {
+  @apply text-acier text-xl font-bold
+         px-3 py-2 rounded-full
+         transition-all duration-300 ease-in-out;
+}
+.nav-links > a.active {
+  @apply text-doré font-semibold;
+}
+
 nav a.active::after {
   width: 100%;
 }
@@ -94,50 +100,23 @@ button.theme-toggle:hover {
 /* ============================
    LAYOUT DESKTOP
    ============================ */
-@media (min-width: 769px) {
-/* Masqué sur mobile */
-.nav-links {
-  @apply hidden;
+
+/* 5) logo à gauche */
+.navbar-logo {
+  @apply flex-shrink-0 py-2;
+  height: var(--nav-height);
 }
 
-/* À partir de 769px, on affiche et on améliore le flex */
-@media (min-width: 769px) {
-  .nav-links {
-    @apply flex           /* passe en flex */
-           flex-1         /* prend tout l'espace restant */
-           items-center   /* aligne verticalement */
-           justify-end    /* pousse les items à droite */
-           space-x-6      /* espacement horizontal */
-           h-full         /* hauteur parent */
-           overflow-x-auto/* scroll horizontal si besoin */
-           whitespace-nowrap /* pas de retour à la ligne */
-           transition-colors duration-200; /* hover smooth */
-           
-  }
+/* DROPDOWN – seulement les liens directs sous .dropdown-menu */
+.dropdown-menu > a {
+  @apply text-md px-4 py-2 rounded-full;
 }
 
-/* (Optionnel) styliser rapidement les liens et l'état actif */
-    .nav-links a {
-    @apply text-acier hover:text-doré;
-    }
-    .nav-links a.active {
-    @apply text-doré;
-    }
-    .nav-links a.active::after {
-    content: "";
-    @apply block absolute bottom-0 left-0 h-0.5 w-full bg-doré transition-transform duration-300 scale-x-100;
-    }
-
-    .home-page .nav-links a {
-      @apply text-ivoire;
-    }
-
-  
-  .navbar-logo {
-    @apply flex-shrink-0 py-2;
-    height: var(--nav-height);
-  }
+/* si tu veux supprimer l’underline animée sous ces liens */
+.dropdown-menu > a::after {
+  display: none;
 }
+
 
 /* ============================
    KEYFRAMES

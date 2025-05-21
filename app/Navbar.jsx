@@ -58,7 +58,7 @@ export default function Navbar() {
         hasShadow && 'shadow-xl',
         isHome
           ? 'bg-transparent backdrop-blur-none'
-          : 'bg-white/10 dark:bg-black/10 backdrop-blur-2xl'
+          : 'bg-ivoire/10 dark:bg-acier/10 backdrop-blur-2xl'
       )}
     >
         <div

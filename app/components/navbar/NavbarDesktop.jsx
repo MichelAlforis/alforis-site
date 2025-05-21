@@ -14,12 +14,7 @@ export default function NavbarDesktop({
 }) {
 
   return (
-    <div 
-    className="      flex items-center space-x-6 
-      uppercase tracking-tight 
-      overflow-x-auto whitespace-nowrap
-      text-sm md:text-base lg:text-lg
-      ">
+    <div className="flex items-center space-x-6">
       {/* → Priorité  */}  
       <PriorityNav 
         links={links}

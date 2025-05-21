@@ -5,11 +5,13 @@ import { useRef, useState, useEffect } from 'react'
 import NavLink from './NavLink'
 import Dropdown from './Dropdown'
 
+
 export default function PriorityNav({ links }) {
   const always     = links.filter(l => l.alwaysVisible)
   const candidates = links.filter(l => !l.alwaysVisible)
   const containerRef = useRef(null)
   const [count, setCount] = useState(candidates.length)
+
 
   useEffect(() => {
     const update = () => {
@@ -32,7 +34,7 @@ export default function PriorityNav({ links }) {
       {primary.map(link => <NavLink key={link.href} {...link} />)}
 
       {overflow.length > 0 && (
-        <Dropdown label="More">
+        <Dropdown label="Plus">
           {overflow.map(link => <NavLink key={link.href} {...link} />)}
         </Dropdown>
       )}
