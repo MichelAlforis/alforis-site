@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FocusTrap } from 'focus-trap-react'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/Navbar/NavbarLogo'
@@ -38,7 +37,6 @@ export default function NavbarMobile({
 
       <AnimatePresence>
         {isOpen && (
-          <FocusTrap active>
             <motion.div
               className="mobile-menu"
               initial={{ x: '-100%' }}
@@ -112,7 +110,6 @@ export default function NavbarMobile({
                 </Button>
               </nav>
             </motion.div>
-          </FocusTrap>
         )}
       </AnimatePresence>
     </>

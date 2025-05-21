@@ -61,15 +61,12 @@ export default function HeaderFixed({
   return (
     <section
       style={{ top: 'var(--navbar-offset)' }}
-      className={`
-        site-header
-        fixed inset-x-0 top-0 z-nav
-        h-nav
+      className="
+        sticky inset-x-0 z-overlay
         bg-white/10 dark:bg-black/10 backdrop-blur-2xl
-        transition-shadow duration-300
-        ${hasShadow ? 'shadow-xl' : ''}
-        ${isHome     ? 'home-page'  : ''}
-      `}
+        border-b border-ardoise/20
+        flex flex-col
+      "
     >
       {/* titre + toggle */}
       <div className="relative flex items-center justify-between px-4 py-1 sm:px-6">

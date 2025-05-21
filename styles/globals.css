@@ -99,16 +99,29 @@ h3 {
   }
 
   /* HERO FULL-SCREEN (sous nav) */
-  .hero {
-    position: relative;
-    overflow: hidden;
-    /* 100vh - hauteur nav */
-    height: calc(100dvh - var(--nav-height));
-    /* fallback JS */
-    height: calc(var(--vh) * 100 - var(--nav-height));
-    padding-bottom: env(safe-area-inset-bottom);
-    @apply flex items-center justify-center;
-  }
+/* components/home/hero.css */
+/* Styles par défaut (mobile-first) */
+/* components/home/hero.css */
+/* components/home/hero.css */
+.hero-fullscreen {
+  position: relative;
+  overflow: hidden;
+
+  /* plein écran, nav comprise */
+  height: 100dvh;
+  /* fallback si besoin */
+  height: calc(var(--vh) * 100);
+
+  /* on décale le contenu sous la navbar transparente */
+  padding-top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 
   /* VARIABLES GLOBALES */
 /* mobile-first : navbar à 56px */

@@ -3,7 +3,6 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
 import Script from 'next/script'
-import { usePathname } from 'next/navigation'
 import ClientSideScrollRestorer from './ClientSideScrollRestorer'
 import Navbar from './Navbar'
 import Footer from '@/app/Footer'
@@ -14,8 +13,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function RootClientLayout({ children }) {
-  const pathname = usePathname()
-  const isHome = pathname === '/'
+
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
 
   const handleBannerHeight = useCallback((height) => {
@@ -26,9 +24,6 @@ export default function RootClientLayout({ children }) {
     )
   }, [])
 
-  useEffect(() => {
-    document.documentElement.classList.toggle('home-page', isHome)
-  }, [isHome])
 
   const initializeCookieConsent = () => {
     try {
@@ -92,9 +87,7 @@ export default function RootClientLayout({ children }) {
       {/* Contenu des routes */}
       <main
         id="main-content"
-        className={`main-content ${
-          pathname === '/' ? 'home-content' : ''
-        } transition-colors dark:bg-anthracite/90`}
+        className={`transition-colors dark:bg-anthracite/90`}
       >
         {children}
       </main>

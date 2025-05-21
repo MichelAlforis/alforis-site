@@ -10,6 +10,7 @@ import Contact from '../components/home/Contact'
 import { Animated } from '../components/animated/Animated'
 import useControlledScrollSections from '../hooks/useControlledScrollSections'
 import useButtonHover from '../hooks/useButtonHover'
+import clsx from 'clsx'
 
 export default function HomeContent() {
   const sections = [
@@ -32,14 +33,18 @@ export default function HomeContent() {
         className="relative w-full text-anthracite snap-y snap-mandatory overflow-y-auto md:overflow-hidden md:snap-none"
       >
         {sections.map(({ id, Component }) => (
-          <section
-            key={id}
-            id={id}
-            className="relative h-auto md:h-[100dvh] snap-start"
-          >
-            <picture className="absolute inset-0 w-full h-full z-0">
+                <section
+                  key={id}
+                  id={id}
+                  className={clsx(
+                    'relative snap-start',            // commun à toutes
+                    id === 'hero'
+                      ? 'hero-fullscreen'              // only full-screen Hero
+                      : 'h-auto md:h-[100dvh]'         // les autres : auto mobile, 100dvh tablette+
+                  )}
+                >
+            <picture className="absolute inset-0 w-full h-full z-base">
               <source
-                media="(min-width: 640px)"
                 srcSet={`/assets/img/home/D_${id}.webp`}
               />
               <img

@@ -8,9 +8,11 @@ import NavbarDesktop from './components/navbar/NavbarDesktop'
 import NavbarMobile from './components/navbar/NavbarMobile'
 import NavbarLogo from '@/components/Navbar/NavbarLogo'
 import { scrollToTop } from '@/hooks/scrollToTop'
+import clsx from 'clsx'
 
 export default function Navbar() {
   const pathname = usePathname()
+  const isHome = pathname === '/'
 
   // état menu + shadow
   const [isOpen, setIsOpen]         = useState(false)
@@ -51,13 +53,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`
-        fixed inset-x-0 top-0 z-nav
-        h-nav
-        bg-white/10 dark:bg-black/10 backdrop-blur-2xl
-        transition-shadow duration-300
-        ${hasShadow ? 'shadow-xl' : ''}
-      `}
+      className={clsx(
+        'site-header fixed inset-x-0 top-0 z-nav h-nav transition-shadow duration-300',
+        hasShadow && 'shadow-xl',
+        isHome
+          ? 'bg-transparent backdrop-blur-none'
+          : 'bg-white/10 dark:bg-black/10 backdrop-blur-2xl'
+      )}
     >
         <div
           className="
