@@ -77,9 +77,10 @@ button.theme-toggle:hover {
    ============================ */
 @media (max-width: 768px) {
   .mobile-menu {
-    @apply fixed inset-0 z-50 flex flex-col
-           bg-anthracite/95 backdrop-blur-lg text-ivoire;
+    @apply fixed inset-0 flex flex-col
+           bg-acier/80 backdrop-blur-xl text-ivoire;
     animation: slide-in 0.3s forwards;
+    padding-top: var(--nav-height);
   }
   .mobile-menu.exit {
     animation: slide-out 0.25s forwards;

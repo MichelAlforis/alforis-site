@@ -9,6 +9,7 @@ import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
 import { ToastContainer } from 'react-toastify'
+import { ThemeProvider } from '@/styles/ThemeDark'
 import 'react-toastify/dist/ReactToastify.css'
 
 
@@ -61,6 +62,9 @@ export default function RootClientLayout({ children }) {
       {/* Barre de progression mobile */}
       <MobileScrollProgress />
 
+      {/* Dark theme */}
+      <ThemeProvider>
+        
       {/* CookieConsent */}
       <Script
         src="/cookieconsent.js"
@@ -105,6 +109,7 @@ export default function RootClientLayout({ children }) {
 
       {/* Décor & overlays */}
       <div className="fixed inset-0 pointer-events-none z-overlay" />
+      </ThemeProvider>
     </>
   )
 }

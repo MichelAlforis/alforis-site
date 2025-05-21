@@ -8,11 +8,6 @@ import { motion } from 'framer-motion'
 import CallToAction from '@/components/ui/CallToAction'
 
 export default function MentionsLegalesContent() {
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
 
   return (
     <Animated.Page>

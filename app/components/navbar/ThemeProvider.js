@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 
 const ThemeContext = createContext()
 
-export function ThemeProvider({ children }) {
+export function ThemeProviderTestversion({ children }) {
   const [dark, setDark] = useState(false)
 
   // applique/enlève la classe `dark` sur <html>

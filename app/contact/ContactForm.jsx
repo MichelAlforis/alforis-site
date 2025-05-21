@@ -36,12 +36,6 @@ export default function ContactForm() {
     }
   }
 
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
-
   // Confirmation écran
   if (submitted) {
     return (

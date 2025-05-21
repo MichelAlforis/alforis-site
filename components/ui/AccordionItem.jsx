@@ -4,11 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 export default function AccordionItem({ item, isOpen, onToggle }) {
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
 
   return (
     <div className="border border-doré bg-white dark:bg-opacity-80 rounded-2xl overflow-hidden shadow-sm">

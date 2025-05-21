@@ -1,16 +1,11 @@
 // /components/ui/SwitchDarkMode.js
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { useTheme } from "@/styles/ThemeDark"; // Import du contexte
+import { Moon,Sun } from "lucide-react";
 
 export default function SwitchDarkMode() {
-  const [dark, setDark] = useState(false);
-
-  // applique/enlève la classe `dark` sur <html>
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-  }, [dark]);
+  const { dark, toggleTheme } = useTheme(); // Utilisation du thème du contexte
 
   const isLight = !dark;
 
@@ -18,7 +13,7 @@ export default function SwitchDarkMode() {
     <button
       type="button"
       aria-label="Basculer mode sombre/clair"
-      onClick={() => setDark(prev => !prev)}
+      onClick={toggleTheme}
       className={`
         relative flex items-center justify-between
         w-14 h-8 p-1 rounded-full border-doré
@@ -28,7 +23,7 @@ export default function SwitchDarkMode() {
     >
       {/* Icônes placées en justify-between */}
       <Moon className={`w-5 h-5 text-doré transition-opacity duration-1000 ${isLight ? 'opacity-100' : 'opacity-0'}`} />
-      <Sun  className={`w-5 h-5 text-doré transition-opacity duration-1000 ${isLight ? 'opacity-0' : 'opacity-100'}`} />
+      <Sun className={`w-5 h-5 text-doré transition-opacity duration-1000 ${isLight ? 'opacity-0' : 'opacity-100'}`} />
 
       {/* Le rond : position absolute, à 4px du bord */}
       <span

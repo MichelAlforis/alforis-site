@@ -1,6 +1,5 @@
 'use client'
 /* components/home/ApproachSection.jsx */
-import { useState,useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
@@ -8,6 +7,7 @@ import { couleurs } from '@/styles/generated-colors'
 import Buste from '@/assets/illustrations/buste'
 import ApprocheIcon from '@/assets/illustrations/approche'
 import LifePic from '@/assets/illustrations/Lifepic'
+import { useTheme } from "@/styles/ThemeDark";
 
 const cards = [
   {
@@ -34,12 +34,8 @@ const cards = [
 ]
 
 export default function ApproachSection({ extraClass = '' }) {
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
-
+   const { dark } = useTheme();
+   
   return (
     <section id="approach" className={`w-full py-16 ${extraClass}`}>      
       <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">

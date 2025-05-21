@@ -6,11 +6,6 @@ import Animated from '@/components/animated/Animated'
 import { motion } from 'framer-motion'
 
 export default function ConfidentialiteContent() {
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
 
   return (
     <Animated.Page>

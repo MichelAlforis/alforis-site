@@ -13,12 +13,7 @@ import { pageConfig } from './pageConfig'
 const steps = pageConfig.tabs
   
 export default function ApprocheContent() {
-  
-  // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
+
 
   return (
     <Animated.Page>

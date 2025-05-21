@@ -5,40 +5,53 @@ import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import NavbarLogo from '@/components/Navbar/NavbarLogo'
+import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile'
+import clsx from 'clsx'
 
-export default function NavbarMobile({
-  links,
-  isActive,
-  isOpen,
-  toggle,
-  handleLinkClick,
-  dark,
-  setDark,
-}) {
+export default function NavbarMobile({links}) {
+  
+  const [isOpen, setIsOpen]         = useState(false)
+
   // Bloquer le scroll quand le menu est ouvert
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
 
+
   return (
     <>
       {/* Burger uniquement si le menu est fermé */}
-      {!isOpen && (
-        <button
-          onClick={toggle}
-          aria-label="Ouvrir le menu"
-          className="lg:hidden p-3 focus:outline-none focus:ring-2 focus:ring-doré rounded"
-        >
-          <Menu size={28} />
-        </button>
-      )}
+        {!isOpen && (
+          <div
+            className="pt-0 grid grid-cols-2 h-full items-center"
+            style={{ height: "var(--nav-height)" }}
+          >
+            {/* Colonne 1 : logo mobile */}
+            <div className="flex items-center">
+              <NavbarLogoMobile  className= 'navbar-logo' isHome={isHome} />
+            </div>
+
+            {/* Colonne 2 : bouton menu aligné à droite */}
+            <div className="flex items-center justify-end">
+              <button
+                onClick={toggle}
+                aria-label="Ouvrir le menu"
+                className={clsx(
+                  "lg:hidden z-nav p-3 focus:outline-none focus:ring-2 focus:ring-doré rounded",
+                  isHome ? "text-ivoire" : "text-acier"
+                )}
+              >
+                <Menu size={28} />
+              </button>
+            </div>
+          </div>
+        )}
+
 
       <AnimatePresence>
         {isOpen && (
             <motion.div
-              className="mobile-menu"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
@@ -60,7 +73,7 @@ export default function NavbarMobile({
                   }}
                   className="flex items-center"
                 >
-                  <NavbarLogo className="h-8 w-auto" aria-hidden="true" />
+                
                   <span className="sr-only">Alforis – Accueil</span>
                 </Link>
                 <button
@@ -73,7 +86,7 @@ export default function NavbarMobile({
               </div>
 
               {/* — Liens & actions */}
-              <nav className="flex-1 flex flex-col items-center justify-center space-y-6 py-6">
+              <nav className="mobile-menu z-nav flex-1 flex flex-col min-h-screen items-center justify-center space-y-6 py-6">
                 {links.map(({ href, label }) => (
                   <Link
                     key={href}

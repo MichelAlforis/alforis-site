@@ -1,10 +1,8 @@
-'use client'
-
+import * as React from "react"
 import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
 import { couleurs } from "@/styles/generated-colors";
-import { useTheme } from "@/styles/ThemeDark";
 
-export default function NavbarLogo({ className = "", isHome }) {
+export default function NavbarLogoMobile({ className = "", isHome }) {
   const logoControls = useAnimationControls()
   const textControls = useAnimationControls()
 

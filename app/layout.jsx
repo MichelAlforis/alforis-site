@@ -6,7 +6,6 @@ import RootClientLayout from './RootClientLayout'
 import Script from 'next/script'
 
 
-
 export default function Layout({ children }) {
 
 

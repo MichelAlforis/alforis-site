@@ -21,12 +21,6 @@ const OffresTypes = [
 export default function MarketplaceContent({ content, activeTab = 'particulier', onTabChange }) {
   // Le filtre est dicté par activeTab (remonté par TabsBar)
   const selectedType = activeTab
-  
-    // état thème jour/nuit
-    const [dark, setDark] = useState(false)
-    useEffect(() => {
-      document.documentElement.classList.toggle('dark', dark)
-    }, [dark])
 
   return (
     <Animated.Page>
