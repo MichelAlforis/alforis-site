@@ -4,11 +4,10 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
-export default function NavLink({ href, label }) {
+export default function NavLink({ href, label, isHome }) {
   const pathname = usePathname()
   const router   = useRouter()
   const isActive = pathname === href
-  const isHome   = pathname === '/'
 
   const handleClick = () => {
     if (isActive) {

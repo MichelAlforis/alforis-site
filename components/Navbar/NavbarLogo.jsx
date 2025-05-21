@@ -1,14 +1,13 @@
-
 import * as React from "react"
 import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
 import { couleurs } from "@/styles/generated-colors";
 
-export default function NavbarLogo({ className = "" }) {
+export default function NavbarLogo({ className = "", isHome }) {
   const logoControls = useAnimationControls()
   const textControls = useAnimationControls()
 
-  const fillColor = useMotionValue(couleurs.acier) // doré
-  const strokeColor = useMotionValue(couleurs.acier) // doré
+  const fillColor = useMotionValue(couleurs.ivoire) // doré
+  const strokeColor = useMotionValue(couleurs.ivoire) // doré
   const strokeWidth = useMotionValue(10)
   const strokeSpring = useSpring(strokeWidth, { stiffness: 200, damping: 20 })
 
@@ -38,8 +37,10 @@ export default function NavbarLogo({ className = "" }) {
   }
 
   const handleMouseLeave = () => {
-    fillColor.set(couleurs.ivoire)       // doré
-    strokeColor.set(couleurs.ivoire)     // doré
+    const baseColor = isHome ? couleurs.ivoire : couleurs.acier
+
+    fillColor.set(baseColor)       // doré
+    strokeColor.set(baseColor)     // doré
     strokeWidth.set(10)
 
     logoControls.start({

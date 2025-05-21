@@ -64,7 +64,7 @@ export default function Navbar() {
         <div
           className="
             grid
-            grid-cols-[20%_1fr_70%]
+            grid-cols-[20%_1fr_75%]
             h-full
             items-center
           "
@@ -74,7 +74,7 @@ export default function Navbar() {
         {/* col-1: logo */}
         <div className="flex items-center space-x-4">
           <Link href="/" onClick={() => handleLinkClick('/')}>
-            <NavbarLogo className="navbar-logo"  />
+            <NavbarLogo className="navbar-logo" isHome={isHome}  />
           </Link>
         </div>
 
@@ -83,7 +83,7 @@ export default function Navbar() {
 
         {/* MENU DESKTOP */}
         {/* col-3: nav + bouton mobile */}
-        <div className="hidden lg:block">
+        <div className="hidden max-height lg:block" >
         <NavbarDesktop
           links={links}
           isActive={isActive}

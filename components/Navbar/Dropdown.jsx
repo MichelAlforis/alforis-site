@@ -3,13 +3,10 @@
 
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
-export default function Dropdown({ label, children }) {
+export default function Dropdown({ label, children, isHome }) {
   const [open, setOpen] = useState(false)
-    const pathname = usePathname()
-    const isHome   = pathname === '/'
 
 
   return (
@@ -17,7 +14,7 @@ export default function Dropdown({ label, children }) {
         <button
           onClick={() => setOpen(o => !o)}
           className={clsx(
-            'flex items-center px-3 py-2 font-semibold uppercase transition-colors duration-200 dark:text-ivoire hover:text-doré hover:bg-ivoire',
+            'flex items-center px-3 py-2 font-semibold uppercase transition-colors duration-200 dark:text-ivoire hover:text-doré hover:bg-ivoire rounded-full',
             isHome ? 'text-ivoire' : 'text-acier'
           )}
           aria-expanded={open}
@@ -31,10 +28,7 @@ export default function Dropdown({ label, children }) {
         <div
           className={clsx(
             /* dropdown container */
-            'dropdown-menu absolute right-0 mt-2 w-auto rounded shadow-lg overflow-visible z-nav',
-
-            /* small text on all children */
-            '!text-xs !leading-tight',
+            'dropdown-menu absolute right-0 mt-2 w-auto rounded shadow-lg overflow-visible z-nav rounded-xl',
 
             /* background & color depending on home */
             isHome

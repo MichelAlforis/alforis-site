@@ -9,7 +9,9 @@
 /* ============================
    LIENS (desktop + mobile)
    ============================ */
-
+nav {
+  max-height:var(--nav-height);
+}
 
 /* Underline animée */
 nav a::after {
@@ -34,7 +36,7 @@ nav a.active {
 }
 
 .nav-links > a {
-  @apply text-acier text-xl font-bold
+  @apply text-xl font-bold
          px-3 py-2 rounded-full
          transition-all duration-300 ease-in-out;
 }
@@ -54,13 +56,10 @@ nav a:hover:not(.active) {
 /* ============================
    BOUTONS (RDV + THÈME)
    ============================ */
-button {
+button.prendreRDV {
   @apply bg-doré text-ivoire px-6 py-2 rounded-full
          cursor-pointer transition-all duration-300 ease-in-out
          focus:outline-none focus:ring-2 focus:ring-doré;
-}
-button:hover {
-  @apply bg-vertSauge;
 }
 
 /* Toggle jour/nuit */
