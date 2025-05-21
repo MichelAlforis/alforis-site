@@ -13,6 +13,7 @@ nav {
   max-height:var(--nav-height);
 }
 
+@media (min-width: 768px) {
 /* Underline animée */
 nav a::after {
   content: "";
@@ -52,12 +53,18 @@ nav a.active::after {
 nav a:hover:not(.active) {
   @apply text-doré bg-ivoire;
 }
+}
 
 /* ============================
    BOUTONS (RDV + THÈME)
    ============================ */
 button.prendreRDV {
   @apply bg-doré text-ivoire px-6 py-2 rounded-full
+         cursor-pointer transition-all duration-300 ease-in-out
+         focus:outline-none focus:ring-2 focus:ring-doré;
+}
+button.more {
+  @apply text-ivoire px-6 py-2 rounded-full
          cursor-pointer transition-all duration-300 ease-in-out
          focus:outline-none focus:ring-2 focus:ring-doré;
 }
@@ -78,9 +85,6 @@ button.theme-toggle:hover {
 @media (max-width: 768px) {
   .mobile-menu {
     @apply fixed inset-0 flex flex-col
-           bg-acier/80 backdrop-blur-xl text-ivoire;
-    animation: slide-in 0.3s forwards;
-    padding-top: var(--nav-height);
   }
   .mobile-menu.exit {
     animation: slide-out 0.25s forwards;

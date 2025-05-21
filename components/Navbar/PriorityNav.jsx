@@ -34,7 +34,7 @@ export default function PriorityNav({ links, isHome }) {
   return (
     <nav
       ref={containerRef}
-      className="relative flex items-center overflow-visible lg:flex-1 h-nav"
+      className="relative flex items-center lg:flex-1 h-nav, overflow-visible!"
     >
       {/* ← on isole le scroll horizontal dans CE conteneur */}
       <div className="flex-1 flex items-center space-x-6 overflow-x-auto whitespace-nowrap">

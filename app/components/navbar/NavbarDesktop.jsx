@@ -61,7 +61,7 @@ export default function NavbarDesktop({links}) {
 
         {/* MENU DESKTOP */}
         {/* col-3: nav + bouton mobile */}
-        <div className="flex-1 flex items-center space-x-6 overflow-x-auto max-height lg:block">
+        <div className="flex-1 flex items-center space-x-6 max-height lg:block">
             {/* → Priorité  */}  
             <PriorityNav 
               links={links}
