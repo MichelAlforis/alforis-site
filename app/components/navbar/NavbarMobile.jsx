@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { FocusTrap } from 'focus-trap-react'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import NavbarLogo from '@/components/animated/NavbarLogo'
+import NavbarLogo from '@/components/Navbar/NavbarLogo'
 
 export default function NavbarMobile({
   links,

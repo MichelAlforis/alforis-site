@@ -1,7 +1,7 @@
 'use client'
 // app/RootClientLayout.jsx
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import Script from 'next/script'
 import { usePathname } from 'next/navigation'
 import ClientSideScrollRestorer from './ClientSideScrollRestorer'
@@ -12,8 +12,10 @@ import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHan
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+
 export default function RootClientLayout({ children }) {
   const pathname = usePathname()
+  const isHome = pathname === '/'
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
 
   const handleBannerHeight = useCallback((height) => {
@@ -23,6 +25,10 @@ export default function RootClientLayout({ children }) {
       `${height}px`
     )
   }, [])
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('home-page', isHome)
+  }, [isHome])
 
   const initializeCookieConsent = () => {
     try {

@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import Link from 'next/link'
+import PriorityNav from '@/components/Navbar/PriorityNav'
 import Button from '@/components/ui/Button'
-import SwitchDarkMode from '@/components/ui/SwitchDarkMode'
+import SwitchDarkMode from '@/components/Navbar/SwitchDarkMode'
 
 export default function NavbarDesktop({
   links,
@@ -14,21 +14,23 @@ export default function NavbarDesktop({
 }) {
 
   return (
-    <div className="nav-links flex items-center space-x-4">
-      {links.map(({ href, label }) => (
-        <Link
-          key={href}
-          href={href}
-          onClick={() => handleLinkClick(href)}
-          className={isActive(href) ? 'active' : ''}
-        >
-          {label}
-        </Link>
-      ))}
+    <div 
+    className="      flex items-center space-x-6 
+      uppercase tracking-tight 
+      overflow-x-auto whitespace-nowrap
+      text-sm md:text-base lg:text-lg
+      ">
+      {/* → Priorité  */}  
+      <PriorityNav 
+        links={links}
+        isActive={isActive}
+        handleLinkClick={handleLinkClick}
+        />
 
       {/* → SWITCH MODE JOUR/NUIT */}
       <SwitchDarkMode/>
 
+      {/* → Bouton rdv */}
       <Button
         to="/prendre-rendez-vous"
         className="btn-alforis-rdv"

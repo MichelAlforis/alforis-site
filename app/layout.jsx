@@ -2,19 +2,17 @@
 import '@/styles/globals.css'
 
 import React, { Suspense } from 'react'
-import Head from './head'
 import RootClientLayout from './RootClientLayout'
 import Script from 'next/script'
 
 
 
 export default function Layout({ children }) {
+
+
   return (
     <html lang="fr">
       <head>
-        <Head />
-
-
         {/* 3) Votre script vh mobile-first */}
         <Script id="update-vh" strategy="afterInteractive">
           {`

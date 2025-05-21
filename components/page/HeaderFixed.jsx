@@ -6,7 +6,7 @@ import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
 import ThemeToggleButton from './ThemeToggleButton'
-import SwitchDarkMode from '../ui/SwitchDarkMode'
+import SwitchDarkMode from '../Navbar/SwitchDarkMode'
 
 export default function HeaderFixed({
   title,
@@ -61,12 +61,15 @@ export default function HeaderFixed({
   return (
     <section
       style={{ top: 'var(--navbar-offset)' }}
-      className="
-        sticky inset-x-0 z-overlay
+      className={`
+        site-header
+        fixed inset-x-0 top-0 z-nav
+        h-nav
         bg-white/10 dark:bg-black/10 backdrop-blur-2xl
-        border-b border-ardoise/20
-        flex flex-col
-      "
+        transition-shadow duration-300
+        ${hasShadow ? 'shadow-xl' : ''}
+        ${isHome     ? 'home-page'  : ''}
+      `}
     >
       {/* titre + toggle */}
       <div className="relative flex items-center justify-between px-4 py-1 sm:px-6">

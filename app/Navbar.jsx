@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { NavConfig } from './components/navbar/NavbarConfig'
 import NavbarDesktop from './components/navbar/NavbarDesktop'
 import NavbarMobile from './components/navbar/NavbarMobile'
-import NavbarLogo from '@/components/animated/NavbarLogo'
+import NavbarLogo from '@/components/Navbar/NavbarLogo'
 import { scrollToTop } from '@/hooks/scrollToTop'
 
 export default function Navbar() {
@@ -81,13 +81,14 @@ export default function Navbar() {
 
         {/* MENU DESKTOP */}
         {/* col-3: nav + bouton mobile */}
+        <div className="hidden lg:block">
         <NavbarDesktop
           links={links}
           isActive={isActive}
           handleLinkClick={handleLinkClick}
-          dark={dark}
           setDark={setDark}
         />
+        </div>
 
         {/* MENU MOBILE */}
         <NavbarMobile
@@ -96,7 +97,6 @@ export default function Navbar() {
           isOpen={isOpen}
           toggle={() => setIsOpen(o => !o)}
           handleLinkClick={handleLinkClick}
-          dark={dark}
           setDark={setDark}
         />
       </div>
