@@ -98,6 +98,13 @@ h3 {
     @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
   }
 
+    /* Cookies */
+  .cc-revoke {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
   /* HERO FULL-SCREEN (sous nav) */
 /* components/home/hero.css */
 /* Styles par défaut (mobile-first) */

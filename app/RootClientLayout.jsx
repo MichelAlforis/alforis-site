@@ -27,32 +27,53 @@ export default function RootClientLayout({ children }) {
 
 
   const initializeCookieConsent = () => {
+    // 1. on empêche la bannière de s'afficher si l'utilisateur a déjà choisi
+    const existing = window.localStorage.getItem('cookieconsent_status');
+    if (existing) return;
+
+    // 2. ON PATCH : on neutralise applyRevokeButton
+    if (window.cookieconsent?.Popup?.prototype) {
+      window.cookieconsent.Popup.prototype.applyRevokeButton = function() {
+        // plus rien ici = plus de bouton injecté
+      }
+    }
+
     try {
-      window.cookieconsent?.initialise({
+      window.cookieconsent.initialise({
         palette: {
           popup:  { background: 'var(--ardoise)', text: 'var(--ivoire)' },
           button: { background: 'var(--doré)',   text: 'var(--anthracite)' }
         },
         position: 'top',
-        theme:    'classic',
-        type:     'opt-in',
-        layout:   'basic',
-        content: {
-          header: 'Gestion des cookies',
-          message:
-            'Ce site utilise des cookies pour vous garantir la meilleure expérience.',
-          allow: 'Tout accepter',
-          deny:  'Tout refuser',
-          link:  'Personnaliser',
-          href:  '/politique-de-confidentialite'
-        },
-        onInitialise:   (s) => ['allow','deny'].includes(s) && document.body.classList.add('banner-dismissed'),
-        onStatusChange: (s) => ['allow','deny'].includes(s) && document.body.classList.add('banner-dismissed')
-      })
+        theme: 'classic',
+        type: 'opt-in',
+        layout: 'basic',
+        content: { /* … */ },
+        onInitialise:   s => ['allow','deny'].includes(s) && document.body.classList.add('banner-dismissed'),
+        onStatusChange: s => ['allow','deny'].includes(s) && document.body.classList.add('banner-dismissed')
+      });
+
+      // ← Patch : récupère la dernière instance créée
+      setTimeout(() => {
+        // Cherche la propriété contenant l'instance du popup
+        for (let key in window.cookieconsent) {
+          // On ne veut pas cc.hasInitialised ni cc.utils
+          if (
+            window.cookieconsent[key] &&
+            typeof window.cookieconsent[key] === "object" &&
+            typeof window.cookieconsent[key].revokeChoice === "function"
+          ) {
+            window.cc_popup = window.cookieconsent[key];
+            break;
+          }
+        }
+      }, 100); // petit délai pour laisser le temps à l'init
     } catch (err) {
       console.error('Erreur lors de l’initialisation de CookieConsent :', err)
     }
+
   }
+
 
   return (
     <>

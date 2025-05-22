@@ -53,11 +53,7 @@
       body.lock-scroll {
         overflow: hidden;
       }
-      
-    svg {
-      stroke: var(--stroke-color, currentColor);
-      fill: var(--fill-color, none);
-    }
+
   
     .draw-animation {
       fill: none;
