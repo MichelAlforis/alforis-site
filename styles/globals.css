@@ -144,7 +144,7 @@ h3 {
   --cc-banner-height: 0px;
   --cc-header-height: 64px;
   --header-gap: 30vh;
-  --header-total-height: 0px;
+  --header-total-height: 64px;
 
   --navbar-offset: calc(
     var(--cc-banner-height) +

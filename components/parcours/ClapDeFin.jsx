@@ -28,7 +28,7 @@ export default function ClapDeFin({
 
   return (
     <div
-      className="max-w-xl mx-auto text-center space-y-6 p-8 border-2 rounded-2xl shadow-lg"
+      className="main-content max-w-xl mx-auto text-center space-y-6 p-8 border-2 rounded-2xl shadow-lg"
       style={{ borderColor: color }}
     >
       <div className="text-5xl">{icon}</div>

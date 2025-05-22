@@ -31,6 +31,7 @@ export default function ContactForm() {
       setSubmitted(true)
     } catch (err) {
       setError("⚠️ Une erreur est survenue. Veuillez réessayer.")
+      toast.error("⚠️ Une erreur est survenue. Veuillez réessayer.");
     } finally {
       setIsSubmitting(false)
     }

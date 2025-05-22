@@ -144,7 +144,7 @@ export default function ContactFinal({
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-6 space-y-8">
+    <div className="main-content max-w-2xl mx-auto px-6 space-y-8">
       <AnimatePresence mode="wait">
         {step === 1 && (
           <motion.form

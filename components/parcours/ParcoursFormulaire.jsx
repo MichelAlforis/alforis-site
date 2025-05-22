@@ -6,6 +6,8 @@ import Progress from '@/components/ui/progress'
 import Button from '@/components/ui/Button'
 import { detectProfilFromMatrix } from '@/components/parcours/detectProfilFromMatrix'
 import { toast } from 'react-toastify'
+import PremiumButton from '../ui/PremiumButton'
+
 
 export default function ParcoursFormulaire({ meta, slug, onComplete }) {
   const { questions } = meta
@@ -54,31 +56,52 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
-      <div className="main-content sticky bg-ivoire/80 backdrop-blur py-4">
-        <div className="px-2">
-          <Progress value={progressPercent} className="h-2 rounded-full" />
-        </div>
-        <div className="mt-2 flex justify-center space-x-3">
-          {questions.map((_, i) => {
-            const done = answers[i] != null
-            const current = step === i
-            return (
-              <div
-                key={i}
-                className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition ${
-                  current
-                    ? 'bg-doré text-ivoire'
-                    : done
+<section className="main-content">
+  {/* Wrapper qui fixe la largeur responsive */}
+  <div className="max-w-3xl mx-auto px-4 space-y-8">
+    
+    {/* Bloc sticky – même largeur que le contenu */}
+    <div
+      className="
+        sticky top-[var(--nav-height)] 
+        bg-ivoire/90 dark:bg-acier/60 
+        rounded-2xl p-4 
+        flex flex-col
+        z-base
+      "
+    >
+      {/* 1. Marge au-dessus de la progressbar, mais à l'intérieur du bg */}
+      <div className="mb-4">
+        <Progress value={progressPercent} className="h-2 rounded-full" />
+      </div>
+      
+      {/* 2. Cercles de progression */}
+      <div className="flex justify-center space-x-3">
+        {questions.map((_, i) => {
+          const done    = answers[i] != null
+          const current = step === i
+          return (
+            <div
+              key={i}
+              className={`
+                w-8 h-8 rounded-full flex items-center justify-center shadow-md transition
+                ${current
+                  ? 'bg-doré text-ivoire'
+                  : done
                     ? 'bg-ardoise text-ivoire'
                     : 'bg-light text-ardoise'
-                }`}
-              >{i + 1}</div>
-            )
-          })}
-        </div>
+                }
+              `}
+            >
+              {i + 1}
+            </div>
+          )
+        })}
       </div>
+    </div>
 
+    {/* Bloc contenu – même wrapper max-width que le sticky */}
+    <div className="space-y-8">
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={step}
@@ -94,19 +117,30 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
 
           {questions[step].options ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {questions[step].options.map(opt => (
-                <motion.button
-                  key={opt}
-                  onClick={() => setOption(opt)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className={`p-4 rounded-xl border transition ${
-                    answers[step] === opt
-                      ? 'border-doré bg-doré/10 text-doré font-semibold'
-                      : 'border-light bg-light text-ardoise'
-                  }`}
-                >{opt}</motion.button>
-              ))}
+              {questions[step].options.map((opt, i) => {
+                const isActive = answers[step] === opt;
+                return (
+                  <motion.button
+                    key={i}
+                    onClick={e => {
+                      setOption(opt);
+                      e.currentTarget.blur();
+                    }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className={`
+                      p-4 rounded-xl border transition
+                      ${isActive
+                        ? 'border-doré bg-doré/10 text-doré font-semibold'
+                        : 'border-light bg-light text-ardoise'
+                      }
+                      focus:outline-none focus:ring-0 focus:border-light
+                    `}
+                  >
+                    {opt}
+                  </motion.button>
+                )
+              })}
             </div>
           ) : (
             <textarea
@@ -120,16 +154,44 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex justify-between pt-4 border-t border-light">
-        <Button onClick={goBack} disabled={step === 0} variant="outline">
-          ← Précédent
-        </Button>
-        <motion.div animate={shake ? { rotate: [0, -10, 10, -10, 0] } : { rotate: 0 }} transition={{ duration: 0.4 }}>
-          <Button variant="outline" onClick={handleNextClick} disabled={questions[step].options ? answers[step] == null : textAnswer.trim() === ''}>
-            {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
-          </Button>
-        </motion.div>
-      </div>
+    {/* Bloc bouttons */}
+
+<div className="flex flex-row justify-between items-center pt-4 border-t border-light">
+  {/* ← Précédent */}
+  <PremiumButton
+    onClick={goBack}
+    disabled={step === 0}
+    className="w-40
+      px-3 py-2 text-md
+      rounded-lg
+      bg-transparent text-doré hover:bg-doré/10"  
+  >
+    ← Précédent
+  </PremiumButton>
+
+  {/* Suivant / Valider */}
+  <PremiumButton
+    onClick={handleNextClick}
+    disabled={
+      questions[step].options
+        ? answers[step] == null
+        : textAnswer.trim() === ''
+    }
+    className="w-40
+      px-3 py-2 text-md
+      rounded-lg
+      bg-transparent text-doré hover:bg-doré/10" 
+  >
+    {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
+  </PremiumButton>
+</div>
+
+
+
+
     </div>
-  )
+
+  </div>
+</section>
+ )
 }
