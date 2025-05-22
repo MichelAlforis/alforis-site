@@ -1,162 +1,218 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import clsx from 'clsx';
+
 import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
-import clsx from 'clsx';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 
 export default function NavbarMobile({ links }) {
-  // 1) Page courante et état Open
-  const pathname = usePathname()
-  const isHome   = pathname === '/'
-  const isActive = href => pathname === href
+  const pathname = usePathname();
+  const isHome   = pathname === '/';
+  const isActive = useCallback(
+    (href) => pathname === href,
+    [pathname]
+  );
   const [isOpen, setIsOpen] = useState(false);
+  const firstLinkRef = useRef(null);
 
-  // Bloquer le scroll quand le menu est ouvert
+  // Bloque le scroll quand le menu est ouvert
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  // Fermer au "Escape" et focus trap rudimentaire
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    if (isOpen && firstLinkRef.current) {
+      firstLinkRef.current.focus();
+    }
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isOpen]);
 
-  // Gérer l'activation du lien dans le menu
   const handleLinkClick = (href) => {
-    // Votre logique pour gérer l'activation d'un lien
     console.log(`Navigating to ${href}`);
+    setIsOpen(false);
+  };
+
+  // Framer Motion variants
+  const menuVariants = {
+    closed: { x: '-100%' },
+    open:   { x: 0, transition: { type: 'tween', duration: 0.3, when: 'beforeChildren' } }
+  };
+  const containerVariants = {
+    closed: {},
+    open:   { transition: { staggerChildren: 0.05, delayChildren: 0.15 } }
+  };
+  const itemVariants = {
+    closed: { opacity: 0, y: 10 },
+    open:   { opacity: 1, y: 0, transition: { duration: 0.2 } }
   };
 
   return (
     <header
       className={clsx(
-        'site-header fixed inset-x-0 top-0 z-nav h-nav transition-shadow duration-300',
-
+        'fixed inset-x-0 top-0 z-nav h-nav transition-shadow duration-300',
+        isHome ? 'text-ivoire' : 'dark:text-ivoire'
       )}
     >
-      {/* Burger uniquement si le menu est fermé */}
+      {/* BARRE PRINCIPALE (fermée) */}
       {!isOpen && (
         <div
-          className={clsx("pt-0 grid grid-cols-2 h-full items-center",
-                  isHome
-          ? 'bg-transparent'
-          : 'bg-ivoire/10 dark:bg-acier/10 backdrop-blur-2xl')}
+          className={clsx(
+            'grid grid-cols-2 h-full items-center px-4',
+            isHome
+              ? 'bg-transparent'
+              : 'bg-ivoire/10 dark:bg-acier/10 backdrop-blur-2xl'
+          )}
           style={{ height: 'var(--nav-height)' }}
         >
-        
-          {/* Colonne 1 : logo mobile */}
-          <div className="flex items-center">
-            <NavbarLogoMobile className="navbar-logo" isHome={isHome} />
-          </div>
+          <NavbarLogoMobile isHome={isHome} />
 
-          {/* Colonne 2 : bouton menu aligné à droite */}
-          <div className="flex items-center justify-end">
-            <button
-              onClick={() => setIsOpen(true)}
-              aria-label="Ouvrir le menu"
-              className={clsx(
-                'lg:hidden z-nav p-3 focus:outline-none focus:ring-2 focus:ring-doré rounded',
-                isHome ? 'text-ivoire' : 'text-acier'
-              )}
-            >
-              <Menu size={28} />
-            </button>
-          </div>
+          <button
+            onClick={() => setIsOpen(true)}
+            aria-label="Ouvrir le menu"
+            aria-expanded={isOpen}
+            className={clsx(
+              'ml-auto p-3 focus:outline-none focus:ring-2 focus:ring-doré rounded',
+              isHome ? 'text-ivoire' : 'text-acier'
+            )}
+          >
+            <Menu size={28} />
+          </button>
         </div>
       )}
 
-      {isOpen && (
-        <AnimatePresence>
-          <motion.div
-            initial={{ x: '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-          >
-            {/* — En-tête mobile : skip-link, logo & bouton X */}
-            <div className="flex items-center justify-between border-b border-ardoise/30">
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only bg-doré text-ivoire p-2 rounded"
+      {/* DRAWER (ouvert) */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* overlay semi-opaque */}
+            <motion.div
+              className="fixed inset-0 bg-opacity-90 bg-ivoire dark:bg-acier z-nav"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+
+            <motion.nav
+              role="dialog"
+              aria-modal="true"
+              className="
+                fixed inset-y-0 left-0 
+                z-nav 
+                w-4/5 max-w-xs 
+                flex flex-col 
+                bg-ivoire/90 dark:bg-acier/90
+                text-acier dark:text-ivoire
+                backdrop-blur-xl
+              "
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+            >
+              {/* Entête du drawer */}
+              <div
+                className="flex items-center justify-between px-4"
+                style={{ height: 'var(--nav-height)' }}
               >
-                Aller au contenu
-              </a>
-              <Link
-                href="/"
-                onClick={() => {
-                  handleLinkClick('/');
-                  setIsOpen(false); // Fermer le menu après un clic
-                }}
-                className="flex items-center"
-              >
-                <span className="sr-only">Alforis – Accueil</span>
-              </Link>
-              {/* Déplacer le bouton X ici, dans la nav */}
-
-            </div>
-
-            {/* — Liens & actions */}
-            <nav className=" 
-            mobile-menu
-            z-nav flex-1 flex flex-col 
-            min-h-screen items-center justify-center 
-            space-y-4 py-6 relative
-            bg-ivoire/20 backdrop-blur-2xl text-acier
-
-            ">
-              {/* bouton fermeture*/}
-              <button
-                onClick={() => setIsOpen(false)}
-                aria-label="Fermer le menu"
-                className="p-2 z-nav focus:outline-none focus:ring-2 focus:ring-doré rounded absolute top-4 right-4"
-              >
-                <X size={28} />
-              </button>
-
-                {/* bouton fermeture */}
-              <Link href="/" onClick={() => {
-                handleLinkClick('/');
-                setIsOpen(false);}}
-                className={isActive ? 'text-doré' : 'text-acier'}
-              >
-                Accueil
-              </Link>
-
-              {links.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  onClick={() => {
-                    handleLinkClick(href);
-                    setIsOpen(false); // Fermer le menu après un clic
-                  }}
-                  className={isActive ? 'text-doré' : 'text-acier'}
+                <a
+                  href="#main-content"
+                  className="sr-only focus:not-sr-only bg-doré text-ivoire p-2 rounded"
                 >
-                  {label}
+                  Aller au contenu
+                </a>
+
+                <Link
+                  href="/"
+                  onClick={() => handleLinkClick('/')}
+                  className="flex items-center"
+                >
+                  <span className="sr-only">Alforis – Accueil</span>
+                  <NavbarLogoMobile isHome={isHome} />
                 </Link>
-              ))}
 
-              {/* Changement de mode sombre/clair */}
-              <SwitchDarkMode/>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Fermer le menu"
+                  className="p-2 focus:outline-none text-acier dark:text-ivoire font-semibold focus:ring-2 focus:ring-doré rounded"
+                >
+                  <X size={28} />
+                </button>
+              </div>
 
-              {/* Bouton RDV */}
-              <Button
-                to="/prendre-rendez-vous"
-                className="btn-alforis-rdv font-semibold"
-                onClick={() => {
-                  handleLinkClick('/prendre-rendez-vous');
-                  setIsOpen(false); // Fermer le menu après un clic
-                }}
+              {/* Contenu du drawer */}
+              <motion.div
+                className="flex-1 overflow-visible px-4 py-6"
+                variants={containerVariants}
               >
-                Prendre un RDV
-              </Button>
-            </nav>
-          </motion.div>
-        </AnimatePresence>
-      )}
+                <ul className="space-y-6">
+                  {/* Accueil */}
+                  <motion.li variants={itemVariants}>
+                    <Link
+                      href="/"
+                      onClick={() => handleLinkClick('/')}
+                      ref={firstLinkRef}
+                      className={clsx(
+                        'block text-xl space-y-1 uppercase font-semibold',
+                        isActive('/') ? 'text-doré' : 'text-acier dark:text-ivoire'
+                      )}
+                    >
+                      Accueil
+                    </Link>
+                  </motion.li>
+
+                  {/* Liens dynamiques */}
+                  {links.map(({ href, label }) => (
+                    <motion.li key={href} variants={itemVariants}>
+                      <Link
+                        href={href}
+                        onClick={() => handleLinkClick(href)}
+                        className={clsx(
+                          'block text-lg space-y-1 uppercase font-semibold',
+                          isActive(href) ? 'text-doré' : 'text-acier dark:text-ivoire'
+                        )}
+                      >
+                        {label}
+                      </Link>
+                    </motion.li>
+                  ))}
+
+                  {/* Switch mode */}
+                  <motion.li variants={itemVariants}>
+                    <SwitchDarkMode />
+                  </motion.li>
+
+                  {/* Bouton RDV */}
+                  <motion.li variants={itemVariants}>
+                    <Button
+                      to="/prendre-rendez-vous"
+                      onClick={() => handleLinkClick('/prendre-rendez-vous')}
+                      className="w-full btn-alforis-rdv text-xl font-semibold"
+                    >
+                      Prendre un RDV
+                    </Button>
+                  </motion.li>
+                </ul>
+              </motion.div>
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

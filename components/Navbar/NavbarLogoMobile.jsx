@@ -1,3 +1,4 @@
+// components/Navbar/NavbarLogoMobile.jsx
 import React, { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useInView } from 'react-intersection-observer'
@@ -9,7 +10,7 @@ import {
 } from 'framer-motion'
 import { couleurs } from '@/styles/generated-colors'
 
-export default function NavbarLogo({ className = '' }) {
+export default function NavbarLogoMobile({ className = '' }) {
   const pathname = usePathname()
   const isHome   = pathname === '/'  
 
@@ -86,3 +87,5 @@ export default function NavbarLogo({ className = '' }) {
     </motion.svg>
   )
 }
+
+
