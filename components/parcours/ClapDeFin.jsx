@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
+import { tonemapPixelShader } from 'babylonjs'
 
 export default function ClapDeFin({
   profilPrincipal,
@@ -27,11 +28,12 @@ export default function ClapDeFin({
   }
 
   return (
+  <section style={{ paddingTop: `calc(var(--nav-height) + 0.25rem)` }}>
     <div
-      className="main-content max-w-xl mx-auto text-center space-y-6 p-8 border-2 rounded-2xl shadow-lg"
+      className="max-w-3xl mx-auto h-full text-center px-4 space-y-8 border-2 rounded-2xl shadow-lg"
       style={{ borderColor: color }}
     >
-      <div className="text-5xl">{icon}</div>
+      <div className="text-5xl mt-4">{icon}</div>
       <h2 className="text-2xl font-bold">{title}</h2>
       <p className="text-lg text-steel">{description}</p>
 
@@ -76,5 +78,6 @@ export default function ClapDeFin({
         ← Revenir à la sélection
       </Link>
     </div>
+  </section>
   )
 }

@@ -1,10 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Button                       from '@/components/ui/Button'
+import PremiumButton from '../ui/PremiumButton'
 import { GoldText }                 from '@/hooks/useGoldEffect'
 import { validerDonnees, sanitizeFormData, filterFormData } from './ValidationDonnees';
-
 import { toast } from 'react-toastify'
 
 export default function ContactFinal({
@@ -90,7 +89,7 @@ export default function ContactFinal({
       const data = await res.json();
 
       if (data.id) {
-        toast.success("Étape 1 validée !"); 
+        toast.success("🎯 Parfait ! Votre profil complet vous attend. Plus qu’une dernière étape !");
         setRecordId(data.id);
         setStep(2);
       } else {
@@ -111,19 +110,26 @@ export default function ContactFinal({
     setErrorFields(errs);
     if (Object.keys(errs).length || !recordId) return;
 
-    // 2) Envoi complet
     try {
+      // 2) sanitize + filter
       const sanitized = sanitizeFormData(formData);
       const fields = filterFormData(sanitized);
 
-      // Réajustement des clés pour Airtable si besoin
-      const airtableFields = {
-        ...fields,
-        NomDuFormulaire: meta.title || 'Parcours Alforis',
-        Profil: profilPrincipal,
-        PhraseLibre: sanitized.PhraseLibre,
-      };
+     // 3) ôte FormName (et MarketingOk) avant de renvoyer le reste
+     const {
+       FormName,
+       MarketingOk,             // si tu n'en as pas besoin, on l'extrait ici aussi
+       ...allowedFields         // tout le reste (Nom, Email, etc.)
+     } = fields;
 
+     const airtableFields = {
+       ...allowedFields,                   // ne contient plus FormName
+       NomDuFormulaire: FormName || meta.title || 'Parcours inconnu',
+       Profil:            profilPrincipal,
+       PhraseLibre:       sanitized.PhraseLibre,
+     };
+
+      // 4) envoi PATCH
       const res = await fetch('/api/airtable-update', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -131,7 +137,7 @@ export default function ContactFinal({
       });
 
       if (res.ok) {
-        toast.success("Vos précisions ont été enregistrées !");
+        toast.success("🎉 Bravo ! Votre questionnaire est terminé ! Votre profil complet arrive par e-mail.");
         onSubmit();
       } else {
         const err = await res.json();
@@ -144,7 +150,7 @@ export default function ContactFinal({
   };
 
   return (
-    <div className="main-content max-w-2xl mx-auto px-6 space-y-8">
+    <div className="main-content max-w-3xl mx-auto px-4 space-y-8 md:mt-4">
       <AnimatePresence mode="wait">
         {step === 1 && (
           <motion.form
@@ -180,7 +186,13 @@ export default function ContactFinal({
               <input type="checkbox" name="RGPD" checked={formData.RGPD} onChange={handleChange} />
               <span className="text-sm text-ardoise">J'accepte la politique RGPD</span>
             </label>
-            <Button type="submit">Suivant →</Button>
+            <PremiumButton type="submit"   className="w-40 /* largeur fixe */
+    px-3 py-2                    /* padding compact */
+    text-md font-semibold        /* taille et graisse */
+    rounded-lg                   /* bords arrondis */
+    bg-transparent text-doré     /* fond et couleur du texte */
+    hover:bg-doré/10             /* hover léger */"
+            >Voir le résultat →</PremiumButton>
           </motion.form>
         )}
         {step === 2 && (
@@ -242,7 +254,14 @@ export default function ContactFinal({
                 {errorFields[key] && <p className="text-red-600 text-sm">{errorFields[key]}</p>}
               </div>
             ))}
-            <Button type="submit">En savoir plus</Button>
+
+          <PremiumButton type="submit"   className="w-40 /* largeur fixe */
+          px-3 py-2                    /* padding compact */
+          text-md font-semibold        /* taille et graisse */
+          rounded-lg                   /* bords arrondis */
+          bg-transparent text-doré     /* fond et couleur du texte */
+          hover:bg-doré/10             /* hover léger */"
+                  >Découvrir votre profil →</PremiumButton>
           </motion.form>
         )}
       </AnimatePresence>

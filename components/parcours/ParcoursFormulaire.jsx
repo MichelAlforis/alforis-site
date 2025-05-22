@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Progress from '@/components/ui/progress'
-import Button from '@/components/ui/Button'
 import { detectProfilFromMatrix } from '@/components/parcours/detectProfilFromMatrix'
 import { toast } from 'react-toastify'
 import PremiumButton from '../ui/PremiumButton'
@@ -34,6 +33,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     } else {
       try {
       const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer, meta.scoringMatrix, meta.keywords)
+        toast.success("Bravo ! Questionnaire terminé.")
         onComplete({
           answers,
           textAnswer,
