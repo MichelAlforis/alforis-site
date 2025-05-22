@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Progress from '@/components/ui/progress'
 import Button from '@/components/ui/Button'
 import { detectProfilFromMatrix } from '@/components/parcours/detectProfilFromMatrix'
+import { toast } from 'react-toastify'
 
 export default function ParcoursFormulaire({ meta, slug, onComplete }) {
   const { questions } = meta
@@ -21,6 +22,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
       ? answers[step] == null
       : textAnswer.trim() === ''
     if (isDisabled) {
+      toast.warn("Merci de répondre à la question avant de continuer.");
       setShake(true)
       setTimeout(() => setShake(false), 300)
       return
@@ -28,6 +30,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     if (step < questions.length - 1) {
       setStep(step + 1)
     } else {
+      try {
       const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer, meta.scoringMatrix, meta.keywords)
         onComplete({
           answers,
@@ -35,6 +38,10 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
           profilPrincipal,
           profilSecondaire,    // ← on ajoute le secondaire
         })
+        } catch (err) {
+            toast.error("Une erreur est survenue lors du calcul de votre profil.");
+          return;
+        }
     }
   }
 
@@ -48,7 +55,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4 space-y-8">
-      <div className="sticky top-16 bg-ivoire/80 backdrop-blur py-4">
+      <div className="main-content sticky bg-ivoire/80 backdrop-blur py-4">
         <div className="px-2">
           <Progress value={progressPercent} className="h-2 rounded-full" />
         </div>

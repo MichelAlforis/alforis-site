@@ -18,8 +18,9 @@
     }
   
   .main-content {
-      padding-top: calc(var(--cc-banner-height, 0px) + var(--nav-height, 80px));
+      padding-top: calc(var(--header-total-height));
   }
+  
   
   .main-content.no-nav-padding {
   padding-top: 0;
@@ -40,6 +41,7 @@
     .cc-revoke {
     z-index: 99999 !important;
   }
+  
   
   .mb-header-gap {
     margin-bottom: var(--header-gap);

@@ -20,7 +20,7 @@ export default function ParcoursContent({ content }) {
 
   return (
     <Animated.Page>
-      <main className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire pb-24 px-6">
+      <section className="bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire pb-24 px-6">
         <div className="max-w-4xl mx-auto">
 
           <SmartResponsive
@@ -32,7 +32,7 @@ export default function ParcoursContent({ content }) {
             onCardClick={handleCardClick}
           />
         </div>
-      </main>
+      </section>
     </Animated.Page>
   )
 }

@@ -32,7 +32,7 @@ export default function Dropdown({ label, children, isHome }) {
         <div
           className={clsx(
             /* dropdown container */
-            'dropdown-menu absolute right-0 mt-2 w-auto rounded shadow-lg overflow-visible z-nav rounded-xl',
+            'dropdown-menu absolute bg-ivoire dark:bg-acier right-0 mt-2 w-auto rounded shadow-lg overflow-visible z-nav rounded-xl',
 
             /* background & color depending on home */
             isHome

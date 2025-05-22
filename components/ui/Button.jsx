@@ -17,14 +17,13 @@ export default function Button({
   const { getButtonProps } = useButtonHover()
 
   const handleClick = (e) => {
-    if (sound) {
-      const clickSound = new Audio('/sounds/click-retro.wav')
-      clickSound.volume = 0.5
-      clickSound.play()
-    }
+   
+    if (sound && typeof window !== 'undefined' && 'vibrate' in navigator) {
+     navigator.vibrate(30) // vibration de 30ms
+   }
 
     if (to) {
-      setTimeout(() => router.push(to), 180)
+      setTimeout(() => router.push(to), 30)
     }
 
     if (onClick) {

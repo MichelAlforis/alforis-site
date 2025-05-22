@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
 import ThemeToggleButton from '../ui/ThemeToggleButton'
+import ResizeObserver from 'resize-observer-polyfill'
 
 export default function HeaderFixed({
   title,
@@ -20,6 +21,33 @@ export default function HeaderFixed({
     () => propActiveTab ?? tabs[0]?.key ?? ''
   )
   const [isMobile, setIsMobile] = useState(false)
+  const headerRef = useRef(null)
+
+  // À chaque resize ou changement de props, on recalcule la hauteur
+  const recalcHeaderHeight = () => {
+    if (headerRef.current) {
+      const h = headerRef.current.offsetHeight
+      document.documentElement.style.setProperty(
+        '--header-total-height',
+        `${h}px`
+      )
+    }
+  }
+
+  // useLayoutEffect pour être sûr que le DOM est à jour
+ useEffect(() => {
+   if (!headerRef.current) return
+   const ro = new ResizeObserver(recalcHeaderHeight)
+   ro.observe(headerRef.current)
+   // on veut aussi recalculer si on redimensionne la fenêtre
+   window.addEventListener('resize', recalcHeaderHeight)
+   // un premier calc
+   recalcHeaderHeight()
+   return () => {
+     ro.disconnect()
+     window.removeEventListener('resize', recalcHeaderHeight)
+   }
+ }, [title, description, tabs, showTabs])
 
   // Responsive mobile
   useEffect(() => {
@@ -135,6 +163,7 @@ export default function HeaderFixed({
       <AnimatePresence initial={false}>
         {showTabs && tabsFade > 0.01 && tabs.length > 0 && (
           <motion.div
+            ref={headerRef}
             key="tabs"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: tabsFade }}

@@ -1,61 +1,123 @@
 // components/parcours/ValidationDonnees.jsx
 
 /**
- * Valide les données du formulaire.
- * Retourne un tableau d’erreurs, vide si tout est valide.
+ * Déclaration centralisée des règles de validation.
+ * Pour chaque champ :
+ *  - validate : fonction qui renvoie true si la valeur est valide
+ *  - message  : message d'erreur associé
+ *  - required : champ obligatoire à l'étape 1 ou 2
  */
-export function validerDonnees(data) {
-  const erreurs = []
+const fieldConfig = {
+  Nom: {
+    validate: v => typeof v === 'string' && v.trim() !== '',
+    message: 'Veuillez indiquer votre nom.',
+    requiredOn: ['step1'],
+  },
+  Email: {
+    validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+    message: 'Veuillez saisir un e-mail valide.',
+    requiredOn: ['step1'],
+  },
+  Age: {
+    validate: v => {
+      const n = Number(v);
+      return !isNaN(n) && n >= 18;
+    },
+    message: 'Vous devez avoir au moins 18 ans.',
+    requiredOn: ['step1'],
+  },
+  RGPD: {
+    validate: v => v === true,
+    message: 'Vous devez accepter la politique RGPD.',
+    requiredOn: ['step1'],
+  },
+  SituationActuelle: {
+    validate: v => ['Célibataire','Marié(e)','Divorcé(e)','Veuf(ve)'].includes(v),
+    message: 'Veuillez sélectionner votre situation.',
+    requiredOn: ['step2'],
+  },
+  NumeroTelephone: {
+    validate: v => /^\+?[0-9\s-]{7,20}$/.test(v),
+    message: 'Veuillez saisir un téléphone valide.',
+    requiredOn: ['step2'],
+  },
+  // Les champs facultatifs / libres
+  PhraseLibre: {
+    validate: v => typeof v === 'string',
+    message: 'Champ libre invalide.',
+  },
+  PatrimoineActuel: {
+    validate: v => v === '' || !isNaN(Number(v)),
+    message: 'Valeur patrimoine invalide.',
+  },
+  RevenusAnnuels: {
+    validate: v => v === '' || !isNaN(Number(v)),
+    message: 'Valeur revenus invalide.',
+  },
+  RisquePercu: {
+    validate: v => typeof v === 'string',
+    message: 'Valeur de risque invalide.',
+  },
+  // Q1 → Q9
+  ...Object.fromEntries(
+    Array.from({ length: 9 }, (_, i) => {
+      const key = `Q${i + 1}`;
+      return [key, {
+        validate: v => typeof v === 'string',
+        message: `Réponse à la question ${i+1} invalide.`
+      }];
+    })
+  ),
+};
 
-  const isText = (val) => typeof val === 'string' && val.trim() !== ''
-  const isLongText = (val) => typeof val === 'string'
-  const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
-  const isNumber = (val) => typeof val === 'number' && !isNaN(val)
-  const isCheckbox = (val) => typeof val === 'boolean'
-  const isPhone = (val) => /^\+?[0-9\s-]{7,20}$/.test(val)
-  const situationOptions = ["Célibataire", "Marié(e)", "Divorcé(e)", "Veuf(ve)"]
-
-  if (!isText(data.Nom)) erreurs.push('Champ "Nom" invalide')
-  if (!isEmail(data.Email)) erreurs.push('Champ "Email" invalide')
-  if (!isNumber(data.Age)) erreurs.push('Champ "Age" invalide')
-  if (!isCheckbox(data.RGPD)) erreurs.push('Champ "RGPD" invalide')
-  if (!isLongText(data.PhraseLibre)) erreurs.push('Champ "PhraseLibre" invalide')
-  if (!isNumber(data.PatrimoineActuel) && data.PatrimoineActuel !== '') erreurs.push('Champ "PatrimoineActuel" invalide')
-  if (!situationOptions.includes(data.SituationActuelle)) erreurs.push('Champ "SituationActuelle" invalide')
-  if (!isCheckbox(data.ObjectifVie)) erreurs.push('Champ "ObjectifVie" invalide')
-  if (!isNumber(data.RevenusAnnuels) && data.RevenusAnnuels !== '') erreurs.push('Champ "RevenusAnnuels" invalide')
-  if (!isLongText(data.RisquePercu) && data.RisquePercu !== '') erreurs.push('Champ "RisquePercu" invalide')
-  if (!isPhone(data.NumeroTelephone)) erreurs.push('Champ "NumeroTelephone" invalide')
-
-  for (let i = 1; i <= 9; i++) {
-    if (!isLongText(data[`Q${i}`])) erreurs.push(`Champ "Q${i}" invalide`)
+/**
+ * validerDonnees(data, step)
+ *  - data : objet formData
+ *  - step : 'step1' ou 'step2'
+ * Retourne un objet { champ: message } vide si tout est OK.
+ */
+export function validerDonnees(data, step) {
+  const errors = {};
+  for (const [field, cfg] of Object.entries(fieldConfig)) {
+    const isRequired = Array.isArray(cfg.requiredOn) && cfg.requiredOn.includes(step);
+    const value = data[field];
+    // Si requis ET invalide → on ajoute l'erreur
+    if (isRequired && !cfg.validate(value)) {
+      errors[field] = cfg.message;
+    }
   }
-
-  return erreurs
+  return errors;
 }
 
 /**
- * Nettoie les valeurs de formData : trim des chaînes de caractères
- * et conversion de certains champs si nécessaire.
+ * sanitizeFormData(data)
+ *  - Trim des chaînes
+ *  - Numérisation des champs numériques
+ *  - Conversion des '' en null pour Airtable
  */
 export function sanitizeFormData(data) {
-  const sanitized = {}
+  const out = {};
   for (const [key, value] of Object.entries(data)) {
-    sanitized[key] = typeof value === 'string' ? value.trim() : value
+    let v = value;
+    if (typeof v === 'string') {
+      v = v.trim();
+      if (v === '') v = null;
+    }
+    if (['Age','PatrimoineActuel','RevenusAnnuels'].includes(key) && v != null) {
+      v = Number(v);
+      if (isNaN(v)) v = null;
+    }
+    out[key] = v;
   }
-  return sanitized
+  return out;
 }
 
 /**
- * Filtre les champs pour ne conserver que ceux utiles à la mise à jour Airtable.
- * Retire les champs vides, null, undefined.
+ * filterFormData(data)
+ *  - Retire les champs null / undefined
  */
 export function filterFormData(data) {
-  const filtered = {}
-  for (const [key, value] of Object.entries(data)) {
-    // On exclut les valeurs vides ou non définies
-    if (value === '' || value == null) continue
-    filtered[key] = value
-  }
-  return filtered
+  return Object.fromEntries(
+    Object.entries(data).filter(([, v]) => v != null)
+  );
 }

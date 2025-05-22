@@ -8,8 +8,8 @@ import Navbar from './Navbar'
 import Footer from '@/app/Footer'
 import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
-import { ToastContainer } from 'react-toastify'
 import { ThemeProvider } from '@/styles/ThemeDark'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
@@ -111,7 +111,7 @@ export default function RootClientLayout({ children }) {
 
       {/* Contenu des routes */}
       <main
-        id="main-content"
+        id="main-Rootclient"
         className={`transition-colors dark:bg-anthracite/90 mb-2`}
       >
         {children}
@@ -122,10 +122,16 @@ export default function RootClientLayout({ children }) {
 
       {/* Notifications toast */}
       <ToastContainer
-        position="bottom-right"
-        theme="light"
-        autoClose={3000}
-        hideProgressBar
+        position="top-center"
+        z-100 max-w-90
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
       />
 
       {/* Décor & overlays */}

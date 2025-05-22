@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Button                       from '@/components/ui/Button'
 import { GoldText }                 from '@/hooks/useGoldEffect'
-import { sanitizeFormData, filterFormData } from '@/components/parcours/ValidationDonnees'
+import { validerDonnees, sanitizeFormData, filterFormData } from './ValidationDonnees';
+
+import { toast } from 'react-toastify'
 
 export default function ContactFinal({
   answers,
@@ -69,50 +71,77 @@ export default function ContactFinal({
   }
 
   const handleSubmitStep1 = async (e) => {
-    e.preventDefault()
-    const required = ['Nom', 'Email', 'Age', 'RGPD']
-    const errs = {}
-    required.forEach((key) => {
-      const err = validateField(key, formData[key])
-      if (err) errs[key] = err
-    })
-    setErrorFields(errs)
-    if (Object.keys(errs).length) return
+    e.preventDefault();
 
-    const res = await fetch('/api/airtable-partial', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-    const data = await res.json()
-    if (data.id) {
-      setRecordId(data.id)
-      setStep(2)
+    // 1) Validation
+    const errs = validerDonnees(formData, 'step1');
+    setErrorFields(errs);
+    if (Object.keys(errs).length) return;
+
+    // 2) Envoi partiel
+    try {
+      const sanitized = sanitizeFormData(formData);
+      const fields = filterFormData(sanitized);
+      const res = await fetch('/api/airtable-partial', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      });
+      const data = await res.json();
+
+      if (data.id) {
+        toast.success("Étape 1 validée !"); 
+        setRecordId(data.id);
+        setStep(2);
+      } else {
+        throw new Error(data.error || 'Inconnu');
+      }
+    } catch (err) {
+      console.error('❌ Erreur Step1:', err);
+      toast.error("Impossible d'enregistrer vos infos. Réessayez.");
     }
-  }
+  };
+
 
   const handleSubmitStep2 = async (e) => {
-    e.preventDefault()
-    const required = ['SituationActuelle', 'NumeroTelephone']
-    const errs = {}
-    required.forEach((key) => {
-      const err = validateField(key, formData[key])
-      if (err) errs[key] = err
-    })
-    setErrorFields(errs)
-    if (Object.keys(errs).length || !recordId) return
+    e.preventDefault();
 
-    const sanitized = sanitizeFormData(formData)
-    const fields = filterFormData(sanitized)
-    const res = await fetch('/api/airtable-update', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: recordId, fields }),
-    })
-    if (res.ok) {
-      onSubmit()
+    // 1) Validation
+    const errs = validerDonnees(formData, 'step2');
+    setErrorFields(errs);
+    if (Object.keys(errs).length || !recordId) return;
+
+    // 2) Envoi complet
+    try {
+      const sanitized = sanitizeFormData(formData);
+      const fields = filterFormData(sanitized);
+
+      // Réajustement des clés pour Airtable si besoin
+      const airtableFields = {
+        ...fields,
+        NomDuFormulaire: meta.title || 'Parcours Alforis',
+        Profil: profilPrincipal,
+        PhraseLibre: sanitized.PhraseLibre,
+      };
+
+      const res = await fetch('/api/airtable-update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: recordId, fields: airtableFields }),
+      });
+
+      if (res.ok) {
+        toast.success("Vos précisions ont été enregistrées !");
+        onSubmit();
+      } else {
+        const err = await res.json();
+        throw new Error(err.error || 'Mise à jour échouée');
+      }
+    } catch (err) {
+      console.error('❌ Erreur Step2:', err);
+      toast.error("Impossible de finaliser. Réessayez.");
     }
-  }
+  };
 
   return (
     <div className="max-w-2xl mx-auto px-6 space-y-8">

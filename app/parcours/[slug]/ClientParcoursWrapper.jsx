@@ -32,7 +32,7 @@ export default function ClientParcoursWrapper({ meta, slug }) {
       {step === 'contact' && sessionData && (
         <ContactFinal
           meta={meta}
-          parcoursSlug={slug}
+          Slug={slug}
           answers={sessionData.answers}
           textAnswer={sessionData.textAnswer}
           profilPrincipal={sessionData.profilPrincipal}
