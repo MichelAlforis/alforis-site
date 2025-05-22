@@ -9,7 +9,7 @@ const handleCookiePrefs = () => {
 export default function FooterMobile() {
   return (
 
-<footer className="bg-ardoise py-12 px-6">
+<footer className="bg-ardoise py-8 px-6">
     <div>
       <h3 className="text-2xl font-title font-bold mb-3 text-doré">{FooterConfig.title}</h3>
       <p className="text-sm font-light text-vertSauge max-w-xs">{FooterConfig.description}</p>

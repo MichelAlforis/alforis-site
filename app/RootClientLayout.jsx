@@ -112,7 +112,7 @@ export default function RootClientLayout({ children }) {
       {/* Contenu des routes */}
       <main
         id="main-content"
-        className={`transition-colors dark:bg-anthracite/90`}
+        className={`transition-colors dark:bg-anthracite/90 mb-2`}
       >
         {children}
       </main>
