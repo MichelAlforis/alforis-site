@@ -33,10 +33,10 @@ export default function NavbarLogo({ className = '', isHome }) {
     fillColor.set(baseColor)
     strokeColor.set(baseColor)
     strokeWidth.set(10)
-    // et position initiale du path
     logoCtrls.set({ pathLength: 0.7 })
     textCtrls.set({ pathLength: 0.8, rotate: 0 })
-  }, [baseColor, logoCtrls, textCtrls, fillColor, strokeColor, strokeWidth])
+  }, [baseColor, pathname, logoCtrls, textCtrls, fillColor, strokeColor, strokeWidth])
+
 
   // 5) Parallax si tu veux (optionnel ici)
   const scrollY       = useScrollPosition()
