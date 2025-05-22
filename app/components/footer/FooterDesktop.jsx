@@ -10,18 +10,17 @@ const handleCookiePrefs = () => {
 export default function FooterDesktop() {
   return (
 
-
-<footer className="bg-ardoise text-ivoire py-12 px-6">
+<footer className="bg-ardoise text-ivoire py-8 px-6">
   <div className="max-w-7xl mx-auto hidden md:grid grid-cols-2 gap-x-10 gap-y-2">
     {/* Col 1, Row 1: Logo + baseline */}
     <div className="flex flex-col justify-center col-start-1 row-start-1">
-      <h3 className="text-2xl font-title font-bold mb-3 text-doré">{FooterConfig.title}</h3>
-      <p className="text-sm font-light text-vertSauge max-w-xs">{FooterConfig.description}</p>
+      <h2 className="mb-3 text-doré">{FooterConfig.title}</h2>
+      <p className="text-vertSauge">{FooterConfig.description}</p>
     {/* Col 1, Row 2: Réseaux sociaux CENTRÉS sous logo */}     
-      <div className='flex flex-row overflow-auto mt-4'>
+      <div className='flex flex-row auto-cols-auto items-center mt-4 space-x-8 ml-8'>
         {FooterConfig.tabsReseaux.map((item, i) => (
         <Link key={item.label} href={item.href}>
-          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" wrapperClassName="w-24 h-24 stroke-ardoise fill-doré">
+          <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="currentColor" viewBox={item.viewBox} className="w-auto h-10">
             <path d={item.d} fill={couleurs.ivoire} stroke={couleurs.vertSauge}  />
           </svg>
         </Link>
@@ -29,7 +28,7 @@ export default function FooterDesktop() {
       </div>
     </div>
     {/* Col 2, Row 1: Mentions/links */}
-    <div className="flex flex-col items-end col-start-2 row-start-1 text-sm text-vertSauge">
+    <div className="flex flex-col items-end col-start-2 row-start-1 text-vertSauge">
       <p className="text-ivoire mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
       {FooterConfig.tabsLinks.map((item, i) =>
         item.label === 'Gérer mes cookies' ? (
