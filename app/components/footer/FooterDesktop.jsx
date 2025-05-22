@@ -3,8 +3,18 @@ import { FooterConfig } from './FooterConfig'
 import { couleurs } from '@/styles/generated-colors'
 
 const handleCookiePrefs = () => {
-  window.cc_popup?.revokeChoice()
-}
+  if (window.cc_popup && typeof window.cc_popup.revokeChoice === 'function') {
+    window.cc_popup.revokeChoice();
+  } else {
+    setTimeout(() => {
+      if (window.cc_popup && typeof window.cc_popup.revokeChoice === 'function') {
+        window.cc_popup.revokeChoice();
+      } else {
+        alert("La gestion des cookies n'est pas encore prête. Merci de réessayer dans un instant.");
+      }
+    }, 300);
+  }
+};
 
 
 export default function FooterDesktop() {

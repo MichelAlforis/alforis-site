@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
+import { className } from 'babylonjs';
 
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
@@ -78,7 +79,7 @@ export default function NavbarMobile({ links }) {
           )}
           style={{ height: 'var(--nav-height)' }}
         >
-          <NavbarLogoMobile isHome={isHome} />
+          <NavbarLogoMobile className={'h-full w-auto'} isHome={isHome} />
 
           <button
             onClick={() => setIsOpen(true)}
