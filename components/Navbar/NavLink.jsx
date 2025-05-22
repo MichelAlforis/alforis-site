@@ -19,21 +19,15 @@ export default function NavLink({ href, label, isHome }) {
 
   // Choix de couleur : blanc sur la home, sinon doré si actif, acier sinon
   const colorClass = isHome
-    ? 'text-ivoire'
-    : isActive
-      ? 'text-doré'
-      : 'text-acier dark:text-ivoire hover:text-doré'
+    ? 'text-ivoire hover:text-doré'
+    : 'text-acier dark:text-ivoire hover:text-doré'
 
   return (
     <Link
       href={href}
       onClick={handleClick}
       aria-current={isActive ? 'page' : undefined}
-      className={`
-        relative px-3 py-2 font-semibold transition-colors duration-200
-        text-sm md:text-base lg:text-lg uppercase tracking-tight rounded-full
-        ${colorClass}
-      `}
+      className={`nav-link ${colorClass}`}
     >
       {label}
       {/* soulignement animé pour actif */}

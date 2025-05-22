@@ -11,15 +11,15 @@ export default function Dropdown({ label, children, isHome }) {
 
   return (
     <div  className={clsx(
-            'flex-col items-center px-3 py-2 font-semibold uppercase transition-colors duration-200 dark:text-ivoire hover:text-doré hover:bg-ivoire rounded-full',
+            'flex-col items-center nav-link',
             isHome ? 'text-ivoire hover:text-doré' : 'text-acier hover:text-doré'
           )}>
 
         <button
           onClick={() => setOpen(o => !o)}
           className={clsx(
-            'more flex items-center px-3 py-2 font-semibold uppercase transition-colors duration-200 dark:text-ivoire hover:text-doré hover:bg-ivoire rounded-full',
-            isHome ? 'text-ivoire' : 'text-acier'
+            'nav-link flex items-center ',
+            isHome ? 'text-ivoire hover:text-doré' : 'text-acier hover:text-doré dark:text-ivoire'
           )}
           aria-expanded={open}
         >

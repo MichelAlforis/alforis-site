@@ -1,59 +1,77 @@
 /* components/navbar.css */
 
 
-/* ============================
-   LOGO
-   ============================ */
-
 
 /* ============================
-   LIENS (desktop + mobile)
+   LIENS NAVBAR - STYLE PREMIUM
    ============================ */
-nav {
-  max-height:var(--nav-height);
+
+/* Style de base partagé */
+.nav-link {
+  @apply font-bold px-4 py-2 rounded-full
+         uppercase tracking-tight transition-all duration-300 ease-in-out
+         text-lg relative cursor-pointer select-none;
 }
 
-@media (min-width: 768px) {
-/* Underline animée */
-nav a::after {
+/* Variante nav principale : généreux + underline animé */
+.navbar-links > .nav-link {
+  @apply text-xl;   /* un peu plus grand */
+  position: relative;
+}
+.navbar-links > .nav-link::after {
   content: "";
   position: absolute;
-  bottom: 8px;
-  left: 50%;
-  width: 0;
-  height: 2px;
+  bottom: 8px; left: 50%;
+  width: 0; height: 2px;
   @apply bg-doré rounded-full;
   transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
 }
-nav a:hover::after {
+.navbar-links > .nav-link:hover::after {
   width: 60%;
 }
-
-/* État actif */
-nav a.active {
-  @apply text-doré bg-ivoire bg-opacity-80
-         shadow-lg px-3 py-2 rounded-full;
-}
-
-.nav-links > a {
-  @apply text-xl font-bold
-         px-3 py-2 rounded-full
-         transition-all duration-300 ease-in-out;
-}
-.nav-links > a.active {
-  @apply text-doré font-semibold;
-}
-
-nav a.active::after {
+.navbar-links > .nav-link.active::after {
   width: 100%;
 }
 
-/* Hover pour non-actifs */
-nav a:hover:not(.active) {
+/* État actif premium */
+.nav-link.active {
+  @apply text-doré bg-ivoire bg-opacity-80 shadow-lg;
+}
+.navbar-links > .nav-link.active {
+  @apply font-semibold;
+}
+
+/* Hover effet premium */
+.navbar-links > .nav-link:hover:not(.active) {
   @apply text-doré bg-ivoire;
 }
+
+/* 5) logo à gauche */
+.navbar-logo {
+  @apply flex-shrink-0 py-2;
+  height: var(--nav-height);
 }
+
+/* ============================
+   MENU PLUS (Dropdown) - ALLEGÉ
+   ============================ */
+.dropdown-menu > .nav-link {
+  @apply text-base font-medium px-3 py-1 rounded-lg;
+  /* Un style plus light, moins haut, police réduite */
+}
+.dropdown-menu > .nav-link::after {
+  display: none;   /* Pas de soulignement */
+}
+/* Actif : couleur doré, mais pas de shadow/border, juste la couleur */
+.dropdown-menu > .nav-link.active {
+  @apply text-doré bg-transparent font-semibold;
+}
+/* Hover : doré simple */
+.dropdown-menu > .nav-link:hover {
+  @apply text-doré bg-ivoire/20;
+}
+
 
 /* ============================
    BOUTONS (RDV + THÈME)
@@ -101,25 +119,7 @@ button.theme-toggle:hover {
   }
 }
 
-/* ============================
-   LAYOUT DESKTOP
-   ============================ */
 
-/* 5) logo à gauche */
-.navbar-logo {
-  @apply flex-shrink-0 py-2;
-  height: var(--nav-height);
-}
-
-/* DROPDOWN – seulement les liens directs sous .dropdown-menu */
-.dropdown-menu > a {
-  @apply text-md px-4 py-2 rounded-full;
-}
-
-/* si tu veux supprimer l’underline animée sous ces liens */
-.dropdown-menu > a::after {
-  display: none;
-}
 
 
 /* ============================
