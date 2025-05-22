@@ -30,6 +30,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
     }
     if (step < questions.length - 1) {
       setStep(step + 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       try {
       const { profilPrincipal, profilSecondaire } = detectProfilFromMatrix(answers, textAnswer, meta.scoringMatrix, meta.keywords)
@@ -156,35 +157,35 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
 
     {/* Bloc bouttons */}
 
-<div className="flex flex-row justify-between items-center pt-4 border-t border-light">
-  {/* ← Précédent */}
-  <PremiumButton
-    onClick={goBack}
-    disabled={step === 0}
-    className="w-40
-      px-3 py-2 text-md
-      rounded-lg
-      bg-transparent text-doré hover:bg-doré/10"  
-  >
-    ← Précédent
-  </PremiumButton>
+      <div className="flex flex-row justify-between items-center pt-4 border-t border-light">
+        {/* ← Précédent */}
+        <PremiumButton
+          onClick={goBack}
+          disabled={step === 0}
+          className="w-40
+            px-3 py-2 text-md
+            rounded-lg
+            bg-transparent text-doré hover:bg-doré/10"  
+        >
+          ← Précédent
+        </PremiumButton>
 
-  {/* Suivant / Valider */}
-  <PremiumButton
-    onClick={handleNextClick}
-    disabled={
-      questions[step].options
-        ? answers[step] == null
-        : textAnswer.trim() === ''
-    }
-    className="w-40
-      px-3 py-2 text-md
-      rounded-lg
-      bg-transparent text-doré hover:bg-doré/10" 
-  >
-    {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
-  </PremiumButton>
-</div>
+        {/* Suivant / Valider */}
+        <PremiumButton
+          onClick={handleNextClick}
+          disabled={
+            questions[step].options
+              ? answers[step] == null
+              : textAnswer.trim() === ''
+          }
+          className="w-40
+            px-3 py-2 text-md
+            rounded-lg
+            bg-transparent text-doré hover:bg-doré/10" 
+        >
+          {step === questions.length - 1 ? 'Valider' : 'Suivant →'}
+        </PremiumButton>
+      </div>
 
 
 

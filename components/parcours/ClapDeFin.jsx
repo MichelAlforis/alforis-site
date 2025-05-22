@@ -74,7 +74,7 @@ export default function ClapDeFin({
       )}
 
       {/* Bouton retour au début du parcours */}
-      <Link href={`/parcours/${slug}`} className="block mt-4 text-sm text-anthracite">
+      <Link href={`/parcours`} className="block mt-4 text-sm text-anthracite">
         ← Revenir à la sélection
       </Link>
     </div>
