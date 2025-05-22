@@ -23,7 +23,7 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
 
   return (
     <Animated.Page>
-      <motion.main
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -60,7 +60,7 @@ export default function ServicesContent({ content, activeTab, onTabChange }) {
             )}
           </div>
         </div>
-      </motion.main>
+      </motion.section>
     </Animated.Page>
   )
 }
