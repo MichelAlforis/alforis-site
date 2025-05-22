@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
-import ThemeToggleButton from './ThemeToggleButton'
+import ThemeToggleButton from '../ui/ThemeToggleButton'
 
 export default function HeaderFixed({
   title,

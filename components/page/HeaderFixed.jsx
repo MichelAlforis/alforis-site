@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
-import ThemeToggleButton from './ThemeToggleButton'
+import ThemeToggleButton from '../ui/ThemeToggleButton'
 
 export default function HeaderFixed({
   title,
@@ -98,7 +98,7 @@ export default function HeaderFixed({
             >
               {chooseTitle}
             </motion.h1>
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 md:hidden">
               <ThemeToggleButton />
             </div>
             <motion.div
