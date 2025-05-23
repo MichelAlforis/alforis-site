@@ -42,14 +42,15 @@ export default function PremiumButton({
       className={`
         w-full py-4 px-6
         text-base font-semibold
+        text-acier dark:text-ivoire
         rounded-2xl
-        bg-white/30 dark:bg-gray-800/30 backdrop-blur-md
-        border border-white/20 dark:border-gray-600/20
+        bg-vertSauge/30 dark:bg-acier/30 backdrop-blur-md
+        border border-ivoire/20 dark:border-acier/20
         shadow-lg
         transition-colors duration-200
         ${disabled 
           ? 'opacity-50 cursor-not-allowed' 
-          : 'hover:bg-white/50 dark:hover:bg-gray-800/50'}
+          : 'hover:bg-ivoire/50 dark:hover:bg-acier/50'}
         focus:outline-none focus:ring-4 focus:ring-doré/50
         ${className}
       `}

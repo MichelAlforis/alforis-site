@@ -11,11 +11,7 @@ git add .
 echo "📝 Commit en cours..."
 git commit -m "$COMMIT_MSG"
 
-echo "⬆️ Push vers Git..."
-git push
+echo "⬆️ Push vers GitHub..."
+git push origin main
 
-# Déploiement Vercel
-echo "🚀 Déploiement Vercel en production..."
-# npx vercel --prod
-
-echo "✅ Déploiement terminé."
+echo "📡 GitHub Actions va maintenant déployer automatiquement via SSH."
