@@ -1,6 +1,6 @@
 {
   "name": "alforis",
-  "version": "5.11.0",
+  "version": "5.11.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,8 @@
     "devc": "./scripts/dev-clean.sh",
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
-    "treec": "./scripts/tree.sh"
+    "server": "./scripts/server.sh"
+
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
