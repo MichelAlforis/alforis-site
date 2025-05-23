@@ -82,7 +82,7 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
 
   return (
     <Suspense fallback={<div>Loading…</div>}>
-      <div className="dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
+      <div className="main-content dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
         {/* sous‐header (titre + toggle) */}
         <section className="max-w-6xl mx-auto space-y-8">
           {/* recherche & filtres */}

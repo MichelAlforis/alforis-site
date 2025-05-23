@@ -20,7 +20,7 @@ export default function ParcoursContent({ content }) {
 
   return (
     <Animated.Page>
-      <section className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire px-6 max-w-4xl mx-auto">
+      <section className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire px-2 md:px-6 max-w-2md mx-auto">
           <SmartResponsive
             data={content}
             type="parcours"
