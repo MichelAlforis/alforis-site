@@ -44,14 +44,18 @@ export default function MobileScrollProgress() {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 h-1 z-50 md:hidden transition-opacity duration-300 pointer-events-none
+      className={`fixed inset-x-0 top-0 h-2 z-70 md:hidden transition-opacity duration-300 pointer-events-none
         ${visible ? 'opacity-100' : 'opacity-0'}`}
     >
       {/* Track */}
       <div className="h-full bg-ivoire/20">
         {/* Progress indicator with golden gradient and soft shadow */}
         <motion.div
-          className="h-full rounded-r-full bg-gradient-to-r from-doré via-ivoire to-doré shadow-sm"
+          className="
+          h-full rounded-r-full 
+          bg-gradient-to-r from-acier via-ivoire to-acier 
+          dark:bg-gradient-to-r from-ivoire via-doré to-ivoire 
+          shadow-sm"
           initial={{ width: 0 }}
           animate={controls}
         />

@@ -80,9 +80,6 @@ export default function RootClientLayout({ children }) {
       {/* Scroll ultrafin */}
       <ClientSideScrollRestorer />
 
-      {/* Barre de progression mobile */}
-      <MobileScrollProgress />
-
       {/* Dark theme */}
       <ThemeProvider>
         
@@ -105,6 +102,8 @@ export default function RootClientLayout({ children }) {
         />
       </noscript>
 
+      {/* Barre de progression mobile */}
+      <MobileScrollProgress />
       {/* En-tête globale */}
         <Navbar />
 
