@@ -24,30 +24,16 @@ export default function HeaderFixed({
   const headerRef = useRef(null)
 
   // À chaque resize ou changement de props, on recalcule la hauteur
-  const recalcHeaderHeight = () => {
-    if (headerRef.current) {
-      const h = headerRef.current.offsetHeight
-      document.documentElement.style.setProperty(
-        '--header-total-height',
-        `${h}px`
-      )
-    }
-  }
+  useEffect(() => {
+    if (!headerRef.current) return
+    const h = headerRef.current.offsetHeight
+    document.documentElement.style.setProperty(
+      '--header-total-height',
+      `${h}px`
+    )
+  }, [])  // <- tableau vide : ne s'exécute qu'au montage
 
-  // useLayoutEffect pour être sûr que le DOM est à jour
- useEffect(() => {
-   if (!headerRef.current) return
-   const ro = new ResizeObserver(recalcHeaderHeight)
-   ro.observe(headerRef.current)
-   // on veut aussi recalculer si on redimensionne la fenêtre
-   window.addEventListener('resize', recalcHeaderHeight)
-   // un premier calc
-   recalcHeaderHeight()
-   return () => {
-     ro.disconnect()
-     window.removeEventListener('resize', recalcHeaderHeight)
-   }
- }, [title, description, tabs, showTabs])
+
 
   // Responsive mobile
   useEffect(() => {

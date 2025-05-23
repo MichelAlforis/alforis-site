@@ -15,8 +15,7 @@ export default function PageLayout({
   showTabs = true, // <- nouveau
 }) {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <AnimatedBackground />
+    <>
       <HeaderFixed
         title={title}
         mdTitle={mdTitle}
@@ -26,9 +25,9 @@ export default function PageLayout({
         onTabChange={onTabChange}
         showTabs={showTabs}   // <- passe la prop ici
       />
-      <div id="PageLayoutG" className="main-content flex-1 px-4 sm:px-6 md:px-8">
+      <div id="PageLayoutG" className="flex-1">
         {children}
       </div>
-    </div>
+    </>
   );
 }

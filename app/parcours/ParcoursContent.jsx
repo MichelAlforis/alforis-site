@@ -20,9 +20,7 @@ export default function ParcoursContent({ content }) {
 
   return (
     <Animated.Page>
-      <section className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
-
+      <section className="main-content bg-ivoire text-anthracite dark:bg-acier/90 text-ivoire px-6 max-w-4xl mx-auto">
           <SmartResponsive
             data={content}
             type="parcours"
@@ -31,7 +29,6 @@ export default function ParcoursContent({ content }) {
             emptyMessage="Aucun parcours disponible."
             onCardClick={handleCardClick}
           />
-        </div>
       </section>
     </Animated.Page>
   )

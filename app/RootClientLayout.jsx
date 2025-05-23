@@ -135,7 +135,10 @@ export default function RootClientLayout({ children }) {
       />
 
       {/* Décor & overlays */}
-      <div className="fixed inset-0 pointer-events-none z-overlay" />
+      <div 
+        id="global-overlay"
+        className="fixed inset-0 pointer-events-none z-overlay"
+      />
       </ThemeProvider>
     </>
   )
