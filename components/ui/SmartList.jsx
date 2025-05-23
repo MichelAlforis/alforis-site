@@ -27,7 +27,7 @@ function SmartListItem({ item, index = 0, type, extra }) {
   return (
     <div className="relative">
       {extra && (
-        <div className="absolute top-3 right-3 z-30">
+        <div className="absolute top-3 right-3 z-overlay">
           {extra(item)}
         </div>
       )}
@@ -53,7 +53,7 @@ function SmartListItem({ item, index = 0, type, extra }) {
             <span className="text-xs font-medium uppercase text-doré mb-1 truncate">
               {itemType}
             </span>
-            <h3 className="text-lg font-title text-ardoise dark:text-acier-100 leading-tight line-clamp-2 truncate">
+            <h3 className="text-md md:texte:text-lg font-title text-ardoise dark:text-acier-100 leading-tight line-clamp-2 truncate">
               {title}
             </h3>
             <p className="text-sm text-anthracite/80 dark:text-acier-400 mt-1 line-clamp-3 truncate">

@@ -82,11 +82,11 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
 
   return (
     <Suspense fallback={<div>Loading…</div>}>
-      <div className="min-h-screen dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
+      <div className="dark:bg-acier/90 text-anthracite dark:text-acier transition-colors">
         {/* sous‐header (titre + toggle) */}
-        <main className="px-6 py-8 max-w-6xl mx-auto space-y-8">
+        <section className="max-w-6xl mx-auto space-y-8">
           {/* recherche & filtres */}
-          <section className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <Input
               placeholder="Rechercher…"
               value={search}
@@ -96,6 +96,7 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
             <ScrollArea className="w-full md:w-auto">
               <div className="flex space-x-3 py-2">
                 {categories.map(cat => (
+
                   <CategoryButton
                     key={cat}
                     label={cat}
@@ -103,10 +104,11 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
                     selected={selectedCats.has(cat)}
                     onClick={() => toggleCategory(cat)} // Corrected onClick handler
                   />
+
                 ))}
               </div>
             </ScrollArea>
-          </section>
+          </div>
 
           {/* listing */}
           {filtered.length > 0 ? (
@@ -116,16 +118,16 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
               extra={item => (
                 <button
                   onClick={() => toggleFavorite(item.slug)}
-                  className="absolute z-30 top-2 right-2 p-2 bg-ivoire dark:bg-acier/80 rounded-full shadow hover:bg-vertSauge transition"
+                  className="bg-ivoire/10 dark:bg-acier/80 rounded-full shadow hover:bg-vertSauge transition"
                   aria-label={favorites.has(item.slug)
                     ? 'Retirer des favoris'
                     : 'Ajouter aux favoris'}
                 >
                   <Star
-                    className={`w-6 h-6 ${
+                    className={`w-3 h-3 md:w-6 md:h-6 ${
                       favorites.has(item.slug)
                         ? 'fill-doré text-doré'
-                        : 'text-gray-400'
+                        : 'text-acier-400'
                     }`}
                   />
                 </button>
@@ -136,7 +138,7 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
               Aucun contenu pour ces critères.
             </p>
           )}
-        </main>
+        </section>
 
         {/* boutons de scroll */}
         <button
@@ -144,7 +146,7 @@ export default function BlogStudioContent({ content, activeTab, onTabChange }) {
           className="fixed bottom-6 right-6 p-3 rounded-full bg-doré text-ivoire shadow-lg hover:bg-doré/90 transition"
           aria-label="Remonter"
         >
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp className="w-3 h-3 md:w-6 md:h-6" />
         </button>
       </div>
     </Suspense>

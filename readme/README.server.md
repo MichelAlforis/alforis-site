@@ -156,6 +156,71 @@ jobs:
 
 ---
 
+## 🚀 Script de déploiement local via NPM
+
+Ce script permet de builder localement, copier sur le serveur et redémarrer l’app.
+
+1. **Fichier** : `scripts/server.sh`
+   ```bash
+   #!/usr/bin/env bash
+   set -euo pipefail
+
+   SSH_KEY="$HOME/.ssh/id_rsa_hetzner"
+   SERVER="root@159.69.108.234"
+   REMOTE_DIR="/root/alforis"
+
+   run_remote() {
+     ssh -i "$SSH_KEY" "$SERVER" "cd $REMOTE_DIR && $*"
+   }
+
+   if [ $# -lt 1 ]; then
+     echo "Usage: $0 {build|start|deploy}"
+     exit 1
+   fi
+   ACTION=$1; shift
+   case "$ACTION" in
+     build)
+       echo "🔨 Build local"
+       npm run build
+       ;;
+     start)
+       echo "🚀 Démarrage distant"
+       run_remote "pm2 start npm --name alforis-site -- run start && pm2 save"
+       ;;
+     deploy)
+       echo "📤 Déploiement complet"
+       scp -i "$SSH_KEY" -r . "$SERVER:$REMOTE_DIR"
+       run_remote "npm install && npm run build && pm2 restart alforis-site || pm2 start npm --name alforis-site -- run start; pm2 save"
+       ;;
+     *)
+       echo "❌ Action inconnue: $ACTION"
+       echo "Usage: $0 {build|start|deploy}"
+       exit 1
+       ;;
+   esac
+   ```
+
+2. **Rendre exécutable** :
+   ```bash
+   chmod +x scripts/server.sh
+   ```
+
+3. **Package.json** :
+   ```json
+   {
+     "scripts": {
+       "server": "bash scripts/server.sh"
+     }
+   }
+   ```
+
+4. **Commandes** :
+   - `npm run server -- build`
+   - `npm run server -- start`
+   - `npm run server -- deploy`
+
+---
+
 > Garder toujours **GitHub** comme source unique de vérité : aucun changement direct en prod sans PR & merge sur `main`.
 >
 > Bonne dev et bons déploiements ! 🚀

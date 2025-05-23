@@ -17,10 +17,10 @@ export default function HeroSection({ extraClass = '' }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6"
+          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6 mt-16"
         >
-          Chez Alforis, on ne commence pas par les chiffres.<br />
-          On commence par <GoldLink href="/parcours">vous</GoldLink>.
+          Chez Alforis, notre raison d'être c'est<br />
+         <GoldLink href="/parcours">VOUS</GoldLink>.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
