@@ -40,8 +40,8 @@ export default function ContactForm() {
   // Confirmation écran
   if (submitted) {
     return (
-      <motion.main
-        className="flex flex-col items-center justify-center min-h-screen bg-ivoire dark:bg-acier text-anthracite p-6"
+      <motion.section
+        className="flex flex-col items-center justify-center min-h-screen bg-ivoire dark:bg-acier text-anthracite rounded-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -49,7 +49,7 @@ export default function ContactForm() {
       >
         <Confetti width={width} height={height} recycle={false} numberOfPieces={200} />
         <motion.div
-          className="bg-ivoire rounded-2xl shadow-lg p-4 space-y-6 text-center max-w-sm mx-auto"
+          className="bg-ivoire rounded-2xl shadow-lg space-y-6 text-center"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -64,12 +64,12 @@ export default function ContactForm() {
             Nouveau message
           </button>
         </motion.div>
-      </motion.main>
+      </motion.section>
     )
   }
 
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-ivoire/20 dark:bg-acier/60 p-6 overflow-hidden">
+    <section className="relative flex items-center justify-center min-h-screen bg-ivoire/20 dark:bg-acier/60 p-2 md:p-4 overflow-hidden">
       {/* Cercles d’arrière-plan */}
       <motion.span
         className="absolute top-16 left-20 w-48 h-48 bg-vertSauge opacity-50 rounded-full filter blur-3xl"
@@ -82,7 +82,7 @@ export default function ContactForm() {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <section className="relative z-base w-full  grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="relative z-base w-full  grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {/* Texte & coordonnées */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -120,7 +120,7 @@ export default function ContactForm() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-ivoire bg-opacity-80 rounded-2xl shadow-xl p-8 space-y-6"
+          className="bg-ivoire bg-opacity-80 rounded-2xl shadow-xl p-4 md:p-6 space-y-6"
         >
           {/* Nom */}
           <div>
@@ -192,7 +192,7 @@ export default function ContactForm() {
             </button>
           </div>
         </motion.form>
-      </section>
-    </main>
+      </div>
+    </section>
   )
 }

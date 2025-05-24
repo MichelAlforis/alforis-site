@@ -24,8 +24,8 @@ export default function MarketplaceContent({ content, activeTab = 'particulier',
 
   return (
     <Animated.Page>
-      <motion.main className="main-content bg-ivoire text-anthracite dark:bg-acier dark:text-ivoire pb-24 px-6 transition-colors">
-        <div className="max-w-6xl mx-auto space-y-8">
+      <motion.main className="bg-white text-anthracite dark:bg-acier dark:text-ivoire pb-24 px-6 transition-colors">
+        <div className="">
           {/* 
             La TabsBar doit être gérée dans le layout/header, pas ici !
             Donc PAS de boutons ici.

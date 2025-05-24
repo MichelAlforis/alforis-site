@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import clsx from 'clsx';
-
+import MobileScrollProgress from '@/components/ui/MobileScrollProgress';
 import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
-import { className } from 'babylonjs';
+
 
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
@@ -68,14 +68,18 @@ export default function NavbarMobile({ links }) {
         isHome ? 'text-ivoire' : 'dark:text-ivoire'
       )}
     >
+      
+      {/* Barre de progression mobile */}
+      <MobileScrollProgress />
+
       {/* BARRE PRINCIPALE (fermée) */}
       {!isOpen && (
         <div
           className={clsx(
-            'grid grid-cols-2 h-full items-center px-4',
+            'grid grid-cols-2 h-full items-center px-4 rounded-xl',
             isHome
               ? 'bg-transparent'
-              : 'bg-ivoire/10 dark:bg-acier/10 backdrop-blur-2xl'
+              : 'bg-ivoire/10 dark:bg-acier/10 '
           )}
           style={{ height: 'var(--nav-height)' }}
         >

@@ -81,10 +81,11 @@ export default function HeaderFixed({
 
   return (
     <section
+      id="Header-Layout"
       style={{ top: 'var(--navbar-offset)' }}
       className="
         sticky inset-x-0 z-overlay
-        bg-white/10 dark:bg-black/10 backdrop-blur-2xl
+        bg-white/10 dark:bg-black/10
         border-b border-ardoise/20
         flex flex-col
       "

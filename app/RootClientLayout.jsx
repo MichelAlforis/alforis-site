@@ -6,7 +6,6 @@ import Script from 'next/script'
 import ClientSideScrollRestorer from './ClientSideScrollRestorer'
 import Navbar from './Navbar'
 import Footer from '@/app/Footer'
-import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
 import { ThemeProvider } from '@/styles/ThemeDark'
 import { ToastContainer } from 'react-toastify'
@@ -102,8 +101,7 @@ export default function RootClientLayout({ children }) {
         />
       </noscript>
 
-      {/* Barre de progression mobile */}
-      <MobileScrollProgress />
+
       {/* En-tête globale */}
         <Navbar />
 
