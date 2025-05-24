@@ -17,7 +17,7 @@ export async function generateMetadata() {
   alternates: { canonical: 'https://www.alforis.fr/faq' },
 }}
 
-import FaqContent from './FaqContent'
+
 
 export default function Page() {
   return <PageClient />

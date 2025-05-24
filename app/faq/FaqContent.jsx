@@ -56,8 +56,8 @@ export default function FaqContent({ content, activeTab, onTabChange }){
 
   return (
     <Animated.Page>
-      <section className="bg-ivoire dark:bg-acier">
-        <div className="main-content mx-auto px-2 text-ivoire">
+      <section className="bg-ivoire dark:bg-acier rounded-xl">
+        <div className="px-2 text-ivoire pt-4 md:pt-8">
 
           {/* Barre de recherche */}
           <div className="mb-8 flex justify-center">

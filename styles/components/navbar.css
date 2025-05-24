@@ -8,14 +8,14 @@
 
 /* Style de base partagé */
 .nav-link {
-  @apply font-bold px-4 py-2 rounded-full
+  @apply font-semibold px-2 py-2 rounded-full
          uppercase tracking-tight transition-all duration-300 ease-in-out
          text-lg relative cursor-pointer select-none;
 }
 
 /* Variante nav principale : généreux + underline animé */
 .navbar-links > .nav-link {
-  @apply text-xl;   /* un peu plus grand */
+  @apply text-sm;   /* un peu plus grand */
   position: relative;
 }
 .navbar-links > .nav-link::after {
@@ -39,7 +39,7 @@
   @apply text-doré bg-ivoire bg-opacity-80 shadow-lg;
 }
 .navbar-links > .nav-link.active {
-  @apply font-semibold;
+  @apply font-medium;
 }
 
 /* Hover effet premium */

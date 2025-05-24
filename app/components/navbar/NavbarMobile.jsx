@@ -14,7 +14,7 @@ import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
-  const isHome   = pathname === '/';
+  const isTransparent = pathname === '/' || pathname === '/a-propos'
   const isActive = useCallback(
     (href) => pathname === href,
     [pathname]
@@ -65,7 +65,7 @@ export default function NavbarMobile({ links }) {
     <header
       className={clsx(
         'fixed inset-x-0 top-0 z-nav h-nav transition-shadow duration-300',
-        isHome ? 'text-ivoire' : 'dark:text-ivoire'
+        isTransparent ? 'text-ivoire' : 'dark:text-ivoire'
       )}
     >
       
@@ -77,13 +77,13 @@ export default function NavbarMobile({ links }) {
         <div
           className={clsx(
             'grid grid-cols-2 h-full items-center px-4 rounded-xl',
-            isHome
+            isTransparent
               ? 'bg-transparent'
               : 'bg-ivoire/10 dark:bg-acier/10 '
           )}
           style={{ height: 'var(--nav-height)' }}
         >
-          <NavbarLogoMobile className={'h-full w-auto'} isHome={isHome} />
+          <NavbarLogoMobile className={'h-full w-auto'} isTransparent={isTransparent} />
 
           <button
             onClick={() => setIsOpen(true)}
@@ -91,7 +91,7 @@ export default function NavbarMobile({ links }) {
             aria-expanded={isOpen}
             className={clsx(
               'ml-auto p-3 focus:outline-none focus:ring-2 focus:ring-doré rounded',
-              isHome ? 'text-ivoire' : 'text-acier'
+              isTransparent ? 'text-ivoire' : 'text-acier'
             )}
           >
             <Menu size={28} />
@@ -148,7 +148,7 @@ export default function NavbarMobile({ links }) {
                   className="flex items-center"
                 >
                   <span className="sr-only">Alforis – Accueil</span>
-                  <NavbarLogoMobile isHome={isHome} />
+                  <NavbarLogoMobile isTransparent={isTransparent} />
                 </Link>
 
                 <button

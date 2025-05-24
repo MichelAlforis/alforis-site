@@ -1,17 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePathname }       from 'next/navigation';
 import { motion, useSpring } from 'framer-motion';
 import useScrollPosition     from '@/hooks/useScrollPosition';
 import { useTheme }          from '@/styles/ThemeDark';
 import { couleurs }          from '@/styles/generated-colors';
 import { SVGConfig }         from './navbarLogoConfig';
 
-export default function NavbarLogoMobile({ className = '' }) {
+export default function NavbarLogoMobile({ className = '', isTransparent }) {
   // 1) Contexte & hooks
-  const pathname = usePathname();
-  const isHome   = pathname === '/';
   const { dark: isDark } = useTheme();
   const scrollY = useScrollPosition();
 
@@ -22,15 +19,15 @@ export default function NavbarLogoMobile({ className = '' }) {
   // 3) Animation d’ouverture (Home uniquement)
   const [opened, setOpened] = useState(false);
   useEffect(() => {
-    if (isHome) {
+    if (isTransparent) {
       const timer = setTimeout(() => setOpened(true), 800);
       return () => clearTimeout(timer);
     }
     setOpened(true);
-  }, [isHome]);
+  }, [isTransparent]);
 
   // 4) Base color
-  const baseColor = (isDark || isHome) ? couleurs.ivoire : couleurs.acier;
+  const baseColor = (isDark || isTransparent) ? couleurs.ivoire : couleurs.acier;
 
   // 5) Tap interaction
   const [revealed, setRevealed] = useState(false);

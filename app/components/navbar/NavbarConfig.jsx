@@ -8,6 +8,7 @@ export const NavConfig = {
     { href: '/marketplace',             label: 'Tarifs',        alwaysVisible: true },
     { href: '/services',                label: 'Services' ,     },
     { href: '/approchepersonnalisee',   label: 'Approche',      },
+    { href: '/a-propos',                label: 'A-propos',      },
     { href: '/contact',                 label: 'Contact',       alwaysVisible: true },
         ]
     }

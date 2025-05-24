@@ -11,11 +11,11 @@ export default function MentionsLegalesContent() {
 
   return (
     <Animated.Page>
-      <motion.main
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-anthracite dark:bg-acier/80 text-ivoire py-16 px-6"
+        className="text-anthracite dark:bg-acier/80 text-ivoire py-6 px-3"
       >
         <div className="max-w-4xl mx-auto bg-ivoire bg-opacity-90 dark:bg-opacity-40 p-8 rounded-2xl shadow-xl space-y-8">
 
@@ -90,7 +90,7 @@ export default function MentionsLegalesContent() {
             <CallToAction />
           </div>
         </div>
-      </motion.main>
+      </motion.section>
     </Animated.Page>
   )
 }

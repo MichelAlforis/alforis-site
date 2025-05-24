@@ -1,10 +1,12 @@
-// app/blog-studio/PageClient.jsx
 'use client'
+// app/a-propos/PageClient.jsx
 
 import React, { useState, useEffect } from 'react'
 import PageLayout from '@/components/page/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
-import AProposPage from './aproposContent'
+import AProposDesktop from './AProposPageDesktop'
+import AProposMobile from './AProposPageMobile'
+
 
 export default function PageClient({ content }) {
   const [activeTab, setActiveTab] = useState(
@@ -13,21 +15,26 @@ export default function PageClient({ content }) {
       : ''
   )
 
+  const [isMobile, setIsMobile] = useState(false)
+
+    // Détection taille du mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);  // Détecte la largeur de l'écran
+    };
+
+    handleResize();  // Appel initial pour déterminer la taille de l'écran au chargement
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <PageLayout
-      title={pageConfig.title}
-      mdTitle={pageConfig.mdTitle}
-      description={pageConfig.description}
-      tabs={pageConfig.tabs}
-      activeTab={activeTab}           // ← on passe l’état au header
-      onTabChange={setActiveTab}      // ← on passe le setter au header
-      showTabs={pageConfig.showTabs}
-    >
-      <AProposPage
-        content={content}
-        activeTab={activeTab}
-        onTabChange={setActiveTab}    // ← et au contenu pour filtrer
-      />
-    </PageLayout>
+    <>
+    {!isMobile && (<AProposDesktop/>)}
+    {isMobile && (<AProposMobile/>)}
+    </>
   )
 }

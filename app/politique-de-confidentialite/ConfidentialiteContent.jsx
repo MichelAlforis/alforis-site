@@ -9,13 +9,13 @@ export default function ConfidentialiteContent() {
 
   return (
     <Animated.Page>
-      <motion.main
+      <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content bg-ivoire text-acier dark:bg-acier text-ivoire py-16 px-6"
+        className="text-acier dark:text-ivoire py-2 md:py8 px-2 md:px-6"
       >
-        <div className="max-w-3xl mx-auto bg-ivoire bg-opacity-90 dark:bg-opacity-40 rounded-2xl shadow-xl p-8 space-y-6">
+        <div className="bg-ivoire bg-opacity-90 dark:bg-opacity-40 rounded-2xl shadow-xl p-4 md:p-8 space-y-6">
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -92,7 +92,7 @@ export default function ConfidentialiteContent() {
 
 
         </div>
-      </motion.main>
+      </motion.section>
     </Animated.Page>
   )
 }

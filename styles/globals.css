@@ -66,21 +66,21 @@
     color: rgb(var(--doré)); /* accent doré */
   }
 h1 {
-  @apply text-3xl sm:text-4xl md:text-4xl text-acier dark:text-doré font-semibold font-title text-center;
+  @apply text-2xl sm:text-4xl md:text-4xl text-acier dark:text-doré font-semibold font-title text-center;
 }
 
 h2 {
-  @apply text-2xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
+  @apply text-xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
 }
 
 h3 {
-  @apply text-xl sm:text-xl font-semibold text-ardoise dark:text-vertSauge dark:text-ivoire ;
+  @apply text-md sm:text-xl md:text-2xl font-semibold text-ardoise dark:text-vertSauge dark:text-ivoire ;
 }
 
 
   /* PARAGRAPHES */
   p {
-    @apply font-sans text-base text-anthracite dark:text-ivoire ;
+    @apply text-sm md:text-md text-base text-anthracite dark:text-ivoire ;
   }
 
   /* LIENS */
