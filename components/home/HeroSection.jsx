@@ -17,10 +17,10 @@ export default function HeroSection({ extraClass = '' }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6 mt-16"
+          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6 pt-40 md:pt-28 "
         >
-          Chez Alforis, notre raison d'être c'est<br />
-         <GoldLink href="/parcours">VOUS</GoldLink>.
+          Chez Alforis, notre raison d'être <br/>c'est<br />
+         <GoldLink href="/parcours" className='font-bold text-6xl'>Vous</GoldLink>.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

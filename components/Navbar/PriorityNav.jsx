@@ -37,7 +37,7 @@ export default function PriorityNav({ links, isHome }) {
       className="relative flex items-center lg:flex-1 h-nav, overflow-visible!"
     >
       {/* ← on isole le scroll horizontal dans CE conteneur */}
-      <div className="flex-1 flex items-center space-x-3 overflow-x-auto whitespace-nowrap">
+      <div className="flex-1 flex items-center space-x-2 overflow-x-auto whitespace-nowrap">
         {always.map(l => <NavLink key={l.href} href={l.href} label={l.label} isHome={isHome} />)}
         {primary.map(l => <NavLink key={l.href} href={l.href} label={l.label} isHome={isHome} />)}
       </div>

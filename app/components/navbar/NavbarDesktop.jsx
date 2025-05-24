@@ -9,8 +9,11 @@ import SwitchDarkMode from '@/components/ui/SwitchDarkMode'
 import PriorityNav from '@/components/Navbar/PriorityNav'
 import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/Navbar/NavbarLogo'
+import NavLink from '@/components/Navbar/NavLink'
+
 
 export default function NavbarDesktop({links}) {
+
 
     const pathname = usePathname()
     const isHome   = pathname === '/'
@@ -42,7 +45,7 @@ export default function NavbarDesktop({links}) {
       <div
         className="
           grid
-          grid-cols-[20%_1fr_55%_20%]
+          grid-cols-[15%_1fr_60%_15%]
           h-full
           items-center
         "
@@ -61,14 +64,10 @@ export default function NavbarDesktop({links}) {
 
         {/* MENU DESKTOP */}
         {/* col-3: nav + bouton mobile */}
-        <div className="flex-1 flex items-center space-x-3 max-height lg:block">
+      <div className="flex-1 flex items-center justify-end space-x-2 justify-self-end">
             {/* → Priorité  */}  
-            <PriorityNav 
-              links={links}
-              isActive={isActive}
-              handleLinkClick={handleLinkClick}
-              isHome={isHome}
-              />
+            {links.map(l => <NavLink key={l.href} href={l.href} label={l.label} isHome={isHome} />)}
+
         </div>
 
           {/* col-4:→ SWITCH MODE JOUR/NUIT */}
