@@ -1,12 +1,11 @@
 'use client'
-import { React, useEffect, useState } from 'react'
+import { React, useState } from 'react'
 
 import { motion } from 'framer-motion'
 import { pageConfig } from './pageConfig'
 import RDVTunnel from '@/components/calcom/RDVTunnel'
 import CustomDisponibilityForm from '@/components/calcom/CustomDisponibilityForm'
-import ContactSection from '@/components/calcom/ContactSection'
-import ConfirmationRDV from '@/components/calcom/ConfirmationRDV'
+import ConfirmationRDVForm from '@/components/calcom/ConfirmationRDV'
 
 const rdvTypes = pageConfig.tabs
 
