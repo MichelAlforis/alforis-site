@@ -1,15 +1,10 @@
 // app/marketplace/[slug]/page.jsx
-export { generateMetadata } from './generateMetadata'
-
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'
 
 const components = { CTA }
-
-// app/marketplace/[slug]/generateMetadata.jsx
-import { getContentMeta } from '@/lib/server/getContent'
 
 export async function generateMetadata({ params }) {
   const meta = getContentMeta('offres', params.slug)

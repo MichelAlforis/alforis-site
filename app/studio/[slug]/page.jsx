@@ -1,13 +1,7 @@
 // app/studio/[slug]/page.jsx
-export { generateMetadata } from './generateMetadata'
-
 import path from 'path'
 import fs from 'fs'
 import dynamic from 'next/dynamic'
-
-
-// app/marketplace/[slug]/generateMetadata.jsx
-import { getContentMeta } from '@/lib/server/getContent'
 
 export async function generateMetadata({ params }) {
   const meta = getContentMeta('Studio', params.slug)

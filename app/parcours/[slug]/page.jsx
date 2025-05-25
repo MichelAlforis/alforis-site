@@ -1,6 +1,4 @@
 // app/parcours/[slug]/page.jsx
-export { generateMetadata } from './generateMetadata'
-
 import ClientParcoursWrapper from './ClientParcoursWrapper'
 import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
 import { notFound } from 'next/navigation'

@@ -1,6 +1,4 @@
 // app/blog/[slug]/page.jsx
-export { generateMetadata } from './generateMetadata'
-
 import remarkGfm from 'remark-gfm'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import CTA from '@/components/ui/CallToAction'
@@ -9,8 +7,6 @@ import { notFound } from 'next/navigation'
 
 const components = { CTA }
 
-// app/marketplace/[slug]/generateMetadata.jsx
-import { getContentMeta } from '@/lib/server/getContent'
 
 export async function generateMetadata({ params }) {
   const meta = getContentMeta('Blog', params.slug)
