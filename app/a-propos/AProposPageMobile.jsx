@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { SVGConfig } from '@/components/Navbar/navbarLogoConfig';
 
 export default function AProposMobile() {
   return (
@@ -136,9 +137,9 @@ export default function AProposMobile() {
           transition={{ duration: 1 }}
         >
           {/* Remplacez par votre SVG animé */}
-          <svg width="120" height="120" viewBox="0 0 100 100" className="stroke-doré fill-transparent">
+          <svg width="120" height="120" viewBox="0 0 100 100" className="stroke-doré fill-doré">
             <motion.path
-              d="M10,80 L50,20 L90,80 Z"
+              d={SVGConfig.d1}
               strokeWidth="4"
               strokeLinecap="round"
             />
