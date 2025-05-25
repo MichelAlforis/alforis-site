@@ -24,7 +24,7 @@ export const metadata = {
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
-    apple: '/favicon/apple-touch-icon.png',
+    apple: '/apple-touch-icon.png',
     other: [
       {
         rel: 'manifest',
