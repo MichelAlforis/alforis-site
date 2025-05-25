@@ -10,7 +10,7 @@ import PriorityNav from '@/components/Navbar/PriorityNav'
 import Button from '@/components/ui/Button'
 import NavbarLogo from '@/components/Navbar/NavbarLogo'
 import NavLink from '@/components/Navbar/NavLink'
-
+import { scrollToTop } from '@/hooks/scrollToTop'
 
 export default function NavbarDesktop({links}) {
 

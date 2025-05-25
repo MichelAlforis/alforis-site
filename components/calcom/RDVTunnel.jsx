@@ -1,23 +1,34 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
+import PremiumButton from '../ui/PremiumButton'
+import Progress from '../ui/progress'
+import { toast } from 'react-toastify'
+import { motion, AnimatePresence } from 'framer-motion'
+import RDVTunnelJour from './RDVTunnelJour'
+import RDVTunnelHour from './RDVTunnelHour'
+import RdvDisponibiliteFallback from './RdvDisponibiliteFallback'
 
 const WEEK_MILLIS = 7 * 24 * 60 * 60 * 1000
-const formatDateLabel = dateStr =>
-  new Date(dateStr).toLocaleDateString('fr-FR', {
-    weekday: 'long', day: 'numeric', month: 'long'
-  })
 
 export default function RDVTunnel({ type, onConfirm, onFallback }) {
   const [step, setStep] = useState(1)
   const [allSlots, setAllSlots] = useState([])
-  const [dateOptions, setDateOptions] = useState([])
   const [chosenDate, setChosenDate] = useState(null)
   const [hourOptions, setHourOptions] = useState([])
   const [weekOffset, setWeekOffset] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const [showFallback, setShowFallback] = useState(false)   // <-- ici !
 
-  // 1) Charger toutes les dispos
+  // Focus sur le titre à chaque étape
+  const titleRef = useRef()
+  useEffect(() => {
+    titleRef.current?.focus()
+  }, [step])
+
+  // Charger toutes les dispos
   useEffect(() => {
     if (!type) return
+    setLoading(true)
     fetch(`/api/calcom/slots?type=${type}`)
       .then(r => r.json())
       .then(data => {
@@ -26,103 +37,109 @@ export default function RDVTunnel({ type, onConfirm, onFallback }) {
         setStep(1)
       })
       .catch(() => setAllSlots([]))
+      .finally(() => setLoading(false))
   }, [type])
 
-  // 2) Filtrer selon semaine courante ou suivante
-  useEffect(() => {
+  // Dates disponibles pour la semaine courante ou suivante
+  const dateOptions = useMemo(() => {
     const now = Date.now()
     const start = now + weekOffset * WEEK_MILLIS
     const end = start + WEEK_MILLIS
-    const filtered = allSlots.filter(s => {
+    return allSlots.filter(s => {
       const t = new Date(s.date).getTime()
       return t >= start && t < end
     })
-    setDateOptions(filtered)
   }, [allSlots, weekOffset])
 
-  // Étape 1 : choix de la date
-  if (step === 1) {
+  // Handlers
+  const handleSelectDate = (date, hours) => {
+    setChosenDate(date)
+    setHourOptions(hours)
+    setStep(2)
+    toast.success("Date sélectionnée ! Choisissez votre horaire.", { icon: "📅" })
+  }
+  const handleSelectHour = (hour) => {
+    onConfirm({ type, date: chosenDate, time: hour })
+    toast.success("Horaire réservé ! On vous confirme par email sous 24h.", { icon: "⏰" })
+  }
+
+  // Handler pour fallback depuis enfants
+  const handleFallback = () => setShowFallback(true)
+
+  if (loading) {
     return (
-      <div className="space-y-6 text-center">
-        <h3 className="text-xl font-semibold">1. Choisissez une date</h3>
-        {dateOptions.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-4">
-            {dateOptions.map(d => (
-              <button
-                key={d.date}
-                className="px-6 py-3 bg-acier text-ivoire rounded-xl hover:bg-doré transition"
-                onClick={() => {
-                  setChosenDate(d.date)
-                  setHourOptions(d.hours)
-                  setStep(2)
-                }}
-              >
-                {formatDateLabel(d.date)}
-              </button>
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-4">
-            <p>
-              {weekOffset === 0
-                ? "Aucun créneau disponible cette semaine."
-                : "Aucun créneau disponible la semaine suivante."}
-            </p>
-            {weekOffset === 0 ? (
-              <button
-                className="underline"
-                onClick={() => setWeekOffset(1)}
-              >
-                Voir la semaine suivante
-              </button>
-            ) : (
-              <button
-                className="underline"
-                onClick={() => onFallback && onFallback(type)}
-              >
-                Proposer mes disponibilités
-              </button>
-            )}
-          </div>
-        )}
+      <div className="flex items-center justify-center min-h-64">
+        <span className="animate-pulse text-doré text-xl">Chargement des créneaux…</span>
       </div>
     )
   }
 
-  // Étape 2 : choix de l'horaire
-  if (step === 2) {
-    return (
-      <div className="space-y-6 text-center">
-        <h3 className="text-xl font-semibold">2. Choisissez un horaire</h3>
-        {hourOptions.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-4">
-            {hourOptions.map(h => (
-              <button
-                key={h}
-                className="px-6 py-3 bg-acier text-ivoire rounded-xl hover:bg-doré transition"
-                onClick={() => onConfirm({ type, date: chosenDate, time: h })}
-              >
-                {h}
-              </button>
-            ))}
-          </div>
-        ) : (
-          <p>Aucun horaire disponible pour {formatDateLabel(chosenDate)}.</p>
-        )}
-        <div className="flex justify-center gap-6 mt-4">
-          <button className="underline" onClick={() => setStep(1)}>
-            ← Revenir aux dates
-          </button>
-          <button
-            className="underline"
-            onClick={() => onFallback && onFallback(type)}
+  return (
+    <>
+      {!showFallback ? (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={step}
+            initial={{ opacity: 0, y: 48 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.38, ease: 'easeOut' }}
+            className="
+              w-full max-w-xl mx-auto my-12
+              bg-ivoire/90 dark:bg-acier/90
+              rounded-2xl shadow-xl 
+              p-0 md:p-10 pt-6
+              flex flex-col items-center
+              border border-doré/10
+            "
           >
-            Proposer mes disponibilités
-          </button>
-        </div>
-      </div>
-    )
-  }
+            {/* Progress Bar */}
+            <Progress value={step} max={2} className="w-2/3 mb-8" />
+            {/* Titre éditorial avec accessibilité */}
+            <motion.h2
+              ref={titleRef}
+              tabIndex={-1}
+              className="text-2xl font-bold mb-6 text-center tracking-tight text-ardoise dark:text-ivoire outline-none"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+            >
+              {step === 1 ? "Planifiez votre rendez-vous personnalisé" : "Choisissez l’horaire idéal"}
+            </motion.h2>
 
-  return null
+            {/* Étape 1 */}
+            {step === 1 && (
+              <RDVTunnelJour
+                dateOptions={dateOptions}
+                weekOffset={weekOffset}
+                onSelectDate={handleSelectDate}
+                onNextWeek={() => setWeekOffset(1)}
+                onFallback={handleFallback}
+                disabled={loading}
+              />
+            )}
+            {/* Étape 2 */}
+            {step === 2 && (
+              <RDVTunnelHour
+                hourOptions={hourOptions}
+                chosenDate={chosenDate}
+                onSelectHour={handleSelectHour}
+                onBack={() => {
+                  setStep(1)
+                  setHourOptions([])
+                }}
+                onFallback={handleFallback}
+                disabled={loading}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      ) : (
+        <RdvDisponibiliteFallback
+          onSubmit={() => setShowFallback(false)}
+          onBack={() => setShowFallback(false)}
+        />
+      )}
+    </>
+  )
 }

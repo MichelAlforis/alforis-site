@@ -6,6 +6,7 @@ import { pageConfig } from './pageConfig'
 import RDVTunnel from '@/components/calcom/RDVTunnel'
 import CustomDisponibilityForm from '@/components/calcom/CustomDisponibilityForm'
 import ContactSection from '@/components/calcom/ContactSection'
+import ConfirmationRDV from '@/components/calcom/ConfirmationRDV'
 
 const rdvTypes = pageConfig.tabs
 
@@ -21,9 +22,8 @@ export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="main-content min-h-screen px-6 py-20 bg-ivoire text-anthracite dark:bg-acier/80 dark:text-ivoire"
       >
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+        <div className="text-center space-y-12">
          
           {!booking && !fallback && activeTab && (
             <RDVTunnel
@@ -34,11 +34,12 @@ export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
           )}
 
           {booking && (
-            <ContactSection
+            <ConfirmationRDVForm
               type={booking.type}
               date={booking.date}
               time={booking.time}
-              onChangeType={onTabChange}
+              onRestart={() => { setBooking(null); setFallback(false) }}
+              agendaUrl="https://cal.com/alforis" // ou ton lien complet
             />
           )}
 
