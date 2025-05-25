@@ -3,7 +3,7 @@ import PageClient from "./PageClient"
 
 export async function generateMetadata() {
   return {
-  title: 'Contact – Alforis',
+  title: 'Contact',
   description:
     'Découvrez notre approche patrimoniale sur mesure à travers notre page contact.',
   openGraph: {

@@ -2,7 +2,7 @@ import PageClient from "./PageClient"
 /* app/services/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Services – Alforis',
+  title: 'Services',
   description: 'Explorez nos expertises pour piloter votre trajectoire de vie en toute sérénité.',
   openGraph: {
     title: 'Services – Alforis',

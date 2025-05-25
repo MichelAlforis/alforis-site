@@ -4,7 +4,7 @@ import PageClient from "./PageClient"
 
 export async function generateMetadata() {
   return {
-    title: 'Approche Personnalisée – Alforis',
+    title: 'Approche Personnalisée',
     description: 'Découvrez notre approche patrimoniale sur mesure, étape par étape.',
     openGraph: {
       title: 'Approche Personnalisée – Alforis',

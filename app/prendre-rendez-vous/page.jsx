@@ -3,7 +3,7 @@ import PageClient from "./PageClient"
 /* app/prendre-rendez-vous/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Prendre rendez-vous – Alforis',
+  title: 'Prendre rendez-vous',
   description:
     'Réservez un appel, une visio ou un rendez-vous patrimonial avec notre équipe.',
   openGraph: {

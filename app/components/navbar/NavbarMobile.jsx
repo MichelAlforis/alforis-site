@@ -43,7 +43,6 @@ export default function NavbarMobile({ links }) {
   }, [isOpen]);
 
   const handleLinkClick = (href) => {
-    console.log(`Navigating to ${href}`);
     setIsOpen(false);
   };
 

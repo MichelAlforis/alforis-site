@@ -9,12 +9,6 @@ import FaqContent from './FaqContent'
 export default function PageClient({ content }) {
   const [activeTab, setActiveTab] = useState(pageConfig.tabs[0]?.key || '')
 
-
-  // debug : tu verras bien ce log à chaque changement d’onglet
-  useEffect(() => {
-    console.log('PageClient activeTab:', activeTab)
-  }, [activeTab])
-
   return (
     <PageLayout
       title={pageConfig.title}

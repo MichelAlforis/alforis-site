@@ -4,7 +4,7 @@ import PageClient from './PageClient'
 
 export async function generateMetadata() {
   return {
-    title: 'Blog & Studio – Alforis',
+    title: 'Blog & Studio',
     description:
       'Vision libre et sans filtre du patrimoine. Vidéos, réflexions, articles stratégiques.',
     keywords: [

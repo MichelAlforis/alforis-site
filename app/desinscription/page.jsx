@@ -2,7 +2,7 @@ import DesinscriptionContent from './DesinscriptionContent'
 /* app/desinscription/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Désinscription – Alforis',
+  title: 'Désinscription',
   description: 'Confirmez votre désinscription à notre newsletter Alforis.',
   openGraph: {
     title: 'Désinscription – Alforis',

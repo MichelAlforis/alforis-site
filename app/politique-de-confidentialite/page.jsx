@@ -4,7 +4,7 @@ import PageClient from "./PageClient"
 /* app/confidentialite/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Politique de confidentialité – Alforis',
+  title: 'Politique de confidentialité',
   description:
     'Consultez notre politique de confidentialité, conforme au RGPD et garantie de la protection de vos données personnelles.',
   openGraph: {

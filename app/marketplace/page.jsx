@@ -4,7 +4,7 @@ import PageClient from './PageClient'
 /* app/marketplace/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Marketplace – Alforis',
+  title: 'Marketplace',
   description: 'Découvrez nos prestations de conseil patrimonial et réservez en ligne en toute transparence.',
   keywords: ['marketplace', 'conseil patrimonial', 'Alforis'],
   openGraph: {

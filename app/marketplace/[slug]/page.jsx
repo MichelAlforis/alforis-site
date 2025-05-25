@@ -7,6 +7,7 @@ import { makeMetadata } from '@/lib/makeMetadata'
 const components = { CTA }
 
 export async function generateMetadata({ params }) {
+  params = await params
   const { slug } = params
   const meta = await getContentMeta('offres', slug)
   if (!meta) return { title: 'Offres – Alforis' }

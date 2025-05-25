@@ -3,7 +3,7 @@ import PageClient from "./PageClient"
 /* app/mentions-legales/page.jsx */
 export async function generateMetadata() {
   return {
-  title: 'Mentions légales – Alforis',
+  title: 'Mentions légales',
   description: 'Consultez nos mentions légales détaillées et conformes à la réglementation en vigueur.',
   openGraph: {
     title: 'Mentions légales – Alforis',

@@ -8,9 +8,11 @@ import { makeMetadata } from '@/lib/makeMetadata'
 const components = { CTA }
 
 export async function generateMetadata({ params }) {
+  console.log('>>> METADATA PARAMS', params)
+  params = await params
   const { slug } = params
   const meta = await getContentMeta('blog', slug)
-  if (!meta) return { title: 'Blog – Alforis' }
+  if (!meta) return { title: 'Blog & Studio – Alforis' }
   return makeMetadata({ meta, slug, section: 'blog' })
 }
 
