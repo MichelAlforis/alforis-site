@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useSpring } from 'framer-motion';
 import useScrollPosition     from '@/hooks/useScrollPosition';
 import { useTheme }          from '@/styles/ThemeDark';
-import { couleurs }          from '@/styles/generated-colors';
+import { couleurs }          from '@/styles/generated-colors.mjs';
 import { SVGConfig }         from './navbarLogoConfig';
 
 export default function NavbarLogoMobile({ className = '', isTransparent }) {

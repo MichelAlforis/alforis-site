@@ -5,7 +5,7 @@ import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTempl
 import { usePathname } from 'next/navigation'
 import useScrollPosition from '@/hooks/useScrollPosition'
 import { useTheme } from '@/styles/ThemeDark'
-import { couleurs } from '@/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors.mjs'
 import { SVGConfig } from './navbarLogoConfig'
 
 export default function NavbarLogo({ className = '', isHome }) {

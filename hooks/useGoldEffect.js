@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useAnimationControls, useMotionValue, useSpring, useMotionTemplate } from "framer-motion"
-import { couleurs } from "@/styles/generated-colors";
+import { couleurs } from "@/styles/generated-colors.mjs";
 import Link from 'next/link'
 
 // Hook d’effet or/acier

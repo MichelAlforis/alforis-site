@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FooterConfig } from './FooterConfig'
-import { couleurs } from '@/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors.mjs'
 
 const handleCookiePrefs = () => {
   if (window.cc_popup && typeof window.cc_popup.revokeChoice === 'function') {

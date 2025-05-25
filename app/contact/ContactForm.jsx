@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { couleurs } from '@/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors.mjs'
 import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
 import Confetti from 'react-confetti'                // npm install react-confetti

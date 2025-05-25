@@ -4,7 +4,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { couleurs } from '@/styles/generated-colors'
+import { couleurs } from '@/styles/generated-colors.mjs'
 
 // Passe un "rgb(r g b)" en "rgba(r, g, b, a)"
 const toRgba = (rgbString, alpha) => {
