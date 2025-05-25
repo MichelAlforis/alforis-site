@@ -44,7 +44,7 @@ export default function PremiumButton({
         text-base font-semibold
         text-acier dark:text-ivoire
         rounded-2xl
-        bg-vertSauge/30 dark:bg-acier/30 backdrop-blur-md
+        bg-ivoire dark:bg-acier/30 backdrop-blur-md
         border border-ivoire/20 dark:border-acier/20
         shadow-lg
         transition-colors duration-200
