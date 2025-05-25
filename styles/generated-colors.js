@@ -1,4 +1,4 @@
-module.exports = {
+export const couleurs = {
   "doré": "rgb(242 158 76)",
   "ardoise": "rgb(31 59 77)",
   "acier": "rgb(91 109 127)",
