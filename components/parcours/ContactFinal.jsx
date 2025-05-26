@@ -76,7 +76,7 @@ export default function ContactFinal({
     const errs = validerDonnees(formData, 'step1');
     setErrorFields(errs);
     if (Object.keys(errs).length) return;
-    console.log('Envoi POST fields:', fields);
+    
     
     // 2) Envoi partiel
     try {

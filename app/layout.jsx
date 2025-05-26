@@ -69,12 +69,6 @@ export default function Layout({ children }) {
             updateVh();
           `}
         </Script>
-        
-        {/* Charge la Google Maps JS API AVANT tout composant React */}
-        <Script
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-          strategy="beforeInteractive"
-        />
       </head>
       <body className="scroll-smooth font-roboto">
         <Suspense fallback={null}>

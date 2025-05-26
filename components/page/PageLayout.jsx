@@ -23,7 +23,7 @@ export default function PageLayout({
   onTabChange,
   showTabs = true,
   // Contrôle de la largeur max du contenu
-  maxWidth = 'max-w-xl md:max-w-2xl lg:max-w-3xl',
+  maxWidth = 'max-w-xl md:max-w-2xl lg:max-w-3xl mb-2',
 }) {
   const paddingTop = usePaddingTop();
 
