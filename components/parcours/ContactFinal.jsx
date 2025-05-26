@@ -17,6 +17,11 @@ export default function ContactFinal({
   const [step, setStep] = useState(1)
   const [recordId, setRecordId] = useState(null)
   const [errorFields, setErrorFields] = useState({})
+
+  const mappedAnswers = Array.isArray(answers)
+    ? answers.reduce((acc, val, i) => ({ ...acc, [`Q${i + 1}`]: val }), {})
+    : answers;
+
   const [formData, setFormData] = useState({
     Nom: '',
     Email: '',
@@ -31,8 +36,9 @@ export default function ContactFinal({
     NumeroTelephone: '',
     Profil: profilPrincipal || '',
     NomDuFormulaire: meta?.title || '',
-    ...answers
-  })
+    ...mappedAnswers // 👈 c'est la seule modif à faire
+  });
+
 
   // Scroll to top on step change
   useEffect(() => {
