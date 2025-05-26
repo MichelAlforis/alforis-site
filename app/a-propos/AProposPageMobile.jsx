@@ -137,9 +137,11 @@ export default function AProposMobile() {
           transition={{ duration: 1 }}
         >
           {/* Remplacez par votre SVG animé */}
-          <svg width="120" height="120" viewBox="0 0 100 100" className="stroke-doré fill-doré">
+          <svg width="120" height="120" viewBox="0 0 500 500" className="stroke-doré fill-doré">
             <motion.path
-              d={SVGConfig.d1}
+              d={SVGConfig.d3}
+              fillRule="evenodd"
+              clipRule="evenodd"
               strokeWidth="4"
               strokeLinecap="round"
             />

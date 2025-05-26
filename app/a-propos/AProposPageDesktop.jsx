@@ -77,7 +77,7 @@ export default function AProposDesktop() {
       "
     >
       {/* Texte (80% sur desktop, 100% sur mobile) */}
-      <div className="md:col-span-4 space-y-6">
+      <div className="md:col-span-4 w-full space-y-6">
         <p>
           Je suis <strong>Michel Marques</strong>, fondateur d’Alforis, un cabinet
           haut de gamme spécialisé en <strong>design de trajectoire de vie</strong>.
@@ -112,7 +112,7 @@ export default function AProposDesktop() {
           transition={{ duration: 0.8 }}
         >
           <motion.path
-            d={SVGConfig.d1}
+            d={SVGConfig.d3}
             strokeWidth="4"
             fillRule="evenodd"
             clipRule="evenodd"
