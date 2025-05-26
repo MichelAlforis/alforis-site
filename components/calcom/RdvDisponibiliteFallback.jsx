@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import PremiumButton from '../ui/PremiumButton'
-import Input from '../ui/input'
+import { Input } from '../ui/input'
 import { toast } from 'react-toastify'
 
 export default function RdvDisponibiliteFallback({ onSubmit, onBack }) {

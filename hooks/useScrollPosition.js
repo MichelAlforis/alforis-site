@@ -1,11 +1,10 @@
-// hooks/useScrollPosition.js
 import { useState, useEffect } from 'react'
 
 export default function useScrollPosition() {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    // on cible <body> (ou document.scrollingElement)
+    // Next.js: attendre que le DOM soit dispo
     const scEl = document.body
 
     const onScroll = () => {
@@ -13,7 +12,8 @@ export default function useScrollPosition() {
     }
 
     scEl.addEventListener('scroll', onScroll, { passive: true })
-    onScroll() // initialise immédiatement
+    // init
+    setScrollY(scEl.scrollTop)
 
     return () => scEl.removeEventListener('scroll', onScroll)
   }, [])

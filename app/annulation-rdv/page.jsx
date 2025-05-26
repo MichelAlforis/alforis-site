@@ -16,8 +16,6 @@ export default function AnnulationRDV() {
   }
 
   const handleAnnulation = async () => {
-    // Ici tu peux appeler une route API pour annuler dans Airtable/Cal.com
-    // Pour l’instant, simple : email à admin (ou marquer “à traiter”)
     await fetch('/api/annule-rdv', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -33,7 +31,7 @@ export default function AnnulationRDV() {
       <h2 className="text-2xl font-bold text-doré mb-2">Gérer mon rendez-vous</h2>
       {done ? (
         <>
-          <p className="mb-6">Votre demande d'annulation a bien été transmise.<br/>Notre équipe va vous recontacter.</p>
+          <p className="mb-6">Votre demande d'annulation a bien été prise en compte.<br/>Notre équipe va vous recontacter.</p>
           <PremiumButton href="/prendre-rendez-vous">Replanifier un rendez-vous</PremiumButton>
         </>
       ) : (

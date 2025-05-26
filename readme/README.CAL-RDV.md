@@ -1,54 +1,65 @@
-Prise de rendez-vous Cal.com avec tunnel dynamique (Next.js)
-Objectif
-Permettre aux visiteurs de choisir un créneau de rendez-vous parmi les créneaux réellement disponibles (récupérés dynamiquement depuis Cal.com), à travers un tunnel interactif :
+# Prise de rendez-vous Cal.com avec tunnel dynamique (Next.js)
 
-Étape 1 : choix d’une date
+## Objectif
 
-Étape 2 : choix d’un horaire
+Permettre aux visiteurs de choisir un créneau de rendez-vous **parmi les créneaux réellement disponibles** (récupérés dynamiquement depuis Cal.com), à travers un tunnel interactif :  
+- Étape 1 : choix d’une date  
+- Étape 2 : choix d’un horaire  
+- Fallback : choix d’une autre semaine, puis possibilité de proposer ses propres disponibilités
 
-Fallback : choix d’une autre semaine, puis possibilité de proposer ses propres disponibilités
+---
 
-1. Arborescence et fichiers clés
-bash
-Copier
-Modifier
-/app/api/calcom/slots/route.js            # API route : expose les créneaux Cal.com (adapté au tunnel)
-/components/RDVTunnel.jsx                 # Composant React du tunnel de prise de RDV
-/components/CustomDisponibilityForm.jsx   # Fallback : formulaire pour proposer d'autres dispos
+## 1. Arborescence et fichiers clés
+
+/app/api/calcom/slots/route.js # API route : expose les créneaux Cal.com (adapté au tunnel)
+/components/RDVTunnel.jsx # Composant React du tunnel de prise de RDV
+/components/CustomDisponibilityForm.jsx # Fallback : formulaire pour proposer d'autres dispos
 /app/prendre-rendez-vous/PrendreRDVContent.jsx # Intégration du tunnel + fallback dans la page RDV
-.env.local                                # Contient la clé API privée Cal.com
-2. Configuration Cal.com
-Va sur https://cal.com/ et connecte-toi à ton dashboard.
+.env.local # Contient la clé API privée Cal.com
 
-Crée au moins 1 Event Type (ex : « Appel téléphonique »)
-
-Clique sur l’event, copie son ID (id dans l’API ou l’URL, ex : 2283473)
-
-Configure tes availabilities (jours, heures où tu es joignable)
-
-Génère une API key (Settings > API Keys > "Full access" ou "Slots read")
-
-3. Variables d’environnement (sécurité)
-Dans .env.local à la racine du projet, mets :
-
-ini
+yaml
 Copier
 Modifier
+
+---
+
+## 2. Configuration Cal.com
+
+- Va sur [https://cal.com/](https://cal.com/) et connecte-toi à ton dashboard.
+- Crée au moins 1 Event Type (ex : « Appel téléphonique »)
+- Clique sur l’event, copie son **ID** (`id` dans l’API ou l’URL, ex : `2283473`)
+- Configure tes **availabilities** (jours, heures où tu es joignable)
+- Génère une **API key** (Settings > API Keys > "Full access" ou "Slots read")
+
+---
+
+## 3. Variables d’environnement (sécurité)
+
+Dans `.env.local` à la racine du projet, mets :
+
 CAL_COM_TOKEN=ta_clé_API_cal_live_xxx
-Redémarre toujours le serveur Next.js après toute modification de .env.local.
 
-4. Backend : route /api/calcom/slots
-js
+yaml
 Copier
 Modifier
+
+**Redémarre toujours** le serveur Next.js après toute modification de `.env.local`.
+
+---
+
+## 4. Backend : route `/api/calcom/slots`
+
+```js
 // app/api/calcom/slots/route.js
 export const runtime = 'nodejs'
 import { NextResponse } from 'next/server'
 
 export async function GET(req) {
-  // ... voir code complet dans ce fichier ...
+  // ... voir code complet plus haut ...
 }
-Ce que fait la route :
+```js
+
+Ce que fait la route :
 
 Lit le type de rendez-vous en query (type=appel, type=visio...)
 
@@ -60,17 +71,15 @@ Transforme le format { slots: { 'YYYY-MM-DD': [ { time } ] } } en [ { date, hour
 
 Retourne le tout au frontend
 
-Exemple d’appel :
+Exemple d’appel :
 
 pgsql
 Copier
 Modifier
 GET /api/calcom/slots?type=appel&range=14
-Réponse :
+Réponse :
 
-json
-Copier
-Modifier
+```js
 [
   {
     "date": "2025-05-26",
@@ -81,7 +90,10 @@ Modifier
     "hours": ["09:00","09:15","10:30"]
   }
 ]
-5. Frontend : composant tunnel RDV
+```js
+
+
+## 5. Frontend : composant tunnel RDV
 Fichier : /components/RDVTunnel.jsx
 
 Au mount, fetch /api/calcom/slots?type=...
@@ -108,29 +120,26 @@ Affiche le fallback formulaire manuel sinon
 
 8. Dépannage courant
 → Rien n’est proposé côté frontend ?
-
 Vérifie que tes Event Types ont bien des horaires définis côté Cal.com
 
 Allonge la période recherchée (?range=21 par ex)
 
-Regarde dans la console serveur si la log Réponse Cal.com slots: affiche bien des créneaux bruts
+Regarde dans la console serveur si la log Réponse Cal.com slots: affiche bien des créneaux bruts
 
 Vérifie le mapping EVENT_TYPE_ID dans ta route
 
 → Erreur 401 / 400 de Cal.com ?
-
 Re-génère une clé API "Full access" sur Cal.com et remplace-la dans .env.local
 
 Vérifie que tu passes le bon ID d’event
 
 → Je veux afficher les rendez-vous déjà pris ?
-
 Utilise /v1/bookings de Cal.com pour récupérer la liste des bookings confirmés
 
 9. Astuces & évolutions
-Tu peux randomiser la sélection de dates ou d’horaires pour dynamiser l’UX (ex : slice 3 dates au hasard dans la réponse).
+Tu peux randomiser la sélection de dates ou d’horaires pour dynamiser l’UX (ex : slice 3 dates au hasard dans la réponse).
 
-Pour forcer l’exécution Node (et voir tes logs serveur), ajoute tout en haut de la route :
+Pour forcer l’exécution Node (et voir tes logs serveur), ajoute tout en haut de la route :
 
 js
 Copier
@@ -167,3 +176,7 @@ Fallback vers formulaire si aucun créneau ne convient
 Logs côté backend pour debug en cas de problème
 
 Pour toute évolution ou debug, consulte ce README !
+
+yaml
+Copier
+Modifier

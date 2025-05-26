@@ -34,6 +34,7 @@ export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
 
           {booking && (
             <ConfirmationRDVForm
+              slot={booking.slot}
               type={booking.type}
               date={booking.date}
               time={booking.time}

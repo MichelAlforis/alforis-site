@@ -29,7 +29,7 @@ export async function GET(req) {
     const res = await fetch(url.toString(), { method: 'GET' })
     const json = await res.json()
 
-    // Nouveau : adapter à la structure { slots: { "2025-05-26": [ { time }, ... ] } }
+    // Reformate la structure reçue pour ton front
     const slotsByDate = {}
     if (json.slots && typeof json.slots === 'object') {
       Object.entries(json.slots).forEach(([date, slotArr]) => {
@@ -41,7 +41,7 @@ export async function GET(req) {
       })
     }
 
-    // On retourne sous la forme attendue par le tunnel : [{ date, hours }]
+    // Retourne pour RDVTunnel.jsx : [{ date, hours }]
     const result = Object.entries(slotsByDate)
       .map(([date, hours]) => ({ date, hours }))
 
@@ -51,4 +51,3 @@ export async function GET(req) {
     return NextResponse.json({ error: err.message }, { status: 500 })
   }
 }
- 

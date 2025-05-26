@@ -8,6 +8,12 @@ import RDVTunnelJour from './RDVTunnelJour'
 import RDVTunnelHour from './RDVTunnelHour'
 import RdvDisponibiliteFallback from './RdvDisponibiliteFallback'
 
+const EVENT_TYPE_ID = {
+  appel: '2283473',
+  visio: '2283484',
+  patrimonial: '2283489',
+}
+
 const WEEK_MILLIS = 7 * 24 * 60 * 60 * 1000
 
 export default function RDVTunnel({ type, onConfirm, onFallback }) {
@@ -18,6 +24,7 @@ export default function RDVTunnel({ type, onConfirm, onFallback }) {
   const [weekOffset, setWeekOffset] = useState(0)
   const [loading, setLoading] = useState(false)
   const [showFallback, setShowFallback] = useState(false)   // <-- ici !
+  const MAX_WEEKS = 3 // ou la valeur que tu veux
 
   // Focus sur le titre à chaque étape
   const titleRef = useRef()
@@ -31,11 +38,17 @@ export default function RDVTunnel({ type, onConfirm, onFallback }) {
     setLoading(true)
     fetch(`/api/calcom/slots?type=${type}`)
       .then(r => r.json())
-      .then(data => {
-        setAllSlots(data)
-        setWeekOffset(0)
-        setStep(1)
-      })
+.then(data => {
+  if (Array.isArray(data)) {
+    setAllSlots(data)
+  } else {
+    console.warn('Slots API did not return an array:', data)
+    setAllSlots([])
+  }
+  setWeekOffset(0)
+  setStep(1)
+})
+
       .catch(() => setAllSlots([]))
       .finally(() => setLoading(false))
   }, [type])
@@ -58,10 +71,20 @@ export default function RDVTunnel({ type, onConfirm, onFallback }) {
     setStep(2)
     toast.success("Date sélectionnée ! Choisissez votre horaire.", { icon: "📅" })
   }
+ 
   const handleSelectHour = (hour) => {
-    onConfirm({ type, date: chosenDate, time: hour })
-    toast.success("Horaire réservé ! On vous confirme par email sous 24h.", { icon: "⏰" })
-  }
+    onConfirm({
+      slot: {
+        eventTypeId: EVENT_TYPE_ID[type],
+        start: new Date(`${chosenDate}T${hour}:00`).toISOString()
+      },
+      date: chosenDate,
+      time: hour,
+      type
+    });
+    toast.success("Horaire réservé ! On vous confirme par email sous 24h.", { icon: "⏰" });
+}
+
 
   // Handler pour fallback depuis enfants
   const handleFallback = () => setShowFallback(true)
@@ -113,7 +136,8 @@ export default function RDVTunnel({ type, onConfirm, onFallback }) {
                 dateOptions={dateOptions}
                 weekOffset={weekOffset}
                 onSelectDate={handleSelectDate}
-                onNextWeek={() => setWeekOffset(1)}
+                onNextWeek={() => setWeekOffset(w => Math.min(w + 1, MAX_WEEKS))}
+                onPrevWeek={() => setWeekOffset(w => Math.max(0, w - 1))}
                 onFallback={handleFallback}
                 disabled={loading}
               />
