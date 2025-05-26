@@ -30,7 +30,7 @@ export default function ContactFinal({
     RisquePercu: '',
     NumeroTelephone: '',
     Profil: profilPrincipal || '',
-    FormName: meta?.title || '',
+    NomDuFormulaire: meta?.title || '',
   })
 
   // Scroll to top on step change
@@ -116,16 +116,16 @@ export default function ContactFinal({
       const sanitized = sanitizeFormData(formData);
       const fields = filterFormData(sanitized);
 
-     // 3) ôte FormName (et MarketingOk) avant de renvoyer le reste
+     // 3) ôte NomDuFormulaire (et MarketingOk) avant de renvoyer le reste
      const {
-       FormName,
+       NomDuFormulaire,
        MarketingOk,             // si tu n'en as pas besoin, on l'extrait ici aussi
        ...allowedFields         // tout le reste (Nom, Email, etc.)
      } = fields;
 
      const airtableFields = {
-       ...allowedFields,                   // ne contient plus FormName
-       NomDuFormulaire: FormName || meta.title || 'Parcours inconnu',
+       ...allowedFields,                   // ne contient plus NomDuFormulaire
+       NomDuFormulaire: NomDuFormulaire || meta.title || 'Parcours inconnu',
        Profil:            profilPrincipal,
        PhraseLibre:       sanitized.PhraseLibre,
      };

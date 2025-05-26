@@ -68,7 +68,7 @@ export default function ParcoursFormulaire({ meta, slug, onComplete }) {
         bg-ivoire/90 dark:bg-acier/60 
         rounded-2xl p-4 
         flex flex-col
-        z-base
+        z-base mb-2 md:mb-4
       "
     >
       {/* 1. Marge au-dessus de la progressbar, mais à l'intérieur du bg */}
