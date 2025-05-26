@@ -2,35 +2,31 @@ name: Déploiement SSH
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🔄 Récupérer le code
+
+      - name: 🔄 Checkout
         uses: actions/checkout@v4
 
-      - name: 🧪 Générer le fichier `.env`
+      - name: 🧪 Générer .env
         run: |
           echo "API_KEY=${{ secrets.API_KEY }}" > .env
           echo "NODE_ENV=production" >> .env
 
-      - name: 🔐 Préparer la clé SSH
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan host >> ~/.ssh/known_hosts
+      - name: 🔐 Charger la clé SSH
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: 📤 Copier les fichiers sur le serveur
+      - name: 📤 Copier sur le serveur
         run: |
-          scp -r -i ~/.ssh/id_rsa . user@host:/chemin/app/
+          scp -r . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/chemin/app/
 
-      - name: 🚀 Redémarrer l'application sur le serveur
+      - name: 🚀 Redémarrer l’app
         run: |
-          ssh -i ~/.ssh/id_rsa user@host 'pm2 restart mon-app || (cd /chemin/app && node index.js &)'
-
-    env:
-      NODE_ENV: production
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            'cd /chemin/app && pm2 restart mon-app'
