@@ -4,13 +4,7 @@ import { useState } from 'react'
 import PremiumButton from '../ui/PremiumButton'
 import { Input } from '../ui/input'
 import { toast } from 'react-toastify'
-
-const EVENT_TYPE_ID = {
-  appel: '2283473',
-  visio: '2283484',
-  patrimonial: '2283489'
-}
-
+import AddressInput from '../ui/AddressInput'  // ton composant d'autocomplétion
 
 export default function ConfirmationRDVForm({
   type,
@@ -24,7 +18,8 @@ export default function ConfirmationRDVForm({
     nom: '',
     prenom: '',
     email: '',
-    telephone: ''
+    telephone: '',
+    adresse: ''     // ← nouveau champ
   })
   const [sending, setSending] = useState(false)
   const [done, setDone] = useState(false)
@@ -34,56 +29,53 @@ export default function ConfirmationRDVForm({
     setForm(f => ({ ...f, [name]: value }))
   }
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSending(true);
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setSending(true)
 
-  try {
-    const res = await fetch('/api/rdv-confirm', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-    type,
-    date,
-    time,
-    nom: form.nom,
-    prenom: form.prenom,
-    email: form.email,
-    tel: form.telephone
-  })
-});
+    try {
+      const payload = {
+        type,
+        date,
+        time,
+        Nom:             form.nom,
+        Prenom:          form.prenom,
+        Email:           form.email,
+        NumeroTelephone: form.telephone,
+        // n’injecte adresse que pour le physique
+        ...(type === 'patrimonial' && { adresse: form.adresse })
+      }
 
-    // 1️⃣ Cas où le créneau vient d'être pris ou n'est plus dispo
-    if (res.status === 409) {
-      const { error } = await res.json();
-      toast.error(error);
-      onRestart?.();
-      return;
+      const res = await fetch('/api/rdv-confirm', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      })
+
+      // créneau plus dispo
+      if (res.status === 409) {
+        const { error } = await res.json()
+        toast.error(error)
+        onRestart?.()
+        return
+      }
+
+      // autre erreur
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        throw new Error(err.error || err.message || 'Erreur d’enregistrement')
+      }
+
+      // succès
+      setDone(true)
+      toast.success('Votre demande a bien été enregistrée.')
+      onAirtable?.()
+    } catch (err) {
+      toast.error(err.message || "Erreur lors de l'enregistrement, veuillez réessayer.")
+    } finally {
+      setSending(false)
     }
-
-    // 2️⃣ Toute autre erreur HTTP
-    if (!res.ok) {
-      let errMsg = 'Erreur d’enregistrement';
-      try {
-        const err = await res.json();
-        errMsg = err.error || err.message || errMsg;
-      } catch {}
-      throw new Error(errMsg);
-    }
-
-    // 3️⃣ Succès
-    setDone(true);
-    toast.success('Votre demande a bien été enregistrée.');
-    onAirtable?.();
-
-  } catch (err) {
-    toast.error(err.message || "Erreur lors de l'enregistrement, veuillez réessayer.");
-  } finally {
-    setSending(false);
   }
-};
-
-
 
   if (done) {
     return (
@@ -172,27 +164,25 @@ const handleSubmit = async (e) => {
           placeholder="Adresse e-mail"
           className="w-full bg-white"
         />
+
+        {type === 'patrimonial' && (
+          <AddressInput
+            value={form.adresse}
+            onSelect={addr => setForm(f => ({ ...f, adresse: addr }))}
+          />
+        )}
       </div>
 
       <PremiumButton type="submit" disabled={sending} className="w-full text-doré">
         {sending ? 'Envoi...' : 'Valider mon rendez-vous'}
       </PremiumButton>
 
-      <button
-        type="button"
-        onClick={onRestart}
-        className="mt-4 underline text-acier"
-      >
+      <button type="button" onClick={onRestart} className="mt-4 underline text-acier">
         ← Choisir un autre créneau
       </button>
 
       {agendaUrl && (
-        <a
-          href={agendaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mt-4 underline text-acier"
-        >
+        <a href={agendaUrl} target="_blank" rel="noopener noreferrer" className="block mt-4 underline text-acier">
           Accéder à l’agenda complet
         </a>
       )}

@@ -2,15 +2,16 @@
 export const runtime = 'nodejs'
 
 import { NextResponse } from 'next/server'
-import { saveRDV } from '@/lib/airtable/saveRDV'
-import { notifyAdminRDV, sendClientMailRDV } from '@/lib/airtable/EmailServiceRDV'
 
 const CAL_API_KEY = process.env.CAL_COM_TOKEN
-
 const EVENT_TYPE_IDS = {
   appel:       '2283473',
   visio:       '2283484',
   patrimonial: '2283489'
+}
+
+function toUTC(date, time) {
+  return new Date(`${date}T${time}:00+02:00`).toISOString()
 }
 
 async function createCalBooking(data) {
@@ -30,19 +31,18 @@ async function createCalBooking(data) {
   }
 
   // Calcul de l’heure de début en ISO UTC
-  const [h, m] = time.split(':').map(Number)
-  const local    = new Date(`${date}T${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:00`)
-  const startISO = local.toISOString()
+  const startISO = toUTC(date, time)
 
   // Préparation de l’invité
   const attendeeEmail = Email || email || ''
   const attendeePhone = NumeroTelephone || telephone || ''
-  const name = [Prenom||prenom, Nom||nom].filter(Boolean).join(' ')
+  const name = [Prenom || prenom, Nom || nom].filter(Boolean).join(' ')
 
-  // Payload v2 (sans end ni lengthInMinutes)
+  // Payload v2 (sans end ni lengthInMinutes), avec champ location pour physique
   const payload = {
     eventTypeId: Number(eventTypeId),
     start:       startISO,
+    metadata:    { source: 'site web' },
     attendee: {
       name,
       email:       attendeeEmail,
@@ -50,16 +50,21 @@ async function createCalBooking(data) {
       timeZone:    'Europe/Paris',
       language:    'fr'
     },
-    metadata: { source: 'site web' }
+    // Spécifier le lieu pour les RDV physiques
+    ...(type === 'patrimonial' && {
+      location: {
+        type: 'in_person',
+        location: 'Adresse à renseigner'  // <— Remplacez par votre lieu
+      }
+    })
   }
 
-  // Appel à Cal.com v2
   const res = await fetch('https://api.cal.com/v2/bookings', {
     method: 'POST',
     headers: {
-      'Content-Type':     'application/json',
-      'Authorization':    `Bearer ${CAL_API_KEY}`,
-      'cal-api-version':  '2024-08-13'
+      'Content-Type':    'application/json',
+      'Authorization':   `Bearer ${CAL_API_KEY}`,
+      'cal-api-version': '2024-08-13'
     },
     body: JSON.stringify(payload)
   })
@@ -72,7 +77,7 @@ async function createCalBooking(data) {
 }
 
 export async function POST(req) {
-  // Vérification de la clé
+  // Vérification de la clé Cal.com
   if (!CAL_API_KEY) {
     console.error('❌ Clé Cal.com manquante')
     return NextResponse.json({ error: 'Clé Cal.com manquante' }, { status: 500 })
@@ -93,36 +98,12 @@ export async function POST(req) {
     booking = await createCalBooking(data)
   } catch (e) {
     console.error('❌ Erreur Cal.com :', e)
-    // Cas de créneau déjà pris
     if (e.message.includes('not available') || e.message.includes('already has booking')) {
-      return NextResponse.json(
-        { error: 'Ce créneau n’est plus disponible. Veuillez en choisir un autre.' },
-        { status: 409 }
-      )
+      return NextResponse.json({ error: 'Ce créneau n’est plus disponible.' }, { status: 409 })
     }
     return NextResponse.json({ error: e.message }, { status: 500 })
   }
 
-  // Sauvegarde dans Airtable
-  const rdvStr = `${data.type} le ${data.date} à ${data.time}`
-  try {
-    await saveRDV({
-      nom:          data.Nom || data.nom || '',
-      prenom:       data.Prenom || data.prenom || '',
-      telephone:    data.NumeroTelephone || data.telephone || '',
-      email:        data.Email || data.email || '',
-      rdv:          rdvStr,
-      calbookingid: booking.id
-    })
-  } catch (e) {
-    console.error('❌ Erreur Airtable :', e)
-    return NextResponse.json({ error: e.message }, { status: 500 })
-  }
-
-  // Notifications (non bloquantes)
-  notifyAdminRDV({ fields: data }).catch(console.error)
-  sendClientMailRDV({ fields: data }).catch(console.error)
-
-  // Retour au front
+  // Réponse au front
   return NextResponse.json({ success: true, booking })
 }

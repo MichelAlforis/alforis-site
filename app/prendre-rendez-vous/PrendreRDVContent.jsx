@@ -3,9 +3,7 @@ import { React, useState } from 'react'
 
 import { motion } from 'framer-motion'
 import { pageConfig } from './pageConfig'
-import RDVTunnel from '@/components/calcom/RDVTunnel'
-import CustomDisponibilityForm from '@/components/calcom/CustomDisponibilityForm'
-import ConfirmationRDVForm from '@/components/calcom/ConfirmationRDV'
+import BookingEmded from '@/components/calcom/BookingEmbed'
 
 const rdvTypes = pageConfig.tabs
 
@@ -24,28 +22,7 @@ export default function PrendreRDVContent({ content, activeTab, onTabChange }) {
       >
         <div className="text-center space-y-12">
          
-          {!booking && !fallback && activeTab && (
-            <RDVTunnel
-              type={activeTab}
-              onConfirm={setBooking}
-              onFallback={handleFallback}
-            />
-          )}
-
-          {booking && (
-            <ConfirmationRDVForm
-              slot={booking.slot}
-              type={booking.type}
-              date={booking.date}
-              time={booking.time}
-              onRestart={() => { setBooking(null); setFallback(false) }}
-              agendaUrl="https://cal.com/alforis" // ou ton lien complet
-            />
-          )}
-
-          {fallback && !booking && (
-            <CustomDisponibilityForm type={activeTab} />
-          )}
+        <BookingEmded type={activeTab} />
 
         </div>
       </motion.section>
