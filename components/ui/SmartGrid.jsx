@@ -63,7 +63,7 @@ const GenericCard = ({ item, index = 0, type, extra }) => {
             {/* Contenu */}
             <div className="flex flex-col flex-1 p-4">
               <span className="text-sm font-semibold text-doré uppercase mb-1">{itemType}</span>
-              <h3 className="text-xl font-title mb-2 truncate">{title}</h3>
+              <h3 className="text-xl font-title mb-2 break-words">{title}</h3>
               <p className="text-sm text-anthracite/80 flex-1 line-clamp-3">{description}</p>
               {price && (
                 <p className="text-sm font-bold text-ardoise mt-4">{price}</p>

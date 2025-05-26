@@ -23,7 +23,7 @@ export default function PageLayout({
   onTabChange,
   showTabs = true,
   // Contrôle de la largeur max du contenu
-  maxWidth = 'max-w-xl md:max-w-2xl lg:max-w-3xl',
+  maxWidth = 'max-w-xl md:max-w-4xl lg:max-w-6xl',
 }) {
   const paddingTop = usePaddingTop();
 
@@ -44,7 +44,7 @@ export default function PageLayout({
       />
       <section
         id="Main-Layout"
-        className={`flex-1 w-full mx-auto ${maxWidth} px-2 md:px-4 mt-2 md:mt-4`}
+        className={`flex-1 w-full mx-auto ${maxWidth} px-2 md:px-4 mt-2 md:mt-4 mb-2 md:mb-4`}
       >
         {children}
       </section>

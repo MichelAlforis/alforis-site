@@ -50,10 +50,10 @@ function SmartListItem({ item, index = 0, type, extra }) {
             />
           </div>
           <div className="flex flex-col flex-1  min-w-0">
-            <span className="text-xs font-medium uppercase text-doré mb-1 truncate">
+            <span className="text-xs font-medium uppercase text-doré mb-1">
               {itemType}
             </span>
-            <h3 className="text-md md:texte:text-lg font-title text-ardoise dark:text-acier-100 leading-tight line-clamp-2 truncate">
+            <h3 className="text-md md:text-lg font-title text-ardoise dark:text-acier-100 leading-tight break-words">
               {title}
             </h3>
             <p className="text-sm text-anthracite/80 dark:text-acier-400 mt-1 line-clamp-3 truncate">
