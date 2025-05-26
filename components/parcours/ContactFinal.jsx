@@ -239,6 +239,7 @@ export default function ContactFinal({
               {errorFields.SituationActuelle && (
                 <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>
               )}
+              </select>
             </div>
             {['PatrimoineActuel', 'RevenusAnnuels', 'RisquePercu', 'NumeroTelephone'].map((key) => (
               <div key={key}>

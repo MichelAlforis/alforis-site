@@ -22,11 +22,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: 📤 Copier sur le serveur
+      - name: 🚀 Déployer via SSH
         run: |
-          scp -r . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/chemin/app/
-
-      - name: 🚀 Redémarrer l’app
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            'cd /chemin/app && pm2 restart mon-app'
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} '
+            cd /chemin/app &&
+            git pull origin main &&
+            npm install --production &&
+            npm run build &&
+            pm2 restart mon-app || pm2 start npm --name mon-app -- run start
+          '
