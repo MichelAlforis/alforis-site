@@ -31,6 +31,7 @@ export default function ContactFinal({
     NumeroTelephone: '',
     Profil: profilPrincipal || '',
     NomDuFormulaire: meta?.title || '',
+    ...answers
   })
 
   // Scroll to top on step change
@@ -230,10 +231,11 @@ export default function ContactFinal({
                 }`}
               >
                 <option value="">Choisissez...</option>
-                <option>Célibataire</option>
-                <option>En couple</option>
-                <option>Marié(e)</option>
-              </select>
+                <option value="Célibataire">Célibataire</option>
+                <option value="Union libre">Union libre</option>
+                <option value="Marié(e)">Marié(e)</option>
+                <option value="Divorcé(e)">Divorcé(e)</option>
+                <option value="Veuf/Veuve">Veuf/Veuve</option>
               {errorFields.SituationActuelle && (
                 <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>
               )}
