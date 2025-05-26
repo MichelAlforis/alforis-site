@@ -1,75 +1,69 @@
+// KEYWORDS
 export const keywords = {
   globeTrotteur: ["expert", "international", "optimisation poussée", "juridictions multiples", "conventions fiscales"],
   expatriePrudent: ["sécurité", "prudent", "clair", "conformité", "transparent"],
   nouveauDepart: ["novice", "première expatriation", "découverte", "débutant", "simple", "accompagnement"]
 }
 
-
+// PROFILE DATA
 export const profilesData = {
-  "L'Optimisateur": {
-    title: "L'Optimisateur",
-    description: "Vous maîtrisez déjà très bien les dispositifs fiscaux et souhaitez pousser votre stratégie encore plus loin.",
-    icon: "🎯",
-    color: "#27AE60",
+  "Le Globe-trotteur averti": {
+    title: "Le Globe-trotteur averti",
+    description: "Vous maîtrisez déjà les enjeux fiscaux liés à l’expatriation et souhaitez affiner encore davantage votre stratégie.",
+    icon: "🌍",
+    color: "#6A0572",
     paragraphs: [
-      "Vous avez déjà mis en place des stratégies d'optimisation fiscale performantes, exploitant pleinement les outils disponibles pour alléger votre imposition tout en respectant parfaitement la réglementation en vigueur. Votre maîtrise approfondie des mécanismes fiscaux vous permet aujourd'hui de viser encore plus haut, en recherchant des solutions fiscales innovantes ou peu utilisées.",
-
-      "Votre ambition est de maximiser chaque opportunité fiscale afin d'accroître durablement votre patrimoine. Vous êtes prêt à explorer des dispositifs complexes tels que les holdings patrimoniales, les investissements spécialisés (Girardin, Malraux, déficit foncier avancé), ou encore les montages patrimoniaux nécessitant une forte expertise.",
-
-      "Alforis vous accompagne dans cette démarche poussée d'optimisation, vous fournissant des analyses détaillées, des scénarios précis et une veille constante pour tirer pleinement parti de chaque évolution réglementaire ou opportunité fiscale émergente."
+      "Habitué à vivre entre plusieurs juridictions fiscales, vous avez une très bonne connaissance des conventions internationales et des règles d'imposition transfrontalière.",
+      "Votre ambition est de perfectionner votre approche en optimisant la gestion de vos actifs répartis à l’international, tout en maintenant une conformité rigoureuse.",
+      "Avec Alforis, bénéficiez d’analyses approfondies, de scénarios précis et d'une veille constante pour maximiser votre patrimoine mondial."
     ],
     citation: {
-      emoji: "🎯",
-      text: "Optimiser sans limites, tout en restant parfaitement conforme."
+      emoji: "🌍",
+      text: "Optimiser son patrimoine sans frontières, en toute sérénité."
     },
     cta: {
-      label: "Maximiser ma stratégie fiscale",
+      label: "Affiner ma stratégie fiscale internationale",
       href: "/rdv-patrimonial"
     }
   },
 
-  "Le Chercheur d'équilibre": {
-    title: "Le Chercheur d'équilibre",
-    description: "Vous voulez optimiser intelligemment votre fiscalité sans compromettre la sécurité de votre patrimoine.",
-    icon: "⚖️",
-    color: "#F5A623",
+  "L'Expatrié prudent": {
+    title: "L'Expatrié prudent",
+    description: "Vous souhaitez sécuriser efficacement votre patrimoine dans le contexte complexe de l'expatriation.",
+    icon: "🛡️",
+    color: "#3E92CC",
     paragraphs: [
-      "Votre objectif est clair : vous recherchez un équilibre parfait entre optimisation fiscale et protection durable de votre patrimoine. Vous êtes conscient que certaines stratégies fiscales peuvent offrir des avantages significatifs mais souhaitez éviter tout risque inutile ou toute complexité excessive.",
-
-      "Vous privilégiez une approche prudente et réfléchie, où chaque choix fiscal est analysé rigoureusement. Vous souhaitez une visibilité parfaite sur l’impact à court, moyen et long terme des dispositifs mis en place, afin d’assurer votre tranquillité d’esprit tout en profitant des avantages fiscaux les plus pertinents.",
-
-      "Alforis est à vos côtés pour structurer une stratégie parfaitement équilibrée, basée sur des simulations précises et transparentes, garantissant ainsi que chaque solution adoptée soit aussi performante fiscalement que sûre et durable patrimonialement."
+      "Conscient des opportunités mais aussi des risques fiscaux liés à l'expatriation, vous privilégiez la sécurité et la clarté.",
+      "Votre priorité est une stratégie transparente et rassurante, vous permettant de profiter des avantages fiscaux sans compromettre votre tranquillité d’esprit.",
+      "Alforis structure votre patrimoine international de manière sécurisée et conforme, pour aborder votre expatriation en toute confiance."
     ],
     citation: {
-      emoji: "⚖️",
-      text: "Optimiser intelligemment, c’est trouver l’équilibre parfait entre sécurité et performance."
+      emoji: "🛡️",
+      text: "La sécurité fiscale internationale est la clé d'une expatriation sereine."
     },
     cta: {
-      label: "Créer mon plan d'optimisation équilibré",
+      label: "Sécuriser mon expatriation fiscale",
       href: "/rdv-visio"
     }
   },
 
-  "Le Néophyte": {
-    title: "Le Néophyte",
-    description: "Vous débutez en matière d'optimisation fiscale et avez besoin d’être guidé pas à pas.",
-    icon: "🌱",
-    color: "#3498DB",
+  "Le Nouveau départ": {
+    title: "Le Nouveau départ",
+    description: "Vous êtes novice en expatriation fiscale et avez besoin d'être guidé simplement dans cette transition.",
+    icon: "🚦",
+    color: "#F18F01",
     paragraphs: [
-      "Vous découvrez tout juste le monde complexe de l'optimisation fiscale, et vous vous sentez parfois dépassé par les nombreuses informations contradictoires ou techniques que vous trouvez. Votre priorité est avant tout de comprendre clairement comment fonctionne l’optimisation fiscale, quels en sont les vrais bénéfices et quelles sont les premières étapes à engager en toute sécurité.",
-
-      "Vous souhaitez une approche pédagogique, simple et claire, sans jargon inutile. Votre objectif premier est d’acquérir progressivement les connaissances nécessaires afin de prendre des décisions éclairées pour votre avenir financier, en toute confiance.",
-
-      "Alforis vous guide de manière rassurante et structurée, vous explique clairement chaque mécanisme fiscal intéressant, et vous aide à mettre en place pas à pas une stratégie simple mais efficace pour optimiser votre fiscalité tout en restant parfaitement serein."
+      "Votre expatriation est une étape passionnante, mais la complexité fiscale vous paraît intimidante. Vous souhaitez comprendre simplement les démarches essentielles.",
+      "Alforis vous accompagne pas à pas, clarifiant chaque obligation et vous aidant à mettre en place une stratégie simple mais efficace pour sécuriser votre patrimoine.",
+      "Vous posez ainsi des bases solides pour votre avenir financier international et abordez cette nouvelle vie avec sérénité."
     ],
     citation: {
-      emoji: "🌱",
-      text: "L’accompagnement rassurant est le meilleur moyen de se lancer sereinement."
+      emoji: "🚦",
+      text: "Un bon départ fiscal international commence par une bonne compréhension."
     },
     cta: {
-      label: "Démarrer mon optimisation fiscale",
+      label: "Bien démarrer mon expatriation",
       href: "/rdv-tel"
     }
   }
 }
-

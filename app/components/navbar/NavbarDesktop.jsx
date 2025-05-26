@@ -64,20 +64,20 @@ export default function NavbarDesktop({links}) {
 
         {/* MENU DESKTOP */}
         {/* col-3: nav + bouton mobile */}
-      <div className="flex-1 flex items-center justify-end space-x-2 justify-self-end">
+      <div className="flex-1 flex items-center justify-end space-x-2 justify-self-end mr-4">
             {/* → Priorité  */}  
             {links.map(l => <NavLink key={l.href} href={l.href} label={l.label} isHome={isHome} />)}
 
         </div>
 
           {/* col-4:→ SWITCH MODE JOUR/NUIT */}
-        <div className="flex items-center space-x-4 flex-shrink-0 ml-4">
+        <div className="flex items-center space-x-4 flex-shrink-0 mr-2">
           <SwitchDarkMode/>
 
           {/* → Bouton rdv */}
           <Button
             to="/prendre-rendez-vous"
-            className="btn-alforis-rdv font-semibold"
+            className="btn-alforis-rdv font-semibold "
             onClick={() => handleLinkClick('/prendre-rendez-vous')}
           >
             Prendre un RDV

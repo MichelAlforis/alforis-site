@@ -242,10 +242,11 @@ export default function ContactFinal({
                 <option value="Marié(e)">Marié(e)</option>
                 <option value="Divorcé(e)">Divorcé(e)</option>
                 <option value="Veuf/Veuve">Veuf/Veuve</option>
+              </select>
               {errorFields.SituationActuelle && (
                 <p className="text-red-600 text-sm">{errorFields.SituationActuelle}</p>
               )}
-              </select>
+              
             </div>
             {['PatrimoineActuel', 'RevenusAnnuels', 'RisquePercu', 'NumeroTelephone'].map((key) => (
               <div key={key}>
