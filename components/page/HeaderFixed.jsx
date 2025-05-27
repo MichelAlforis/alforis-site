@@ -5,7 +5,7 @@ import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import TabsBar from './TabsBar'
 import ThemeToggleButton from '../ui/ThemeToggleButton'
-import ResizeObserver from 'resize-observer-polyfill'
+
 
 export default function HeaderFixed({
   title,

@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import clsx from 'clsx';
-import MobileScrollProgress from '@/components/ui/MobileScrollProgress';
 import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
@@ -68,8 +67,6 @@ export default function NavbarMobile({ links }) {
       )}
     >
       
-      {/* Barre de progression mobile */}
-      <MobileScrollProgress />
 
       {/* BARRE PRINCIPALE (fermée) */}
       {!isOpen && (

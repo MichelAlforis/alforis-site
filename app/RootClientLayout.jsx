@@ -5,6 +5,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import Script from 'next/script'
 import ClientSideScrollRestorer from './ClientSideScrollRestorer'
 import Navbar from './Navbar'
+import MobileScrollProgress from '@/components/ui/MobileScrollProgress'
 import Footer from '@/app/Footer'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
 import { ThemeProvider } from '@/styles/ThemeDark'
@@ -104,7 +105,7 @@ export default function RootClientLayout({ children }) {
 
       {/* En-tête globale */}
         <Navbar />
-
+        <MobileScrollProgress/>
 
       {/* Contenu des routes */}
       <main
