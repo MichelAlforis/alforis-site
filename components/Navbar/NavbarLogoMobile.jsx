@@ -1,22 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, useSpring } from 'framer-motion';
-import useScrollPosition     from '@/hooks/useScrollPosition';
-import { useTheme }          from '@/styles/ThemeDark';
-import { couleurs }          from '@/styles/generated-colors.mjs';
-import { SVGConfig }         from './navbarLogoConfig';
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { useTheme } from '@/styles/ThemeDark';
+import { couleurs } from '@/styles/generated-colors.mjs';
+import { SVGConfig } from './navbarLogoConfig';
+import Color from 'colorjs.io';  // npm install colorjs.io
 
 export default function NavbarLogoMobile({ className = '', isTransparent }) {
-  // 1) Contexte & hooks
+  const pathname = usePathname();
   const { dark: isDark } = useTheme();
-  const scrollY = useScrollPosition();
 
-  // 2) Parallax & scale
-  const yParallax     = useSpring(scrollY / 12,            { stiffness: 150, damping: 25 });
-  const scaleParallax = useSpring(scrollY > 80 ? 0.85 : 1, { stiffness: 200, damping: 20 });
-
-  // 3) Animation d’ouverture (Home uniquement)
+  // Open animation on home
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     if (isTransparent) {
@@ -26,23 +22,53 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
     setOpened(true);
   }, [isTransparent]);
 
-  // 4) Base color
-  const baseColor = (isDark || isTransparent) ? couleurs.ivoire : couleurs.acier;
-
-  // 5) Tap interaction
+  // Tap interaction & draw
   const [revealed, setRevealed] = useState(false);
   const handleTap = () => setRevealed(r => !r);
-
-  // 6) PathLength
   const pathLength = revealed ? 1 : opened ? 0.7 : 0;
 
-  // 7) Transitions nommées
-  const fadeIn   = { opacity:    { duration: 0.8, ease: 'easeOut' } };
+  // Prepare Color.js interpolation range
+  const ivoryColor = new Color(couleurs.ivoire);
+  const acierColor = new Color(couleurs.acier);
+  // Creates an interpolation function in OKLab, outputs sRGB string
+  const range = ivoryColor.range(acierColor, { space: 'oklab', outputSpace: 'srgb' });
+
+  // Scroll-driven color on Home
+  const [scrollColor, setScrollColor] = useState(couleurs.ivoire);
+  useEffect(() => {
+    if (pathname !== '/') return;
+    const main = document.getElementById('home-main');
+    if (!main) return;
+    const onScroll = () => {
+      const total = main.scrollHeight - main.clientHeight;
+      const ratio = total > 0 ? main.scrollTop / total : 0;
+      // Triangular wave 0→1→0
+      const t = ratio <= 0.5 ? ratio * 2 : 2 - ratio * 2;
+      // Interpolate using Color.js
+      const col = range(t).toString();
+      setScrollColor(ratio > 0.05 ? col : couleurs.ivoire);
+    };
+    main.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => main.removeEventListener('scroll', onScroll);
+  }, [pathname, range]);
+
+  // Determine final fill color
+  let fillColor;
+  if (revealed) {
+    fillColor = couleurs.doré;
+  } else if (pathname === '/') {
+    fillColor = scrollColor;
+  } else if (pathname.includes('apropos')) {
+    fillColor = couleurs.ivoire;
+  } else {
+    fillColor = isDark || isTransparent ? couleurs.ivoire : couleurs.acier;
+  }
+
+  // Transitions
+  const fadeIn = { opacity: { duration: 0.8, ease: 'easeOut' } };
   const drawLogo = { pathLength: { duration: 1.4, ease: 'easeInOut' } };
-  const drawText = {
-    pathLength:  { duration: 1.0, ease: 'easeInOut' },
-    strokeWidth: { duration: 0.3 }
-  };
+  const drawText = { pathLength: { duration: 1.0, ease: 'easeInOut' }, strokeWidth: { duration: 0.3 } };
 
   return (
     <motion.svg
@@ -50,22 +76,16 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
       viewBox="0 0 2234 500"
       preserveAspectRatio="xMidYMid meet"
       className={`w-auto ${className}`}
-      style={{
-        y:           yParallax,
-        scale:       scaleParallax,
-        cursor:      'pointer',
-        touchAction: 'manipulation'
-      }}
+      style={{ cursor: 'pointer', touchAction: 'manipulation' }}
       initial={{ opacity: 0 }}
       animate={opened ? { opacity: 1 } : {}}
       transition={fadeIn}
       onTap={handleTap}
     >
-      {/* — Logo principal */}
       <motion.path
         d={SVGConfig.d1}
-        fill={revealed ? couleurs.doré : baseColor}
-        stroke={revealed ? couleurs.doré : baseColor}
+        fill={fillColor}
+        stroke={fillColor}
         strokeWidth={revealed ? 20 : 5}
         fillRule="evenodd"
         clipRule="evenodd"
@@ -74,15 +94,13 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
         transition={drawLogo}
         style={{ strokeLinecap: 'butt' }}
       />
-
-      {/* — Texte (dessiné/effacé uniquement onTap) */}
       <motion.path
         d={SVGConfig.d2}
         fill="none"
-        stroke={revealed ? couleurs.doré : baseColor}
+        stroke={fillColor}
         strokeWidth={15}
-        initial={false}                              /* pas de dessin au chargement */
-        animate={{ pathLength: revealed ? 1 : 0 }}  /* 1 = full, 0 = none */
+        initial={false}
+        animate={{ pathLength: revealed ? 1 : 0 }}
         transition={drawText}
         style={{ strokeLinecap: 'butt' }}
       />

@@ -27,6 +27,7 @@
     "airtable": "^0.12.2",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "colorjs.io": "^0.5.2",
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.7.4",

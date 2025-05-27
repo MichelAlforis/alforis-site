@@ -5,7 +5,7 @@ import React from 'react';
 import AnimatedBackground from './AnimatedBackground';
 import HeaderFixed from './HeaderFixed';
 import usePaddingTop from '@/hooks/usePaddingTop';
-import MobileScrollProgress from '../ui/MobileScrollProgress';
+
 /**
  * PageLayout: wrapper centralisé pour les pages Alforis
  * - Gère padding-top dynamique via hook
@@ -32,7 +32,6 @@ export default function PageLayout({
       className="min-h-screen flex flex-col"
       style={{ paddingTop }}
     >
-      <MobileScrollProgress/>
       <HeaderFixed
         title={title}
         mdTitle={mdTitle}
