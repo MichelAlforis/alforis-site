@@ -33,7 +33,7 @@ export default function AProposDesktop() {
         transition={{ duration: 1, delay: 0.5 }}
       >
       <motion.img 
-      className="top-0 right-0" src="./assets/img/me-desktop.png"
+      className="top-0 right-0" src="./assets/img/me-desktop.webp"
       initial={{ scale: 0.9, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.3 }}

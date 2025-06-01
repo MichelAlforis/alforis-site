@@ -10,7 +10,7 @@ export default function AProposMobile() {
       {/* Intro plein écran */}
       <section
         className="relative h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/img/me-mobile.png')` }}
+        style={{ backgroundImage: `url('/assets/img/me-mobile.webp')` }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-base flex flex-col items-center justify-center h-full px-4 text-center">
