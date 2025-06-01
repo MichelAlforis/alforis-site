@@ -102,12 +102,17 @@ export default function ContactForm() {
                 michel.marques@alforis.fr
               </a>
             </li>
-            <li>
-              <strong>Téléphone :</strong>{' '}
-              <a href="tel:+33646462291" className="underline">
-                06 46 46 22 91
-              </a>
-            </li>
+              <li>
+                <strong>WhatsApp :</strong>
+                <a
+                  href="https://wa.me/33756850023"
+                  className="underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  07 56 85 00 23
+                </a>
+              </li>
             <li>
               <strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris
             </li>
