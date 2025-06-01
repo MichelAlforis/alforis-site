@@ -85,7 +85,7 @@ export default function HeaderFixed({
       style={{ top: 'var(--navbar-offset)' }}
       className="
         sticky inset-x-0 z-overlay
-        bg-white/10 dark:bg-black/10
+        bg-white/30 dark:bg-black/30
         border-b border-ardoise/20
         flex flex-col
       "
