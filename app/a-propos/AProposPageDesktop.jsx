@@ -27,18 +27,24 @@ export default function AProposDesktop() {
       {/* 1. En-tête riche et immersif */}
 
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-      <motion.img 
-      className="top-0 right-0" src="./assets/img/me-desktop.webp"
-      initial={{ scale: 0.9, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
-      />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <picture className="top-0 right-0">
+            <source srcSet="./assets/img/me-desktop.webp" type="image/webp" />
+            <motion.img 
+              src="./assets/img/me-desktop.png"
+              alt="Portrait"
+              className="top-0 right-0"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+          </picture>
+        </motion.div>
+
         
       <motion.section
         

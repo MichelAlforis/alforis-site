@@ -8,20 +8,26 @@ export default function AProposMobile() {
   return (
     <div className="flex flex-col">
       {/* Intro plein écran */}
-      <section
-        className="relative h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/img/me-mobile.webp')` }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative z-base flex flex-col items-center justify-center h-full px-4 text-center">
-          <h1 className="font-serif text-4xl md:text-6xl text-ivoire leading-snug">
-            Michel Marques
-          </h1>
-          <p className="mt-4 font-sans text-lg md:text-2xl text-ivoire/90">
-            Une approche humaine et premium du conseil patrimonial
-          </p>
-        </div>
-      </section>
+        <section className="relative h-screen overflow-hidden">
+          <picture>
+            <source srcSet="/assets/img/me-mobile.webp" type="image/webp" />
+            <img
+              src="/assets/img/me-mobile-min.png"
+              alt="Michel Marques"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="relative z-base flex flex-col items-center justify-center h-full px-4 text-center">
+            <h1 className="font-serif text-4xl md:text-6xl text-ivoire leading-snug">
+              Michel Marques
+            </h1>
+            <p className="mt-4 font-sans text-lg md:text-2xl text-ivoire/90">
+              Une approche humaine et premium du conseil patrimonial
+            </p>
+          </div>
+        </section>
+
 
       {/* Scroll 1 – Accroche animée */}
       <section className="bg-ivoire py-20 px-4">
