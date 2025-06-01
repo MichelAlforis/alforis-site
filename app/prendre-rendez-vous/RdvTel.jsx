@@ -1,3 +1,9 @@
+/* Assurez-vous d’avoir installé le package :
+   yarn add @calcom/embed-react
+   ou
+   npm install @calcom/embed-react
+*/
+
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect, useState } from "react"; // Added useState
 import { couleurs } from "@/styles/generated-colors.mjs";

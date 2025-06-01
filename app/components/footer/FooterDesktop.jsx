@@ -39,7 +39,7 @@ export default function FooterDesktop() {
     </div>
     {/* Col 2, Row 1: Mentions/links */}
     <div className="flex flex-col items-end col-start-2 row-start-1 text-vertSauge">
-      <p className="text-ivoire mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
+      <p className="text-ivoire mb-2">&copy; Alforis. Tous droits réservés.</p>
       {FooterConfig.tabsLinks.map((item, i) =>
         item.label === 'Gérer mes cookies' ? (
           <button

@@ -44,7 +44,7 @@ export default function FooterMobile() {
       </div>
 
       <div className="flex flex-col gap-1 text-vertSauge text-sm items-end justify-center">
-        <p className="text-ivoire mb-2">&copy; {new Date().getFullYear()} Alforis. Tous droits réservés.</p>
+        <p className="text-ivoire mb-2">&copy; Alforis. Tous droits réservés.</p>
         {FooterConfig.tabsLinks.map((item, i) =>
           item.label === 'Gérer mes cookies' ? (
             <button
