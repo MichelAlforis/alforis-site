@@ -4,6 +4,7 @@ import { React, useState } from 'react'
 import { motion } from 'framer-motion'
 import { pageConfig } from './pageConfig'
 import BookingEmded from '@/components/calcom/BookingEmbed'
+import RDVTunnel from '@/components/calcom/RDVTunnel'
 
 const rdvTypes = pageConfig.tabs
 

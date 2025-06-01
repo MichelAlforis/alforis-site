@@ -46,7 +46,7 @@ export default function AProposDesktop() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         id="Section Titre"
-        className="space-y-12 px-4 py-8 text-center max-w-3xl mx-auto"
+        className="space-y-12 w-full px-4 py-8 text-center max-w-3xl mx-auto"
       >
 
         <h1 className="mb-4">
