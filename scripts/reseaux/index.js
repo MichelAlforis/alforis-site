@@ -1,4 +1,6 @@
-require('dotenv').config({ path: '.env.local' }); // Load environment variables from .env.local file
+// Load environment variables from .env.local file
+
+require('dotenv').config({ path: '.env.local' }); 
 const inquirer = require('inquirer');
 const linkedin = require('./linkedin');
 const instagram = require('./instagram');

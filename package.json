@@ -10,7 +10,8 @@
     "devc": "./scripts/dev-clean.sh",
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
-    "server": "./scripts/server.sh"
+    "server": "./scripts/server.sh",
+    "social": "node ./scripts/reseaux/index.js"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
@@ -32,6 +33,7 @@
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.7.4",
+    "googleapis": "^149.0.0",
     "gray-matter": "^4.0.3",
     "inquirer": "^12.6.3",
     "javascript": "^1.0.0",
