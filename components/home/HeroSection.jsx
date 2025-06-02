@@ -35,7 +35,7 @@ function GLBModelViewer() {
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Suspense fallback={null}> {/* Simple fallback, consider a Drei <Loader /> for better UX */}
-          <Model url="/assets/draco/logo-draco.glb" />
+          <Model url="/assets/draco/logo-draco-optimized.glb" /> {/* Changed to optimized version for testing */}
         </Suspense>
         {/* <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /> */}
         {/* Environment can add nice reflections/lighting if your model has metallic properties */}
