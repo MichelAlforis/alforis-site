@@ -11,7 +11,8 @@
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
     "server": "./scripts/server.sh",
-    "publier":"./scripts/reseaux/publishAll.js"
+    "publier": "./scripts/reseaux/publishAll.js",
+    "link":"node getLinkedinToken.js"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
@@ -26,6 +27,7 @@
     "@react-three/rapier": "^2.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "airtable": "^0.12.2",
+    "axios": "^1.9.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "colorjs.io": "^0.5.2",
@@ -68,5 +70,22 @@
     "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^3.4.17",
     "ts-prune": "^0.10.3"
-  }
+  },
+  "description": "",
+  "main": "cookieconsent.esm.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichelAlforis/alforis-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MichelAlforis/alforis-site/issues"
+  },
+  "homepage": "https://github.com/MichelAlforis/alforis-site#readme"
 }
