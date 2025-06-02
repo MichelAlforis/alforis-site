@@ -9,7 +9,7 @@ export async function POST(req) {
     const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
       .base(process.env.AIRTABLE_BASE_ID)
 
-    const tableName = process.env.AIRTABLE_TABLE_NAME
+    const tableName = process.env.AIRTABLE_TABLE_NAME1
 
     const data = await req.json()
 
