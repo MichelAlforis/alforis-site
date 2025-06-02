@@ -1,7 +1,7 @@
 // /api/cancel
 import Airtable from 'airtable'
 
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE)
+const base = new Airtable({ apiKey: process.env.AIRTABLE_CRM_API_KEY }).base(process.env.AIRTABLE_BASE)
 
 export async function POST(request) {
   const { email, date } = await request.json()

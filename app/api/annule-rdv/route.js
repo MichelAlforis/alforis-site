@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import Airtable from 'airtable'
 import { Resend } from 'resend'
 
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE_ID)
+const base = new Airtable({ apiKey: process.env.AIRTABLE_CRM_API_KEY }).base(process.env.AIRTABLE_CRM_BASE_ID)
 
 const CAL_API_KEY = process.env.CAL_COM_TOKEN
 

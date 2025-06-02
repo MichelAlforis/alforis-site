@@ -3,9 +3,9 @@
 export async function PATCH(req) {
   try {
     const { default: Airtable } = await import('airtable')
-    const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
-      .base(process.env.AIRTABLE_BASE_ID)
-    const tableName = process.env.AIRTABLE_TABLE_NAME1
+    const base = new Airtable({ apiKey: process.env.AIRTABLE_CRM_API_KEY })
+      .base(process.env.AIRTABLE_CRM_BASE_ID)
+    const tableName = process.env.AIRTABLE_CRM_TABLE_NAME
 
     const { id, fields } = await req.json()
     if (!id || !fields) {
