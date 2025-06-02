@@ -1,4 +1,4 @@
-// app/components/footer/FooterConfi.js
+// app/components/footer/FooterConfig.js
 export const FooterConfig = {
   title: 'Alforis',
   description: 'Le patrimoine commence par l’humain.',

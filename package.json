@@ -10,7 +10,8 @@
     "devc": "./scripts/dev-clean.sh",
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
-    "server": "./scripts/server.sh"
+    "server": "./scripts/server.sh",
+    "publier":"./scripts/reseaux/publishAll.js"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
