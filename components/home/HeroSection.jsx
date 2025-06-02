@@ -1,40 +1,67 @@
-
 'use client'
-/* components/home/HeroSection.jsx */
-
+/* components/home/HeroSection.jsx - ACTE I — LE SCEAU */
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { GoldLink } from '@/hooks/useGoldEffect'
-import Button from '@/components/ui/Button'
+import Image from 'next/image' // Using Next Image for optimization
 
 export default function HeroSection({ extraClass = '' }) {
+  const sealVariants = {
+    hidden: { opacity: 0, clipPath: 'inset(0 100% 0 0)' }, // Clip from right to left
+    visible: {
+      opacity: 1,
+      clipPath: 'inset(0 0% 0 0)',  // Reveal
+      transition: { duration: 1.5, ease: "circOut", delay: 0.5 }
+    },
+  }
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, delay: 2 } // 2-second delay for text
+    },
+  }
+
+  const sealHover = {
+    scale: 1.05,
+    transition: { duration: 0.4, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" } // Respiration effect
+  }
+
   return (
-    <section className={`relative w-full overflow-hidden ${extraClass}`}>      
-      <div className="flex flex-col items-center text-center px-4 py-20 md:py-32">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6 pt-40 md:pt-28 "
-        >
-          Chez Alforis, notre raison d'être <br/>c'est<br />
-         <GoldLink href="/parcours" className='font-bold text-6xl'>Vous</GoldLink>.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base md:text-lg text-acier dark:text-acier font-light mb-8 max-w-2xl mx-auto leading-relaxed"
-        >
-          Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
-        </motion.p>
-        <Button to="/parcours" className="btn-alforis-rdv" index={1}>
-          Commencer mon diagnostic
-        </Button>
-      </div>
+    <section
+      className={`relative w-full h-screen flex flex-col items-center justify-center overflow-hidden text-center ${extraClass}`}
+      style={{ background: 'linear-gradient(180deg, #000000 0%, #1A1A1A 100%)' }} // Dark background for "Acte I"
+    >
+      <motion.div
+        className="mb-12" // Space between seal and text
+        variants={sealVariants}
+        initial="hidden"
+        animate="visible" // Changed to animate for continuous animation if viewport condition is met
+        whileHover={sealHover}
+      >
+        <Image
+          src="/assets/icons/sceau-alforis.svg"
+          alt="Sceau Alforis"
+          width={200} // Adjust size as needed
+          height={200} // Adjust size as needed
+          priority // Preload if it's LCP
+        />
+      </motion.div>
+
+      <motion.div
+        variants={textVariants}
+        initial="hidden"
+        animate="visible" // Changed to animate
+        className="max-w-2xl px-4"
+      >
+        <p className="text-xl md:text-2xl text-acier mb-6 font-light leading-relaxed">
+          Ce que vous avez entendu sur la gestion de patrimoine… est souvent ce qu'on voulait vous faire entendre.
+        </p>
+        <p className="text-xl md:text-2xl text-acier font-light leading-relaxed">
+          Je vous propose une autre voie. Celle de la transparence. De l’intelligence. De la cohérence.
+        </p>
+      </motion.div>
     </section>
   )
 }

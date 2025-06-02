@@ -4,10 +4,10 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Animated from '../components/animated/Animated'
 import HeroSection from '../components/home/HeroSection'
-import ServicesCards from '../components/home/ServicesCards'
-import ApproachSection from '../components/home/ApproachSection'
-import KeyFigures from '../components/home/KeyFigures'
-import Contact from '../components/home/Contact'
+import Acte2_CartographieInvisible from '../components/home/Acte2_CartographieInvisible'
+import Acte3_Engagement from '../components/home/Acte3_Engagement'
+import Acte4_Structure from '../components/home/Acte4_Structure'
+import Acte5_ChoixLucide from '../components/home/Acte5_ChoixLucide' // Added
 
 
 export default function HomeMobile() {
@@ -50,97 +50,53 @@ export default function HomeMobile() {
           </div>
         </motion.section>
 
-        {/* 2. Services Section */}
+        {/* 2. Acte II Section - Cartographie Invisible */}
         <motion.section
-          id="services"
-          className="snap-start relative h-auto"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/img/home/M_services.webp')" }}
-            initial={{ opacity: 0.5 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          />
-          <div className="relative z-base bg-ivoire bg-opacity-95 px-6 py-12">
-            <h2 className="text-2xl font-semibold text-anthracite text-center mb-6">
-              Nos services essentiels
-            </h2>
-            <ServicesCards extraClass="grid grid-cols-1 divide-y divide-ardoise-light" />
-            <motion.div
-              className="mt-8 flex justify-center"
-              initial={{ scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <button className="bg-doré text-ivoire font-medium py-3 px-8 rounded-full shadow-lg">
-                Voir toutes nos offres
-              </button>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* 3. Approach Section */}
-        <motion.section
-          id="approach"
-          className="snap-start relative px-6 py-16"
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
-            initial={{ x: -50 }}
-            whileInView={{ x: 0 }}
-            transition={{ duration: 1 }}
-          />
-          <div className="relative z-base max-w-md mx-auto">
-            <ApproachSection extraClass="px-4 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
-          </div>
-        </motion.section>
-
-        {/* 4. Key Figures Section (solid background) */}
-        <motion.section
-          id="figures"
-          className="snap-start bg-ardoise px-6 py-16"
+          id="services" // Keeping id="services" for potential scroll navigation consistency
+          className="snap-start h-screen relative" // Assuming full screen for Acte II
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="max-w-sm mx-auto text-center space-y-4">
-            <KeyFigures extraClass="text-ivoire" />
-          </div>
+          {/* The Acte2_CartographieInvisible component has its own background */}
+          <Acte2_CartographieInvisible extraClass="w-full h-full" />
         </motion.section>
 
-        {/* 5. Contact Section (gradient bg) */}
+        {/* 3. Acte III Section - L'Engagement */}
         <motion.section
-          id="contact"
-          className="snap-start relative px-6 py-16 bg-gradient-to-b from-ardoise to-anthracite"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          id="approach" // Keeping id="approach" for consistency
+          className="snap-start h-screen relative" // Component itself is 300vh for internal scroll
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="relative z-base max-w-md mx-auto bg-overlay bg-opacity-70 rounded-2xl p-6">
-            <Contact extraClass="text-ivoire" />
-            <motion.div
-              className="mt-6 flex justify-center"
-              initial={{ scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <button className="bg-ivoire text-anthracite font-semibold py-3 px-8 rounded-full shadow-inner">
-                Prendre rendez-vous
-              </button>
-            </motion.div>
-          </div>
+          <Acte3_Engagement extraClass="w-full h-full" />
+        </motion.section>
+
+        {/* 4. Acte IV Section - La Structure */}
+        <motion.section
+          id="figures" // Keeping id="figures" for consistency
+          className="snap-start h-screen relative" // Acte4_Structure is designed for full screen
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }} // Consistent with other Acte sections
+        >
+          <Acte4_Structure extraClass="w-full h-full" />
+        </motion.section>
+
+        {/* 5. Acte V Section - Le Choix Lucide */}
+        <motion.section
+          id="contact" // Keeping id="contact" for consistency
+          className="snap-start h-screen relative" // Acte5_ChoixLucide is designed for full screen
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }} // Consistent with other Acte sections
+        >
+          <Acte5_ChoixLucide extraClass="w-full h-full" />
         </motion.section>
 
       </main>
