@@ -67,9 +67,6 @@ export default function HomeMobile() {
             transition={{ duration: 0.8 }}
           />
           <div className="relative z-base bg-ivoire bg-opacity-95 px-6 py-12">
-            <h2 className="text-2xl font-semibold text-anthracite text-center mb-6">
-              Nos services essentiels
-            </h2>
             <ServicesCards extraClass="grid grid-cols-1 divide-y divide-ardoise-light" />
             <motion.div
               className="mt-8 flex justify-center"
@@ -77,9 +74,6 @@ export default function HomeMobile() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <button className="bg-doré text-ivoire font-medium py-3 px-8 rounded-full shadow-lg">
-                Voir toutes nos offres
-              </button>
             </motion.div>
           </div>
         </motion.section>
