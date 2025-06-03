@@ -1,16 +1,26 @@
 'use client'
-/* components/home/ServicesCards.jsx - Renamed to Acte II – Traversée */
+/* components/home/ServicesCards.jsx - SECTION 2: STRUCTURE EN 4 FRAMES */
 
 import { motion } from 'framer-motion'
 
-const mainStatement1 = "15 ans à tous les postes de la finance, du conseil aux produits."
-const mainStatement2 = "Je sais comment les choses fonctionnent vraiment."
-const bulletPoints = [
-  "Clarifiez ce que vous payez et pourquoi",
-  "Reprenez le contrôle de votre fiscalité",
-  "Organisez vos décisions patrimoniales avec sérénité",
-  "Transmettez sans subir"
-]
+const framesData = [
+  {
+    title: "Comprendre avant d’agir",
+    text: "Je ne propose jamais une solution préfabriquée. Mon expertise consiste à décrypter précisément votre situation financière actuelle."
+  },
+  {
+    title: "Maîtriser chaque choix",
+    text: "Avoir accès aux produits financiers ne suffit pas. Mon expérience m’a appris à identifier clairement leurs avantages, leurs limites, et surtout leurs coûts réels cachés."
+  },
+  {
+    title: "Construire durablement",
+    text: "Chaque décision est prise avec une vision claire à long terme : optimisation fiscale, performance durable, protection et transmission."
+  },
+  {
+    title: "Relation claire et directe",
+    text: "Je vous parle ouvertement, sans jargon, en toute indépendance. Parce que la confiance repose avant tout sur la transparence."
+  }
+];
 
 export default function ServicesCards({ extraClass = '' }) {
   const containerVariants = {
@@ -18,66 +28,52 @@ export default function ServicesCards({ extraClass = '' }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
+        staggerChildren: 0.25, // Time between each frame animation
+        delayChildren: 0.2,   // Initial delay before starting animations
       }
     }
   };
 
-  const itemVariants = {
+  const frameVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
         ease: "easeOut"
       }
     }
   };
 
-  // Assuming the background D_services.webp / M_services.webp are dark,
-  // text colors should be light (e.g., text-ivoire, text-doré-clair).
+  // Assuming D_services.webp / M_services.webp are dark/textured,
+  // using light text colors for readability and "haut de gamme, feutré" feel.
   return (
     <div
-      className={`relative w-full h-full flex flex-col items-center justify-center text-center p-4 md:p-8 ${extraClass}`}
+      className={`relative w-full h-full flex items-center justify-center p-6 md:p-10 ${extraClass}`}
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="max-w-2xl lg:max-w-3xl mx-auto" // Constrain width for readability
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the container is in view
+        className="max-w-4xl lg:max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
       >
-        <motion.h2
-          variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-ivoire mb-6 md:mb-8 leading-tight"
-        >
-          {mainStatement1}
-        </motion.h2>
-
-        <motion.h2
-          variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-ivoire mb-10 md:mb-12 leading-tight"
-        >
-          {mainStatement2}
-        </motion.h2>
-
-        <motion.ul
-          className="space-y-4 md:space-y-5 text-left" // Text-left for bullet points for better readability
-          // This motion.ul can also have variants if needed, or just let items be staggered by parent
-        >
-          {bulletPoints.map((point, index) => (
-            <motion.li
-              key={index}
-              variants={itemVariants}
-              className="text-lg md:text-xl text-doré-clair flex items-start" // Using doré-clair for emphasis
-            >
-              <span className="flex-shrink-0 mr-3 mt-1 w-2 h-2 bg-doré-clair rounded-full"></span> {/* Custom bullet */}
-              {point}
-            </motion.li>
-          ))}
-        </motion.ul>
+        {framesData.map((frame, index) => (
+          <motion.div
+            key={index}
+            variants={frameVariants}
+            // Styling for each "frame" - subtle background to distinguish from main section bg
+            className="bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-5 p-6 rounded-lg shadow-lg backdrop-blur-sm"
+          >
+            <h3 className="text-xl md:text-2xl font-semibold text-doré-clair mb-3 md:mb-4">
+              {frame.title}
+            </h3>
+            <p className="text-base md:text-lg text-ivoire font-light leading-relaxed">
+              {frame.text}
+            </p>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );

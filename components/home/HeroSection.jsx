@@ -1,84 +1,107 @@
 
 'use client'
-/* components/home/HeroSection.jsx */
+/* components/home/HeroSection.jsx - SECTION 1: HERO */
 
-import { Suspense } from 'react' // For fallback while model loads
+import { Suspense } from 'react'
 import { motion } from 'framer-motion'
-// import Image from 'next/image' // No longer used
-// import { GoldLink } from '@/hooks/useGoldEffect' // No longer used with new H1
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/Button' // Reusing existing Button component
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Environment } from '@react-three/drei'
+import { useGLTF, Environment } from '@react-three/drei' // OrbitControls removed as not needed for atmospheric effect
 
 // Component to load and display the GLB model
 function Model({ url }) {
   const { scene } = useGLTF(url)
-  // Potentially scale and position the model here if needed
-  // scene.scale.set(0.5, 0.5, 0.5);
-  // scene.position.set(0, -1, 0);
-  return <primitive object={scene} />;
+  // For subtle atmospheric effect:
+  // Scale it up, position it partially off-screen or very distant, make it more transparent in the viewer.
+  // Add a very slow rotation.
+  scene.scale.set(1.5, 1.5, 1.5) // Example: Scale slightly larger
+  scene.position.set(0, -2, -5) // Example: Position it further back and lower
+  return <primitive object={scene} rotation-y={Math.PI * 0.1} />; // Example: slight initial rotation
 }
 
-// This component will wrap the Canvas and Model for better structure
-// It also includes a note about performance for large GLB files.
-function GLBModelViewer() {
-  // Performance note: Large GLB files (like the ~40MB logo-draco.glb) can significantly
-  // impact load times and performance, especially on mobile or slower connections.
-  // Consider further optimization of the GLB (e.g., using logo-draco-optimized.glb if smaller),
-  // implementing more aggressive LOD (Level of Detail), or using techniques like
-  // progressive loading or conditional rendering based on connection speed or device capabilities.
-  // Draco compression is good, but the initial file size still matters.
-
+// GLB Viewer component for atmospheric background
+function AtmosphericGLBViewer() {
+  // Performance note: Even optimized GLBs can be demanding.
+  // Further optimization, conditional loading (e.g., not on mobile or low-power mode),
+  // or using a static image fallback might be necessary for broader compatibility.
   return (
-    <div className="absolute inset-0 z-0 opacity-30 dark:opacity-50"> {/* Positioned behind text, adjust opacity as needed */}
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Suspense fallback={null}> {/* Simple fallback, consider a Drei <Loader /> for better UX */}
-          <Model url="/assets/draco/logo-draco-optimized.glb" /> {/* Changed to optimized version for testing */}
+    <div className="absolute inset-0 z-0 opacity-10 dark:opacity-15 pointer-events-none"> {/* Very subtle opacity, non-interactive */}
+      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}> {/* Camera further away */}
+        <ambientLight intensity={0.2} />
+        <directionalLight position={[5, 5, 10]} intensity={0.3} />
+        <Suspense fallback={null}>
+          <Model url="/assets/draco/logo-draco-optimized.glb" />
         </Suspense>
-        {/* <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} /> */}
-        {/* Environment can add nice reflections/lighting if your model has metallic properties */}
-        {/* <Environment preset="sunset" /> */}
+        {/* <Environment preset="dawn" /> */} {/* Optional: for subtle environmental lighting */}
       </Canvas>
     </div>
   );
 }
 
-
 export default function HeroSection({ extraClass = '' }) {
+  const h1Text = "La vérité que votre banquier ne vous dira jamais, je la connais. Et je la partage.";
+  const descriptionText = "15 ans à conseiller et structurer des solutions financières complexes au plus haut niveau du secteur bancaire privé. Aujourd'hui indépendant, j'apporte à mes clients ce qu'ils recherchent vraiment : clarté, maîtrise et sérénité dans la gestion de leur patrimoine.";
+  const ctaText = "Découvrez ce qu’on ne vous a jamais dit sur votre argent.";
+
+  const textAnimation = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  // Assuming 'doré' is rgb(242, 158, 76)
+  const doradoColorValue = "rgba(242, 158, 76, 0.4)"; // Shadow color with opacity
+
   return (
-    <section className={`relative w-full h-screen overflow-hidden ${extraClass}`}> {/* Ensure h-screen for Canvas to fill */}
-      <GLBModelViewer /> {/* Add the GLB viewer here */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 py-20 md:py-32"> {/* Ensure content is above GLB and centered */}
+    <section className={`relative w-full h-screen overflow-hidden ${extraClass}`}>
+      <AtmosphericGLBViewer />
+
+      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 md:px-8 py-16">
         <motion.h1
-          initial={{ opacity: 0, y: 40 }} // Updated initial state
-          animate={{ opacity: 1, y: 0 }}   // Changed to animate for load animation
-          viewport={{ once: true, amount: 0.3 }} // Keeps triggering once when in view
-          transition={{ duration: 0.8, ease: "easeOut" }} // Adjusted duration and ease
-          className="text-3xl md:text-5xl font-title font-bold text-anthracite dark:text-acier leading-snug mb-6" // Removed excessive top padding
+          initial={textAnimation.initial}
+          animate={textAnimation.animate}
+          transition={{ ...textAnimation.transition, delay: 0.2 }}
+          // Assuming D_hero.webp/M_hero.webp are dark, text should be light.
+          // text-anthracite dark:text-acier was original, using text-ivoire for better contrast on potentially dark hero images
+          className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-ivoire dark:text-acier leading-tight mb-8"
         >
-          La vérité que votre banquier ne vous dira jamais, je la connais. Et je la partage.
+          {h1Text}
         </motion.h1>
+
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }} // Changed to animate for load animation (can be staggered)
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.5 }} // Delayed after H1
-          className="text-base md:text-lg text-acier dark:text-gray-300 font-light mb-8 max-w-2xl mx-auto leading-relaxed" // Adjusted dark mode color for better contrast on dark GLB
+          initial={textAnimation.initial}
+          animate={textAnimation.animate}
+          transition={{ ...textAnimation.transition, delay: 0.5 }}
+          className="text-lg md:text-xl text-ivoire/90 dark:text-acier/90 font-light mb-12 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed"
         >
-          Le patrimoine ne dit rien par lui-même. Il prend sens s’il raconte une histoire : <strong>la vôtre</strong>.
+          {descriptionText}
         </motion.p>
+
         <motion.div
-          initial={{ opacity:0, y: 20}}
-          animate={{ opacity:1, y: 0}}
-          transition={{duration: 0.6, delay: 0.8}}
+          initial={textAnimation.initial}
+          animate={textAnimation.animate}
+          transition={{ ...textAnimation.transition, delay: 0.8 }}
         >
-          <Button to="/parcours" className="btn-alforis-rdv" index={1}>
-            Commencer mon diagnostic
+          {/* Reusing the existing Button component, assuming its styling is adaptable or classes can be added */}
+          <Button
+            to="/parcours" // Default link, can be changed
+            className="btn-alforis-premium font-semibold" // Example class for premium feel
+            // Apply hover animations directly if Button doesn't support them via props easily
+            // For Framer Motion button, wrap it or ensure it forwards motion props
+          >
+             <motion.span
+              className="inline-block" // Ensure span can be scaled
+              whileHover={{
+                scale: 1.05,
+                boxShadow: `0 0 15px 5px ${doradoColorValue}`
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {ctaText}
+            </motion.span>
           </Button>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

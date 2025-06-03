@@ -1,101 +1,71 @@
 
 'use client'
-/* components/home/KeyFigures.jsx - Renamed to Acte IV – Architecture */
+/* components/home/KeyFigures.jsx - SECTION 4: USER COUNT / CHIFFRES CLÉS */
 
-import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import useCountUp from '@/hooks/useCountUp' // Assuming this path is correct
+import useCountUp from '@/hooks/useCountUp'
+import { motion } from 'framer-motion'
 
-const trustPointsData = [
-  {
-    id: "figures",
-    // For useCountUp, we'll count to 570 and 42 (then display as 4,2)
-    texts: [{ value: 570, suffix: "M€ collectés" }, { value: 42, decimals: 1, suffix: "M€ de PNB généré" }]
-  },
-  {
-    id: "diploma",
-    texts: ["Diplômé IAE Paris | ORIAS | CIF"]
-  },
-  {
-    id: "experience",
-    texts: ["Ancien banquier privé (CIC) devenu producteur de solutions structurées (Crédit Mutuel IM)"]
-  },
-  {
-    id: "founder",
-    texts: ["Entrepreneur, pas commercial : j’ai fondé ce cabinet par conviction, pas par transition"]
-  }
+// Updated figures data
+const figuresData = [
+  { id: "encours", value: 570, suffix: " M€", label: "d'encours sous conseil générés" },
+  { id: "pnb", value: 42, displayValuePrefix: "4,", displayValueSuffix: " M€", label: "de PNB généré via des solutions structurées" }, // Count to 42 for "4,2"
+  { id: "experience", value: 15, suffix: " ans", label: "d'expérience à tous les niveaux du secteur financier" }
 ];
 
 export default function KeyFigures({ extraClass = '' }) {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3 // Trigger when 30% of the element is in view
+  });
 
-  const countUpDuration = 2000; // 2 seconds
-  const collectedAmount = useCountUp(570, countUpDuration, inView);
-  const pnbAmount = useCountUp(42, countUpDuration, inView); // Will be displayed as 4,2
+  const countUpDuration = 2000; // Animation duration for count-up
 
-  const containerVariants = {
+  // Initialize counters for each figure
+  const counters = figuresData.map(fig => useCountUp(fig.value, countUpDuration, inView));
+
+  const containerAnimation = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.2,
-      }
-    }
+        staggerChildren: 0.3, // Stagger the animation of each figure
+      },
+    },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 }, // Slide in from left
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
-  // Assuming D_figures.webp / M_figures.webp may have varied tones,
-  // using text-ivoire for primary text and text-doré-clair for highlights or numbers.
+  // Assuming D_figures.webp / M_figures.webp background, use light text colors.
   return (
     <div
-      ref={ref} // ref for useInView to trigger animations
-      className={`relative w-full h-full flex flex-col items-center justify-center p-6 md:p-10 ${extraClass}`}
+      ref={ref}
+      className={`relative w-full h-full flex items-center justify-center p-6 md:p-10 ${extraClass}`}
     >
       <motion.div
-        variants={containerVariants}
+        variants={containerAnimation}
         initial="hidden"
-        animate={inView ? "visible" : "hidden"} // Control animation via inView
-        className="max-w-2xl lg:max-w-3xl w-full space-y-8 md:space-y-10" // Added w-full
+        animate={inView ? "visible" : "hidden"}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 text-center max-w-4xl lg:max-w-5xl w-full"
       >
-        <motion.h2
-          variants={itemVariants}
-          className="text-3xl md:text-4xl font-semibold text-center text-doré-clair mb-10 md:mb-12"
-        >
-          Pourquoi me faire confiance
-        </motion.h2>
-
-        {trustPointsData.map((point) => (
+        {figuresData.map((fig, index) => (
           <motion.div
-            key={point.id}
-            variants={itemVariants}
-            className="bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-5 p-4 md:p-6 rounded-lg shadow-md" // Subtle architectural block
+            key={fig.id}
+            variants={itemAnimation}
+            className="flex flex-col items-center p-4" // Added padding for spacing within each figure block
           >
-            {point.id === "figures" ? (
-              <p className="text-xl md:text-2xl text-ivoire text-center font-medium">
-                <span className="font-bold text-doré-clair">{collectedAmount}</span>M€ collectés
-                <span className="mx-2 text-ivoire/80">|</span>
-                <span className="font-bold text-doré-clair">{pnbAmount / 10}</span>M€ de PNB généré
-                {/* Displaying 42 as 4,2 */}
-              </p>
-            ) : (
-              point.texts.map((text, index) => (
-                <p key={index} className="text-lg md:text-xl text-ivoire text-center leading-relaxed">
-                  {text}
-                </p>
-              ))
-            )}
+            <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-doré-clair mb-2 md:mb-3">
+              {fig.id === "pnb"
+                ? `4,${String(counters[index]).padStart(1, '0').slice(-1)}` // Format for 4,2 (counts 0-9 for decimal)
+                : counters[index]}
+              {fig.id === "pnb" ? fig.displayValueSuffix : fig.suffix}
+            </p>
+            <p className="text-base md:text-lg text-ivoire/90 dark:text-acier/90 font-light leading-relaxed">
+              {fig.label}
+            </p>
           </motion.div>
         ))}
       </motion.div>
