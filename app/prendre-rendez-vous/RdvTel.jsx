@@ -83,14 +83,17 @@ export default function MyApp() {
         }
       }
 
+      const calBookingUid = eventDetail?.uid || null;
+
       const payload = {
         type,
         date,
         time,
-        Nom: extractedNom,
-        Prenom: extractedPrenom,
-        Email: extractedEmail,
-        NumeroTelephone: extractedNumeroTelephone
+        Nom: extractedNom || '',
+        Prenom: extractedPrenom || '',
+        Email: extractedEmail || '',
+        NumeroTelephone: extractedNumeroTelephone || '',
+        calBookingUid: calBookingUid
       };
 
       console.log("Payload for /api/rdv-confirm:", payload);
