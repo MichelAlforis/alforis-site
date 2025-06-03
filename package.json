@@ -11,7 +11,8 @@
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
     "server": "./scripts/server.sh",
-    "social": "node ./scripts/reseaux/index.js"
+    "social": "node ./scripts/reseaux/index.js",
+    "publier": "npm --prefix scripts/reseaux run social"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
