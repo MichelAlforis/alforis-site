@@ -9,9 +9,9 @@ import { motion } from 'framer-motion'
 import { GoldLink } from '@/hooks/useGoldEffect'
 
 const figures = [
-  { value: 15, label: 'années d’expérience', suffix: '+' },
-  { value: 400, label: 'M€ d’encours structurés', suffix: 'M€' },
-  { value: 100, label: 'indépendant & confidentiel', suffix: '%' },
+  { value: 570, label: "d'encours sous conseil générés", suffix: ' M€' },
+  { value: 4.2, label: "de PNB généré par les solutions structurées conçues", suffix: ' M€' },
+  { value: 15, label: "d’expérience au cœur du secteur financier", suffix: ' ans' },
 ]
 
 export default function KeyFigures({ extraClass = '' }) {

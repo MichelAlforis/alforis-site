@@ -12,22 +12,22 @@ import { useTheme } from "@/styles/ThemeDark";
 const cards = [
   {
     href: '/approchepersonnalisee',
-    title: 'Notre approche est d’abord humaine',
-    text: `Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.`,
+    title: 'Expérience réelle',
+    text: `Ancien banquier privé CIC, créateur de produits structurés Crédit Mutuel. 15 ans d'expérience en première ligne avec les dirigeants, cadres supérieurs et institutionnels.`,
     Svg: ApprocheIcon,
     stroke: 20,
   },
   {
     href: '/parcours',
-    title: 'Prêt à vous découvrir autrement ?',
-    text: `Le Profil de Vie vous permet de faire le point, en quelques questions clés, sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.`,
+    title: 'Indépendance totale',
+    text: `Aucune rétrocommission, aucun lien avec les banques. Je suis libre de vous dire exactement ce qu’il faut savoir pour choisir en pleine conscience.`,
     Svg: LifePic,
     stroke: 20,
   },
   {
     href: '/services',
-    title: 'Chaque trajectoire est unique',
-    text: `Nous ne croyons pas aux solutions toutes faites. Chaque accompagnement Alforis commence par une cartographie de vos objectifs profonds, de votre horizon personnel, et de vos contraintes concrètes.`,
+    title: 'Expertise entrepreneuriale',
+    text: `J’ai fondé Alforis par conviction, non par opportunisme. Je comprends personnellement les enjeux humains, économiques et fiscaux que vous affrontez chaque jour.`,
     Svg: Buste,
     stroke: 12,
   },

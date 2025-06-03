@@ -26,7 +26,7 @@ export default function SignatureSVG({ className = '', strokeColor = "currentCol
       viewport={{ once: true, amount: 0.5 }}
     >
       <motion.path
-        d="M20 70 Q 50 20 100 50 T 200 60 Q 230 80 280 40" // Placeholder path
+        d="M20 70 Q 50 20 100 50 T 200 60 Q 230 80 280 40" // TODO: Replace with actual signature SVG path
         fill="transparent"
         stroke={strokeColor}
         strokeWidth="3.5" // Slightly thicker for visibility

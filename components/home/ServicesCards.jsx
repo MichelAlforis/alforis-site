@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const services = [
-  { title: 'Ingénierie patrimoniale', desc: 'Structuration sur mesure de votre patrimoine personnel et professionnel.', icon: '/assets/img/home/engineering.webp', alt: 'Icône ingénierie patrimoniale' },
-  { title: 'Trésorerie long terme', desc: 'Valorisation et sécurisation des excédents de trésorerie d’entreprise.', icon: '/assets/img/home/cash-flow.webp', alt: 'Icône trésorerie long terme' },
-  { title: 'Gouvernance familiale', desc: 'Organisation durable autour de la famille, des héritiers et associés.', icon: '/assets/img/home/family.webp', alt: 'Icône gouvernance familiale' },
-  { title: 'Conciergerie premium', desc: 'Un interlocuteur unique pour centraliser et coordonner tous vos enjeux.', icon: '/assets/img/home/concierge.webp', alt: 'Icône conciergerie premium' },
+  { title: 'Comprendre avant d’agir', desc: 'Je ne propose jamais une solution préfabriquée. Mon expertise consiste à décrypter précisément votre situation financière actuelle.', icon: '/assets/img/home/engineering.webp', alt: 'Icône ingénierie patrimoniale' },
+  { title: 'Maîtriser chaque choix', desc: 'Avoir accès aux produits financiers ne suffit pas. Mon expérience m’a appris à identifier clairement leurs avantages, leurs limites, et surtout leurs coûts réels cachés.', icon: '/assets/img/home/cash-flow.webp', alt: 'Icône trésorerie long terme' },
+  { title: 'Construire durablement', desc: 'Chaque décision est prise avec une vision claire à long terme : optimisation fiscale, performance durable, protection et transmission.', icon: '/assets/img/home/family.webp', alt: 'Icône gouvernance familiale' },
+  { title: 'Relation claire et directe', desc: 'Je vous parle ouvertement, sans jargon, en toute indépendance. Parce que la confiance repose avant tout sur la transparence.', icon: '/assets/img/home/concierge.webp', alt: 'Icône conciergerie premium' },
 ]
 
 const MotionLink = motion.create(Link)

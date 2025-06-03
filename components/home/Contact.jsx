@@ -4,6 +4,7 @@
 import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
 import { useState, useEffect } from 'react'
+import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
 export default function Contact({ extraClass = '' }) {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
@@ -34,6 +35,10 @@ export default function Contact({ extraClass = '' }) {
           <li><strong>Téléphone :</strong> <a href="tel:+33646462291" className="underline">06 46 46 22 91</a></li>
           <li><strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris</li>
         </ul>
+        <p className="text-base text-ivoire leading-relaxed italic my-6">
+          "Mon métier, c’est vous redonner le pouvoir sur votre argent : comprendre, choisir, agir en toute lucidité."
+        </p>
+        <SignatureSVG strokeColor="text-doré" className="mt-4" />
       </motion.div>
 
       <motion.form
