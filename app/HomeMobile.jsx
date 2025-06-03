@@ -3,11 +3,12 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Animated from '../components/animated/Animated'
-import HeroSection from '../components/home/HeroSection'
-import ServicesCards from '../components/home/ServicesCards'
-import ApproachSection from '../components/home/ApproachSection'
-import KeyFigures from '../components/home/KeyFigures'
-import Contact from '../components/home/Contact'
+import HeroSection from './components/home/HeroSection'
+import ServicesCards from './components/home/ServicesCards'
+import ApproachSection from './components/home/ApproachSection'
+import KeyFigures from './components/home/KeyFigures'
+import Contact from './components/home/Contact'
+import PortraitSVG from './components/home/PortraitSVG'
 
 
 export default function HomeMobile() {
@@ -81,20 +82,20 @@ export default function HomeMobile() {
         {/* 3. Approach Section */}
         <motion.section
           id="approach"
-          className="snap-start relative px-3 py-16"
+          className="snap-start relative px-3 py-16" // Reverted classes
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center" // Was z-0, but likely fine as is if it's the first element.
             style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
             initial={{ x: -50 }}
             whileInView={{ x: 0 }}
             transition={{ duration: 1 }}
           />
-          <div className="relative z-base max-w-md mx-auto">
+          <div className="relative z-base max-w-md mx-auto"> {/* Was z-overlay, now z-base or similar default */}
             <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
           </div>
         </motion.section>
@@ -102,13 +103,19 @@ export default function HomeMobile() {
         {/* 4. Key Figures Section (solid background) */}
         <motion.section
           id="figures"
-          className="snap-start bg-ardoise px-3 py-16"
+          className="snap-start bg-anthracite bg-opacity-90 py-16 relative" // Added 'relative' for positioning context
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="max-w-sm mx-auto text-center space-y-4">
+          {/* SVG Container - Behind content */}
+          <div className="absolute inset-0 z-base flex items-center justify-center opacity-60"> {/* Added opacity-30 */}
+            <PortraitSVG />
+          </div>
+
+          {/* Original content - Ensure it's above SVG */}
+          <div className="relative z-overlay max-w-sm mx-auto text-center space-y-4"> {/* Added relative and z-overlay */}
             <KeyFigures extraClass="text-ivoire" />
           </div>
         </motion.section>
@@ -116,7 +123,7 @@ export default function HomeMobile() {
         {/* 5. Contact Section (gradient bg) */}
         <motion.section
           id="contact"
-          className="snap-start relative py-16 bg-gradient-to-b from-ardoise to-anthracite"
+          className="snap-start relative py-16 bg-gradient-to-b from-anthracite to-ardoise"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

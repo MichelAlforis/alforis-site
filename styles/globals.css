@@ -66,11 +66,11 @@
     color: rgb(var(--doré)); /* accent doré */
   }
 h1 {
-  @apply text-3xl sm:text-3xl md:text-6xl text-anthracite dark:text-doré font-semibold font-title text-center;
+  @apply text-3xl sm:text-3xl md:text-5xl text-anthracite dark:text-doré font-semibold font-title text-center;
 }
 
 h2 {
-  @apply text-xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
+  @apply text-2xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
 }
 
 h3 {

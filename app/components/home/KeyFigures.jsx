@@ -6,7 +6,7 @@
 import { useInView } from 'react-intersection-observer'
 import useCountUp from '@/hooks/useCountUp'
 import { motion } from 'framer-motion'
-import { GoldLink } from '@/hooks/useGoldEffect'
+
 
 const figures = [
   { value: 570, label: "d'encours sous conseil générés", suffix: ' M€' },
@@ -20,7 +20,7 @@ export default function KeyFigures({ extraClass = '' }) {
 
   return (
     <section id="chiffres" className={`py-20 ${extraClass}`}>      
-      <div ref={ref} className="bg-ardoise bg-opacity-40 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
+      <div ref={ref} className="bg-ardoise bg-opacity-40 md:bg-opacity-70 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,8 +28,8 @@ export default function KeyFigures({ extraClass = '' }) {
           transition={{ duration: 0.8 }}
           className="space-y-6 text-center"
         >
-          <h2 className="drop-shadow-lg">
-            <GoldLink href="/services">L’Expertise derrière Alforis</GoldLink>
+          <h2 className="text-doré text-3xl md:text-5xl font-bold drop-shadow-lg">
+            L’Expertise derrière Alforis
           </h2>
           <p className="text-ivoire text-base md:text-lg leading-relaxed">
             Plus de 15 ans d’expérience dans la structuration d’investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 
 // on importe ton composant responsive, sans SSR
 const HomeResponsive = dynamic(
-  () => import('@/components/home/HomeResponsive'),
+  () => import('./components/home/HomeResponsive'),
   { ssr: false }
 )
 
