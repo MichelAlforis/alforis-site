@@ -1,88 +1,63 @@
 'use client'
-/* components/home/ApproachSection.jsx */
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import AnimatedSVGRenderer from '@/components/animated/AnimatedSVGRenderer'
-import { couleurs } from '@/styles/generated-colors.mjs'
-import Buste from '@/assets/illustrations/buste'
-import ApprocheIcon from '@/assets/illustrations/approche'
-import LifePic from '@/assets/illustrations/Lifepic'
-import { useTheme } from "@/styles/ThemeDark";
+/* components/home/ApproachSection.jsx - Renamed to Acte III – Présence */
 
-const cards = [
-  {
-    href: '/approchepersonnalisee',
-    title: 'Notre approche est d’abord humaine',
-    text: `Avant de parler stratégie ou fiscalité, nous écoutons ce qui vous a forgé. Vos intuitions, vos blessures, vos moteurs. Car comprendre une trajectoire, c’est d’abord écouter son histoire.`,
-    Svg: ApprocheIcon,
-    stroke: 20,
-  },
-  {
-    href: '/parcours',
-    title: 'Prêt à vous découvrir autrement ?',
-    text: `Le Profil de Vie vous permet de faire le point, en quelques questions clés, sur ce qui compte vraiment pour vous aujourd’hui, et ce que vous souhaitez faire grandir demain.`,
-    Svg: LifePic,
-    stroke: 20,
-  },
-  {
-    href: '/services',
-    title: 'Chaque trajectoire est unique',
-    text: `Nous ne croyons pas aux solutions toutes faites. Chaque accompagnement Alforis commence par une cartographie de vos objectifs profonds, de votre horizon personnel, et de vos contraintes concrètes.`,
-    Svg: Buste,
-    stroke: 12,
-  },
-]
+import { motion } from 'framer-motion'
+
+const paragraphs = [
+  "Alforis est né d’un constat clair : les produits sont maîtrisés, pas toujours compris. Moi, je les ai créés, distribués, décortiqués.",
+  "Là où d’autres placent, je décrypte.",
+  "Je mets cette expertise au service d’un conseil lucide, humain, sans agenda caché."
+];
 
 export default function ApproachSection({ extraClass = '' }) {
-   const { dark } = useTheme();
-   
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3, // Stagger the animation of each paragraph
+        delayChildren: 0.2,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Assuming D_approach.webp / M_approach.webp might be textured or darker,
+  // text-ivoire should provide good contrast and a premium feel.
   return (
-    <section id="approach" className={`w-full py-16 ${extraClass}`}>      
-      <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
-        {cards.map((c, i) => (
-          <Link key={c.href} href={c.href} className="group block">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 dark:bg-acier/60 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
-            >
-              <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
-                <AnimatedSVGRenderer
-                  SvgComponent={c.Svg}
-                  wrapperClassName="w-24 h-24 stroke-ardoise fill-doré"
-                  strokecolor={dark ? couleurs.ivoire : couleurs.acier}
-                  fillColor={couleurs.doré}
-                  strokeWidth={c.stroke}
-                  duration={3}
-                  delayStep={0.8}
-                  tiltIntensity={1.5}
-                  preserveAspectRatio="xMidYMid meet"
-                />
-              </div>
-              <div className="flex-1 p-6">
-                <motion.h2
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-2xl md:text-3xl font-semibold text-anthracite mb-2 leading-snug"
-                >
-                  {c.title}
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="text-base md:text-lg text-acier leading-relaxed"
-                >
-                  {c.text}
-                </motion.p>
-              </div>
-            </motion.div>
-          </Link>
+    <div
+      className={`relative w-full h-full flex flex-col items-center justify-center text-center p-6 md:p-10 ${extraClass}`}
+    >
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }} // Trigger when 40% is in view
+        className="max-w-xl lg:max-w-2xl space-y-6 md:space-y-8" // Constrained width for readability
+      >
+        {paragraphs.map((text, index) => (
+          <motion.p
+            key={index}
+            variants={itemVariants}
+            // Styling for a personal, direct, yet sophisticated voice.
+            // Using text-ivoire, assuming a darker background from D_approach.webp / M_approach.webp
+            className="text-xl md:text-2xl lg:text-3xl font-light text-ivoire leading-relaxed md:leading-loose"
+          >
+            {text}
+          </motion.p>
         ))}
-      </div>
-    </section>
-  )
+      </motion.div>
+    </div>
+  );
 }

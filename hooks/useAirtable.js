@@ -5,8 +5,8 @@ import { useCallback } from "react"
 
 export default function useAirtable() {
   const envoyerVersAirtable = useCallback(async ({ nom, email, message, answers, textAnswer, profile }) => {
-    const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY
-    const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID
+    const apiKey = import.meta.env.VITE_AIRTABLE_CRM_API_KEY
+    const baseId = import.meta.env.VITE_AIRTABLE_CRM_BASE_ID
     const tableName = "Profil"
 
     const fields = {

@@ -10,7 +10,9 @@
     "devc": "./scripts/dev-clean.sh",
     "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
-    "server": "./scripts/server.sh"
+    "server": "./scripts/server.sh",
+    "social": "node ./scripts/reseaux/index.js",
+    "publier": "npm --prefix scripts/reseaux run social"
   },
   "dependencies": {
     "@babylonjs/core": "^8.8.1",
@@ -25,15 +27,19 @@
     "@react-three/rapier": "^2.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "airtable": "^0.12.2",
+    "axios": "^1.9.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "colorjs.io": "^0.5.2",
     "cookieconsent": "^3.1.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.7.4",
+    "googleapis": "^149.0.0",
     "gray-matter": "^4.0.3",
+    "inquirer": "^8.2.6",
     "javascript": "^1.0.0",
     "lucide-react": "^0.507.0",
+    "moment": "^2.30.1",
     "next": "15.3.1",
     "next-mdx-remote": "^5.0.0",
     "next-scroll-restorer": "^0.10.0",
@@ -50,7 +56,8 @@
     "remark-gfm": "^4.0.1",
     "resend": "^4.4.1",
     "resize-observer-polyfill": "^1.5.1",
-    "three": "^0.176.0"
+    "three": "^0.176.0",
+    "twitter-api-v2": "^1.23.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -67,5 +74,21 @@
     "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^3.4.17",
     "ts-prune": "^0.10.3"
-  }
+  },
+  "main": "cookieconsent.esm.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichelAlforis/alforis-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichelAlforis/alforis-site/issues"
+  },
+  "homepage": "https://github.com/MichelAlforis/alforis-site#readme",
+  "description": ""
 }
