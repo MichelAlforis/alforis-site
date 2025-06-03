@@ -1,6 +1,6 @@
 // scripts/reseaux/index.js
 
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '../../.env.local' });
 const Airtable = require('airtable');
 const linkedin = require('./linkedin');
 const instagram = require('./instagram');
