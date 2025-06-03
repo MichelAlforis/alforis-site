@@ -12,22 +12,24 @@ const PortraitSVG = () => {
   };
 
   const paths = [
-    { d: d1, fill: getColor(fill1), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1, delay: 0 } },
-    { d: d2, fill: getColor(fill2), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1, delay: 0.2 } },
-    { d: d3, fill: getColor(fill3), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1, delay: 0.4 } },
-    { d: d4, fill: getColor(fill4), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1, delay: 0.6 } },
-    { d: d5, fill: getColor(fill5), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1, delay: 0.8 } },
+    { d: d1, fill: getColor(fill1), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0 } },
+    { d: d2, fill: getColor(fill2), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.3 } },
+    { d: d3, fill: getColor(fill3), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.6 } },
+    { d: d4, fill: getColor(fill4), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.9 } },
+    { d: d5, fill: getColor(fill5), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 1.2 } },
   ];
 
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 317 561" // Adjusted viewBox to match SVG dimensions from portrait.js (d1 path goes up to 317 width and 561 height)
-      width="100%" // Make it responsive
-      height="auto" // Maintain aspect ratio
+      viewBox="0 0 317 561"
+      width="100%"
+      height="auto"
       aria-labelledby={title}
       initial="initial"
-      animate="animate"
+      animate="animate" // This will be overridden by whileInView if whileInView is also "animate"
+      whileInView="animate" // Ensures animation plays when SVG is in view
+      viewport={{ once: true }} // Animation plays once
     >
       <title id={title}>{title}</title>
       {paths.map((path, index) => (
@@ -35,9 +37,10 @@ const PortraitSVG = () => {
           key={index}
           d={path.d}
           fill={path.fill}
-          initial={path.initial}
-          animate={path.animate}
-          transition={path.transition}
+          // Variants could be used here if preferred, but direct props are fine for this case
+                          initial={path.initial} // initial and animate props on children will respect parent's whileInView
+                          animate={path.animate}
+                          transition={path.transition}
         />
       ))}
     </motion.svg>
