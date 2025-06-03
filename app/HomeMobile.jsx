@@ -3,12 +3,12 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Animated from '../components/animated/Animated'
-import HeroSection from '../components/home/HeroSection'
-import ServicesCards from '../components/home/ServicesCards'
-import ApproachSection from '../components/home/ApproachSection'
-import KeyFigures from '../components/home/KeyFigures'
-import Contact from '../components/home/Contact'
-import PortraitSVG from '../components/home/PortraitSVG';
+import HeroSection from './components/home/HeroSection'
+import ServicesCards from './components/home/ServicesCards'
+import ApproachSection from './components/home/ApproachSection'
+import KeyFigures from './components/home/KeyFigures'
+import Contact from './components/home/Contact'
+import PortraitSVG from './components/home/PortraitSVG'
 
 
 export default function HomeMobile() {
@@ -110,7 +110,7 @@ export default function HomeMobile() {
           transition={{ duration: 0.6 }}
         >
           {/* SVG Container - Behind content */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center opacity-30"> {/* Added opacity-30 */}
+          <div className="absolute inset-0 z-base flex items-center justify-center opacity-50"> {/* Added opacity-30 */}
             <PortraitSVG />
           </div>
 
