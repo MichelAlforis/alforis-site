@@ -15,7 +15,7 @@ export default function Contact({ extraClass = '' }) {
   }, [dark])
 
   return (
-    <section id="contact" className={`relative w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
+    <section id="contact" className={`relative w-full md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -46,7 +46,7 @@ export default function Contact({ extraClass = '' }) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-8 space-y-6"
+        className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-5 space-y-6"
         action="/api/contact"
         method="POST"
       >
@@ -62,7 +62,7 @@ export default function Contact({ extraClass = '' }) {
           <label htmlFor="message" className="block text-sm font-medium text-anthracite dark:text-ivoire">Message</label>
           <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
         </div>
-        <div className="text-right">
+        <div className="text-center">
           <button
             type="submit"
             onMouseEnter={onMouseEnter}

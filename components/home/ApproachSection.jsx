@@ -70,14 +70,14 @@ export default function ApproachSection({ extraClass = '' }) {
                 />
               </div>
               <div className="flex-1 p-6">
-                <motion.h2
+                <motion.h3
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-2xl md:text-3xl font-semibold text-anthracite mb-2 leading-snug"
+                  className="text-2xl md:text-3xl font-semibold text-doré mb-2 leading-snug"
                 >
                   {c.title}
-                </motion.h2>
+                </motion.h3>
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}

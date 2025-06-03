@@ -43,9 +43,9 @@ export default function ServicesCards({ extraClass = '' }) {
               transition={{ delay: i * 0.2, duration: 0.6 }}
             >
               <div className="flex items-start gap-4">
-                <img src={s.icon} alt={s.alt} className="w-20 h-20 object-contain" loading="lazy" />
+                <img src={s.icon} alt={s.alt || ''} className="w-20 h-20 object-contain hidden sm:block" loading="lazy" decoding="async"/>
                 <div className="flex-1">
-                  <h3 className="text-xl font-serif text-anthracite group-hover:text-doré transition">{s.title}</h3>
+                  <h3 className="text-xl font-serif text-doré group-hover:text-doré transition">{s.title}</h3>
                   <p className="text-sm text-acier mt-2 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
