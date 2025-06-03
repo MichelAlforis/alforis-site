@@ -293,3 +293,7 @@ Use --update-env to update environment variables
 [PM2] Saving current process list...
 [PM2] Successfully saved in /root/.pm2/dump.pm2
 ✅ Déploiement terminé
+📤 Déploiement sur le serveur
+• Copie des fichiers…
+📤 Déploiement sur le serveur
+• Copie des fichiers…
