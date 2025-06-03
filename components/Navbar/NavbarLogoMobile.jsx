@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/styles/ThemeDark';
 import { couleurs } from '@/styles/generated-colors.mjs';
-import { SVGConfig } from '../../public/assets/img/svg/navbarLogoConfig';
+import { SVGConfig } from './navbarLogoConfig';
 import Color from 'colorjs.io';  // npm install colorjs.io
 
 export default function NavbarLogoMobile({ className = '', isTransparent }) {

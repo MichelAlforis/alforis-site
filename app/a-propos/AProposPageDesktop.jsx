@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import PageLayout from '@/components/page/PageLayout';
 import PremiumButton from '@/components/ui/PremiumButton';
 import { pageConfig } from './pageConfig';
-import { SVGConfig } from '@/public/assets/img/svg/navbarLogoConfig';
+import { SVGConfig } from '@/components/Navbar/navbarLogoConfig';
 
 // Animation variants
 const fadeInUp = {
