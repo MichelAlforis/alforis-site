@@ -1,104 +1,59 @@
 
 'use client'
-/* components/home/KeyFigures.jsx - Renamed to Acte IV – Architecture */
+/* components/home/KeyFigures.jsx */
 
-import { motion } from 'framer-motion'
+
 import { useInView } from 'react-intersection-observer'
-import useCountUp from '@/hooks/useCountUp' // Assuming this path is correct
+import useCountUp from '@/hooks/useCountUp'
+import { motion } from 'framer-motion'
+import { GoldLink } from '@/hooks/useGoldEffect'
 
-const trustPointsData = [
-  {
-    id: "figures",
-    // For useCountUp, we'll count to 570 and 42 (then display as 4,2)
-    texts: [{ value: 570, suffix: "M€ collectés" }, { value: 42, decimals: 1, suffix: "M€ de PNB généré" }]
-  },
-  {
-    id: "diploma",
-    texts: ["Diplômé IAE Paris | ORIAS | CIF"]
-  },
-  {
-    id: "experience",
-    texts: ["Ancien banquier privé (CIC) devenu producteur de solutions structurées (Crédit Mutuel IM)"]
-  },
-  {
-    id: "founder",
-    texts: ["Entrepreneur, pas commercial : j’ai fondé ce cabinet par conviction, pas par transition"]
-  }
-];
+const figures = [
+  { value: 570, label: "d'encours sous conseil générés", suffix: ' M€' },
+  { value: 100, label: "d'indépendance", suffix: ' %' },
+  { value: 15, label: "d’expérience au cœur du secteur financier", suffix: ' ans' },
+]
 
 export default function KeyFigures({ extraClass = '' }) {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 })
+  const counts = figures.map(fig => useCountUp(fig.value, 1500, inView))
 
-  const countUpDuration = 2000; // 2 seconds
-  const collectedAmount = useCountUp(570, countUpDuration, inView);
-  const pnbAmount = useCountUp(42, countUpDuration, inView); // Will be displayed as 4,2
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.25,
-        delayChildren: 0.2,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 }, // Slide in from left
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  // Assuming D_figures.webp / M_figures.webp may have varied tones,
-  // using text-ivoire for primary text and text-doré-clair for highlights or numbers.
   return (
-    <div
-      ref={ref} // ref for useInView to trigger animations
-      className={`relative w-full h-full flex flex-col items-center justify-center p-6 md:p-10 ${extraClass}`}
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"} // Control animation via inView
-        className="max-w-2xl lg:max-w-3xl w-full space-y-8 md:space-y-10" // Added w-full
-      >
-        <motion.h2
-          variants={itemVariants}
-          className="text-3xl md:text-4xl font-semibold text-center text-doré-clair mb-10 md:mb-12"
+    <section id="chiffres" className={`py-20 ${extraClass}`}>      
+      <div ref={ref} className="bg-ardoise bg-opacity-40 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6 text-center"
         >
-          Pourquoi me faire confiance
-        </motion.h2>
+          <h2 className="drop-shadow-lg">
+            <GoldLink href="/services">L’Expertise derrière Alforis</GoldLink>
+          </h2>
+          <p className="text-ivoire text-base md:text-lg leading-relaxed">
+            Plus de 15 ans d’expérience dans la structuration d’investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.
+          </p>
+        </motion.div>
 
-        {trustPointsData.map((point) => (
-          <motion.div
-            key={point.id}
-            variants={itemVariants}
-            className="bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-5 p-4 md:p-6 rounded-lg shadow-md" // Subtle architectural block
-          >
-            {point.id === "figures" ? (
-              <p className="text-xl md:text-2xl text-ivoire text-center font-medium">
-                <span className="font-bold text-doré-clair">{collectedAmount}</span>M€ collectés
-                <span className="mx-2 text-ivoire/80">|</span>
-                <span className="font-bold text-doré-clair">{pnbAmount / 10}</span>M€ de PNB généré
-                {/* Displaying 42 as 4,2 */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-ivoire text-center">
+          {figures.map((fig, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="space-y-2"
+            >
+              <p className="text-4xl text-ivoire font-bold drop-shadow-md">
+                {counts[i]}{fig.suffix}
               </p>
-            ) : (
-              point.texts.map((text, index) => (
-                <p key={index} className="text-lg md:text-xl text-ivoire text-center leading-relaxed">
-                  {text}
-                </p>
-              ))
-            )}
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  );
+              <p className="text-ivoire/80 text-sm">{fig.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }

@@ -1,113 +1,78 @@
 'use client'
-/* components/home/Contact.jsx - Renamed to Acte V – Signature & appel */
+/* components/home/Contact.jsx */
 
 import { motion } from 'framer-motion'
-import SignatureSVG from '@/assets/illustrations/SignatureSVG' // Import the new SVG component
-import Link from 'next/link' // For the new CTA button
-
-const citationText = "Ce métier, je l’exerce pour redonner aux gens le pouvoir de comprendre, de choisir et de décider."
-const ctaText = "→ Découvrez ce qu’on ne vous a jamais dit sur votre argent."
-// Assuming 'doré' color RGB is approximately 242, 158, 76 for the boxShadow
-// The colors should ideally come from generate-colors.mjs if accessible
-// For dark background (D_contact.webp), text should be light (e.g., text-ivoire, text-doré-clair)
-// Form input/label colors will need to complement this.
+import useButtonHover from '@/hooks/useButtonHover'
+import { useState, useEffect } from 'react'
+import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
 export default function Contact({ extraClass = '' }) {
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.3, delayChildren: 0.2 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
-  };
-
-  const formItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
-  };
-
-  const buttonHover = {
-    scale: 1.05,
-    boxShadow: "0 0 15px 5px rgba(242, 158, 76, 0.5)", // Assuming doré is approx #F29E4C
-    transition: { duration: 0.3 }
-  };
-
+  const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
+  // état thème jour/nuit
+  const [dark, setDark] = useState(false)
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+  }, [dark])
 
   return (
-    <div
-      className={`relative w-full h-full flex flex-col items-center justify-center p-6 md:p-10 text-ivoire ${extraClass}`}
-    >
+    <section id="contact" className={`relative w-full md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16 ${extraClass}`}>      
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="w-full max-w-lg lg:max-w-xl text-center space-y-8 md:space-y-10"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8 }}
+        className="space-y-6"
       >
-        {/* Citation */}
-        <motion.blockquote
-          variants={itemVariants}
-          className="text-2xl md:text-3xl font-light italic leading-snug md:leading-normal text-doré-clair"
-        >
-          "{citationText}"
-        </motion.blockquote>
-
-        {/* SVG Signature */}
-        <motion.div variants={itemVariants} className="flex justify-center">
-          {/* Assuming D_contact.webp is dark, signature should be light */}
-          <SignatureSVG strokeColor="var(--doré-clair, #E6CFAF)" />
-        </motion.div>
-
-        {/* Adapted Contact Form */}
-        {/* Assuming D_contact.webp is dark, form elements need to be styled for light text on dark inputs or dark text on light inputs */}
-        <motion.form
-          variants={itemVariants} // Animate form as a whole block first
-          action="/api/contact" // Retained from original
-          method="POST"
-          className="space-y-6 text-left bg-black bg-opacity-20 dark:bg-white dark:bg-opacity-5 p-6 md:p-8 rounded-xl shadow-lg"
-        >
-          <motion.div variants={formItemVariants}>
-            <label htmlFor="name" className="block text-sm font-medium text-ivoire mb-1">Nom complet</label>
-            <input type="text" id="name" name="name" required className="mt-1 w-full border-ivoire/50 bg-transparent rounded-md px-4 py-2.5 text-ivoire focus:ring-doré focus:border-doré placeholder-ivoire/70" placeholder="Votre nom"/>
-          </motion.div>
-          <motion.div variants={formItemVariants}>
-            <label htmlFor="email" className="block text-sm font-medium text-ivoire mb-1">Email</label>
-            <input type="email" id="email" name="email" required className="mt-1 w-full border-ivoire/50 bg-transparent rounded-md px-4 py-2.5 text-ivoire focus:ring-doré focus:border-doré placeholder-ivoire/70" placeholder="Votre email"/>
-          </motion.div>
-          <motion.div variants={formItemVariants}>
-            <label htmlFor="message" className="block text-sm font-medium text-ivoire mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required className="mt-1 w-full border-ivoire/50 bg-transparent rounded-md px-4 py-2.5 text-ivoire focus:ring-doré focus:border-doré placeholder-ivoire/70" placeholder="Votre message"></textarea>
-          </motion.div>
-          <motion.div variants={formItemVariants} className="text-center md:text-right pt-2">
-            <button
-              type="submit"
-              className="px-8 py-3 bg-doré text-anthracite font-semibold rounded-full shadow-md hover:bg-doré-clair hover:text-anthracite-dark transition-colors duration-300"
-            >
-              Envoyer le message
-            </button>
-          </motion.div>
-        </motion.form>
-
-        {/* New Call to Action Button */}
-        <motion.div variants={itemVariants} className="pt-6 md:pt-8">
-          <Link href="/parcours" passHref>
-            <motion.button
-              className="px-8 py-4 bg-transparent border-2 border-doré text-doré font-semibold text-lg rounded-full shadow-lg"
-              whileHover={buttonHover}
-              whileTap={{ scale: 0.95 }}
-            >
-              {ctaText}
-            </motion.button>
-          </Link>
-        </motion.div>
-
+        <h2 className="text-doré mb-4">
+          Parlons de vos objectifs financiers
+        </h2>
+        <p className="text-base text-ivoire leading-relaxed">
+          Vous souhaitez poser une question, planifier une rencontre ou recevoir une documentation ? <br />
+          Laissez-nous un message ou prenez directement rendez-vous.
+        </p>
+        <ul className="text-sm text-ivoire space-y-2">
+          <li><strong>Email :</strong> <a href="mailto:michel.marques@alforis.fr" className="underline">michel.marques@alforis.fr</a></li>
+          <li><strong>Téléphone :</strong> <a href="tel:+33646462291" className="underline">06 46 46 22 91</a></li>
+          <li><strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris</li>
+        </ul>
+        <p className="text-base text-ivoire leading-relaxed italic my-6">
+          "Mon métier, c’est vous redonner le pouvoir sur votre argent : comprendre, choisir, agir en toute lucidité."
+        </p>
+        <SignatureSVG strokeColor="text-doré" className="mt-4" />
       </motion.div>
-    </div>
+
+      <motion.form
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-5 space-y-6"
+        action="/api/contact"
+        method="POST"
+      >
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-anthracite dark:text-ivoire">Nom complet</label>
+          <input type="text" id="name" name="name" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-anthracite dark:text-ivoire">Email</label>
+          <input type="email" id="email" name="email" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+        </div>
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-anthracite dark:text-ivoire">Message</label>
+          <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
+        </div>
+        <div className="text-center">
+          <button
+            type="submit"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className={`${buttonClass} inline-block px-8 py-3 font-semibold uppercase tracking-wide rounded-full border-2 border-anthracite transition-all duration-300 hover:bg-anthracite hover:text-ivoire`}
+          >
+            Envoyer le message
+          </button>
+        </div>
+      </motion.form>
+    </section>
   )
 }

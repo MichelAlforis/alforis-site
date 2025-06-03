@@ -37,7 +37,7 @@ export default function HomeMobile() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1 }}
           />
-          <div className="relative z-base flex flex-col items-center justify-end px-6 pb-16">
+          <div className="relative z-base flex flex-col items-center justify-end px-3 pb-16">
             <HeroSection extraClass="text-center max-w-sm mx-auto animate-fadeInUp" />
             <motion.div
               className="mt-6 mb-4 animate-bounce"
@@ -66,10 +66,7 @@ export default function HomeMobile() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           />
-          <div className="relative z-base bg-ivoire bg-opacity-95 px-6 py-12">
-            <h2 className="text-2xl font-semibold text-anthracite text-center mb-6">
-              Nos services essentiels
-            </h2>
+          <div className="relative z-base bg-ivoire bg-opacity-25 px-3 py-12">
             <ServicesCards extraClass="grid grid-cols-1 divide-y divide-ardoise-light" />
             <motion.div
               className="mt-8 flex justify-center"
@@ -77,9 +74,6 @@ export default function HomeMobile() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <button className="bg-doré text-ivoire font-medium py-3 px-8 rounded-full shadow-lg">
-                Voir toutes nos offres
-              </button>
             </motion.div>
           </div>
         </motion.section>
@@ -87,7 +81,7 @@ export default function HomeMobile() {
         {/* 3. Approach Section */}
         <motion.section
           id="approach"
-          className="snap-start relative px-6 py-16"
+          className="snap-start relative px-3 py-16"
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
@@ -101,14 +95,14 @@ export default function HomeMobile() {
             transition={{ duration: 1 }}
           />
           <div className="relative z-base max-w-md mx-auto">
-            <ApproachSection extraClass="px-4 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
+            <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
           </div>
         </motion.section>
 
         {/* 4. Key Figures Section (solid background) */}
         <motion.section
           id="figures"
-          className="snap-start bg-ardoise px-6 py-16"
+          className="snap-start bg-ardoise px-3 py-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -122,13 +116,13 @@ export default function HomeMobile() {
         {/* 5. Contact Section (gradient bg) */}
         <motion.section
           id="contact"
-          className="snap-start relative px-6 py-16 bg-gradient-to-b from-ardoise to-anthracite"
+          className="snap-start relative py-16 bg-gradient-to-b from-ardoise to-anthracite"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="relative z-base max-w-md mx-auto bg-overlay bg-opacity-70 rounded-2xl p-6">
+          <div className="relative z-base max-w-md mx-auto bg-overlay bg-opacity-70 rounded-2xl p-3">
             <Contact extraClass="text-ivoire" />
             <motion.div
               className="mt-6 flex justify-center"
