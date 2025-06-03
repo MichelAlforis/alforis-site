@@ -131,7 +131,8 @@ export default function MyApp() {
       cal("on", {
         action: "bookingSuccessfulV2",
         callback: (e) => {
-          console.log("Cal.com bookingSuccessfulV2 event:", e.detail); // Log the raw event data
+          console.log('✅ Raw Cal.com eventDetail:', eventDetail);
+
           if (e.detail && e.detail.data) {
             handleBookingSuccessful(e.detail.data);
           } else {

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { SVGConfig } from '@/components/Navbar/navbarLogoConfig';
+import { SVGConfig } from '@/public/assets/img/svg/navbarLogoConfig';
 
 export default function AProposMobile() {
   return (
