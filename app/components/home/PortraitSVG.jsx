@@ -4,7 +4,10 @@ import { motion } from 'framer-motion';
 import { ProtraitSVGConfig } from '../../../public/assets/img/svg/portrait';
 import { couleurs } from '../../../styles/generated-colors';
 
-const PortraitSVG = () => {
+const PortraitSVG = ({
+  className,      // <-- on déstructure ici
+  titleOverride,  // si vous voulez passer un titre en prop (optionnel)
+}) => {
   const { title, d1, d2, d3, d4, d5, fill1, fill2, fill3, fill4, fill5 } = ProtraitSVGConfig;
 
   const getColor = (colorName) => {
@@ -39,10 +42,9 @@ const PortraitSVG = () => {
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 317 561"
-      width="100%"
       height="auto"
       aria-labelledby={title}
-      
+      className={className}
       // On n’utilise QUE initial / whileInView ici, plus de `animate` fixe :
       initial="hidden"
       whileInView="visible"

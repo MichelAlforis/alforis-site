@@ -95,7 +95,7 @@ export default function HomeMobile() {
             whileInView={{ x: 0 }}
             transition={{ duration: 1 }}
           />
-          <div className="relative z-base max-w-md mx-auto"> {/* Was z-20, now z-base or similar default */}
+          <div className="relative z-base max-w-md mx-auto"> {/* Was z-overlay, now z-base or similar default */}
             <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
           </div>
         </motion.section>
@@ -103,19 +103,19 @@ export default function HomeMobile() {
         {/* 4. Key Figures Section (solid background) */}
         <motion.section
           id="figures"
-          className="snap-start bg-ardoise px-3 py-16 relative" // Added 'relative' for positioning context
+          className="snap-start bg-anthracite bg-opacity-90 py-16 relative" // Added 'relative' for positioning context
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {/* SVG Container - Behind content */}
-          <div className="absolute inset-0 z-base flex items-center justify-center opacity-50"> {/* Added opacity-30 */}
+          <div className="absolute inset-0 z-base flex items-center justify-center opacity-60"> {/* Added opacity-30 */}
             <PortraitSVG />
           </div>
 
           {/* Original content - Ensure it's above SVG */}
-          <div className="relative z-20 max-w-sm mx-auto text-center space-y-4"> {/* Added relative and z-20 */}
+          <div className="relative z-overlay max-w-sm mx-auto text-center space-y-4"> {/* Added relative and z-overlay */}
             <KeyFigures extraClass="text-ivoire" />
           </div>
         </motion.section>
@@ -123,7 +123,7 @@ export default function HomeMobile() {
         {/* 5. Contact Section (gradient bg) */}
         <motion.section
           id="contact"
-          className="snap-start relative py-16 bg-gradient-to-b from-ardoise to-anthracite"
+          className="snap-start relative py-16 bg-gradient-to-b from-anthracite to-ardoise"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
