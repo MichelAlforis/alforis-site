@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import useScrollPosition from '@/hooks/useScrollPosition'
 import { useTheme } from '@/styles/ThemeDark'
 import { couleurs } from '@/styles/generated-colors.mjs'
-import { SVGConfig } from './navbarLogoConfig'
+import { SVGConfig } from '../../public/assets/img/svg/navbarLogoConfig'
 
 export default function NavbarLogo({ className = '', isHome }) {
   const pathname = usePathname()
