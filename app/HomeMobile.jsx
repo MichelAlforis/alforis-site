@@ -115,9 +115,16 @@ export default function HomeMobile() {
           </div>
 
           {/* Original content - Ensure it's above SVG */}
-          <div className="relative z-20 max-w-sm mx-auto text-center space-y-4"> {/* Added relative and z-20 */}
-            <KeyFigures extraClass="text-ivoire" />
-          </div>
+          <motion.div
+            className="absolute inset-0 z-base flex items-center justify-center opacity-50"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            variants={svgVariants}
+          >
+            <PortraitSVG variants={svgVariants} />
+          </motion.div>
         </motion.section>
 
         {/* 5. Contact Section (gradient bg) */}

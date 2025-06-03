@@ -1,3 +1,4 @@
+// PortraitSVG.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ProtraitSVGConfig } from '../../../public/assets/img/svg/portrait';
@@ -8,16 +9,31 @@ const PortraitSVG = () => {
 
   const getColor = (colorName) => {
     const key = colorName.split('.')[1];
-    return couleurs[key] || 'black'; // Default to black if color not found
+    return couleurs[key] || 'black';
   };
 
+  // On ne stocke plus initial/animate/transition dans chaque objet path : 
   const paths = [
-    { d: d1, fill: getColor(fill1), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0 } },
-    { d: d2, fill: getColor(fill2), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.3 } },
-    { d: d3, fill: getColor(fill3), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.6 } },
-    { d: d4, fill: getColor(fill4), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 0.9 } },
-    { d: d5, fill: getColor(fill5), initial: { opacity: 0, pathLength: 0 }, animate: { opacity: 1, pathLength: 1 }, transition: { duration: 1.5, delay: 1.2 } },
+    { d: d1, fill: getColor(fill1) },
+    { d: d2, fill: getColor(fill2) },
+    { d: d3, fill: getColor(fill3) },
+    { d: d4, fill: getColor(fill4) },
+    { d: d5, fill: getColor(fill5) },
   ];
+
+  // Variants partagés par tous les <motion.path> :
+  const pathVariants = {
+    hidden: { opacity: 0, pathLength: 0 },
+    visible: (i) => ({
+      opacity: 1,
+      pathLength: 1,
+      transition: {
+        duration: 1.5,
+        delay: i * 0.3,       // on espace chaque path de 0.3 s
+        ease: 'easeInOut',
+      },
+    }),
+  };
 
   return (
     <motion.svg
@@ -26,21 +42,23 @@ const PortraitSVG = () => {
       width="100%"
       height="auto"
       aria-labelledby={title}
-      initial="initial"
-      animate="animate" // This will be overridden by whileInView if whileInView is also "animate"
-      whileInView="animate" // Ensures animation plays when SVG is in view
-      viewport={{ once: true }} // Animation plays once
+      
+      // On n’utilise QUE initial / whileInView ici, plus de `animate` fixe :
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
     >
       <title id={title}>{title}</title>
+
       {paths.map((path, index) => (
         <motion.path
           key={index}
           d={path.d}
           fill={path.fill}
-          // Variants could be used here if preferred, but direct props are fine for this case
-                          initial={path.initial} // initial and animate props on children will respect parent's whileInView
-                          animate={path.animate}
-                          transition={path.transition}
+          
+          // On lui donne les variants et un custom=index pour le delay
+          variants={pathVariants}
+          custom={index}
         />
       ))}
     </motion.svg>
