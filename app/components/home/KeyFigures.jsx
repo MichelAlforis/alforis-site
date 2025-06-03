@@ -20,7 +20,7 @@ export default function KeyFigures({ extraClass = '' }) {
 
   return (
     <section id="chiffres" className={`py-20 ${extraClass}`}>      
-      <div ref={ref} className="bg-ardoise bg-opacity-40 md:bg-opacity-70 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
+      <div ref={ref} className="bg-ardoise bg-opacity-40 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -57,17 +57,18 @@ export default function HomeContent() {
             </picture>
 
             {/* ❷ Si c'est la section "figures", on insère l’arrière-plan SVG */}
-            {id === 'figures' && (
+            { id === 'figures' && (
               <motion.div
-                className="absolute inset-0 z-base flex items-center"
-                initial={{ opacity: 0, pathLength: 0 }}
-                whileInView={{ opacity: 1, pathLength: 1 }}
+                className="absolute inset-0 z-base flex justify-end items-end overflow-hidden"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
               >
-                <PortraitSVG className="absolute inset-y-0 right-0 opacity-70" />
+                <PortraitSVG className="h-full max-h-[80vh] w-auto opacity-70" />
               </motion.div>
             )}
+
 
             {/* ❸ Contenu principal, toujours au-dessus */}
             <div className="relative z-overlay w-full h-full flex items-center justify-center px-4">
