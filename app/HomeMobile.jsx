@@ -8,6 +8,7 @@ import ServicesCards from '../components/home/ServicesCards'
 import ApproachSection from '../components/home/ApproachSection'
 import KeyFigures from '../components/home/KeyFigures'
 import Contact from '../components/home/Contact'
+import PortraitSVG from '../components/home/PortraitSVG';
 
 
 export default function HomeMobile() {
@@ -81,21 +82,32 @@ export default function HomeMobile() {
         {/* 3. Approach Section */}
         <motion.section
           id="approach"
-          className="snap-start relative px-3 py-16"
+          className="snap-start relative px-3 py-16 h-screen flex items-center justify-center" // Added h-screen and flex centering for better SVG display for now
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
-            initial={{ x: -50 }}
-            whileInView={{ x: 0 }}
-            transition={{ duration: 1 }}
-          />
-          <div className="relative z-base max-w-md mx-auto">
-            <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
+          {/* Container for background, SVG, and text content */}
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* Background Image */}
+            <motion.div
+              className="absolute inset-0 bg-cover bg-center z-0"
+              style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
+              initial={{ x: -50 }}
+              whileInView={{ x: 0 }}
+              transition={{ duration: 1 }}
+            />
+
+            {/* SVG Portrait - Positioned behind the text but above the background */}
+            <div className="absolute inset-0 flex items-center justify-center z-10 opacity-80">
+              <PortraitSVG />
+            </div>
+
+            {/* Text Content - Positioned above the SVG */}
+            <div className="relative z-20 max-w-md mx-auto">
+              <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
+            </div>
           </div>
         </motion.section>
 
