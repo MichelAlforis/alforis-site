@@ -8,7 +8,7 @@ import ServicesCards from '../components/home/ServicesCards'
 import ApproachSection from '../components/home/ApproachSection'
 import KeyFigures from '../components/home/KeyFigures'
 import Contact from '../components/home/Contact'
-import PortraitSVG from '../components/home/PortraitSVG';
+import PortraitSVG from './components/home/PortraitSVG'
 
 
 export default function HomeMobile() {
