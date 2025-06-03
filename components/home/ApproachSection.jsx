@@ -39,6 +39,14 @@ export default function ApproachSection({ extraClass = '' }) {
   return (
     <section id="approach" className={`w-full py-16 ${extraClass}`}>      
       <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Expérience, indépendance et vision entrepreneuriale 
+        </motion.h2>
         {cards.map((c, i) => (
           <Link key={c.href} href={c.href} className="group block">
             <motion.div

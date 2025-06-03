@@ -28,9 +28,8 @@ export default function ServicesCards({ extraClass = '' }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-semibold dark:text-anthracite"
         >
-          Nos services sur-mesure
+          Une méthode pour sécuriser et développer votre patrimoine
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {services.map((s, i) => (

@@ -23,8 +23,8 @@ export default function Contact({ extraClass = '' }) {
         transition={{ duration: 0.8 }}
         className="space-y-6"
       >
-        <h2 className="text-3xl md:text-4xl font-extrabold text-doré mb-4">
-          Entrer en contact avec Alforis
+        <h2 className="text-doré mb-4">
+          Parlons de vos objectifs financiers
         </h2>
         <p className="text-base text-ivoire leading-relaxed">
           Vous souhaitez poser une question, planifier une rencontre ou recevoir une documentation ? <br />

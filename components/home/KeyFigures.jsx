@@ -10,7 +10,7 @@ import { GoldLink } from '@/hooks/useGoldEffect'
 
 const figures = [
   { value: 570, label: "d'encours sous conseil générés", suffix: ' M€' },
-  { value: 4.2, label: "de PNB généré par les solutions structurées conçues", suffix: ' M€' },
+  { value: 100, label: "d'indépendance", suffix: ' %' },
   { value: 15, label: "d’expérience au cœur du secteur financier", suffix: ' ans' },
 ]
 
@@ -28,7 +28,7 @@ export default function KeyFigures({ extraClass = '' }) {
           transition={{ duration: 0.8 }}
           className="space-y-6 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-title text-doré drop-shadow-lg">
+          <h2 className="drop-shadow-lg">
             <GoldLink href="/services">L’Expertise derrière Alforis</GoldLink>
           </h2>
           <p className="text-ivoire text-base md:text-lg leading-relaxed">
