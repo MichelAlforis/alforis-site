@@ -21,123 +21,152 @@ require('dotenv').config({ path: '.env.local' }); // Charger .env.local
 
 const { google } = require('googleapis');
 
-async function authenticate() {
-  console.log('🔐 Authenticating with Google My Business (service account)…');
-  try {
-    // Remplacer les "\n" littéraux par de vrais retours à la ligne
-    const privateKey = process.env.GCP_PRIVATE_KEY
-      ? process.env.GCP_PRIVATE_KEY.replace(/\\n/g, '\n')
-      : null;
+const GCP_CLIENT_EMAIL_VAR = 'GCP_CLIENT_EMAIL';
+const GCP_PRIVATE_KEY_VAR = 'GCP_PRIVATE_KEY';
+const GCP_BUSINESS_ACCOUNT_NAME_VAR = 'GCP_BUSINESS_ACCOUNT_NAME';
+// GMB_CTA_URL is optional, so not checked here as mandatory
 
-    if (!process.env.GCP_CLIENT_EMAIL || !privateKey) {
-      console.error(
-        '❌ GCP_CLIENT_EMAIL ou GCP_PRIVATE_KEY manquant(e) dans .env.local.'
-      );
-      return null;
+function checkEnvVariables() {
+  const clientEmail = process.env[GCP_CLIENT_EMAIL_VAR];
+  const privateKey = process.env[GCP_PRIVATE_KEY_VAR];
+  const businessAccountName = process.env[GCP_BUSINESS_ACCOUNT_NAME_VAR];
+
+  let missingVars = [];
+  if (!clientEmail) missingVars.push(GCP_CLIENT_EMAIL_VAR);
+  if (!privateKey) missingVars.push(GCP_PRIVATE_KEY_VAR);
+  if (!businessAccountName) missingVars.push(GCP_BUSINESS_ACCOUNT_NAME_VAR);
+
+  if (missingVars.length > 0) {
+    const message = `GMB environment variables missing: ${missingVars.join(', ')}. Please set these in .env.local.`;
+    // console.warn is already prefixed. Removing direct log for consistency.
+    return { success: false, message: message, errorCode: "CONFIG_ERROR" };
+  }
+  return { success: true };
+}
+
+async function authenticate() {
+  const envCheck = checkEnvVariables();
+  if (!envCheck.success) {
+    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+  }
+
+  try {
+    const privateKey = process.env[GCP_PRIVATE_KEY_VAR].replace(/\\n/g, '\n');
+    const clientEmail = process.env[GCP_CLIENT_EMAIL_VAR];
+
+    if (!clientEmail || !privateKey) { // Should be caught by checkEnvVariables, but double check
+        return { error: true, message: "GCP client email or private key is null after env check, which is unexpected.", errorCode: "CONFIG_ERROR", client: null };
     }
 
-    // Crée un client GoogleAuth avec JWT (service account)
     const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GCP_CLIENT_EMAIL,
-        private_key: privateKey,
-      },
+      credentials: { client_email: clientEmail, private_key: privateKey },
       scopes: ['https://www.googleapis.com/auth/business.manage']
     });
 
     const authClient = await auth.getClient();
-    // Appliquer cet auth à toutes les requêtes google APIs suivantes
     google.options({ auth: authClient });
-
-    console.log('✅ Google My Business authentication successful.');
-    return authClient;
+    return { error: false, client: authClient };
   } catch (err) {
-    console.error('❌ Google My Business authentication failed :', err.message);
-    return null;
+    console.error('[ERROR] Google My Business authentication failed:', err.message);
+    return { error: true, message: `GMB Authentication failed: ${err.message}`, errorCode: "AUTH_ERROR", client: null };
   }
 }
 
-async function createPost(textSummary) {
-  console.log('✏️  Tentative de création d’un GMB post…');
+function isValidHttpUrl(string) {
+  if (!string) return false; // Allow empty/null URIs if actionType doesn't require it
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
+}
 
-  // 1) Authentifier
-  const authClient = await authenticate();
-  if (!authClient) {
-    return {
-      success: false,
-      message: 'GMB Authentication failed. Vérifiez vos identifiants dans .env.local.'
-    };
+async function createPost(textSummary, options = {}) {
+  if (!textSummary || textSummary.trim() === "") {
+    return { success: false, message: "Text summary cannot be empty for GMB post.", errorCode: "VALIDATION_ERROR" };
   }
 
-  // 2) Vérifier que la variable d’environnement existe
-  //    Elle doit être au format : "accounts/1234567890/locations/0987654321"
-  const parentName = process.env.GCP_BUSINESS_ACCOUNT_NAME;
-  if (!parentName) {
-    console.error('❌ GCP_BUSINESS_ACCOUNT_NAME introuvable dans .env.local.');
-    return {
-      success: false,
-      message: 'GCP_BUSINESS_ACCOUNT_NAME non défini dans .env.local.'
-    };
+  const { actionType = 'LEARN_MORE', uri, label } = options; // `label` is not directly used by GMB API for LocalPost, but its presence implies a CTA.
+
+  // If a CTA button is implied by a label (or specific actionType that needs a URI), then URI must be valid.
+  // GMB API might require a URI for certain actionTypes like 'CALL' (tel: URI) or 'LEARN_MORE' (http/https URI).
+  // 'LEARN_MORE' is the default. If GMB_CTA_URL is used as fallback, it should be valid.
+  // The main check is if `uri` from options is provided, it should be valid.
+  const effectiveUri = uri || process.env.GMB_CTA_URL;
+
+  if (actionType && actionType !== 'ACTION_TYPE_UNSPECIFIED') {
+    if (!effectiveUri) {
+      return { success: false, message: `Button URL (uri) is required for GMB post when actionType is ${actionType}.`, errorCode: "VALIDATION_ERROR" };
+    }
+    if (!isValidHttpUrl(effectiveUri) && !effectiveUri.startsWith('tel:')) { // Allow tel: for CALL
+       return { success: false, message: `Button URL (uri: ${effectiveUri}) must be a valid HTTP/HTTPS or tel: URL for GMB post.`, errorCode: "VALIDATION_ERROR" };
+    }
   }
 
-  // 3) Charger dynamiquement l’API My Business v4 via discovery
+
+  const authResult = await authenticate();
+  if (authResult.error) {
+    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  }
+
+  const parentName = process.env[GCP_BUSINESS_ACCOUNT_NAME_VAR]; // Already checked
+
   let mybusinessClient;
   try {
-    console.log('🔍 Chargement dynamique de l’API My Business v4 (discovery)…');
-    mybusinessClient = await google.discoverAPI(
-      'https://mybusiness.googleapis.com/$discovery/rest?version=v4'
-    );
+    mybusinessClient = await google.discoverAPI('https://mybusiness.googleapis.com/$discovery/rest?version=v4');
   } catch (err) {
-    console.error(
-      '❌ Échec du chargement de l’API My Business v4 via discovery :',
-      err.message
-    );
-    return {
-      success: false,
-      message: 'Impossible de charger l’API My Business v4 (discovery failed).'
-    };
+    console.error('[ERROR] Failed to load GMB API (discovery):', err.message);
+    return { success: false, message: `GMB API Discovery failed: ${err.message}`, errorCode: "NETWORK_ERROR" };
   }
 
-  // 4) Préparer le corps du post (LocalPost)
   const postBody = {
     languageCode: 'fr-FR',
     summary: textSummary,
-    callToAction: {
-      actionType: 'LEARN_MORE',
-      uri: process.env.GMB_CTA_URL || 'https://www.google.com'
+    callToAction: { // Conditionally add callToAction if URI is present
+      actionType: actionType, // Use actionType from options
+      // uri will be set below if valid and present
     },
     topicType: 'STANDARD'
   };
 
-  // 5) Appeler accounts.locations.localPosts.create
+  if (actionType && actionType !== 'ACTION_TYPE_UNSPECIFIED' && effectiveUri) {
+    postBody.callToAction.uri = effectiveUri;
+  } else {
+    // If no valid URI or actionType is 'ACTION_TYPE_UNSPECIFIED', remove callToAction or set to minimal
+    // GMB might require specific actionTypes to have a URI.
+    // For 'STANDARD' topicType, callToAction is optional. If no URI, don't send callToAction.
+    delete postBody.callToAction;
+  }
+
+
   try {
-    console.log(`🚀 Création du post pour ${parentName}…`);
     const response = await mybusinessClient.accounts.locations.localPosts.create({
       parent: parentName,
       requestBody: postBody
     });
-
-    console.log('✅ GMB post créé avec succès. Resource name:', response.data.name);
+    console.log('[INFO] GMB post créé avec succès. Resource name:', response.data.name);
     return { success: true, data: response.data };
   } catch (err) {
-    // Extraire message d’erreur détaillé si possible
-    const errMsg =
-      err.response &&
-      err.response.data &&
-      err.response.data.error
-        ? err.response.data.error.message
-        : err.message;
+    let errorCode = "API_ERROR";
+    if (err.code === 401 || err.code === 403) {
+        errorCode = "AUTH_ERROR";
+    } else if (err.code === 400) {
+        errorCode = "VALIDATION_ERROR";
+    } else if (err.errors && err.errors.some(e => e.reason === 'rateLimitExceeded')) {
+        errorCode = "API_ERROR";
+    } else if (!err.response && err.message.includes('ECONNREFUSED')) {
+        errorCode = "NETWORK_ERROR";
+    }
 
-    console.error('❌ Échec de la création du GMB post :', errMsg);
-    console.error(
-      '👉 Vérifiez que :\n' +
-      '   • GCP_BUSINESS_ACCOUNT_NAME contient bien "accounts/ID/locations/ID"\n' +
-      '   • l’API My Business v4 est activée dans Google Cloud Console\n' +
-      '   • le service account a le rôle nécessaire (Business Profile Manager ou business.manage).'
-    );
-    return { success: false, message: `GMB API Error: ${errMsg}` };
+    const apiErrorDetails = err.errors?.map(e => `(${e.reason}: ${e.message})`).join(', ') || '';
+    const errMsg = `GMB API Error: ${err.message} ${apiErrorDetails} (Code: ${err.code || 'N/A'})`;
+
+    console.error('[ERROR] Failed to create GMB post:', errMsg, JSON.stringify(err.errors) || '');
+    return { success: false, message: errMsg, errorCode: errorCode };
   }
 }
 
-module.exports = { authenticate, createPost };
+module.exports = { authenticate, createPost, checkEnvVariables };
 
