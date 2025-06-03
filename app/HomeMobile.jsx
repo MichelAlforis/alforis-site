@@ -82,45 +82,40 @@ export default function HomeMobile() {
         {/* 3. Approach Section */}
         <motion.section
           id="approach"
-          className="snap-start relative px-3 py-16 h-screen flex items-center justify-center" // Added h-screen and flex centering for better SVG display for now
+          className="snap-start relative px-3 py-16" // Reverted classes
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Container for background, SVG, and text content */}
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* Background Image */}
-            <motion.div
-              className="absolute inset-0 bg-cover bg-center z-0"
-              style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
-              initial={{ x: -50 }}
-              whileInView={{ x: 0 }}
-              transition={{ duration: 1 }}
-            />
-
-            {/* SVG Portrait - Positioned behind the text but above the background */}
-            <div className="absolute inset-0 flex items-center justify-center z-10 opacity-80">
-              <PortraitSVG />
-            </div>
-
-            {/* Text Content - Positioned above the SVG */}
-            <div className="relative z-20 max-w-md mx-auto">
-              <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
-            </div>
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center" // Was z-0, but likely fine as is if it's the first element.
+            style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
+            initial={{ x: -50 }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: 1 }}
+          />
+          <div className="relative z-base max-w-md mx-auto"> {/* Was z-20, now z-base or similar default */}
+            <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
           </div>
         </motion.section>
 
         {/* 4. Key Figures Section (solid background) */}
         <motion.section
           id="figures"
-          className="snap-start bg-ardoise px-3 py-16"
+          className="snap-start bg-ardoise px-3 py-16 relative" // Added 'relative' for positioning context
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="max-w-sm mx-auto text-center space-y-4">
+          {/* SVG Container - Behind content */}
+          <div className="absolute inset-0 z-10 flex items-center justify-center opacity-30"> {/* Added opacity-30 */}
+            <PortraitSVG />
+          </div>
+
+          {/* Original content - Ensure it's above SVG */}
+          <div className="relative z-20 max-w-sm mx-auto text-center space-y-4"> {/* Added relative and z-20 */}
             <KeyFigures extraClass="text-ivoire" />
           </div>
         </motion.section>
