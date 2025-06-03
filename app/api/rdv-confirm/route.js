@@ -2,6 +2,8 @@
 export const runtime = 'nodejs'
 
 import { NextResponse } from 'next/server'
+import { saveRDV } from '../../../lib/airtable/saveRDV.js'
+import { notifyAdminRDV, sendClientMailRDV } from '../../../lib/airtable/EmailServiceRDV.js'
 
 const CAL_API_KEY = process.env.CAL_COM_TOKEN
 const EVENT_TYPE_IDS = {
@@ -102,6 +104,46 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Ce créneau n’est plus disponible.' }, { status: 409 })
     }
     return NextResponse.json({ error: e.message }, { status: 500 })
+  }
+
+  // Secondary actions: Save to Airtable and send emails
+  try {
+    const calbookingid = booking?.uid || booking?.id || null
+    if (calbookingid === null) {
+      console.warn('⚠️ Cal.com booking ID (uid or id) not found in response:', booking)
+    }
+
+    const rdvDetails = `${data.type} - ${data.date} ${data.time}`
+
+    const fieldsForAirtable = {
+      nom: data.Nom || data.nom,
+      prenom: data.Prenom || data.prenom,
+      telephone: data.NumeroTelephone || data.telephone,
+      email: data.Email || data.email,
+      rdv: rdvDetails,
+      calbookingid: calbookingid
+    }
+
+    try {
+      await saveRDV(fieldsForAirtable)
+    } catch (airtableError) {
+      console.error('Error saving to Airtable:', airtableError)
+    }
+
+    try {
+      await notifyAdminRDV({ fields: data })
+    } catch (adminEmailError) {
+      console.error('Error sending admin notification:', adminEmailError)
+    }
+
+    try {
+      await sendClientMailRDV({ fields: data })
+    } catch (clientEmailError) {
+      console.error('Error sending client confirmation email:', clientEmailError)
+    }
+  } catch (secondaryActionsError) {
+    // Log errors from secondary actions but do not let them block the primary success response
+    console.error('Error during secondary actions (Airtable/Email):', secondaryActionsError)
   }
 
   // Réponse au front
