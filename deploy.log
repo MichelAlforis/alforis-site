@@ -297,3 +297,7 @@ Use --update-env to update environment variables
 • Copie des fichiers…
 📤 Déploiement sur le serveur
 • Copie des fichiers…
+Read from remote host 159.69.108.234: Connection reset by peer
+Read from remote host 159.69.108.234: Connection reset by peer
+scp: Connection closed
+scp: Connection closed
