@@ -1,126 +1,128 @@
-'use client'
+'use client' // Ensure client component for framer-motion and hooks
 
-import PortraitSVG from "../components/home/PortraitSVG";
-import SignatureSVG from "@/assets/illustrations/SignatureSVG";
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Animated from '../components/animated/Animated';
+import Button from '../../components/ui/Button';
+import PortraitSVG from '../components/home/PortraitSVG';
+import SignatureSVG from '../components/home/SignatureSVG';
 
 export default function ChatGptWelcomePage() {
+  // Animation variants for sections
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
+  };
+
+  // Placeholder for micro-interaction state if we make it more dynamic later
+  // const [selectedIndex, setSelectedIndex] = React.useState(null);
+
   return (
-    <section
-      className="
-        relative
-        bg-gradient-to-br from-ivoire via-ivoire to-ardoise
-        text-anthracite
-        py-12 px-4 sm:py-16 sm:px-6 md:py-24 md:px-20
-        overflow-hidden
-      "
-    >
-      {/* 1. PortraitSVG en couche intermédiaire (cache sur mobile) */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 flex justify-end items-end overflow-hidden">
-          <PortraitSVG className="h-full max-h-[180vh] w-auto opacity-70" />
-        </div>
-      </div>
-
-      {/* 2. Boîte de contenu semi-opaque (fond ivoire) */}
-      <div
-        className="
-          relative z-10
-          bg-ivoire bg-opacity-60
-          rounded-2xl shadow-lg
-          space-y-12 sm:space-y-16 md:space-y-20
-          max-w-3xl sm:max-w-4xl md:max-w-5xl
-          mx-auto
-          py-12 sm:py-16 md:py-20
-          px-4 sm:px-6 md:px-12
-        "
+    <Animated.Page>
+      {/* Section 1: Hero */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+        className="bg-ivoire text-anthracite py-20 px-6 md:px-20 text-center min-h-[70vh] flex flex-col justify-center"
       >
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold mb-4 sm:mb-6 md:mb-8">
-          Bienvenue depuis ChatGPT
-        </h1>
+        <div className="max-w-2xl mx-auto">
+          <motion.h1
+            className="text-4xl md:text-5xl font-serif font-semibold mb-8"
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            L'IA vous a éclairé. Prêt à dessiner le chemin qui vous est propre ?
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl mb-10"
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Vous avez utilisé l’IA pour y voir plus clair. C'est une excellente première étape. Chez Alforis, nous vous aidons à faire le lien avec la réalité de vos objectifs de vie et à transformer ces informations en une stratégie patrimoniale véritablement personnelle.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <Button to="/approchepersonnalisee" className="btn-alforis-retro text-lg py-3 px-8">
+              Découvrir notre approche personnalisée
+            </Button>
+          </motion.div>
+        </div>
+      </motion.section>
 
-        <p className="text-base sm:text-lg md:text-lg mb-6 sm:mb-8 md:mb-8 leading-relaxed">
-          Si vous êtes arrivé ici après avoir interrogé ChatGPT sur un sujet lié à votre patrimoine,
-          votre retraite, un contrat financier ou une stratégie d’investissement, vous êtes au bon endroit.
-        </p>
+      {/* Section 2: Votre Prochain Chapitre */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-anthracite text-ivoire py-20 px-6 md:px-20 text-center"
+      >
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-6 text-doré">Votre Prochain Chapitre Financier Commence Ici.</h2>
+          <p className="text-lg md:text-xl mb-8">
+            Au-delà des algorithmes, notre engagement est triple : une <strong className="font-semibold">stratégie</strong> taillée sur mesure pour votre situation unique, une <strong className="font-semibold">pédagogie</strong> pour que chaque décision soit comprise et maîtrisée, et un <strong className="font-semibold">accompagnement</strong> humain et durable.
+          </p>
+          <p className="text-lg md:text-xl mb-12">
+            Imaginez la sérénité d'un patrimoine qui travaille activement pour vos projets de vie, la confiance renouvelée de faire les bons choix, au bon moment. C'est notre promesse.
+          </p>
+          <div className="flex justify-center">
+            <SignatureSVG className="h-20 md:h-28 text-doré" />
+          </div>
+        </div>
+      </motion.section>
 
-        <h2 className="text-xl sm:text-2xl md:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6">
-          Ce que vous cherchez probablement
-        </h2>
-        <ul className="list-disc list-inside space-y-2 mb-6 sm:mb-8 md:mb-8 text-base sm:text-base md:text-lg">
-          <li>Une explication claire et fiable sur un sujet complexe</li>
-          <li>Un avis indépendant, sans biais commercial</li>
-          <li>Un cadre de réflexion pour prendre une bonne décision</li>
-        </ul>
+      {/* Section 3: Micro-Interaction */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-ivoire text-anthracite py-20 px-6 md:px-20"
+      >
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">Pour mieux vous orienter :</h2>
+          <p className="text-lg mb-8">Quel est votre besoin principal aujourd'hui suite à vos échanges avec ChatGPT ?</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <Button className="btn-alforis-retro w-full py-4 text-md">Approfondir un sujet précis</Button>
+            <Button className="btn-alforis-retro w-full py-4 text-md">Obtenir un avis sur ma situation</Button>
+            <Button className="btn-alforis-retro w-full py-4 text-md">Définir mes prochaines étapes</Button>
+          </div>
+          <div className="flex justify-center items-center space-x-4">
+             {/* Assuming PortraitSVG is decorative or illustrative here. Adjust styling as needed. */}
+            <PortraitSVG className="h-24 w-24 opacity-70" /> {/* Example styling */}
+            <p className="text-md italic">Un conseiller est à votre écoute pour affiner ces pistes.</p>
+          </div>
+        </div>
+      </motion.section>
 
-        <h2 className="text-xl sm:text-2xl md:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6">
-          Ce que nous faisons chez Alforis
-        </h2>
-
-        <SignatureSVG className="mt-4 text-doré h-16 md:h-28 w-auto" />
-        
-        <p className="text-base sm:text-base md:text-lg mb-6 sm:mb-8 md:mb-8 leading-relaxed">
-          Nous sommes un cabinet de conseil patrimonial indépendant. Notre approche repose sur trois piliers :
-        </p>
-        <ul className="list-disc list-inside space-y-2 mb-6 sm:mb-8 md:mb-8 text-base sm:text-base md:text-lg">
-          <li><strong>Stratégie :</strong> chaque situation mérite une vision globale et sur mesure</li>
-          <li><strong>Pédagogie :</strong> nous vous aidons à comprendre les choix que vous faites</li>
-          <li><strong>Accompagnement :</strong> nous vous suivons dans la durée, à votre rythme</li>
-        </ul>
-
-        <h2 className="text-xl sm:text-2xl md:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6">
-          Au-delà de l'information, la stratégie
-        </h2>
-        <p className="text-base sm:text-base md:text-lg mb-6 sm:mb-8 md:mb-8 leading-relaxed">
-          Vous avez utilisé l’IA pour y voir plus clair. Faites maintenant le lien avec la réalité de vos objectifs de vie.
-          ChatGPT est un outil formidable pour explorer des sujets financiers. Chez Alforis, nous allons plus loin en traduisant
-          ces informations en une stratégie patrimoniale concrète, adaptée à <em>votre</em> situation unique et à vos objectifs de vie.
-          Nous sommes là pour être votre partenaire de confiance dans la durée.
-        </p>
-
-        <h2 className="text-xl sm:text-2xl md:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6">
-          3 façons d’aller plus loin
-        </h2>
-        <ol className="list-decimal list-inside space-y-4 sm:space-y-6 md:space-y-6 mb-6 sm:mb-8 md:mb-8 text-base sm:text-base md:text-lg">
-          <li>
-            📚 <strong>Lire nos contenus pédagogiques :</strong>&nbsp;
-            <a
-              href="https://www.alforis.fr/blog-studio"
-              className="underline text-orange-430 hover:text-orange-500"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Accéder au blog
+      {/* Section 4: Transformons Votre Réflexion */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-ardoise text-ivoire py-24 px-6 md:px-20 text-center"
+      >
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-6 text-doré">Transformons Votre Réflexion en Résultats Concrets</h2>
+          <p className="text-lg md:text-xl mb-10">
+            Le rendez-vous d'orientation de 15 minutes est le moyen idéal pour faire connaissance, discuter de vos interrogations et voir comment Alforis peut concrètement vous aider. C'est offert, personnalisé, et souvent le premier pas vers une stratégie plus claire et plus sereine.
+          </p>
+          <div className="space-y-4 md:space-y-0 md:space-x-4">
+            <Button to="/prendre-rendez-vous" className="btn-alforis-rdv text-lg py-4 px-10 w-full md:w-auto">
+              Réserver mon appel découverte gratuit
+            </Button>
+            <Button to="/contact" className="btn-alforis-retro text-lg py-4 px-10 w-full md:w-auto mt-4 md:mt-0">
+              J'ai une question spécifique
+            </Button>
+          </div>
+          <div className="mt-10">
+            <a href="/blog-studio" className="text-ivoire/80 hover:text-ivoire underline">
+              Explorer nos analyses et articles de fond
             </a>
-          </li>
-          <li>
-            📩 <strong>Besoin d'un avis humain ?</strong>&nbsp;
-            <br className="block sm:hidden" />
-            Posez votre question (mentionnez ChatGPT pour un contexte rapide) et un conseiller vous répondra personnellement :
-            <a
-              href="/contact"
-              className="mt-2 inline-block bg-orange-430 text-ivoire font-medium py-2 px-4 rounded-lg hover:bg-orange-500 transition text-sm sm:text-base md:text-base"
-            >
-              Échanger avec un expert
-            </a>
-          </li>
-          <li>
-            📞 <strong>Un premier échange, sans engagement</strong>&nbsp;
-            <br className="block sm:hidden" />
-            Réservez 15 minutes offertes avec un conseiller pour clarifier vos interrogations et voir comment nous pouvons vous aider :
-            <a
-              href="/prendre-rendez-vous"
-              className="mt-2 inline-block border-2 border-orange-430 text-orange-430 font-medium py-2 px-4 rounded-lg hover:bg-orange-430 hover:text-ivoire transition text-sm sm:text-base md:text-base"
-            >
-              Bloquer un créneau
-            </a>
-          </li>
-        </ol>
-
-        <p className="text-xs sm:text-sm md:text-sm text-anthracite/60">
-          Chez Alforis, nous ne vendons ni produits ni promesses. Nous vous aidons à concevoir votre trajectoire de vie financière.
-        </p>
-      </div>
-    </section>
+          </div>
+        </div>
+      </motion.section>
+    </Animated.Page>
   );
 }
