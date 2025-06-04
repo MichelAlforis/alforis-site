@@ -4,7 +4,6 @@
 
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { GoldLink } from '@/hooks/useGoldEffect'
 import Button from '@/components/ui/Button'
 

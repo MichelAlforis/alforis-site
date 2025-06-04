@@ -86,7 +86,7 @@ export default function ContactForm() {
       <div className="relative z-base w-full  grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {/* Texte & coordonnées */}
         <div
-          className="space-y-6 border-4 border-red-500 min-h-[50px]"
+          className="space-y-6 min-h-[50px]"
         >
           <p className="text-lg text-acier">
             Vous souhaitez poser une question, planifier une rencontre ou
@@ -115,7 +115,7 @@ export default function ContactForm() {
               <strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris
             </li>
           </ul>
-          <SignatureSVG className="mt-6 text-acier dark:text-ivoire" />
+          <SignatureSVG className="mt-6 text-acier dark:text-ivoire w-auto h-20 md:h-30 " />
         </div>
 
         {/* Formulaire */}

@@ -38,7 +38,7 @@ export default function Contact({ extraClass = '', hideForm = false }) {
         <p className="text-base text-ivoire leading-relaxed italic my-6">
           "Mon métier, c’est vous redonner le pouvoir sur votre argent : comprendre, choisir, agir en toute lucidité."
         </p>
-        <SignatureSVG className="mt-4 text-doré" />
+        <SignatureSVG className="mt-4 text-doré h-16 md:h-28 w-auto" />
       </motion.div>
 
       {!hideForm && (
