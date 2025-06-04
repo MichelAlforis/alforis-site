@@ -11,8 +11,8 @@ export default function SignatureSVG({ className = '', strokeColor = "currentCol
       opacity: 1,
       transition: {
         // Apply a staggered delay to each path for a sequential drawing effect
-        pathLength: { type: "spring", duration: 2, bounce: 0 }, // Base duration for each path segment
-        opacity: { duration: 0.01 } // Quick fade in for each segment once it starts drawing
+        pathLength: { type: "spring", duration: 1.25, bounce: 0 }, // Base duration for each path segment
+        opacity: { duration: 0.25 } // Quick fade in for each segment once it starts drawing
       }
     }
   };
@@ -253,7 +253,7 @@ export default function SignatureSVG({ className = '', strokeColor = "currentCol
       xmlns="http://www.w3.org/2000/svg"
       viewBox={viewBox}
       // Adjusted default sizing for the new aspect ratio
-      className={`w-72 h-40 md:w-80 md:h-44 ${className}`}
+      className={`w-52 h-28 md:w-56 md:h-32 ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }} // Lowered amount for earlier trigger
@@ -274,11 +274,11 @@ export default function SignatureSVG({ className = '', strokeColor = "currentCol
                 ...signatureVariants.visible.transition,
                 pathLength: {
                   ...signatureVariants.visible.transition.pathLength,
-                  delay: index * 0.05 // Stagger the animation of each path
+                  delay: index * 0.025 // Stagger the animation of each path
                 },
                 opacity: {
                   ...signatureVariants.visible.transition.opacity,
-                  delay: index * 0.05 // Stagger the opacity animation as well
+                  delay: index * 0.025 // Stagger the opacity animation as well
                 }
               }
             }

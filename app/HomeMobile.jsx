@@ -130,7 +130,7 @@ export default function HomeMobile() {
           transition={{ duration: 0.6 }}
         >
           <div className="relative z-base max-w-md mx-auto bg-overlay bg-opacity-70 rounded-2xl p-3">
-            <Contact extraClass="text-ivoire" />
+            <Contact extraClass="text-ivoire" hideForm={true} />
             <motion.div
               className="mt-6 flex justify-center"
               initial={{ scale: 0.9 }}
