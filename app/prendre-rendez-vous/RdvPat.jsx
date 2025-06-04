@@ -4,7 +4,7 @@
 // yarn add @calcom/embed-react
 
 import Cal from "@calcom/embed-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { couleurs } from "@/styles/generated-colors.mjs";
 
 export default function MyApp() {
@@ -153,6 +153,27 @@ export default function MyApp() {
     }
   }
 
+  // Écouteur global pour capter l’événement `bookingSuccessfulV2` émis par Cal.com
+  useEffect(() => {
+    function listener(e) {
+      // Sur certains navigateurs, e.data peut être un string, on tente de parser
+      let payload;
+      try {
+        payload = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+      } catch {
+        payload = e.data;
+      }
+
+      if (payload?.event === "bookingSuccessfulV2" && payload?.data) {
+        console.log("Cal.com bookingSuccessfulV2 reçu via window.message :", payload.data);
+        handleBookingSuccessful(payload.data);
+      }
+    }
+
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, []);
+
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       {/* Affichez éventuellement un indicateur de statut */}
@@ -176,9 +197,6 @@ export default function MyApp() {
       {/* Intégration du composant Cal.com */}
       <Cal
         calLink="alforis/rdv-patrimonial"
-        // Le namespace doit correspondre à celui configuré dans votre compte Cal.com,
-        // mais ici on peut le laisser vide ou ne pas le préciser s’il n’est pas nécessaire.
-        // namespace="rdv-patrimonial"
         style={{ width: "100%", height: "100%", overflow: "auto" }}
         config={{
           layout: "month_view",
@@ -187,16 +205,6 @@ export default function MyApp() {
             light: { "cal-brand": couleurs.ivoire },
             dark: { "cal-brand": couleurs.acier },
           },
-        }}
-        /**
-         * ATTENTION : onEvent reçoit un objet { action, data }.
-         * Quand action === 'bookingSuccessfulV2', on appelle handleBookingSuccessful(data).
-         */
-        onEvent={({ action, data }) => {
-          if (action === "bookingSuccessfulV2") {
-            console.log("Cal.com bookingSuccessfulV2 (patrimonial) :", data);
-            handleBookingSuccessful(data);
-          }
         }}
       />
     </div>

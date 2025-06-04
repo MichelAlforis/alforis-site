@@ -4,7 +4,7 @@
 // npm install @calcom/embed-react
 
 import Cal from "@calcom/embed-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { couleurs } from "@/styles/generated-colors.mjs";
 
 export default function MyApp() {
@@ -152,9 +152,21 @@ export default function MyApp() {
     }
   }
 
-  return (
+    useEffect(() => {
+    function listener(e) {
+      const { event, payload } = e.data || {};
+      if (event === "bookingSuccessful") {
+        console.log("⚡ bookingSuccessful reçu via window.message :", payload);
+        handleBookingSuccessful(payload);
+      }
+    }
+
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, []);
+
+ return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
-      {/* Petit bandeau pour voir le statut de traitement (facultatif) */}
       {bookingStatus && (
         <div
           style={{
@@ -172,7 +184,6 @@ export default function MyApp() {
         </div>
       )}
 
-      {/* Intégration du composant Cal.com */}
       <Cal
         calLink="alforis/appel"
         style={{ width: "100%", height: "100%", overflow: "auto" }}
@@ -183,16 +194,6 @@ export default function MyApp() {
             light: { "cal-brand": couleurs.ivoire },
             dark: { "cal-brand": couleurs.acier },
           },
-        }}
-        /**
-         * onEvent reçoit { action, data }.
-         * Quand action === "bookingSuccessfulV2", on appelle handleBookingSuccessful(data).
-         */
-        onEvent={({ action, data }) => {
-          if (action === "bookingSuccessfulV2") {
-            console.log("⚡ bookingSuccessfulV2 reçu :", data);
-            handleBookingSuccessful(data);
-          }
         }}
       />
     </div>
