@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
 import Confetti from 'react-confetti'                // npm install react-confetti
 import { useWindowSize } from 'react-use'            // npm install react-use
+import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
 export default function ContactForm() {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
@@ -84,11 +85,8 @@ export default function ContactForm() {
 
       <div className="relative z-base w-full  grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {/* Texte & coordonnées */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
+        <div
+          className="space-y-6 min-h-[50px]"
         >
           <p className="text-lg text-acier">
             Vous souhaitez poser une question, planifier une rencontre ou
@@ -117,7 +115,8 @@ export default function ContactForm() {
               <strong>Adresse :</strong> 10 rue de la Bourse, 75002 Paris
             </li>
           </ul>
-        </motion.div>
+          <SignatureSVG className="mt-6 text-acier dark:text-ivoire w-auto h-20 md:h-30 " />
+        </div>
 
         {/* Formulaire */}
         <motion.form

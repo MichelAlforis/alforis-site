@@ -6,7 +6,7 @@ import useButtonHover from '@/hooks/useButtonHover'
 import { useState, useEffect } from 'react'
 import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
-export default function Contact({ extraClass = '' }) {
+export default function Contact({ extraClass = '', hideForm = false }) {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
   // état thème jour/nuit
   const [dark, setDark] = useState(false)
@@ -38,41 +38,43 @@ export default function Contact({ extraClass = '' }) {
         <p className="text-base text-ivoire leading-relaxed italic my-6">
           "Mon métier, c’est vous redonner le pouvoir sur votre argent : comprendre, choisir, agir en toute lucidité."
         </p>
-        <SignatureSVG strokeColor="text-doré" className="mt-4" />
+        <SignatureSVG className="mt-4 text-doré h-16 md:h-28 w-auto" />
       </motion.div>
 
-      <motion.form
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-5 space-y-6"
-        action="/api/contact"
-        method="POST"
-      >
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-anthracite dark:text-ivoire">Nom complet</label>
-          <input type="text" id="name" name="name" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-anthracite dark:text-ivoire">Email</label>
-          <input type="email" id="email" name="email" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-anthracite dark:text-ivoire">Message</label>
-          <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
-        </div>
-        <div className="text-center">
-          <button
-            type="submit"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            className={`${buttonClass} inline-block px-8 py-3 font-semibold uppercase tracking-wide rounded-full border-2 border-anthracite transition-all duration-300 hover:bg-anthracite hover:text-ivoire`}
-          >
-            Envoyer le message
-          </button>
-        </div>
-      </motion.form>
+      {!hideForm && (
+        <motion.form
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-ivoire bg-opacity-90 dark:bg-acier/90 rounded-2xl shadow-xl p-5 space-y-6"
+          action="/api/contact"
+          method="POST"
+        >
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-anthracite dark:text-ivoire">Nom complet</label>
+            <input type="text" id="name" name="name" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-anthracite dark:text-ivoire">Email</label>
+            <input type="email" id="email" name="email" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite" />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-anthracite dark:text-ivoire">Message</label>
+            <textarea id="message" name="message" rows="5" required className="mt-2 w-full border border-vertSauge rounded-lg px-4 py-2 focus:ring-anthracite focus:border-anthracite"></textarea>
+          </div>
+          <div className="text-center">
+            <button
+              type="submit"
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              className={`${buttonClass} inline-block px-8 py-3 font-semibold uppercase tracking-wide rounded-full border-2 border-anthracite transition-all duration-300 hover:bg-anthracite hover:text-ivoire`}
+            >
+              Envoyer le message
+            </button>
+          </div>
+        </motion.form>
+      )}
     </section>
   )
 }
