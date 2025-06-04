@@ -42,7 +42,6 @@ const PortraitSVG = ({
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 317 561"
-      height="auto"
       aria-labelledby={title}
       className={className}
       // On n’utilise QUE initial / whileInView ici, plus de `animate` fixe :
