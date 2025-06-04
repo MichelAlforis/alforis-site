@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import useButtonHover from '@/hooks/useButtonHover'
 import Confetti from 'react-confetti'                // npm install react-confetti
 import { useWindowSize } from 'react-use'            // npm install react-use
-import SignatureSVG from '@/assets/illustrations/SignatureSVG';
+import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
 export default function ContactForm() {
   const { buttonClass, onMouseEnter, onMouseLeave } = useButtonHover()
