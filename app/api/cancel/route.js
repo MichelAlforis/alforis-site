@@ -1,5 +1,6 @@
 // /api/cancel
 import Airtable from 'airtable'
+import { NextResponse } from 'next/server'
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_CRM_API_KEY }).base(process.env.AIRTABLE_BASE)
 
