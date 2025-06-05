@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Animated from '@/components/animated/Animated'
-import NoWidowText from '@/components/animated/NoWindowText'
+import NoWidowText from '@/components/animated/NoWidowText'
 import { Settings, DollarSign, Users, Star } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { motion, AnimatePresence } from 'framer-motion'
