@@ -1,13 +1,13 @@
-
 // scripts/audit.js
 
 const { exec } = require('child_process');
 
-const LOCAL_URL = 'http://localhost:3010';
+// Met ici ton URL publique de production :
+const PROD_URL = 'https://alforis.fr'; // remplace par l'URL du serveur si tu testes en staging
 
-console.log(`🚀 Audit en cours sur ${LOCAL_URL}...`);
+console.log(`🚀 Audit en cours sur ${PROD_URL}...`);
 
-exec(`npx lighthouse ${LOCAL_URL} --output html --output-path ./audit/lighthouse-report.html --view`, (error, stdout, stderr) => {
+exec(`npx lighthouse ${PROD_URL} --output html --output-path ./audit/lighthouse-report.html --view`, (error, stdout, stderr) => {
   if (error) {
     console.error(`❌ Erreur Lighthouse: ${error.message}`);
     return;
@@ -19,7 +19,7 @@ exec(`npx lighthouse ${LOCAL_URL} --output html --output-path ./audit/lighthouse
   console.log(`✅ Rapport Lighthouse généré avec succès.`);
 });
 
-exec(`npx hint ${LOCAL_URL}`, (error, stdout, stderr) => {
+exec(`npx hint ${PROD_URL}`, (error, stdout, stderr) => {
   if (error) {
     console.error(`❌ Erreur Webhint: ${error.message}`);
     return;
