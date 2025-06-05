@@ -2,7 +2,7 @@
 /* app/approchepersonnalisee/ApprocheContent.jsx */
 
 import Animated from '@/components/animated/Animated'
-import NoWidowText from '@/components/animated/NoWindowText'
+import NoWidowText from '@/components/animated/NoWidowText'
 import CallToAction from '@/components/ui/CallToAction'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings, DollarSign, Star, Users } from 'lucide-react'
