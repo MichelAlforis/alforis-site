@@ -2,25 +2,39 @@
 /* app/HomeContent.jsx */
 
 import React from 'react'
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import HeroSection from './components/home/HeroSection'
-import ServicesCards from './components/home/ServicesCards'
-import ApproachSection from './components/home/ApproachSection'
-import KeyFigures from './components/home/KeyFigures'
-import Contact from './components/home/Contact'
-import PortraitSVG from './components/home/PortraitSVG'
+// Static import for HeroSection's component is fine as it's critical
+// Other components will be dynamically imported within the sections array or separately
 import { Animated } from '../components/animated/Animated'
 import useControlledScrollSections from '../hooks/useControlledScrollSections'
 import useButtonHover from '../hooks/useButtonHover'
 import clsx from 'clsx'
 
 export default function HomeContent() {
+  // Dynamically import PortraitSVG as it's used directly and is non-critical for LCP
+  const PortraitSVG = dynamic(() => import('./components/home/PortraitSVG'), { ssr: false })
+
   const sections = [
-    { id: 'hero', Component: HeroSection },
-    { id: 'services', Component: ServicesCards },
-    { id: 'approach', Component: ApproachSection },
-    { id: 'figures', Component: KeyFigures },
-    { id: 'contact', Component: Contact },
+    { id: 'hero', Component: HeroSection }, // HeroSection remains static
+    {
+      id: 'services',
+      Component: dynamic(() => import('./components/home/ServicesCards'), { ssr: false })
+    },
+    {
+      id: 'approach',
+      Component: dynamic(() => import('./components/home/ApproachSection'), { ssr: false })
+    },
+    {
+      id: 'figures',
+      Component: dynamic(() => import('./components/home/KeyFigures'), { ssr: false })
+    },
+    {
+      id: 'contact',
+      Component: dynamic(() => import('./components/home/Contact'), { ssr: false })
+    },
   ]
 
   const { goToNextSection, goToPrevSection } = useControlledScrollSections(
@@ -46,15 +60,27 @@ export default function HomeContent() {
             )}
           >
             {/* ❶ Image de fond classique (desktop/mobile) */}
-            <picture className="absolute inset-0 w-full h-full z-base">
-              <source srcSet={`/assets/img/home/D_${id}.webp`} />
-              <img
-                src={`/assets/img/home/M_${id}.webp`}
-                alt=""
-                aria-hidden="true"
-                className="w-full h-full object-cover"
-              />
-            </picture>
+            {id === 'hero' ? (
+              <div className="absolute inset-0 w-full h-full z-base">
+                <Image
+                  src="/assets/img/home/D_hero.webp"
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                  priority={true}
+                />
+              </div>
+            ) : (
+              <div className="absolute inset-0 w-full h-full z-base">
+                <Image
+                  src={`/assets/img/home/D_${id}.webp`}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                  loading="lazy"
+                />
+              </div>
+            )}
 
             {/* ❷ Si c'est la section "figures", on insère l’arrière-plan SVG */}
             { id === 'figures' && (
