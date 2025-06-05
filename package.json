@@ -13,7 +13,8 @@
     "server": "./scripts/server.sh",
     "social": "node ./scripts/reseaux/index.js",
     "publier": "npm --prefix scripts/reseaux run social",
-    "audit": "node ./scripts/audit.js"
+    "audit": "node ./scripts/audit.js",
+    "test": "npx jest"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -67,6 +68,11 @@
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
     "ts-prune": "^0.10.3"
+    ,
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "jest-environment-jsdom": "^29.7.0"
   },
   "main": "cookieconsent.esm.js",
   "directories": {
