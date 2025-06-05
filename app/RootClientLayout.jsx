@@ -9,7 +9,10 @@ import Footer from '@/app/Footer'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
 import { ThemeProvider } from '@/styles/ThemeDark'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import '@/styles/vendor/toastify.css';
+
+
+
 
 
 export default function RootClientLayout({ children }) {
