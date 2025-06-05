@@ -1,8 +1,5 @@
-// components/TabsBar.jsx
 'use client'
-
 // components/TabsBar.jsx
-'use client'
 import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
