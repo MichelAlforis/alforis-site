@@ -46,3 +46,9 @@ scripts/reseaux/.env.local
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# logs
+deploy.log
+
+# audit reports
+audit/
