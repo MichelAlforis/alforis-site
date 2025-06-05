@@ -35,6 +35,7 @@ Alforis-V7.0/          # Répo local
   * `API_KEY` : Clé API de l’application
   * `NEXT_PUBLIC_API_URL` : URL back-end publique
   * `SSH_PRIVATE_KEY` : Clé privée SSH (déploiement VPS)
+  * `SENTRY_DSN` : URL de connexion Sentry
 
 ### 2. Vercel (Preview & Prod)
 
@@ -44,6 +45,7 @@ Alforis-V7.0/          # Répo local
 
   * `API_KEY`              (production)
   * `NEXT_PUBLIC_API_URL`  (production)
+  * `SENTRY_DSN`           (production)
 
 ---
 
@@ -82,10 +84,11 @@ Alforis-V7.0/          # Répo local
 3. **Variables d’environnement** :
 
    ```bash
-   cat << 'EOF' > .env.local
-   API_KEY=ta_cle
-   NEXT_PUBLIC_API_URL=https://api.alforis.fr
-   EOF
+  cat << 'EOF' > .env.local
+  API_KEY=ta_cle
+  NEXT_PUBLIC_API_URL=https://api.alforis.fr
+  SENTRY_DSN=your_sentry_dsn
+  EOF
    ```
 4. **Build + Démarrage** :
 
