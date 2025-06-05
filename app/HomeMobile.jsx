@@ -1,14 +1,18 @@
 `use client`
 
 import React, { useRef } from 'react'
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Animated from '../components/animated/Animated'
 import HeroSection from './components/home/HeroSection'
-import ServicesCards from './components/home/ServicesCards'
-import ApproachSection from './components/home/ApproachSection'
-import KeyFigures from './components/home/KeyFigures'
-import Contact from './components/home/Contact'
-import PortraitSVG from './components/home/PortraitSVG'
+
+// Dynamically import non-critical components
+const ServicesCards = dynamic(() => import('./components/home/ServicesCards'), { ssr: false })
+const ApproachSection = dynamic(() => import('./components/home/ApproachSection'), { ssr: false })
+const KeyFigures = dynamic(() => import('./components/home/KeyFigures'), { ssr: false })
+const Contact = dynamic(() => import('./components/home/Contact'), { ssr: false })
+const PortraitSVG = dynamic(() => import('./components/home/PortraitSVG'), { ssr: false })
 
 
 export default function HomeMobile() {
@@ -32,12 +36,19 @@ export default function HomeMobile() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/img/home/M_hero.webp')" }}
+            className="absolute inset-0"
             initial={{ scale: 1.2 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 1 }}
-          />
+          >
+            <Image
+              src="/assets/img/home/M_hero.webp"
+              alt=""
+              layout="fill"
+              objectFit="cover"
+              priority={true}
+            />
+          </motion.div>
           <div className="relative z-base flex flex-col items-center justify-end px-3 pb-16">
             <HeroSection extraClass="text-center max-w-sm mx-auto animate-fadeInUp" />
             <motion.div
@@ -61,12 +72,19 @@ export default function HomeMobile() {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/img/home/M_services.webp')" }}
+            className="absolute inset-0"
             initial={{ opacity: 0.5 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-          />
+          >
+            <Image
+              src="/assets/img/home/M_services.webp"
+              alt=""
+              layout="fill"
+              objectFit="cover"
+              loading="lazy"
+            />
+          </motion.div>
           <div className="relative z-base bg-ivoire bg-opacity-25 px-3 py-12">
             <ServicesCards extraClass="grid grid-cols-1 divide-y divide-ardoise-light" />
             <motion.div
@@ -89,12 +107,19 @@ export default function HomeMobile() {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="absolute inset-0 bg-cover bg-center" // Was z-0, but likely fine as is if it's the first element.
-            style={{ backgroundImage: "url('/assets/img/home/M_approach.webp')" }}
+            className="absolute inset-0" // Was z-0, but likely fine as is if it's the first element.
             initial={{ x: -50 }}
             whileInView={{ x: 0 }}
             transition={{ duration: 1 }}
-          />
+          >
+            <Image
+              src="/assets/img/home/M_approach.webp"
+              alt=""
+              layout="fill"
+              objectFit="cover"
+              loading="lazy"
+            />
+          </motion.div>
           <div className="relative z-base max-w-md mx-auto"> {/* Was z-overlay, now z-base or similar default */}
             <ApproachSection extraClass="px-3 bg-ivoire bg-opacity-80 rounded-2xl shadow-2xl py-6" />
           </div>
