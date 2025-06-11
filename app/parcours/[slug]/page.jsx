@@ -5,11 +5,9 @@ import { notFound } from 'next/navigation'
 import { makeMetadata } from '@/lib/makeMetadata'
 
 export async function generateMetadata({ params }) {
-  params = await params
   const { slug } = params
   const meta = await getContentMeta('parcours', slug)
-  if (!meta) return { title: 'Parcours – Alforis' }
-  return makeMetadata({ meta, slug, section: 'parcours' })
+  return makeMetadata({ meta: meta || {}, slug, section: 'parcours' })
 }
 
 

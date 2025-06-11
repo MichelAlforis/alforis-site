@@ -5,11 +5,9 @@ import { getContentMeta } from '@/lib/server/getContent'    // à importer !
 import { makeMetadata } from '@/lib/makeMetadata'           // à importer aussi !
 
 export async function generateMetadata({ params }) {
-  params = await params
   const { slug } = params
   const meta = await getContentMeta('studio', slug)
-  if (!meta) return { title: 'Studio – Alforis' }
-  return makeMetadata({ meta, slug, section: 'studio' })
+  return makeMetadata({ meta: meta || {}, slug, section: 'studio' })
 }
 
 export async function generateStaticParams() {
