@@ -7,7 +7,7 @@ import { makeMetadata } from '@/lib/makeMetadata'
 const components = { CTA }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params
+  const { slug } = await params;
   const meta = await getContentMeta('offres', slug)
   return makeMetadata({ meta: meta || {}, slug, section: 'marketplace' })
 }
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const { slug } = params
+  const { slug } = await params;
   const result = await getContentMeta('offres', slug)
   if (!result?.meta) notFound()
 

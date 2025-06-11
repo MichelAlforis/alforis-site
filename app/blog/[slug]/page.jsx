@@ -9,7 +9,7 @@ const components = { CTA }
 
 export async function generateMetadata({ params }) {
   console.log('>>> METADATA PARAMS', params)
-  const { slug } = params
+  const { slug } = await params;
   const meta = await getContentMeta('blog', slug)
   return makeMetadata({ meta: meta || {}, slug, section: 'blog' })
 }
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const { slug } = params; // <-- The fix is applied here
+  const { slug } = await params; // <-- The fix is applied here
   const result = await getContentMeta('blog', slug);
   if (!result?.meta) notFound();
   const { meta, content: rawMd } = result;

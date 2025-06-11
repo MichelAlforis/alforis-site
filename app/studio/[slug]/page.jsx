@@ -5,7 +5,7 @@ import { getContentMeta } from '@/lib/server/getContent'    // à importer !
 import { makeMetadata } from '@/lib/makeMetadata'           // à importer aussi !
 
 export async function generateMetadata({ params }) {
-  const { slug } = params
+  const { slug } = await params;
   const meta = await getContentMeta('studio', slug)
   return makeMetadata({ meta: meta || {}, slug, section: 'studio' })
 }
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export default async function StudioPage({ params }) {
-  const { slug } = params
+  const { slug } = await params;
 
   const mod = await import(`../../../content/studio/${slug}.jsx`)
   const meta = mod.meta || {}
