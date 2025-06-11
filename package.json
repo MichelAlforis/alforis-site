@@ -79,11 +79,11 @@
     "url": "git+https://github.com/MichelAlforis/alforis-site.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michel MARQUES",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MichelAlforis/alforis-site/issues"
   },
   "homepage": "https://github.com/MichelAlforis/alforis-site#readme",
-  "description": ""
+  "description": "Site de Gestion de Patrimoine"
 }
