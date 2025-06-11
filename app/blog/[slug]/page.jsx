@@ -22,10 +22,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const { slug } = params
-  const result = await getContentMeta('blog', slug)
-  if (!result?.meta) notFound()
-  const { meta, content: rawMd } = result
+  const { slug } = await params; // <-- The fix is applied here
+  const result = await getContentMeta('blog', slug);
+  if (!result?.meta) notFound();
+  const { meta, content: rawMd } = result;
 
   const { content } = await compileMDX({
     source: rawMd,
@@ -35,7 +35,7 @@ export default async function Page({ params }) {
         remarkPlugins: [remarkGfm],
       },
     },
-  })
+  });
 
   return (
     <>
@@ -63,5 +63,5 @@ export default async function Page({ params }) {
         </article>
       </main>
     </>
-  )
+  );
 }
