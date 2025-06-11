@@ -1,7 +1,28 @@
-export default async function Page({ params }) {
-  // params est une Promise<{ slug: string }>
-  const { slug } = await params
+import remarkGfm from 'remark-gfm'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import CTA from '@/components/ui/CallToAction'
+import { getContentMeta, getContentSlugs } from '@/lib/server/getContent'
+import { notFound } from 'next/navigation'
+import { makeMetadata } from '@/lib/makeMetadata'
 
+const components = { CTA }
+
+export async function generateMetadata({ params }) {
+  console.log('>>> METADATA PARAMS', params)
+  params = await params
+  const { slug } = params
+  const meta = await getContentMeta('blog', slug)
+  if (!meta) return { title: 'Blog & Studio – Alforis' }
+  return makeMetadata({ meta, slug, section: 'blog' })
+}
+
+export async function generateStaticParams() {
+  const slugs = await getContentSlugs('blog')
+  return slugs.map(({ slug }) => ({ slug }))
+}
+
+export default async function Page({ params }) {
+  const { slug } = params
   const result = await getContentMeta('blog', slug)
   if (!result?.meta) notFound()
   const { meta, content: rawMd } = result
@@ -20,10 +41,7 @@ export default async function Page({ params }) {
     <>
       <section>
         <div className="max-w-4xl mx-auto px-4 pt-6 pb-2">
-          <a
-            href="/blog"
-            className="inline-flex items-center gap-2 text-anthracite/80 hover:text-orange-430 text-sm font-medium transition"
-          >
+          <a href="/blog" className="inline-flex items-center gap-2 text-anthracite/80 hover:text-orange-430 text-sm font-medium transition">
             <span aria-hidden="true">←</span>
             Retour au blog
           </a>
