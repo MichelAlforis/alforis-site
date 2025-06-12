@@ -44,8 +44,8 @@ export default function HomeMobile() {
             <Image
               src="/assets/img/home/M_hero.webp"
               alt=""
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               priority={true}
             />
           </motion.div>
@@ -80,8 +80,8 @@ export default function HomeMobile() {
             <Image
               src="/assets/img/home/M_services.webp"
               alt=""
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               loading="lazy"
             />
           </motion.div>
@@ -115,8 +115,8 @@ export default function HomeMobile() {
             <Image
               src="/assets/img/home/M_approach.webp"
               alt=""
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               loading="lazy"
             />
           </motion.div>

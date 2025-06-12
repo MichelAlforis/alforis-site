@@ -65,8 +65,8 @@ export default function HomeContent() {
                 <Image
                   src="/assets/img/home/D_hero.webp"
                   alt=""
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   priority={true}
                 />
               </div>
@@ -75,8 +75,8 @@ export default function HomeContent() {
                 <Image
                   src={`/assets/img/home/D_${id}.webp`}
                   alt=""
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   loading="lazy"
                 />
               </div>
