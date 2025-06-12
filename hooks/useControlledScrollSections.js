@@ -112,7 +112,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  *           </section>
  *         ))}
  *       </div>
- *       */}
  *
  *       {/* Example for full-page scrolling (no containerRef needed): */}
  *       {sectionIds.map((id, index) => (
