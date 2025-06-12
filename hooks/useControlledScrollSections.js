@@ -158,32 +158,32 @@ export default function useControlledScrollSections(
   }
 
   // Scroll to a specific section index
-  const goToSection = useCallback(
-    (idx) => {
-      if (idx < 0 || idx >= sectionIds.length) return
-      const target = document.getElementById(sectionIds[idx])
-      if (!target) return
+const goToSection = useCallback(
+  (idx) => {
+    if (idx < 0 || idx >= sectionIds.length) return
+    const target = document.getElementById(sectionIds[idx])
+    if (!target) return
 
-      setIsScrolling(true)
-      // Respects user's motion preference for smoother or instant scrolling.
-      const prefersReducedMotion =
-        typeof window !== 'undefined' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      target.scrollIntoView({
-        behavior: prefersReducedMotion ? 'instant' : 'smooth',
-        block: 'start',
-      })
-      setCurrentSectionIndex(idx)
-      onSectionScrolled(sectionIds[idx], target) // Call the callback
+    console.log('goToSection appelé avec idx =', idx)
+    console.log('  Avant setIsScrolling(true), isScrolling =', isScrolling)
+    setIsScrolling(true)
 
-      clearTimeout(cooldownTimeout.current)
-      cooldownTimeout.current = setTimeout(
-        () => setIsScrolling(false),
-        cooldown
-      )
-    },
-    [sectionIds, cooldown, onSectionScrolled] // Add onSectionScrolled to dependencies
-  )
+    const prefersReducedMotion = /* … */
+    target.scrollIntoView({ /* … */ })
+
+    console.log('  Après scrollIntoView, currentSectionIndex sera mis à', idx)
+    setCurrentSectionIndex(idx)
+    onSectionScrolled(sectionIds[idx], target)
+
+    clearTimeout(cooldownTimeout.current)
+    cooldownTimeout.current = setTimeout(() => {
+      console.log('Cooldown FINISHED. Setting isScrolling to false')
+      setIsScrolling(false)
+    }, cooldown)
+  },
+  [sectionIds, cooldown, onSectionScrolled, isScrolling]
+)
+
 
   const goToNextSection = useCallback(
     () => goToSection(currentSectionIndex + 1),
@@ -199,17 +199,18 @@ export default function useControlledScrollSections(
     const container = getContainer()
     if (!container || typeof window === 'undefined') return
 
-    const handleWheel = (e) => {
-      if (isScrolling) return
-      // Threshold to avoid micro scrolls
-      if (e.deltaY > wheelThreshold) {
-        e.preventDefault()
-        goToNextSection()
-      } else if (e.deltaY < -wheelThreshold) {
-        e.preventDefault()
-        goToPrevSection()
-      }
-    }
+const handleWheel = (e) => {
+  console.log('handleWheel : deltaY =', e.deltaY, ', isScrolling =', isScrolling)
+  if (isScrolling) return
+  if (e.deltaY > wheelThreshold) {
+    e.preventDefault()
+    goToNextSection()
+  } else if (e.deltaY < -wheelThreshold) {
+    e.preventDefault()
+    goToPrevSection()
+  }
+}
+
 
     const handleTouchStart = (e) => {
       touchStartY.current = e.touches[0].clientY
@@ -225,11 +226,14 @@ export default function useControlledScrollSections(
 
     const eventTarget = container === window ? document : container
 
-    const handleKeyDown = (e) => {
-      if (isScrolling) return
-
-      switch (e.key) {
-        case 'ArrowDown':
+const handleKeyDown = (e) => {
+  console.log('handleKeyDown : key =', e.key, ', isScrolling =', isScrolling)
+  if (isScrolling) return
+  switch (e.key) {
+    case 'ArrowDown':
+      e.preventDefault()
+      goToNextSection()
+      break
         case 'PageDown':
           e.preventDefault()
           goToNextSection()
