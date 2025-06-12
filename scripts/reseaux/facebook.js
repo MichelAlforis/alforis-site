@@ -26,10 +26,12 @@ function checkEnvVariables() {
 function authenticate() {
   const envCheck = checkEnvVariables();
   if (!envCheck.success) {
-    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+    // Propagate error from checkEnvVariables, ensuring standard return object
+    return { success: false, message: envCheck.message, errorCode: envCheck.errorCode };
   }
   const token = process.env[FB_ACCESS_TOKEN_VAR];
-  return { error: false, client: token };
+  // Successfully authenticated (token is present)
+  return { success: true, client: token };
 }
 
 // Facebook has high character limits (e.g., 63,206 for posts),
@@ -51,8 +53,8 @@ async function postTextUpdate(text) {
   }
   // Add any other specific text validation if needed, e.g. length for practical purposes, though API limit is high.
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    return { success: false, message: authResult.message, errorCode: authResult.errorCode }; // No need for || "AUTH_ERROR" as authenticate now standardizes
   }
   const accessToken = authResult.client;
   const pageId = process.env[FB_PAGE_ID_VAR];
@@ -63,10 +65,23 @@ async function postTextUpdate(text) {
     console.log('[INFO] Successfully posted text to Facebook Page:', response.data.id);
     return { success: true, data: response.data };
   } catch (error) {
-    let errorCode = "API_ERROR";
-    if (error.request && !error.response) errorCode = "NETWORK_ERROR";
-    else if (error.response?.status === 400 && error.response?.data?.error?.code === 100) errorCode = "VALIDATION_ERROR";
-    else if (error.response?.status === 401 || error.response?.status === 403 || error.response?.data?.error?.code === 190) errorCode = "AUTH_ERROR";
+    let errorCode = "API_ERROR"; // Default
+    if (error.request && !error.response) {
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        const apiErrorCode = error.response.data?.error?.code;
+        if (status === 400) {
+            if (apiErrorCode === 100) errorCode = "VALIDATION_ERROR";
+            // else keep API_ERROR for other 400s
+        } else if (status === 401 || status === 403 || apiErrorCode === 190) {
+            errorCode = "AUTH_ERROR";
+        } else if (status === 429) {
+            errorCode = "API_ERROR"; // Or RATE_LIMIT_ERROR if defined globally
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side Facebook error
+        }
+    }
 
     const apiMessage = error.response?.data?.error?.message || 'No specific API message.';
     const fbTraceId = error.response?.headers ? (error.response.headers['x-fb-trace-id'] || error.response.headers['x-fb-request-id']) : 'N/A';
@@ -82,8 +97,8 @@ async function postLink(linkUrl, message) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    return { success: false, message: authResult.message, errorCode: authResult.errorCode };
   }
   const accessToken = authResult.client;
   const pageId = process.env[FB_PAGE_ID_VAR];
@@ -94,10 +109,23 @@ async function postLink(linkUrl, message) {
     console.log('[INFO] Successfully posted link to Facebook Page:', response.data.id);
     return { success: true, data: response.data };
   } catch (error) {
-    let errorCode = "API_ERROR";
-    if (error.request && !error.response) errorCode = "NETWORK_ERROR";
-    else if (error.response?.status === 400 && error.response?.data?.error?.code === 100) errorCode = "VALIDATION_ERROR";
-    else if (error.response?.status === 401 || error.response?.status === 403 || error.response?.data?.error?.code === 190) errorCode = "AUTH_ERROR";
+    let errorCode = "API_ERROR"; // Default
+    if (error.request && !error.response) {
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        const apiErrorCode = error.response.data?.error?.code;
+        if (status === 400) {
+            if (apiErrorCode === 100) errorCode = "VALIDATION_ERROR";
+            // else keep API_ERROR for other 400s
+        } else if (status === 401 || status === 403 || apiErrorCode === 190) {
+            errorCode = "AUTH_ERROR";
+        } else if (status === 429) {
+            errorCode = "API_ERROR"; // Or RATE_LIMIT_ERROR if defined globally
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side Facebook error
+        }
+    }
 
     const apiMessage = error.response?.data?.error?.message || 'No specific API message.';
     const fbTraceId = error.response?.headers ? (error.response.headers['x-fb-trace-id'] || error.response.headers['x-fb-request-id']) : 'N/A';
@@ -113,8 +141,8 @@ async function postImage(imageUrl, caption) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    return { success: false, message: authResult.message, errorCode: authResult.errorCode };
   }
   const accessToken = authResult.client;
   const pageId = process.env[FB_PAGE_ID_VAR];
@@ -125,10 +153,23 @@ async function postImage(imageUrl, caption) {
     console.log('[INFO] Successfully posted image to Facebook Page:', response.data.id);
     return { success: true, data: response.data };
   } catch (error) {
-    let errorCode = "API_ERROR";
-    if (error.request && !error.response) errorCode = "NETWORK_ERROR";
-    else if (error.response?.status === 400 && error.response?.data?.error?.code === 100) errorCode = "VALIDATION_ERROR";
-    else if (error.response?.status === 401 || error.response?.status === 403 || error.response?.data?.error?.code === 190) errorCode = "AUTH_ERROR";
+    let errorCode = "API_ERROR"; // Default
+    if (error.request && !error.response) {
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        const apiErrorCode = error.response.data?.error?.code;
+        if (status === 400) {
+            if (apiErrorCode === 100) errorCode = "VALIDATION_ERROR";
+            // else keep API_ERROR for other 400s
+        } else if (status === 401 || status === 403 || apiErrorCode === 190) {
+            errorCode = "AUTH_ERROR";
+        } else if (status === 429) {
+            errorCode = "API_ERROR"; // Or RATE_LIMIT_ERROR if defined globally
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side Facebook error
+        }
+    }
 
     const apiMessage = error.response?.data?.error?.message || 'No specific API message.';
     const fbTraceId = error.response?.headers ? (error.response.headers['x-fb-trace-id'] || error.response.headers['x-fb-request-id']) : 'N/A';

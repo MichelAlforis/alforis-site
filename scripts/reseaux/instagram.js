@@ -23,10 +23,12 @@ function checkEnvVariables() {
 function authenticate() {
   const envCheck = checkEnvVariables();
   if (!envCheck.success) {
-    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+    // Propagate error from checkEnvVariables, ensuring standard return object
+    return { success: false, message: envCheck.message, errorCode: envCheck.errorCode };
   }
   const token = process.env[IG_ACCESS_TOKEN_VAR];
-  return { error: false, client: token };
+  // Successfully authenticated (token is present)
+  return { success: true, client: token };
 }
 
 const INSTAGRAM_CAPTION_CHAR_LIMIT = 2200;
@@ -53,8 +55,9 @@ async function postImage(imageUrl, caption) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    // authResult already contains standardized { success: false, message, errorCode }
+    return authResult;
   }
   const accessToken = authResult.client;
   const fbPageId = process.env[FB_PAGE_ID_VAR]; // Already checked
@@ -69,10 +72,24 @@ async function postImage(imageUrl, caption) {
     containerId = containerResponse.data.id;
     console.log('[INFO] Instagram - Step 1 successful. Container ID:', containerId);
   } catch (error) {
-    let errorCode = "API_ERROR";
-    if (error.request && !error.response) errorCode = "NETWORK_ERROR";
-    else if (error.response?.status === 401 || error.response?.status === 403) errorCode = "AUTH_ERROR";
-    else if (error.response?.status === 400 && error.response?.data?.error?.code === 100) errorCode = "VALIDATION_ERROR"; // Invalid parameter (e.g. bad image URL)
+    let errorCode = "API_ERROR"; // Default
+    if (error.request && !error.response) {
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        const apiErrorCode = error.response.data?.error?.code;
+        if (status === 400) {
+            // For Instagram, error code 100 is 'Invalid parameter', but other 400s can occur.
+            // Specific API error codes might be more granular, e.g., for media processing issues if they came at this stage.
+            if (apiErrorCode === 100 || apiErrorCode === 80004) errorCode = "VALIDATION_ERROR"; // 80004: "There was a problem with the media".
+            // else keep API_ERROR for other 400s
+        } else if (status === 401 || status === 403) {
+            errorCode = "AUTH_ERROR";
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side Facebook/Instagram error
+        }
+        // Note: 429 (Rate Limit) would also fall under generic API_ERROR here or need specific handling if desired.
+    }
 
     const apiMessage = error.response?.data?.error?.message || 'No specific API message.';
     const fbTraceId = error.response?.headers ? (error.response.headers['x-fb-trace-id'] || error.response.headers['x-fb-request-id']) : 'N/A';
@@ -90,12 +107,27 @@ async function postImage(imageUrl, caption) {
       console.log('[INFO] Successfully posted image to Instagram:', publishResponse.data.id);
       return { success: true, data: publishResponse.data };
     } catch (error) {
-      let errorCode = "API_ERROR";
-      if (error.response?.data?.error?.code === 190) errorCode = "AUTH_ERROR";
-      else if (error.response?.data?.error?.code === 9007 || error.response?.data?.error?.code === 9004 ) errorCode = "VALIDATION_ERROR";
+      let errorCode = "API_ERROR"; // Default
+      if (error.request && !error.response) {
+          errorCode = "NETWORK_ERROR";
+      } else if (error.response) {
+          const status = error.response.status;
+          const apiErrorCode = error.response.data?.error?.code;
 
-      if (error.request && !error.response && errorCode === "API_ERROR") errorCode = "NETWORK_ERROR";
-      else if ((error.response?.status === 401 || error.response?.status === 403) && errorCode === "API_ERROR") errorCode = "AUTH_ERROR";
+          if (apiErrorCode === 190) { // Specific API code for token issues
+              errorCode = "AUTH_ERROR";
+          } else if (apiErrorCode === 9007 || apiErrorCode === 9004 || apiErrorCode === 24 || apiErrorCode === 352) {
+              // 9007: Media processing failed, 9004: Action not allowed on video, 24: Media Eligible for Feed but not for Story, 352: Video too long or too short
+              errorCode = "VALIDATION_ERROR";
+          } else if (status === 400) { // General bad request not caught by specific API codes above
+              errorCode = "VALIDATION_ERROR"; // Could be other validation issues not covered by specific codes
+          } else if (status === 401 || status === 403) { // General auth errors if not code 190
+              errorCode = "AUTH_ERROR";
+          } else if (status >= 500 && status <= 599) {
+              errorCode = "API_ERROR"; // Server-side Facebook/Instagram error
+          }
+          // Note: 429 (Rate Limit) would also fall under generic API_ERROR here or need specific handling if desired.
+      }
 
       const apiMessage = error.response?.data?.error?.message || 'No specific API message.';
       const fbTraceId = error.response?.headers ? (error.response.headers['x-fb-trace-id'] || error.response.headers['x-fb-request-id']) : 'N/A';

@@ -23,16 +23,13 @@ function checkEnvVariables() {
 function authenticate() {
   const envCheck = checkEnvVariables();
   if (!envCheck.success) {
-    // Pass the errorCode from checkEnvVariables
-    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+    // Propagate error from checkEnvVariables, ensuring standard return object
+    return { success: false, message: envCheck.message, errorCode: envCheck.errorCode };
   }
 
   const token = process.env[LINKEDIN_ACCESS_TOKEN_VAR];
-  // console.log('Using direct LinkedIn Access Token from .env.local.');
-  // For authenticate itself, if it were to make an API call that failed,
-  // it might return an AUTH_ERROR. Here, it's just checking env vars and returning a token.
-  // So, the main error source is from checkEnvVariables.
-  return { error: false, client: token };
+  // Successfully authenticated (token is present)
+  return { success: true, client: token };
 }
 
 const LINKEDIN_POST_CHAR_LIMIT = 3000; // LinkedIn general post character limit.
@@ -58,8 +55,9 @@ async function postTextUpdate(text) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    // authResult already contains standardized { success: false, message, errorCode }
+    return authResult;
   }
   const accessToken = authResult.client;
   const organizationId = process.env[LINKEDIN_ORGANIZATION_ID_VAR]; // Already checked
@@ -90,15 +88,20 @@ async function postTextUpdate(text) {
     console.log('[INFO] Successfully posted text update to LinkedIn:', response.data.id);
     return { success: true, data: response.data };
   } catch (error) {
-    let errorCode = "API_ERROR";
+    let errorCode = "API_ERROR"; // Default
     if (error.request && !error.response) {
-      errorCode = "NETWORK_ERROR";
-    } else if (error.response?.status === 401) {
-      errorCode = "AUTH_ERROR";
-    } else if (error.response?.status === 403) {
-      errorCode = "AUTH_ERROR";
-    } else if (error.response?.status === 422) { // Unprocessable Entity - often validation
-      errorCode = "VALIDATION_ERROR";
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        if (status === 400 || status === 422) { // 422 is Unprocessable Entity
+            errorCode = "VALIDATION_ERROR";
+        } else if (status === 401 || status === 403) {
+            errorCode = "AUTH_ERROR";
+        } else if (status === 429) {
+            errorCode = "API_ERROR"; // Or RATE_LIMIT_ERROR if defined globally
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side LinkedIn error
+        }
     }
 
     const apiMessage = error.response?.data?.message || 'No specific API message.';
@@ -124,8 +127,8 @@ async function postArticle(articleUrl, title, description) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    return authResult;
   }
   const accessToken = authResult.client;
   const organizationId = process.env[LINKEDIN_ORGANIZATION_ID_VAR];
@@ -160,15 +163,20 @@ async function postArticle(articleUrl, title, description) {
     console.log('[INFO] Successfully posted article to LinkedIn:', response.data.id);
     return { success: true, data: response.data };
   } catch (error) {
-    let errorCode = "API_ERROR";
+    let errorCode = "API_ERROR"; // Default
     if (error.request && !error.response) {
-      errorCode = "NETWORK_ERROR";
-    } else if (error.response?.status === 401) {
-      errorCode = "AUTH_ERROR";
-    } else if (error.response?.status === 403) {
-      errorCode = "AUTH_ERROR";
-    } else if (error.response?.status === 422) {
-      errorCode = "VALIDATION_ERROR";
+        errorCode = "NETWORK_ERROR";
+    } else if (error.response) {
+        const status = error.response.status;
+        if (status === 400 || status === 422) {
+            errorCode = "VALIDATION_ERROR";
+        } else if (status === 401 || status === 403) {
+            errorCode = "AUTH_ERROR";
+        } else if (status === 429) {
+            errorCode = "API_ERROR"; // Or RATE_LIMIT_ERROR if defined globally
+        } else if (status >= 500 && status <= 599) {
+            errorCode = "API_ERROR"; // Server-side LinkedIn error
+        }
     }
 
     const apiMessage = error.response?.data?.message || 'No specific API message.';

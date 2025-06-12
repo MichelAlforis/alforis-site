@@ -109,24 +109,37 @@ async function main() {
             'Post ID': postId,
             'Post URL': postUrl,
             'Published At': new Date().toISOString(),
-            Message: '' // Clear previous error messages
+            Message: '' // Clear previous error messages - success indicator
           });
           console.log(`[INFO] Record ${recordId} mis à jour “Publié” (Plateforme: ${plateforme}, Post ID: ${postId || 'N/A'}).`);
         } else {
+          // Construct the error message for Airtable
+          let airtableErrorMessage = result.message || 'Erreur inconnue lors de la publication.';
+          if (result.errorCode) {
+            airtableErrorMessage = `[${result.errorCode}] ${airtableErrorMessage}`;
+          }
+
           await baseSocial(AIRTABLE_SOCIAL_TABLE_NAME).update(recordId, {
             Statut: 'Erreur',
-            Message: result.message || 'Erreur inconnue lors de la publication.' // Ensure message is always a string
+            Message: airtableErrorMessage
           });
-          console.warn(`[WARN] Record ${recordId} mis à jour “Erreur” (Plateforme: ${plateforme}, Code: ${result.errorCode || 'N/A'}, Raison: ${result.message})`);
+          console.warn(`[WARN] Record ${recordId} (Plateforme: ${plateforme}) mis à jour “Erreur”. Code: ${result.errorCode || 'N/A'}. Raison: ${result.message}`);
         }
       } catch (err) {
         // This catch block handles errors thrown directly by platform modules (e.g., if `imageUrl` is missing for Instagram)
         // or if the switch statement itself fails.
+
+        // Construct the error message for Airtable
+        let airtableErrorMessage = err.message || 'Unknown error';
+        if (err.errorCode) {
+          airtableErrorMessage = `[${err.errorCode}] ${airtableErrorMessage}`;
+        }
+
         await baseSocial(AIRTABLE_SOCIAL_TABLE_NAME).update(recordId, {
           Statut: 'Erreur',
-          Message: err.message // err.message should be the detailed one from platform modules or new Error()
+          Message: airtableErrorMessage
         });
-        console.error(`[ERROR] Exception pour le record ${recordId} (Plateforme: ${plateforme}, Code: ${err.errorCode || 'N/A'}): ${err.message}`);
+        console.error(`[ERROR] Exception pour le record ${recordId} (Plateforme: ${plateforme}). Code: ${err.errorCode || 'N/A'}. Message: ${err.message}`);
       }
     }
 

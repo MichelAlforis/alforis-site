@@ -27,10 +27,13 @@ function checkEnvVariables() {
   return { success: true };
 }
 
+const axios = require('axios'); // Import axios for image download
+
 function authenticate() {
   const envCheck = checkEnvVariables();
   if (!envCheck.success) {
-    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+    // Propagate error from checkEnvVariables, ensuring standard return object
+    return { success: false, message: envCheck.message, errorCode: envCheck.errorCode };
   }
 
   try {
@@ -40,12 +43,12 @@ function authenticate() {
       accessToken: process.env[ACCESS_TOKEN_VAR],
       accessSecret: process.env[ACCESS_TOKEN_SECRET_VAR],
     });
-    return { error: false, client: client.readWrite };
+    // Successfully authenticated (client instantiated)
+    return { success: true, client: client.readWrite };
   } catch (error) {
-    // This catch is for errors during client instantiation, which could be due to malformed keys
-    // but are distinct from API call authentication errors.
+    // This catch is for errors during client instantiation
     console.error('[ERROR] Error instantiating Twitter client:', error.message);
-    return { error: true, message: `Twitter client instantiation failed: ${error.message}`, errorCode: "AUTH_ERROR", client: null };
+    return { success: false, message: `Twitter client instantiation failed: ${error.message}`, errorCode: "AUTH_ERROR" };
   }
 }
 
@@ -71,8 +74,9 @@ async function postTweet(text) {
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    // authResult already contains standardized { success: false, message, errorCode }
+    return authResult;
   }
   const client = authResult.client;
 
@@ -81,16 +85,22 @@ async function postTweet(text) {
     console.log('[INFO] Tweet posted successfully:', createdTweet.id);
     return { success: true, data: { id: createdTweet.id, text: createdTweet.text } };
   } catch (error) {
-    let errorCode = "API_ERROR";
-    if (error.code === 'ETIMEDOUT' || error.code === 'ENETUNREACH') {
+    let errorCode = "API_ERROR"; // Default
+    // TwitterError properties: error.code (numeric, e.g. 400), error.statusCode (http status)
+    // error.data (parsed response body), error.isAuthError (boolean)
+    if (error.code === 'ETIMEDOUT' || error.code === 'ENETUNREACH' || typeof error.code === 'string' && error.code.startsWith('E')) { // System errors
         errorCode = "NETWORK_ERROR";
     } else if (error.isAuthError || error.statusCode === 401 || error.statusCode === 403) {
         errorCode = "AUTH_ERROR";
-    } else if (error.statusCode === 429) {
-        errorCode = "API_ERROR";
-    } else if (error.data?.type?.includes('validation')) {
+    } else if (error.statusCode === 429) { // Rate limit
+        errorCode = "API_ERROR"; // Could be RATE_LIMIT_ERROR if defined globally
+    } else if (error.statusCode === 400 || error.data?.type?.includes('validation') || error.message?.toLowerCase().includes('validation')) {
         errorCode = "VALIDATION_ERROR";
+    } else if (error.statusCode >= 500 && error.statusCode <= 599) {
+        errorCode = "API_ERROR"; // Server-side Twitter error
     }
+    // For other client-side errors that aren't network or auth, VALIDATION_ERROR might be suitable if due to bad input not caught by initial checks.
+    // Otherwise, API_ERROR is a general fallback.
 
     const apiMessage = error.data?.detail || error.data?.title || error.message || 'Unknown error posting tweet.';
     const twitterStatus = error.statusCode || 'N/A';
@@ -112,21 +122,87 @@ async function postTweetWithImage(text, imageUrl) {
     return { success: false, message: 'Image URL cannot be empty for a Tweet with image.', errorCode: "VALIDATION_ERROR" };
   }
   if (!isValidHttpUrl(imageUrl)) {
-    return { success: false, message: 'Image URL must be a valid HTTP/HTTPS URL.', errorCode: "VALIDATION_ERROR" };
+    return { success: false, message: 'Image URL must be a valid HTTP/HTTPS URL for a Tweet with image.', errorCode: "VALIDATION_ERROR" };
   }
 
   const authResult = authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    return authResult;
   }
-  // const client = authResult.client; // Client would be used here
+  const client = authResult.client;
+  let mediaId;
 
-  console.warn('[WARN] postTweetWithImage is not fully implemented. This is a placeholder.');
-  return {
-    success: false,
-    message: 'postTweetWithImage is not yet implemented.',
-    errorCode: "UNKNOWN_ERROR"
-  };
+  // Step 1: Download image
+  let imageBuffer;
+  try {
+    console.log(`[INFO] Downloading image for Tweet from: ${imageUrl}`);
+    const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+    imageBuffer = Buffer.from(response.data);
+    console.log('[INFO] Image downloaded successfully.');
+  } catch (error) {
+    let downloadErrorCode = "NETWORK_ERROR";
+    let detailedMessage = `Failed to download image from ${imageUrl}.`;
+    if (error.response) { // Error from server (4xx, 5xx for image URL)
+        downloadErrorCode = "API_ERROR"; // Or VALIDATION_ERROR if 404 on image
+        detailedMessage += ` Status: ${error.response.status}.`;
+    } else if (error.request) { // Network error (no response)
+        detailedMessage += ` No response received.`;
+    } else { // Other errors
+        detailedMessage += ` Error: ${error.message}.`;
+    }
+    console.error('[ERROR] Image download failed:', detailedMessage, error);
+    return { success: false, message: detailedMessage, errorCode: downloadErrorCode };
+  }
+
+  // Step 2: Upload image to Twitter
+  try {
+    console.log('[INFO] Uploading image to Twitter...');
+    // Assuming imageBuffer is a Buffer.
+    // uploadMedia can take a path or a Buffer. Ensure your twitter-api-v2 version supports Buffer.
+    mediaId = await client.v1.uploadMedia(imageBuffer, { mimeType: 'image/jpeg' }); // Adjust mimeType if needed (e.g. image/png)
+    console.log('[INFO] Image uploaded to Twitter successfully. Media ID:', mediaId);
+  } catch (error) {
+    let uploadErrorCode = "API_ERROR";
+    if (error.code === 'ETIMEDOUT' || error.code === 'ENETUNREACH' || typeof error.code === 'string' && error.code.startsWith('E')) {
+        uploadErrorCode = "NETWORK_ERROR";
+    } else if (error.isAuthError || error.statusCode === 401 || error.statusCode === 403) {
+        uploadErrorCode = "AUTH_ERROR";
+    } else if (error.statusCode === 400) { // e.g. media type not supported, file too large
+        uploadErrorCode = "VALIDATION_ERROR";
+    }
+    // Other errors (429 Rate Limit, 5xx Server Error) default to API_ERROR
+    const apiMessage = error.data?.error || error.message || 'Unknown error uploading media.';
+    const twitterStatus = error.statusCode || 'N/A';
+    const errMsg = `Twitter API Error (Media Upload): ${apiMessage} (Status: ${twitterStatus})`;
+    console.error('[ERROR] Error uploading media to Twitter:', errMsg, error.data || '');
+    return { success: false, message: errMsg, errorCode: uploadErrorCode };
+  }
+
+  // Step 3: Post tweet with media ID
+  try {
+    console.log(`[INFO] Posting tweet with text and media ID: ${mediaId}`);
+    const { data: createdTweet } = await client.v2.tweet(text, { media: { media_ids: [mediaId] } });
+    console.log('[INFO] Tweet with image posted successfully:', createdTweet.id);
+    return { success: true, data: { id: createdTweet.id, text: createdTweet.text } };
+  } catch (error) {
+    let tweetErrorCode = "API_ERROR";
+     if (error.code === 'ETIMEDOUT' || error.code === 'ENETUNREACH' || typeof error.code === 'string' && error.code.startsWith('E')) {
+        tweetErrorCode = "NETWORK_ERROR";
+    } else if (error.isAuthError || error.statusCode === 401 || error.statusCode === 403) {
+        tweetErrorCode = "AUTH_ERROR";
+    } else if (error.statusCode === 429) {
+        tweetErrorCode = "API_ERROR";
+    } else if (error.statusCode === 400 || error.data?.type?.includes('validation')) {
+        tweetErrorCode = "VALIDATION_ERROR";
+    } else if (error.statusCode >= 500 && error.statusCode <= 599) {
+        tweetErrorCode = "API_ERROR";
+    }
+    const apiMessage = error.data?.detail || error.data?.title || error.message || 'Unknown error posting tweet with image.';
+    const twitterStatus = error.statusCode || 'N/A';
+    const errMsg = `Twitter API Error (Tweet with Image): ${apiMessage} (Status: ${twitterStatus}, Type: ${error.data?.type || 'N/A'})`;
+    console.error('[ERROR] Error posting tweet with image to Twitter:', errMsg, JSON.stringify(error.data) || '');
+    return { success: false, message: errMsg, errorCode: tweetErrorCode };
+  }
 }
 
 module.exports = {

@@ -47,15 +47,18 @@ function checkEnvVariables() {
 async function authenticate() {
   const envCheck = checkEnvVariables();
   if (!envCheck.success) {
-    return { error: true, message: envCheck.message, errorCode: envCheck.errorCode, client: null };
+    // Propagate error from checkEnvVariables, ensuring standard return object
+    return { success: false, message: envCheck.message, errorCode: envCheck.errorCode };
   }
 
   try {
     const privateKey = process.env[GCP_PRIVATE_KEY_VAR].replace(/\\n/g, '\n');
     const clientEmail = process.env[GCP_CLIENT_EMAIL_VAR];
 
-    if (!clientEmail || !privateKey) { // Should be caught by checkEnvVariables, but double check
-        return { error: true, message: "GCP client email or private key is null after env check, which is unexpected.", errorCode: "CONFIG_ERROR", client: null };
+    // This specific check might be redundant if checkEnvVariables is comprehensive,
+    // but as a safeguard it's fine.
+    if (!clientEmail || !privateKey) {
+        return { success: false, message: "GCP client email or private key is null after env check (unexpected).", errorCode: "CONFIG_ERROR" };
     }
 
     const auth = new google.auth.GoogleAuth({
@@ -65,10 +68,11 @@ async function authenticate() {
 
     const authClient = await auth.getClient();
     google.options({ auth: authClient });
-    return { error: false, client: authClient };
+    // Successfully authenticated
+    return { success: true, client: authClient };
   } catch (err) {
     console.error('[ERROR] Google My Business authentication failed:', err.message);
-    return { error: true, message: `GMB Authentication failed: ${err.message}`, errorCode: "AUTH_ERROR", client: null };
+    return { success: false, message: `GMB Authentication failed: ${err.message}`, errorCode: "AUTH_ERROR" };
   }
 }
 
@@ -107,8 +111,9 @@ async function createPost(textSummary, options = {}) {
 
 
   const authResult = await authenticate();
-  if (authResult.error) {
-    return { success: false, message: authResult.message, errorCode: authResult.errorCode || "AUTH_ERROR" };
+  if (!authResult.success) {
+    // authResult already contains standardized { success: false, message, errorCode }
+    return authResult;
   }
 
   const parentName = process.env[GCP_BUSINESS_ACCOUNT_NAME_VAR]; // Already checked
@@ -149,16 +154,21 @@ async function createPost(textSummary, options = {}) {
     console.log('[INFO] GMB post créé avec succès. Resource name:', response.data.name);
     return { success: true, data: response.data };
   } catch (err) {
-    let errorCode = "API_ERROR";
-    if (err.code === 401 || err.code === 403) {
-        errorCode = "AUTH_ERROR";
-    } else if (err.code === 400) {
-        errorCode = "VALIDATION_ERROR";
-    } else if (err.errors && err.errors.some(e => e.reason === 'rateLimitExceeded')) {
-        errorCode = "API_ERROR";
-    } else if (!err.response && err.message.includes('ECONNREFUSED')) {
+    let errorCode = "API_ERROR"; // Default
+    // GMB API errors often have `err.code` (HTTP status) and `err.errors` (array of error details)
+    // For network errors, `err.response` might be undefined.
+    if (!err.response && (err.message.includes('ECONNREFUSED') || err.message.includes('ETIMEDOUT') || err.message.includes('ENETUNREACH'))) {
         errorCode = "NETWORK_ERROR";
+    } else if (err.code === 401 || err.code === 403) {
+        errorCode = "AUTH_ERROR";
+    } else if (err.code === 400 || (err.errors && err.errors.some(e => e.reason === 'INVALID_ARGUMENT' || e.message.toLowerCase().includes('invalid')))) {
+        errorCode = "VALIDATION_ERROR";
+    } else if (err.errors && err.errors.some(e => e.reason === 'rateLimitExceeded' || e.message.toLowerCase().includes('quota'))) {
+        errorCode = "API_ERROR"; // Could be RATE_LIMIT_ERROR if defined globally
+    } else if (err.code >= 500 && err.code <= 599) {
+        errorCode = "API_ERROR"; // Server-side GMB error
     }
+    // Other err.code values (e.g., 404 for location not found) might also be API_ERROR or a more specific one if needed.
 
     const apiErrorDetails = err.errors?.map(e => `(${e.reason}: ${e.message})`).join(', ') || '';
     const errMsg = `GMB API Error: ${err.message} ${apiErrorDetails} (Code: ${err.code || 'N/A'})`;
