@@ -164,20 +164,16 @@ const goToSection = useCallback(
     const target = document.getElementById(sectionIds[idx])
     if (!target) return
 
-    console.log('goToSection appelé avec idx =', idx)
-    console.log('  Avant setIsScrolling(true), isScrolling =', isScrolling)
     setIsScrolling(true)
 
     const prefersReducedMotion = /* … */
     target.scrollIntoView({ /* … */ })
 
-    console.log('  Après scrollIntoView, currentSectionIndex sera mis à', idx)
     setCurrentSectionIndex(idx)
     onSectionScrolled(sectionIds[idx], target)
 
     clearTimeout(cooldownTimeout.current)
     cooldownTimeout.current = setTimeout(() => {
-      console.log('Cooldown FINISHED. Setting isScrolling to false')
       setIsScrolling(false)
     }, cooldown)
   },
@@ -200,7 +196,6 @@ const goToSection = useCallback(
     if (!container || typeof window === 'undefined') return
 
 const handleWheel = (e) => {
-  console.log('handleWheel : deltaY =', e.deltaY, ', isScrolling =', isScrolling)
   if (isScrolling) return
   if (e.deltaY > wheelThreshold) {
     e.preventDefault()
@@ -227,7 +222,6 @@ const handleWheel = (e) => {
     const eventTarget = container === window ? document : container
 
 const handleKeyDown = (e) => {
-  console.log('handleKeyDown : key =', e.key, ', isScrolling =', isScrolling)
   if (isScrolling) return
   switch (e.key) {
     case 'ArrowDown':
@@ -266,10 +260,10 @@ const handleKeyDown = (e) => {
       eventTarget.removeEventListener('touchstart', handleTouchStart)
       eventTarget.removeEventListener('touchend', handleTouchEnd)
       eventTarget.removeEventListener('keydown', handleKeyDown)
-      clearTimeout(cooldownTimeout.current)
+
     }
   }, [
-    isScrolling,
+
     goToNextSection,
     goToPrevSection,
     containerRef,
