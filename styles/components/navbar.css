@@ -1,0 +1,146 @@
+/* components/navbar.css */
+
+
+
+/* ============================
+   LIENS NAVBAR - STYLE PREMIUM
+   ============================ */
+
+/* Style de base partagé */
+.nav-link {
+  @apply font-semibold px-1 py-1 
+  rounded-full uppercase tracking-tight 
+  transition-all duration-300 ease-in-out 
+  text-base relative cursor-pointer select-none;
+}
+
+/* Variante nav principale : généreux + underline animé */
+.navbar-links > .nav-link {
+  @apply text-sm;   /* un peu plus grand */
+  position: relative;
+}
+.navbar-links > .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 8px; left: 50%;
+  width: 0; height: 2px;
+  @apply bg-doré rounded-full;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.navbar-links > .nav-link:hover::after {
+  width: 60%;
+}
+.navbar-links > .nav-link.active::after {
+  width: 100%;
+}
+
+/* État actif premium */
+.nav-link.active {
+  @apply text-doré bg-ivoire bg-opacity-80 shadow-lg;
+}
+.navbar-links > .nav-link.active {
+  @apply font-medium;
+}
+
+/* Hover effet premium */
+.navbar-links > .nav-link:hover:not(.active) {
+  @apply text-doré bg-ivoire;
+}
+
+/* 5) logo à gauche */
+.navbar-logo {
+  @apply flex-shrink-0 py-2;
+  height: var(--nav-height);
+}
+
+/* ============================
+   MENU PLUS (Dropdown) - ALLEGÉ
+   ============================ */
+.dropdown-menu > .nav-link {
+  @apply text-base font-medium px-3 py-1 rounded-lg;
+  /* Un style plus light, moins haut, police réduite */
+}
+.dropdown-menu > .nav-link::after {
+  display: none;   /* Pas de soulignement */
+}
+/* Actif : couleur doré, mais pas de shadow/border, juste la couleur */
+.dropdown-menu > .nav-link.active {
+  @apply text-doré bg-transparent font-semibold;
+}
+/* Hover : doré simple */
+.dropdown-menu > .nav-link:hover {
+  @apply text-doré bg-ivoire/20;
+}
+
+
+/* ============================
+   BOUTONS (RDV + THÈME)
+   ============================ */
+button.prendreRDV {
+  @apply bg-doré text-ivoire px-6 py-2 rounded-full
+         cursor-pointer transition-all duration-300 ease-in-out
+         focus:outline-none focus:ring-2 focus:ring-doré;
+}
+button.more {
+  @apply text-ivoire px-6 py-2 rounded-full
+         cursor-pointer transition-all duration-300 ease-in-out
+         focus:outline-none focus:ring-2 focus:ring-doré;
+}
+
+/* Toggle jour/nuit */
+button.theme-toggle {
+  @apply w-10 h-10 p-2 flex items-center justify-center
+         bg-ivoire/90 dark:bg-ardoise/90 rounded-full shadow-md
+         transition-transform duration-200 ease-in-out;
+}
+button.theme-toggle:hover {
+  transform: scale(1.15);
+}
+
+/* ============================
+   MOBILE MENU
+   ============================ */
+@media (max-width: 768px) {
+  .mobile-menu {
+    @apply fixed inset-0 flex flex-col
+  }
+  .mobile-menu.exit {
+    animation: slide-out 0.25s forwards;
+  }
+
+  .mobile-menu nav {
+    @apply flex-1 flex flex-col justify-center items-center space-y-6;
+  }
+  .mobile-menu a {
+    @apply text-xl font-semibold;
+  }
+  .mobile-menu a.active {
+    @apply text-doré;
+  }
+}
+
+
+
+
+/* ============================
+   KEYFRAMES
+   ============================ */
+@keyframes cc-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}

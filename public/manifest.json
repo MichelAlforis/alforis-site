@@ -1,0 +1,23 @@
+
+{
+    "name": "Alforis",
+    "short_name": "Alforis",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#2E3A48",
+    "theme_color": "#2E3A48",
+    "description": "Le patrimoine commence par l’humain — Alforis, cabinet de design de trajectoire de vie.",
+    "icons": [
+      {
+        "src": "/favicon/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/favicon/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

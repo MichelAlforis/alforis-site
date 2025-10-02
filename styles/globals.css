@@ -1,0 +1,171 @@
+@import './generated-colors.css';
+@import './utilities.css';
+@import './components/navbar.css';
+@import './components/cookieconsent.css';
+@import './components/prose.css';
+@import './components/toast.css';
+@import './components/button.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* ====================== */
+/* 🌐 BASE TYPOGRAPHIE & LAYOUT */
+/* ====================== */
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  html {
+  transition:
+    background-color 0.6s cubic-bezier(.4,0,.2,1),
+    color 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+  /* Corps de page */
+  body {
+    @apply font-sans antialiased;
+  }
+
+  /* Contenu qui pousse le footer */
+  main {
+    flex: 1 0 auto;
+  }
+
+  /* Footer collé en bas */
+  footer {
+    flex-shrink: 0;
+  }
+
+  /* Bannière cookie */
+  body.banner-dismissed header.cookie-banner,
+  body.banner-dismissed nav.cookie-banner {
+    top: 0 !important;
+  }
+
+
+  header, nav {
+    transition: top 0.3s ease;
+  }
+
+
+  /* FORMULAIRES & CHAMPS */
+  label {
+    @apply block text-anthracite font-semibold mb-1;
+  }
+
+  /* TITRES */
+  h1, h2, h3 {
+    font-family: 'Neue Montreal', serif;
+    color: rgb(var(--doré)); /* accent doré */
+  }
+h1 {
+  @apply text-3xl sm:text-3xl md:text-5xl text-anthracite dark:text-doré font-semibold font-title text-center;
+}
+
+h2 {
+  @apply text-2xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
+}
+
+h3 {
+  @apply text-md sm:text-xl md:text-2xl font-semibold text-ardoise dark:text-vertSauge dark:text-ivoire ;
+}
+
+
+  /* PARAGRAPHES */
+  p {
+    @apply text-sm md:text-md text-base text-anthracite dark:text-ivoire ;
+  }
+
+  /* LIENS */
+  a {
+    color: rgb(var(--acier));
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: rgb(var(--ardoise));
+  }
+
+  /* CLASSES ANIMÉES */
+  .animated-h1 {
+    @apply text-doré dark:text-vertSauge;
+  }
+  .animated-h2 {
+    @apply text-acier dark:text-ivoire;
+  }
+  .animated-wrapper {
+    @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
+  }
+  .border-dynamic {
+  @apply border-2 rounded-xl shadow-lg;
+  border-color: var(--clap-border-color);
+  }
+    /* Cookies */
+  .cc-revoke {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+  /* HERO FULL-SCREEN (sous nav) */
+/* components/home/hero.css */
+/* Styles par défaut (mobile-first) */
+/* components/home/hero.css */
+/* components/home/hero.css */
+.hero-fullscreen {
+  position: relative;
+  overflow: hidden;
+
+  /* plein écran, nav comprise */
+  height: 100dvh;
+  /* fallback si besoin */
+  height: calc(var(--vh) * 100);
+
+  /* on décale le contenu sous la navbar transparente */
+  padding-top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+  /* VARIABLES GLOBALES */
+/* mobile-first : navbar à 56px */
+:root {
+  --nav-height: 56px;
+  /* tes autres variables… */
+  --cc-banner-height: 0px;
+  --cc-header-height: 64px;
+  --header-gap: 30vh;
+  --header-total-height: 64px;
+
+  --navbar-offset: calc(
+    var(--cc-banner-height) +
+    var(--nav-height)
+  );
+
+  --navbar-total-offset: calc(
+    var(--cc-banner-height) +
+    var(--nav-height) +
+    var(--header-total-height)
+  );
+}
+
+/* desktop (≥1024px) : navbar à 80px */
+@media (min-width: 1024px) {
+  :root {
+    --nav-height: 80px;
+  }
+}
+
+}

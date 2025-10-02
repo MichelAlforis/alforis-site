@@ -1,0 +1,48 @@
+@tailwind components;
+
+/* ====================== */
+/* 🎛️ BOUTONS PERSONNALISÉS Alforis améliorés */
+/* ====================== */
+@layer components {
+    /* Bouton rétro : ambiance vintage, léger skew et ombre portée */
+    .btn-alforis-retro {
+      @apply font-title uppercase tracking-widest text-base inline-block text-center
+        text-ivoire bg-gradient-to-br from-ardoise to-acier
+        px-8 py-4 rounded-lg border-2 border-doré
+        shadow-lg transform hover:-rotate-1 hover:scale-105 active:scale-95
+        transition-all duration-300 ease-in-out;
+      position: relative;
+    }
+    .btn-alforis-retro::before {
+      content: '';
+      @apply absolute inset-0 rounded-lg bg-gradient-to-tr from-doré/30 to-yellow-400/20;
+      transform: skew(-3deg, -1deg);
+      z-index: -1;
+    }
+  
+    /* Bouton outline : épuré, animation de fond doré en hover */
+    .btn-alforis-outline {
+      @apply font-title uppercase tracking-widest text-base inline-block text-center
+        text-doré bg-transparent px-8 py-4 rounded-lg border-2 border-doré
+        hover:text-ivoire hover:bg-doré focus:ring-4 focus:ring-doré/50
+        transition bg-clip-padding duration-200 ease-in-out;
+    }
+  
+    /* Bouton RDV : forme pill, couleur de marque accentuée, effet pulse */
+    .btn-alforis-rdv {
+      @apply font-title uppercase tracking-widest text-sm inline-block text-center
+        text-ivoire bg-doré px-6 py-3 rounded-full border-none
+        shadow-xl transform hover:scale-105 active:scale-95
+        focus:outline-none focus:ring-4 focus:ring-doré/40
+        transition-all duration-200 ease-out;
+    }
+    .btn-alforis-rdv:hover {
+      animation: pulse 1.5s infinite;
+    }
+  
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  }
+  

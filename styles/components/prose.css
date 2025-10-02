@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================= */
+/* 📰 TYPOGRAPHIE PROSE ALFORIS PREMIUM */
+/* ========================= */
+@layer components {
+  .prose-alforis {
+    @apply prose prose-lg max-w-3xl mx-auto text-anthracite font-sans leading-relaxed;
+  }
+
+  /* Titres */
+  .prose-alforis h1 {
+    @apply text-3xl md:text-3xl font-title font-semibold text-ardoise mt-20 mb-10 leading-tight tracking-tight;
+  }
+
+  .prose-alforis h2 {
+    @apply text-2xl md:text-2xl font-title font-semibold text-ardoise mt-16 mb-6 leading-snug border-l-4 border-doré pl-4;
+  }
+
+  .prose-alforis h3 {
+    @apply text-xl font-title font-medium text-ardoise mt-12 mb-4 leading-snug;
+  }
+
+  .prose-alforis h4 {
+    @apply text-xl font-title text-ardoise mt-10 mb-3;
+  }
+
+  /* Paragraphes */
+  .prose-alforis p {
+    @apply text-lg text-anthracite mb-6;
+  }
+
+  /* Listes */
+  .prose-alforis ul {
+    @apply list-disc pl-6 mb-6;
+  }
+
+  .prose-alforis ol {
+    @apply list-decimal pl-6 mb-6;
+  }
+
+  .prose-alforis li {
+    @apply mb-2 leading-relaxed;
+  }
+
+  /* Citations */
+  .prose-alforis blockquote {
+    @apply border-l-4 border-doré bg-vertSauge/40 italic pl-6 pr-4 py-4 my-8 text-ardoise text-lg rounded-md;
+  }
+
+  /* Liens */
+  .prose-alforis a {
+    @apply text-doré underline underline-offset-2 hover:text-ardoise transition-colors duration-150;
+  }
+
+  /* Images */
+  .prose-alforis img {
+    @apply rounded-xl shadow-lg my-8 mx-auto;
+  }
+
+  /* Tableaux */
+  .prose-alforis table {
+    @apply table-auto w-full my-8 border border-acier text-left;
+  }
+
+  .prose-alforis th {
+    @apply bg-vertSauge text-ardoise font-semibold px-4 py-2;
+  }
+
+  .prose-alforis td {
+    @apply border-t border-acier px-4 py-2;
+  }
+
+  /* Code inline */
+  .prose-alforis code {
+    @apply bg-vertSauge text-ardoise px-1.5 py-0.5 rounded text-sm;
+  }
+
+  /* Éléments pré (code blocs) */
+  .prose-alforis pre {
+    @apply bg-ardoise text-ivoire text-sm rounded-lg p-4 overflow-x-auto my-6;
+  }
+
+  /* Titres avec emojis */
+  .prose-alforis h2:before,
+  .prose-alforis h3:before {
+    @apply mr-1;
+  }
+
+  /* Marges ajustées entre les blocs */
+  .prose-alforis > * + h2,
+  .prose-alforis > * + h3,
+  .prose-alforis > * + p {
+    @apply mt-10;
+  }
+
+  .prose-alforis hr {
+    @apply my-10 border-doré;
+  }
+}
