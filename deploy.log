@@ -1356,3 +1356,3163 @@ https://nextjs.org/docs/messages/module-not-found
 
 
 > Build failed because of webpack errors
+[2025-10-02 11:52:29] 📤 Début du déploiement
+[2025-10-02 11:52:29] Création d'un backup avant déploiement
+[2025-10-02 11:52:50] Backup créé : /root/alforis_backup_20251002_115229
+[2025-10-02 11:52:50] Utilisation de rsync pour la copie
+building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files...506 files to consider
+.last_backup
+          23 100%    0.00kB/s    0:00:00          23 100%    0.00kB/s    0:00:00 (xfer#1, to-check=502/506)
+content/studio/index.js
+          19 100%   18.55kB/s    0:00:00          19 100%   18.55kB/s    0:00:00 (xfer#2, to-check=220/506)
+
+sent 14551 bytes  received 70 bytes  9747.33 bytes/sec
+total size is 330794172  speedup is 22624.59
+
+added 560 packages, and audited 561 packages in 17s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/particulier/studio/[slug]/page.jsx
+Module not found: Can't resolve '../../../content/studio'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+[2025-10-02 12:00:07] 📤 Début du déploiement
+[2025-10-02 12:00:07] Création d'un backup avant déploiement
+[2025-10-02 12:00:28] Backup créé : /root/alforis_backup_20251002_120007
+[2025-10-02 12:00:28] Utilisation de rsync pour la copie
+building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files...506 files to consider
+.last_backup
+          23 100%    0.00kB/s    0:00:00          23 100%    0.00kB/s    0:00:00 (xfer#1, to-check=502/506)
+app/particulier/studio/[slug]/page.jsx
+        2052 100%    1.96MB/s    0:00:00        2052 100%    1.96MB/s    0:00:00 (xfer#2, to-check=377/506)
+
+sent 15237 bytes  received 88 bytes  10216.67 bytes/sec
+total size is 330794267  speedup is 21585.27
+
+added 560 packages, and audited 561 packages in 18s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/particulier/studio/[slug]/page.jsx
+Module not found: Can't resolve '../../../content/studio'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+[2025-10-02 12:02:57] 📤 Début du déploiement
+[2025-10-02 12:02:57] Création d'un backup avant déploiement
+[2025-10-02 12:03:18] Backup créé : /root/alforis_backup_20251002_120257
+[2025-10-02 12:03:18] Utilisation de rsync pour la copie
+building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files...507 files to consider
+.last_backup
+          23 100%    0.00kB/s    0:00:00          23 100%    0.00kB/s    0:00:00 (xfer#1, to-check=503/507)
+app/particulier/studio/[slug]/
+app/particulier/studio/[slug]/page.bck
+        2052 100%    1.96MB/s    0:00:00        2052 100%    1.96MB/s    0:00:00 (xfer#2, to-check=378/507)
+app/particulier/studio/[slug]/page.jsx
+         836 100%  816.41kB/s    0:00:00         836 100%  816.41kB/s    0:00:00 (xfer#3, to-check=377/507)
+
+sent 15910 bytes  received 116 bytes  32052.00 bytes/sec
+total size is 330795103  speedup is 20641.15
+
+added 560 packages, and audited 561 packages in 17s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./node_modules/react-toastify/dist/ReactToastify.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./node_modules/react-toastify/dist/ReactToastify.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+
+Import trace for requested module:
+./node_modules/react-toastify/dist/ReactToastify.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./node_modules/react-toastify/dist/ReactToastify.css
+./node_modules/react-toastify/dist/ReactToastify.css
+./app/RootClientLayout.jsx
+
+./styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/globals.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+
+Import trace for requested module:
+./styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/globals.css
+./styles/globals.css
+
+./node_modules/react-toastify/dist/ReactToastify.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316142)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:15:1)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130703
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14402)
+    at timesSync (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:5027)
+-- inner error --
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at Object.<anonymous> (/root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/node_modules/react-toastify/dist/ReactToastify.css:1:7)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:962742
+    at Hook.eval [as call] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9002), <anonymous>:7:1)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131581
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316096)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+
+Generated code for /root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/node_modules/react-toastify/dist/ReactToastify.css
+
+Import trace for requested module:
+./node_modules/react-toastify/dist/ReactToastify.css
+./app/RootClientLayout.jsx
+
+./styles/globals.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316142)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:15:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:6378)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130703
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14402)
+-- inner error --
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at Object.<anonymous> (/root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/styles/globals.css:1:7)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:962742
+    at Hook.eval [as call] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9002), <anonymous>:7:1)
+    at Hook.CALL_DELEGATE [as _call] (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:6272)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131581
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316096)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+
+Generated code for /root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/styles/globals.css
+
+Import trace for requested module:
+./styles/globals.css
+
+
+> Build failed because of webpack errors
+[2025-10-02 12:09:18] 📤 Début du déploiement
+[2025-10-02 12:09:18] Création d'un backup avant déploiement
+[2025-10-02 12:09:38] Backup créé : /root/alforis_backup_20251002_120918
+[2025-10-02 12:09:38] Utilisation de rsync pour la copie
+building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files...507 files to consider
+.last_backup
+          23 100%    0.00kB/s    0:00:00          23 100%    0.00kB/s    0:00:00 (xfer#1, to-check=503/507)
+scripts/server.sh
+         700   7%  683.59kB/s    0:00:00        9055 100%    8.64MB/s    0:00:00 (xfer#2, to-check=23/507)
+
+sent 14754 bytes  received 148 bytes  9934.67 bytes/sec
+total size is 330795092  speedup is 22198.03
+
+added 560 packages, and audited 561 packages in 17s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./node_modules/react-toastify/dist/ReactToastify.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./node_modules/react-toastify/dist/ReactToastify.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+
+Import trace for requested module:
+./node_modules/react-toastify/dist/ReactToastify.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./node_modules/react-toastify/dist/ReactToastify.css
+./node_modules/react-toastify/dist/ReactToastify.css
+./app/RootClientLayout.jsx
+
+./styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/globals.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+
+Import trace for requested module:
+./styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./styles/globals.css
+./styles/globals.css
+
+./node_modules/react-toastify/dist/ReactToastify.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316142)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:15:1)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130703
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14402)
+    at timesSync (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:5027)
+-- inner error --
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at Object.<anonymous> (/root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/node_modules/react-toastify/dist/ReactToastify.css:1:7)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:962742
+    at Hook.eval [as call] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9002), <anonymous>:7:1)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131581
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316096)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+
+Generated code for /root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/node_modules/react-toastify/dist/ReactToastify.css
+
+Import trace for requested module:
+./node_modules/react-toastify/dist/ReactToastify.css
+./app/RootClientLayout.jsx
+
+./styles/globals.css
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316142)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+    at done (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14824)
+    at Hook.eval [as callAsync] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:15:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:6378)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130703
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14402)
+-- inner error --
+Error: Cannot find module 'postcss-import'
+Require stack:
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /root/alforis/node_modules/next/dist/build/webpack/config/index.js
+- /root/alforis/node_modules/next/dist/build/webpack-config.js
+- /root/alforis/node_modules/next/dist/build/webpack/plugins/next-trace-entrypoints-plugin.js
+- /root/alforis/node_modules/next/dist/build/collect-build-traces.js
+- /root/alforis/node_modules/next/dist/build/index.js
+- /root/alforis/node_modules/next/dist/cli/next-build.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at /root/alforis/node_modules/next/dist/server/require-hook.js:55:36
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at loadPlugin (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:53:32)
+    at /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:185:47)
+    at async /root/alforis/node_modules/next/dist/build/webpack/config/blocks/css/index.js:125:36
+    at Object.<anonymous> (/root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/styles/globals.css:1:7)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:962742
+    at Hook.eval [as call] (eval at create (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:9002), <anonymous>:7:1)
+    at Hook.CALL_DELEGATE [as _call] (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:14:6272)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131581
+    at tryRunOrWebpackError (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:316096)
+    at __webpack_require_module__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131548)
+    at __nested_webpack_require_161494__ (/root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:130983)
+    at /root/alforis/node_modules/next/dist/compiled/webpack/bundle5.js:29:131840
+    at symbolIterator (/root/alforis/node_modules/next/dist/compiled/neo-async/async.js:1:14444)
+
+Generated code for /root/alforis/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!/root/alforis/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!/root/alforis/styles/globals.css
+
+Import trace for requested module:
+./styles/globals.css
+
+
+> Build failed because of webpack errors
+[2025-10-02 12:26:48] 📤 Début du déploiement
+[2025-10-02 12:26:48] Création d'un backup avant déploiement
+[2025-10-02 12:27:14] Backup créé : /root/alforis_backup_20251002_122648
+[2025-10-02 12:27:14] Utilisation de rsync pour la copie
+building file list ... 
+ 0 files... 100 files... 200 files... 300 files... 400 files... 500 files...507 files to consider
+./
+.last_backup
+          23 100%    0.00kB/s    0:00:00          23 100%    0.00kB/s    0:00:00 (xfer#1, to-check=503/507)
+package-lock.json
+         720   0%  703.12kB/s    0:00:00      527082 100%   62.83MB/s    0:00:00 (xfer#2, to-check=493/507)
+
+sent 14555 bytes  received 4474 bytes  12686.00 bytes/sec
+total size is 330795092  speedup is 17383.73
+
+added 560 packages, and audited 561 packages in 17s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+   Linting and checking validity of types ...
+ ⚠ Compiled with warnings in 10.0s
+
+./lib/server/fetchAllContent.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./lib/server/fetchAllContent.js
+./app/blog-studio/page.jsx
+
+   Collecting page data ...
+ ⨯ ESLint must be installed in order to run during builds: npm install --save-dev eslint
+   Generating static pages (0/105) ...
+Erreur chargement studio/index.js: Error: Cannot find module '/root/alforis/content/studio/index.js'
+    at t (.next/server/app/blog-studio/page.js:1:1991)
+    at c (.next/server/app/blog-studio/page.js:1:5854)
+    at n (.next/server/app/blog-studio/page.js:1:7840)
+    at stringify (<anonymous>) {
+  code: 'MODULE_NOT_FOUND'
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'Fiscalite-et-succession-VDM-2025' },
+  slug: 'Fiscalite-et-succession-VDM-2025',
+  [Symbol(async_id_symbol)]: 26414,
+  [Symbol(trigger_async_id_symbol)]: 26365,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/Fiscalite-et-succession-VDM-2025'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'Retraite_Dirigeant' },
+  slug: 'Retraite_Dirigeant',
+  [Symbol(async_id_symbol)]: 26434,
+  [Symbol(trigger_async_id_symbol)]: 26371,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/Retraite_Dirigeant'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'Transmission-de-patrimoine-2025' },
+  slug: 'Transmission-de-patrimoine-2025',
+  [Symbol(async_id_symbol)]: 26454,
+  [Symbol(trigger_async_id_symbol)]: 26377,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/Transmission-de-patrimoine-2025'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'assurance-vie-2025-tendances-strategies' },
+  slug: 'assurance-vie-2025-tendances-strategies',
+  [Symbol(async_id_symbol)]: 30398,
+  [Symbol(trigger_async_id_symbol)]: 30381,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/assurance-vie-2025-tendances-strategies'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'erreurs-succession-2025' },
+  slug: 'erreurs-succession-2025',
+  [Symbol(async_id_symbol)]: 30978,
+  [Symbol(trigger_async_id_symbol)]: 30961,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/erreurs-succession-2025'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'opcvm-fondamentaux-investir-2025-04' },
+  slug: 'opcvm-fondamentaux-investir-2025-04',
+  [Symbol(async_id_symbol)]: 31558,
+  [Symbol(trigger_async_id_symbol)]: 31541,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/opcvm-fondamentaux-investir-2025-04'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'optimisation-fiscale-nue-propriete' },
+  slug: 'optimisation-fiscale-nue-propriete',
+  [Symbol(async_id_symbol)]: 32138,
+  [Symbol(trigger_async_id_symbol)]: 32121,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/optimisation-fiscale-nue-propriete'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'produits-structures-avantages-risques-2025' },
+  slug: 'produits-structures-avantages-risques-2025',
+  [Symbol(async_id_symbol)]: 32718,
+  [Symbol(trigger_async_id_symbol)]: 32701,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/produits-structures-avantages-risques-2025'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'reforme-droits-succession-france' },
+  slug: 'reforme-droits-succession-france',
+  [Symbol(async_id_symbol)]: 33298,
+  [Symbol(trigger_async_id_symbol)]: 33281,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/reforme-droits-succession-france'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'sci-dirigeant-valdemarne' },
+  slug: 'sci-dirigeant-valdemarne',
+  [Symbol(async_id_symbol)]: 33878,
+  [Symbol(trigger_async_id_symbol)]: 33861,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/sci-dirigeant-valdemarne'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'sci-familiale-transmission-patrimoniale' },
+  slug: 'sci-familiale-transmission-patrimoniale',
+  [Symbol(async_id_symbol)]: 34458,
+  [Symbol(trigger_async_id_symbol)]: 34441,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/sci-familiale-transmission-patrimoniale'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'sci-vdm' },
+  slug: 'sci-vdm',
+  [Symbol(async_id_symbol)]: 41928,
+  [Symbol(trigger_async_id_symbol)]: 41911,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/sci-vdm'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'scpi-perspectives-strategies-investissement-2025' },
+  slug: 'scpi-perspectives-strategies-investissement-2025',
+  [Symbol(async_id_symbol)]: 42508,
+  [Symbol(trigger_async_id_symbol)]: 42491,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/scpi-perspectives-strategies-investissement-2025'
+    ]
+  }
+}
+>>> METADATA PARAMS Promise {
+  { slug: 'transmission-familles-recomposees-2025' },
+  slug: 'transmission-familles-recomposees-2025',
+  [Symbol(async_id_symbol)]: 43088,
+  [Symbol(trigger_async_id_symbol)]: 43071,
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    isStaticGeneration: true,
+    page: '/blog/[slug]/page',
+    fallbackRouteParams: null,
+    route: '/blog/[slug]',
+    incrementalCache: IncrementalCache {
+      locks: Map(0) {},
+      hasCustomCacheHandler: false,
+      dev: false,
+      disableForTestmode: false,
+      minimalMode: false,
+      requestHeaders: {},
+      requestProtocol: undefined,
+      allowedRevalidateHeaderKeys: undefined,
+      prerenderManifest: [Object],
+      cacheControls: [SharedCacheControls],
+      fetchCacheKeyPrefix: '',
+      cacheHandler: [FileSystemCache]
+    },
+    cacheLifeProfiles: {
+      default: [Object],
+      seconds: [Object],
+      minutes: [Object],
+      hours: [Object],
+      days: [Object],
+      weeks: [Object],
+      max: [Object]
+    },
+    isRevalidate: undefined,
+    isPrerendering: true,
+    fetchCache: undefined,
+    isOnDemandRevalidate: undefined,
+    isDraftMode: undefined,
+    requestEndedState: { ended: false },
+    isPrefetchRequest: false,
+    buildId: '9JV26KRd7bZZabpOkO5er',
+    reactLoadableManifest: {
+      'app/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object],
+      'app/particulier/marketplace/MarketplaceContent.jsx -> @/components/HonorairesSimulator': [Object]
+    },
+    assetPrefix: '',
+    afterContext: eH {
+      workUnitStores: Set(0) {},
+      waitUntil: [Function: bound ],
+      onClose: [Function: bound onClose],
+      onTaskError: [Function: onTaskError],
+      callbackQueue: [s]
+    },
+    dynamicIOEnabled: false,
+    dev: false,
+    previouslyRevalidatedTags: [],
+    refreshTagsByCacheKind: Map(2) { 'default' => [Object], 'remote' => [Object] },
+    fetchMetrics: []
+  },
+  [Symbol(kResourceStore)]: em {
+    type: 20,
+    status: 10,
+    flushScheduled: false,
+    fatalError: null,
+    destination: ReadableByteStreamController {},
+    bundlerConfig: {
+      '/root/alforis/node_modules/next/dist/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-page.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/client-segment.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/layout-router.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/async-metadata.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/metadata/metadata-boundary.js': [Object],
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/components/render-from-template-context.js': [Object],
+      '/root/alforis/app/RootClientLayout.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/client/script.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/client/script.js': [Object],
+      '/root/alforis/styles/globals.css': [Object],
+      '/root/alforis/app/not-found.jsx': [Object],
+      '/root/alforis/app/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/a-propos/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/approchepersonnalisee/PageClient.jsx': [Object],
+      '/root/alforis/app/page.jsx': [Object],
+      '/root/alforis/app/particulier/blog-studio/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/chatgpt-welcome/chatgptContent.jsx': [Object],
+      '/root/alforis/app/particulier/desinscription/DesinscriptionContent.jsx': [Object],
+      '/root/alforis/app/particulier/faq/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/marketplace/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/page.jsx': [Object],
+      '/root/alforis/app/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/services/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/contact/PageClient.jsx': [Object],
+      '/root/alforis/app/shared/mentionslegales/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/prendre-rendez-vous/PageClient.jsx': [Object],
+      '/root/alforis/app/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/PageClient.jsx': [Object],
+      '/root/alforis/app/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/app/particulier/parcours/[slug]/ClientParcoursWrapper.jsx': [Object],
+      '/root/alforis/components/ui/CallToAction.jsx': [Object],
+      '/root/alforis/app/shared/politique-de-confidentialite/PageClient.jsx': [Object],
+      '/root/alforis/app/services/PageClient.jsx': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js': [Object],
+      '/root/alforis/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js': [Object],
+      '/root/alforis/node_modules/next/dist/esm/shared/lib/lazy-dynamic/preload-chunks.js': [Object]
+    },
+    cache: Map(1) { [Function: E] => [WeakMap] },
+    nextChunkId: 21,
+    pendingChunks: 4,
+    hints: Set(2) {
+      'L[style]/_next/static/css/715be398208dca58.css',
+      'L[style]/_next/static/css/8a97b46e635ef156.css'
+    },
+    abortListeners: Set(0) {},
+    abortableTasks: Set(4) { [Object], [Object], [Object], [Object] },
+    pingedTasks: [],
+    completedImportChunks: [],
+    completedHintChunks: [],
+    completedRegularChunks: [],
+    completedErrorChunks: [],
+    writtenSymbols: Map(2) { Symbol(react.fragment) => 1, Symbol(react.suspense) => 3 },
+    writtenClientReferences: Map(11) {
+      '/root/alforis/node_modules/next/dist/client/script.js#' => 2,
+      '/root/alforis/app/RootClientLayout.jsx#default' => 4,
+      '/root/alforis/node_modules/next/dist/client/components/layout-router.js#' => 5,
+      '/root/alforis/node_modules/next/dist/client/components/render-from-template-context.js#' => 6,
+      '/root/alforis/app/not-found.jsx#default' => 7,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#MetadataBoundary' => 9,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#OutletBoundary' => 11,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadataOutlet' => 14,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/metadata-boundary.js#ViewportBoundary' => 16,
+      '/root/alforis/node_modules/next/dist/client/components/error-boundary.js#' => 18,
+      '/root/alforis/node_modules/next/dist/client/components/metadata/async-metadata.js#AsyncMetadata' => 19
+    },
+    writtenServerReferences: Map(0) {},
+    writtenObjects: WeakMap { <items unknown> },
+    temporaryReferences: undefined,
+    identifierPrefix: '',
+    identifierCount: 1,
+    taintCleanupQueue: [],
+    onError: [Function (anonymous)],
+    onPostpone: [Function: eh],
+    onAllReady: [Function: ey],
+    onFatalError: [Function: ey]
+  },
+  [Symbol(kResourceStore)]: undefined,
+  [Symbol(kResourceStore)]: {
+    type: 'prerender-legacy',
+    phase: 'render',
+    rootParams: {},
+    implicitTags: { tags: [Array], expirationsByCacheKind: [Map] },
+    revalidate: 4294967294,
+    expire: 4294967294,
+    stale: 4294967294,
+    tags: [
+      '_N_T_/layout',
+      '_N_T_/blog/layout',
+      '_N_T_/blog/[slug]/layout',
+      '_N_T_/blog/[slug]/page',
+      '_N_T_/blog/transmission-familles-recomposees-2025'
+    ]
+  }
+}
+   Generating static pages (26/105) 
+Erreur chargement studio/index.js: Error: Cannot find module '/root/alforis/content/studio/index.js'
+    at t (.next/server/app/blog-studio/page.js:1:1991)
+    at c (.next/server/app/blog-studio/page.js:1:5854)
+    at l (.next/server/app/marketplace/page.js:1:8382)
+    at stringify (<anonymous>) {
+  code: 'MODULE_NOT_FOUND'
+}
+[
+  'Blog',   'Blog',   'Blog',
+  'Blog',   'Blog',   'Blog',
+  'Blog',   'Blog',   'Blog',
+  'Blog',   'Blog',   'Blog',
+  'Blog',   'Blog',   'Offres',
+  'Offres', 'Offres', 'Offres',
+  'Offres', 'Offres', 'Offres',
+  'Offres', 'Offres', 'Offres'
+]
+Erreur import JS/JSX parcours/ProfilRetraite_Strat%C3%A9gie_Patrimoniale: Error: Cannot find module './parcours/ProfilRetraite_Strat%C3%A9gie_Patrimoniale.jsx'
+    at <unknown> (.next/server/chunks/8191.js:20:16010) {
+  code: 'MODULE_NOT_FOUND'
+}
+Erreur import JS/JSX parcours/ProfilRetraite_Strat%C3%A9gie_Patrimoniale: Error: Cannot find module './parcours/ProfilRetraite_Strat%C3%A9gie_Patrimoniale.jsx'
+    at <unknown> (.next/server/chunks/8191.js:20:16010) {
+  code: 'MODULE_NOT_FOUND'
+}
+Error occurred prerendering page "/parcours". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: context is not defined
+    at A (/root/alforis/.next/server/chunks/8722.js:14:1600)
+    at nF (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:46843)
+    at nH (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:48618)
+    at nW (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:67762)
+    at nz (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:65337)
+    at nY (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:71193)
+    at nX (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:69876)
+    at nW (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:68029)
+    at nz (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:65337)
+    at nH (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:61531)
+Export encountered an error on /parcours/page: /parcours, exiting the build.
+ ⨯ Next.js build worker exited with code: 1 and signal: null

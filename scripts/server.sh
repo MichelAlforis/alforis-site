@@ -202,7 +202,7 @@ case "$ACTION" in
   install)
     print_info "Installation des dépendances sur le serveur"
     log "📥 Installation des dépendances"
-    if ssh_quiet "cd '$REMOTE_DIR' && npm ci --omit=dev"; then
+    if ssh_quiet "cd '$REMOTE_DIR' && npm ci"; then
       print_success "Dépendances installées"
     else
       print_error "Échec de l'installation (voir $LOGFILE)"
