@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "devc": "./scripts/dev-clean.sh",
-    "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
     "server": "./scripts/server.sh",
+    "deploy": "./scripts/server.sh -v deploy",
+    "deploy:status": "./scripts/server.sh status",
+    "deploy:logs": "./scripts/server.sh logs",
+    "deploy:rollback": "./scripts/server.sh rollback",
     "social": "node ./scripts/reseaux/index.js",
     "publier": "npm --prefix scripts/reseaux run social",
     "audit": "node ./scripts/audit.js"

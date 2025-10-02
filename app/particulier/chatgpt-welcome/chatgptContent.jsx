@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Animated from '@/components/animated/Animated';
 import Button from '@/components/ui/Button';
-import PortraitSVG from '../components/home/PortraitSVG';
+import PortraitSVG from '../../components/home/PortraitSVG'
 
 function ShareButton() {
   const [copied, setCopied] = useState(false);
