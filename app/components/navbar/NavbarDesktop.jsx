@@ -20,9 +20,9 @@ export default function NavbarDesktop({links}) {
     const [hasShadow, setHasShadow]   = useState(false)
     const scrollY = useScrollPosition();
     const isActive = href => pathname === href
-    const rdvPath = context === 'b2b' 
-    ? '/b2b/contact' 
-    : '/particulier/prendre-rendez-vous'
+    // Déterminer le “contexte” sans variable globale
+    const ctx = pathname.startsWith('/b2b') ? 'b2b' : 'particulier'
+    const rdvPath = ctx === 'b2b' ? '/b2b/contact' : '/particulier/prendre-rendez-vous'
     const handleLinkClick = href => {
       if (pathname === href) scrollToTop()
     }
@@ -83,7 +83,7 @@ export default function NavbarDesktop({links}) {
           className="btn-alforis-rdv font-semibold"
           onClick={() => handleLinkClick(rdvPath)}
         >
-          {context === 'b2b' ? 'Nous contacter' : 'Prendre un RDV'}
+          {ctx === 'b2b' ? 'Nous contacter' : 'Prendre un RDV'}
         </Button>
         </div>
     </div>

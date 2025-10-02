@@ -2,10 +2,13 @@
 // app/parcours/ParcoursContent.jsx
 
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'  // ✅ Ajoutez cet import
 import Animated from '@/components/animated/Animated'
 import SmartResponsive from '@/components/ui/SmartResponsive'
 
 export default function ParcoursContent({ content }) {
+  const router = useRouter()  // ✅ Ajoutez cette ligne
+  
   // état thème jour/nuit
   const [dark, setDark] = useState(false)
   useEffect(() => {
@@ -16,7 +19,6 @@ export default function ParcoursContent({ content }) {
   const handleCardClick = (item) => {
     router.push(`/parcours/${item.slug}`)
   }
-
 
   return (
     <Animated.Page>
