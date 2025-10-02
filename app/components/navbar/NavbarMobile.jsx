@@ -14,12 +14,14 @@ import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
   const isTransparent = pathname === '/' || pathname === '/a-propos'
+  const ctx = pathname.startsWith('/b2b') ? 'b2b' : 'particulier'
   const isActive = useCallback(
     (href) => pathname === href,
     [pathname]
   );
   const [isOpen, setIsOpen] = useState(false);
   const firstLinkRef = useRef(null);
+  const rdvPath = ctx === 'b2b' ? '/b2b/contact' : '/particulier/prendre-rendez-vous'
 
   // Bloque le scroll quand le menu est ouvert
   useEffect(() => {
@@ -201,11 +203,11 @@ export default function NavbarMobile({ links }) {
                   {/* Bouton RDV */}
                   <motion.li variants={itemVariants}>
                     <Button
-                      to="/prendre-rendez-vous"
-                      onClick={() => handleLinkClick('/prendre-rendez-vous')}
+                      to={rdvPath}
+                      onClick={() => handleLinkClick(rdvPath)}
                       className="w-full btn-alforis-rdv text-xl font-semibold"
                     >
-                      Prendre un RDV
+                      {ctx === 'b2b' ? 'Nous contacter' : 'Prendre un RDV'}
                     </Button>
                   </motion.li>
                 </ul>

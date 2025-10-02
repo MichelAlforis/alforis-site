@@ -1,6 +1,6 @@
 {
   "name": "alforis",
-  "version": "5.14.1",
+  "version": "8.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "devc": "./scripts/dev-clean.sh",
-    "deploy": "scripts/deploy.sh",
     "postbuild": "next-sitemap",
     "server": "./scripts/server.sh",
+    "deploy": "./scripts/server.sh -v deploy",
+    "deploy:status": "./scripts/server.sh status",
+    "deploy:logs": "./scripts/server.sh logs",
+    "deploy:rollback": "./scripts/server.sh rollback",
     "social": "node ./scripts/reseaux/index.js",
     "publier": "npm --prefix scripts/reseaux run social",
     "audit": "node ./scripts/audit.js"
@@ -37,6 +40,7 @@
     "inquirer": "^8.2.6",
     "lucide-react": "^0.507.0",
     "next": "15.3.1",
+    "next-intl": "^4.3.9",
     "next-mdx-remote": "^5.0.0",
     "next-scroll-restorer": "^0.10.0",
     "next-sitemap": "^4.2.3",
@@ -51,6 +55,7 @@
     "recharts": "^2.15.3",
     "remark-gfm": "^4.0.1",
     "resend": "^4.4.1",
+    "rg": "^0.0.2",
     "three": "^0.176.0",
     "twitter-api-v2": "^1.23.2"
   },
@@ -64,7 +69,7 @@
     "postcss": "^8.4.21",
     "postcss-custom-properties": "^14.0.4",
     "postcss-easy-import": "^4.0.0",
-    "postcss-import": "^16.1.0",
+    "postcss-import": "^16.1.1",
     "postcss-nested": "^7.0.2",
     "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^3.4.17",

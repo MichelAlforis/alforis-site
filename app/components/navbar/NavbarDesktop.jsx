@@ -20,6 +20,9 @@ export default function NavbarDesktop({links}) {
     const [hasShadow, setHasShadow]   = useState(false)
     const scrollY = useScrollPosition();
     const isActive = href => pathname === href
+    // Déterminer le “contexte” sans variable globale
+    const ctx = pathname.startsWith('/b2b') ? 'b2b' : 'particulier'
+    const rdvPath = ctx === 'b2b' ? '/b2b/contact' : '/particulier/prendre-rendez-vous'
     const handleLinkClick = href => {
       if (pathname === href) scrollToTop()
     }
@@ -75,13 +78,13 @@ export default function NavbarDesktop({links}) {
           <SwitchDarkMode/>
 
           {/* → Bouton rdv */}
-          <Button
-            to="/prendre-rendez-vous"
-            className="btn-alforis-rdv font-semibold "
-            onClick={() => handleLinkClick('/prendre-rendez-vous')}
-          >
-            Prendre un RDV
-          </Button>
+        <Button
+          to={rdvPath}
+          className="btn-alforis-rdv font-semibold"
+          onClick={() => handleLinkClick(rdvPath)}
+        >
+          {ctx === 'b2b' ? 'Nous contacter' : 'Prendre un RDV'}
+        </Button>
         </div>
     </div>
   </header>

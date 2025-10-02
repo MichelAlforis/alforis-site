@@ -38,7 +38,7 @@ export default function Layout({ children }) {
   return (
     <html lang="fr">
       <head>
-        {/* Preconnect & preload Google Fonts (exemple Roboto) */}
+        {/* Preconnect & preload Google Fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
