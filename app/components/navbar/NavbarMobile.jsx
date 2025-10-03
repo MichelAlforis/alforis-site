@@ -1,27 +1,50 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import clsx from 'clsx';
 import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 
-
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
-  const isTransparent = pathname === '/' || pathname === '/a-propos'
-  const ctx = pathname.startsWith('/b2b') ? 'b2b' : 'particulier'
-  const isActive = useCallback(
-    (href) => pathname === href,
-    [pathname]
-  );
+  const router = useRouter();
+const getLocaleFromPath = () => {
+  const segments = pathname.split('/')
+  const possibleLocale = segments[1]
+  return ['fr', 'en', 'es', 'pt'].includes(possibleLocale) ? possibleLocale : 'fr'
+}
+
+const locale = getLocaleFromPath()
+  const isTransparent = pathname === '/' || pathname === '/a-propos';
+  const ctx = pathname.startsWith('/b2b') || pathname.includes('/b2b') ? 'b2b' : 'particulier';
+  const isActive = useCallback((href) => pathname === href, [pathname]);
   const [isOpen, setIsOpen] = useState(false);
   const firstLinkRef = useRef(null);
-  const rdvPath = ctx === 'b2b' ? '/b2b/contact' : '/particulier/prendre-rendez-vous'
+  const rdvPath = ctx === 'b2b' ? '/b2b/contact' : '/particulier/prendre-rendez-vous';
+  const isB2BPage = ctx === 'b2b';
+
+  const languages = [
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'pt', label: 'Português', flag: '🇵🇹' }
+  ];
+
+  const changeLanguage = (newLocale) => {
+    const segments = pathname.split('/');
+    segments[1] = newLocale;
+    const newPath = segments.join('/');
+    
+    router.push(newPath);
+    setIsOpen(false);
+  };
+
+  const currentLang = languages.find(l => l.code === locale);
 
   // Bloque le scroll quand le menu est ouvert
   useEffect(() => {
@@ -43,7 +66,7 @@ export default function NavbarMobile({ links }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [isOpen]);
 
-  const handleLinkClick = (href) => {
+  const handleLinkClick = () => {
     setIsOpen(false);
   };
 
@@ -68,8 +91,6 @@ export default function NavbarMobile({ links }) {
         isTransparent ? 'text-ivoire' : 'dark:text-ivoire'
       )}
     >
-      
-
       {/* BARRE PRINCIPALE (fermée) */}
       {!isOpen && (
         <div
@@ -142,7 +163,7 @@ export default function NavbarMobile({ links }) {
 
                 <Link
                   href="/"
-                  onClick={() => handleLinkClick('/')}
+                  onClick={handleLinkClick}
                   className="flex items-center"
                 >
                   <span className="sr-only">Alforis – Accueil</span>
@@ -168,7 +189,7 @@ export default function NavbarMobile({ links }) {
                   <motion.li variants={itemVariants}>
                     <Link
                       href="/"
-                      onClick={() => handleLinkClick('/')}
+                      onClick={handleLinkClick}
                       ref={firstLinkRef}
                       className={clsx(
                         'block text-xl space-y-1 uppercase font-semibold',
@@ -184,7 +205,7 @@ export default function NavbarMobile({ links }) {
                     <motion.li key={href} variants={itemVariants}>
                       <Link
                         href={href}
-                        onClick={() => handleLinkClick(href)}
+                        onClick={handleLinkClick}
                         className={clsx(
                           'block text-lg space-y-1 uppercase font-semibold',
                           isActive(href) ? 'text-doré' : 'text-acier dark:text-ivoire'
@@ -195,6 +216,34 @@ export default function NavbarMobile({ links }) {
                     </motion.li>
                   ))}
 
+                  {/* Sélecteur de langue - uniquement sur pages B2B */}
+                  {isB2BPage && (
+                    <motion.li variants={itemVariants}>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-acier dark:text-ivoire/70">
+                          <Globe className="w-4 h-4" />
+                          <span>Langue / Language</span>
+                        </div>
+                        <div className="flex gap-2 flex-wrap">
+                          {languages.map((lang) => (
+                            <button
+                              key={lang.code}
+                              onClick={() => changeLanguage(lang.code)}
+                              className={clsx(
+                                'px-3 py-2 rounded-lg border transition-all text-sm font-medium',
+                                locale === lang.code
+                                  ? 'bg-doré border-doré text-anthracite'
+                                  : 'border-doré/30 text-acier dark:text-ivoire hover:border-doré'
+                              )}
+                            >
+                              {lang.flag} {lang.code.toUpperCase()}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.li>
+                  )}
+
                   {/* Switch mode */}
                   <motion.li variants={itemVariants}>
                     <SwitchDarkMode />
@@ -204,7 +253,7 @@ export default function NavbarMobile({ links }) {
                   <motion.li variants={itemVariants}>
                     <Button
                       to={rdvPath}
-                      onClick={() => handleLinkClick(rdvPath)}
+                      onClick={handleLinkClick}
                       className="w-full btn-alforis-rdv text-xl font-semibold"
                     >
                       {ctx === 'b2b' ? 'Nous contacter' : 'Prendre un RDV'}

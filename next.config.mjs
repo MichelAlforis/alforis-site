@@ -1,5 +1,9 @@
 import remarkGfm from 'remark-gfm'
 import withMDX from '@next/mdx'
+import createNextIntlPlugin from 'next-intl/plugin'
+
+// Configuration next-intl
+const withNextIntl = createNextIntlPlugin('./i18n.js')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = async () => {
@@ -14,7 +18,7 @@ const nextConfig = async () => {
     }
   })
 
-  return mdx({
+  const config = mdx({
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
     webpack(config) {
@@ -33,6 +37,9 @@ const nextConfig = async () => {
       return config
     }
   })
+
+  // Appliquer next-intl à la configuration
+  return withNextIntl(config)
 }
 
 export default nextConfig

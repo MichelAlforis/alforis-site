@@ -13,8 +13,9 @@ export default function Navbar() {
   
   // Déterminer le contexte actuel
   const getContext = () => {
-    if (pathname.startsWith('/b2b')) return 'b2b'
-    if (pathname.startsWith('/particulier')) return 'particulier'
+    // Gérer les URLs avec locale (/fr/b2b, /en/b2b, etc.)
+    if (pathname.includes('/b2b')) return 'b2b'  // ← CHANGEMENT ICI
+    if (pathname.includes('/particulier')) return 'particulier'  // ← ET ICI
     
     // Pour pages partagées et racine, utiliser contexte mémorisé
     if (typeof window !== 'undefined') {

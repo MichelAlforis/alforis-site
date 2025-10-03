@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "title": "Alforis B2B - Distribuição Asset Management Europa | França, Luxemburgo, Espanha, Portugal",
+    "description": "Acelerador de distribuição para gestoras internacionais. Conecte a sua oferta aos distribuidores locais e institucionais com uma abordagem seletiva e independente. Membro AFTPM.",
+    "keywords": "third party marketing, distribuição asset management, Luxemburgo, França, Espanha, Portugal, AFTPM, institucionais, consultores financeiros, banca privada"
+  },
+  "hero": {
+    "badge": "Membro AFTPM • Distribuição B2B Institucional",
+    "title": "Alforis: o seu acelerador de distribuição na Europa",
+    "countries": "França • Luxemburgo • Espanha • Portugal",
+    "description": "Conectamos gestoras internacionais aos distribuidores locais e institucionais através de uma abordagem seletiva e independente.",
+    "cta": "Agendar reunião estratégica"
+  },
+  "role": {
+    "title": "O nosso papel",
+    "subtitle": "Não apenas um \"third party marketer\"",
+    "description": "mas um designer de estratégia de distribuição transfronteiriça",
+    "institutional": "Institucionais",
+    "institutionalCountries": "Luxemburgo, França",
+    "retail": "Retalho de alta gama",
+    "retailDescription": "Consultores financeiros, bancasseguros, family offices Espanha e Portugal",
+    "independence": "Um ator independente, seletivo e credível, membro da AFTPM"
+  },
+  "countries": {
+    "title": "Zonas cobertas",
+    "subtitle": "4 mercados estratégicos na Europa",
+    "france": {
+      "name": "França",
+      "description": "Mercado de consultores e institucionais que exige conformidade e pedagogia de produto",
+      "highlights": [
+        "Alinhado com CNCGP",
+        "Redes de consultores",
+        "Foco institucional"
+      ]
+    },
+    "luxembourg": {
+      "name": "Luxemburgo",
+      "description": "Hub pan-europeu, UCITS e ativos privados, ponto de ancoragem internacional",
+      "highlights": [
+        "Experiência UCITS",
+        "Hub pan-europeu",
+        "Ativos privados"
+      ]
+    },
+    "spain": {
+      "name": "Espanha",
+      "description": "Redes bancárias poderosas, banca privada e plataformas unit-linked",
+      "highlights": [
+        "Redes bancárias",
+        "Banca privada",
+        "Plataformas unit-linked"
+      ]
+    },
+    "portugal": {
+      "name": "Portugal",
+      "description": "Mercado ágil, forte crescimento de family offices e investidores privados",
+      "highlights": [
+        "Family offices",
+        "Mercado em crescimento",
+        "Investidores privados"
+      ]
+    }
+  },
+  "differentiators": {
+    "title": "Os nossos diferenciadores",
+    "subtitle": "O que nos distingue da concorrência",
+    "selectivity": {
+      "title": "Seletividade",
+      "description": "Representação voluntariamente limitada para oferecer um verdadeiro foco estratégico a cada parceiro."
+    },
+    "dualCulture": {
+      "title": "Dupla cultura produto e distribuição",
+      "description": "Ex-banqueiro de mercados (EMTN, fundos estruturados), capaz de explicar soluções complexas."
+    },
+    "independence": {
+      "title": "Independência total",
+      "description": "Sem acionistas bancários, sem viés de distribuição. Única prioridade: o seu sucesso."
+    },
+    "integrated": {
+      "title": "Abordagem integrada",
+      "description": "Estratégia comercial, acompanhamento marketing local, monitorização regulamentar."
+    }
+  },
+  "services": {
+    "title": "Serviços oferecidos a Asset Managers",
+    "subtitle": "Acompanhamento completo para o seu desenvolvimento",
+    "items": [
+      "Estratégia de distribuição multipaís com roadmap claro em 4 mercados",
+      "Acesso qualificado às redes-chave: bancasseguros, bancos privados, family offices, plataformas",
+      "Roadshows e eventos direcionados com interlocutores decisores pré-qualificados",
+      "Suporte regulamentar e acompanhamento no onboarding de distribuidores",
+      "Tradução e adaptação marketing PT/FR/ES/EN (sem \"copy-paste\")"
+    ]
+  },
+  "targets": {
+    "title": "Os nossos interlocutores-alvo",
+    "subtitle": "Os atores que conectamos à sua oferta",
+    "items": [
+      "Instituições financeiras (bancos privados, plataformas luxemburguesas)",
+      "Redes patrimoniais estruturadas (França / Espanha)",
+      "Consultores independentes e family offices (Portugal / França)",
+      "Seguradoras e plataformas unit-linked"
+    ]
+  },
+  "contact": {
+    "title": "Acelere o seu desenvolvimento na Europa",
+    "description": "A Alforis acompanha-o desde Luxemburgo a Lisboa, passando por Paris e Madrid.",
+    "cta": "Falar com a Alforis",
+    "response": "Resposta em 24h • Primeira consulta gratuita",
+    "quote": "A nossa missão: transformar a sua ambição europeia em realidade comercial. Sem promessas vazias, apenas conexões qualificadas e uma estratégia clara."
+  }
+}
