@@ -7,7 +7,6 @@
     "start": "next start",
     "lint": "next lint",
     "devc": "./scripts/dev-clean.sh",
-    "postbuild": "next-sitemap",
     "server": "./scripts/server.sh",
     "deploy": "./scripts/server.sh -v deploy",
     "deploy:status": "./scripts/server.sh status",
