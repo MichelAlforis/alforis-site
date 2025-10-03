@@ -4516,3 +4516,4 @@ ReferenceError: context is not defined
     at nH (/root/alforis/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:76:61531)
 Export encountered an error on /parcours/page: /parcours, exiting the build.
  ⨯ Next.js build worker exited with code: 1 and signal: null
+[2025-10-03 16:12:54] 🚀 Déploiement complet
