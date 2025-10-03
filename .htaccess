@@ -1,0 +1,8 @@
+# Redirection /b2b vers /fr/b2b
+RewriteEngine On
+RewriteRule ^b2b$ /fr/b2b [R=302,L]
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>

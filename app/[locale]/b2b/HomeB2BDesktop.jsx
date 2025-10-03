@@ -27,7 +27,7 @@ export default function HomeB2BDesktop() {
   const sections = [
     { id: 'hero', Component: HeroB2BSection, bgImage: '/assets/img/b2b/D_hero_b2b.webp' },
     { id: 'role', Component: RoleSection, bgImage: null },
-    { id: 'countries', Component: CountriesSection, bgImage: null }, // Fond dégradé CSS
+    { id: 'countries', Component: CountriesSection, bgImage: '/assets/img/b2b/D_countries_b2b.webp' }, // Fond dégradé CSS
     { id: 'differentiators', Component: DifferentiatorsSection, bgImage: null },
     { id: 'services', Component: ServicesB2BSection, bgImage: null }, // Fond dégradé CSS
     { id: 'targets', Component: TargetsSection, bgImage: null },
@@ -63,6 +63,14 @@ export default function HomeB2BDesktop() {
               </div>
             )}
 
+            {/* OVERLAY GLOBAL pour Hero uniquement - assombrit toute l'image */}
+            {id === 'hero' && (
+              <div className="pointer-events-none absolute inset-0"
+                   style={{ zIndex: 20 }}>
+                <div className="absolute inset-0 bg-anthracite/60 dark:bg-black/70" />
+              </div>
+            )}
+
             {/* Fond dégradé CSS pour sections sans image */}
             {!bgImage && id === 'countries' && (
               <div className="absolute inset-0 bg-gradient-to-br from-ardoise via-anthracite to-ardoise" />
@@ -75,7 +83,7 @@ export default function HomeB2BDesktop() {
             )}
 
             {/* Contenu */}
-            <div className="relative z-overlay w-full h-full flex items-center justify-center px-4">
+            <div className="relative z-30 w-full h-full flex items-center justify-center px-4">
               <Component extraClass="w-full" buttonClass={buttonClass} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
             </div>
           </section>

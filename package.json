@@ -3,7 +3,6 @@
   "version": "8.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -16,13 +15,17 @@
     "deploy:rollback": "./scripts/server.sh rollback",
     "social": "node ./scripts/reseaux/index.js",
     "publier": "npm --prefix scripts/reseaux run social",
-    "audit": "node ./scripts/audit.js"
+    "audit": "node ./scripts/audit.js",
+    "dev": "next dev -p 3010",
+    "analyze": "ANALYZE=true npm run build",
+    "build:prod": "NODE_ENV=production next build"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
     "@headlessui/react": "^2.2.3",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
+    "@next/bundle-analyzer": "^15.5.4",
     "@next/mdx": "^15.3.1",
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
@@ -43,7 +46,6 @@
     "next-intl": "^4.3.9",
     "next-mdx-remote": "^5.0.0",
     "next-scroll-restorer": "^0.10.0",
-    "next-sitemap": "^4.2.3",
     "next-themes": "^0.4.6",
     "react": "^19.1.0",
     "react-confetti": "^6.4.0",

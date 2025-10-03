@@ -1,17 +1,43 @@
 import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server';
 
-export default createMiddleware({
-  // Liste des langues supportées
+const intlMiddleware = createMiddleware({
   locales: ['fr', 'en', 'es', 'pt'],
-  
-  // Langue par défaut
   defaultLocale: 'fr',
-  
-  // Toujours afficher la locale dans l'URL
-  localePrefix: 'always'
+  localePrefix: 'always',
+  localeDetection: true
 });
 
+export default function middleware(request) {
+  const { pathname } = request.nextUrl;
+  
+  // Redirection intelligente pour /b2b sans locale
+  if (pathname === '/b2b') {
+    let targetLocale = 'fr';
+    
+    // 1. Priorité au cookie (préférence sauvegardée)
+    const preferredLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    if (preferredLocale && ['fr', 'en', 'es', 'pt'].includes(preferredLocale)) {
+      targetLocale = preferredLocale;
+    } else {
+      // 2. Sinon, détecter la langue du navigateur
+      const acceptLanguage = request.headers.get('accept-language');
+      if (acceptLanguage) {
+        const primaryLang = acceptLanguage.split(',')[0].split('-')[0];
+        if (['fr', 'en', 'es', 'pt'].includes(primaryLang)) {
+          targetLocale = primaryLang;
+        }
+      }
+    }
+    
+    const url = request.nextUrl.clone();
+    url.pathname = `/${targetLocale}/b2b`;
+    return NextResponse.redirect(url);
+  }
+  
+  return intlMiddleware(request);
+}
+
 export const config = {
-  // Matcher pour toutes les routes sauf API, _next, etc.
   matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };
