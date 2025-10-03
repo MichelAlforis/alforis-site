@@ -5,35 +5,35 @@ import React from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
-import HeroSection from './components/home/HeroSection'
+import HeroSection from '../components/home/HeroSection'
 // Static import for HeroSection's component is fine as it's critical
 // Other components will be dynamically imported within the sections array or separately
-import { Animated } from '../components/animated/Animated'
-import useControlledScrollSections from '../hooks/useControlledScrollSections'
-import useButtonHover from '../hooks/useButtonHover'
+import { Animated } from '@/components/animated/Animated'
+import useControlledScrollSections from '@/hooks/useControlledScrollSections'
+import useButtonHover from '@/hooks/useButtonHover'
 import clsx from 'clsx'
 
 export default function HomeContent() {
   // Dynamically import PortraitSVG as it's used directly and is non-critical for LCP
-  const PortraitSVG = dynamic(() => import('./components/home/PortraitSVG'), { ssr: false })
+  const PortraitSVG = dynamic(() => import('../components/home/PortraitSVG'), { ssr: false })
 
   const sections = [
     { id: 'hero', Component: HeroSection }, // HeroSection remains static
     {
       id: 'services',
-      Component: dynamic(() => import('./components/home/ServicesCards'), { ssr: false })
+      Component: dynamic(() => import('../components/home/ServicesCards'), { ssr: false })
     },
     {
       id: 'approach',
-      Component: dynamic(() => import('./components/home/ApproachSection'), { ssr: false })
+      Component: dynamic(() => import('../components/home/ApproachSection'), { ssr: false })
     },
     {
       id: 'figures',
-      Component: dynamic(() => import('./components/home/KeyFigures'), { ssr: false })
+      Component: dynamic(() => import('../components/home/KeyFigures'), { ssr: false })
     },
     {
       id: 'contact',
-      Component: dynamic(() => import('./components/home/Contact'), { ssr: false })
+      Component: dynamic(() => import('../components/home/Contact'), { ssr: false })
     },
   ]
 

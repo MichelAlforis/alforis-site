@@ -5,6 +5,7 @@ export default function sitemap() {
   const locales = ['fr', 'en', 'es', 'pt']
   const lastModified = new Date()
 
+  // Pages B2B multilingues (priorité haute)
   const b2bPages = locales.map(locale => ({
     url: `${baseUrl}/${locale}/b2b`,
     lastModified,
@@ -18,12 +19,15 @@ export default function sitemap() {
   }))
 
   return [
+    // Page d'accueil (priorité maximale)
     {
       url: baseUrl,
       lastModified,
       changeFrequency: 'weekly',
       priority: 1.0
     },
-    ...b2bPages
+    // Pages B2B (priorité haute)
+    ...b2bPages,
+    // Vous pouvez ajouter d'autres pages ici
   ]
 }

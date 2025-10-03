@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import HomeMobile from '@/app/HomeMobile'
-import HomeDesktop from '@/app/HomeDesktop'
+import HomeMobile from '@/app/particulier/HomeMobile'
+import HomeDesktop from '@/app/particulier/HomeDesktop'
 
 export default function HomeResponsive() {
   const [isMobile, setIsMobile] = useState(false)

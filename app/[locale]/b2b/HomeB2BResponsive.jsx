@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import HomeB2BMobile from '@/app/[locale]/b2b/HomeB2BMobile'
-import HomeB2BDesktop from '@/app/[locale]/b2b/HomeB2BDesktop'
+import HomeB2BMobile from './HomeB2BMobile'
+import HomeB2BDesktop from './HomeB2BDesktop'
 
 export default function HomeB2BResponsive() {
   const [isMobile, setIsMobile] = useState(false)

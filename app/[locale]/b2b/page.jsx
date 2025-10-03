@@ -78,7 +78,11 @@ export default async function B2BPage({ params }) {
       { '@type': 'Country', name: 'Portugal' }
     ],
     availableLanguage: ['French', 'English', 'Spanish', 'Portuguese'],
-    inLanguage: locale
+    inLanguage: locale,
+    memberOf: {
+      '@type': 'Organization',
+      name: 'AFTPM'
+    }
   }
 
   return (

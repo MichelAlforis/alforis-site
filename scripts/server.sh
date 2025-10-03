@@ -13,9 +13,8 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# Verbose mode
 VERBOSE=0
 
 # -------------------- UTILS ---------------------
@@ -28,15 +27,6 @@ log() {
   local msg="[$(date '+%Y-%m-%d %H:%M:%S')] $*"
   [[ $VERBOSE -eq 1 ]] && echo "$msg"
   echo "$msg" >> "$LOGFILE"
-}
-
-run_quiet() {
-  if [[ $VERBOSE -eq 1 ]]; then
-    "$@" 2>&1 | tee -a "$LOGFILE"
-    return "${PIPESTATUS[0]}"
-  else
-    "$@" >> "$LOGFILE" 2>&1
-  fi
 }
 
 ssh_cmd() {
@@ -52,74 +42,36 @@ ssh_quiet() {
   fi
 }
 
-scp_quiet() {
-  local exclude_opts=(
-    --exclude='.git'
-    --exclude='node_modules'
-    --exclude='.next'
-    --exclude='.env.local'
-    --exclude='*.log'
-    --exclude='.DS_Store'
-  )
-  
-  if command -v rsync &> /dev/null; then
-    log "Utilisation de rsync pour la copie"
-    if [[ $VERBOSE -eq 1 ]]; then
-      rsync -avz --progress "${exclude_opts[@]}" -e "ssh -i $SSH_KEY" . "$SERVER:$REMOTE_DIR" 2>&1 | tee -a "$LOGFILE"
-      return "${PIPESTATUS[0]}"
-    else
-      rsync -az "${exclude_opts[@]}" -e "ssh -i $SSH_KEY" . "$SERVER:$REMOTE_DIR" >> "$LOGFILE" 2>&1
-    fi
-  else
-    log "rsync non disponible, utilisation de scp"
-    if [[ $VERBOSE -eq 1 ]]; then
-      scp -i "$SSH_KEY" -r . "$SERVER:$REMOTE_DIR" 2>&1 | tee -a "$LOGFILE"
-      return "${PIPESTATUS[0]}"
-    else
-      scp -q -i "$SSH_KEY" -r . "$SERVER:$REMOTE_DIR" >> "$LOGFILE" 2>&1
-    fi
-  fi
-}
-
 show_help() {
   cat <<EOF
-${BLUE}Alforis Deployment Script${NC}
+${BLUE}Alforis Deployment Script (Git Workflow)${NC}
 
 ${GREEN}Usage:${NC} $0 [OPTIONS] <ACTION>
 
 ${GREEN}Options:${NC}
-  -v        Verbose mode (affiche les détails)
+  -v        Verbose mode
   -h        Affiche cette aide
 
 ${GREEN}Actions:${NC}
-  build     Build local du projet (npm run build)
+  push      Commit local + push vers GitHub
+  pull      Pull depuis GitHub sur le serveur
+  deploy    Workflow complet : push local → pull serveur → build → restart
+  build     Build local du projet
   install   Installation des dépendances sur le serveur
-  start     Démarrage/Redémarrage de l'app PM2
-  stop      Arrêt de l'app PM2
   restart   Redémarrage de l'app PM2
-  deploy    Déploiement complet (copie + install + build + restart)
-  status    Affiche le statut PM2 et les infos du serveur
-  logs      Affiche les logs PM2 en temps réel
-  rollback  Annule le dernier déploiement (si backup disponible)
+  status    Statut PM2 et infos serveur
+  logs      Logs PM2 en temps réel
 
-${GREEN}Variables d'environnement:${NC}
-  SSH_KEY      Chemin vers la clé SSH (défaut: ~/.ssh/id_rsa_hetzner)
-  SERVER       Serveur cible (défaut: root@159.69.108.234)
-  REMOTE_DIR   Répertoire distant (défaut: /root/alforis)
-  LOGFILE      Fichier de log (défaut: deploy.log)
-  APP_NAME     Nom de l'app PM2 (défaut: alforis-site)
-
-${GREEN}Exemples:${NC}
-  $0 -v deploy          Déploiement complet en mode verbose
-  $0 status             Vérifie le statut de l'application
-  $0 logs               Suit les logs en temps réel
+${GREEN}Workflow recommandé:${NC}
+  1. Développer en local
+  2. $0 deploy          (push → pull → build → restart automatique)
+  3. $0 logs            (vérifier que tout fonctionne)
 EOF
 }
 
 check_dependencies() {
   local missing=()
-  
-  for cmd in npm ssh scp; do
+  for cmd in git npm ssh; do
     if ! command -v "$cmd" &> /dev/null; then
       missing+=("$cmd")
     fi
@@ -131,22 +83,7 @@ check_dependencies() {
   fi
 }
 
-create_backup() {
-  log "Création d'un backup avant déploiement"
-  local backup_name="backup_$(date +%Y%m%d_%H%M%S)"
-  
-  if ssh_quiet "cd $(dirname "$REMOTE_DIR") && [ -d '$REMOTE_DIR' ] && cp -r '$REMOTE_DIR' '${REMOTE_DIR}_${backup_name}'"; then
-    log "Backup créé : ${REMOTE_DIR}_${backup_name}"
-    echo "$backup_name" > .last_backup
-    return 0
-  else
-    print_warning "Impossible de créer le backup (répertoire inexistant?)"
-    return 1
-  fi
-}
-
-# -------------------- CHECKS ---------------------
-# Parse options first
+# -------------------- PARSE OPTIONS ---------------------
 while getopts "vh" opt; do
   case $opt in
     v) VERBOSE=1 ;;
@@ -155,11 +92,6 @@ while getopts "vh" opt; do
   esac
 done
 shift $((OPTIND-1))
-
-if [ "$(whoami)" = "root" ] && [ -n "${SSH_CONNECTION-}" ]; then
-  print_error "Vous êtes déjà sur le serveur ! Lancez ce script depuis votre poste local."
-  exit 1
-fi
 
 if [[ $# -lt 1 ]]; then
   show_help
@@ -171,156 +103,148 @@ shift
 
 check_dependencies
 
-# Vérification de la clé SSH
+# Test SSH
 if [[ ! -f "$SSH_KEY" ]]; then
   print_error "Clé SSH introuvable : $SSH_KEY"
   exit 2
 fi
 
-# Test de connexion SSH
-print_info "Test de la connexion SSH..."
+print_info "Test connexion SSH..."
 if ! ssh_cmd 'exit' 2>/dev/null; then
-  print_error "Connexion SSH impossible avec $SERVER (clé : $SSH_KEY)"
-  print_info "Vérifiez que la clé est correcte et que le serveur est accessible"
+  print_error "Connexion SSH impossible"
   exit 2
 fi
 print_success "Connexion SSH OK"
 
 # ------------------- ACTIONS ---------------------
 case "$ACTION" in
-  build)
-    print_info "Build local du projet"
-    log "🔨 Build local"
-    if run_quiet npm run build; then
-      print_success "Build réussi"
+  push)
+    print_info "Commit et push vers GitHub"
+    log "📤 Push vers GitHub"
+    
+    # Vérifier s'il y a des changements
+    if git diff-index --quiet HEAD --; then
+      print_warning "Aucun changement à commiter"
     else
-      print_error "Build échoué (voir $LOGFILE)"
+      # Demander le message de commit
+      read -rp "Message de commit: " commit_msg
+      if [[ -z "$commit_msg" ]]; then
+        commit_msg="Update $(date '+%Y-%m-%d %H:%M')"
+      fi
+      
+      git add .
+      git commit -m "$commit_msg"
+    fi
+    
+    git push origin main
+    print_success "Push effectué"
+    ;;
+
+  pull)
+    print_info "Pull depuis GitHub sur le serveur"
+    log "📥 Pull sur serveur"
+    
+    if ssh_quiet "cd '$REMOTE_DIR' && git pull origin main"; then
+      print_success "Pull effectué"
+    else
+      print_error "Échec du pull"
       exit 10
+    fi
+    ;;
+
+  deploy)
+    print_info "Déploiement complet (push → pull → build → restart)"
+    log "🚀 Déploiement complet"
+    
+    # 1. Push local vers GitHub
+    print_info "Étape 1/4 : Push vers GitHub"
+    if git diff-index --quiet HEAD --; then
+      print_warning "Aucun changement local à commiter"
+    else
+      read -rp "Message de commit: " commit_msg
+      if [[ -z "$commit_msg" ]]; then
+        commit_msg="Deploy $(date '+%Y-%m-%d %H:%M')"
+      fi
+      git add .
+      git commit -m "$commit_msg"
+    fi
+    
+    if ! git push origin main; then
+      print_error "Échec du push"
+      exit 11
+    fi
+    print_success "Push OK"
+    
+    # 2. Pull sur serveur
+    print_info "Étape 2/4 : Pull sur le serveur"
+    if ! ssh_quiet "cd '$REMOTE_DIR' && git pull origin main"; then
+      print_error "Échec du pull"
+      exit 12
+    fi
+    print_success "Pull OK"
+    
+    # 3. Install + Build
+    print_info "Étape 3/4 : Installation et build"
+    if ! ssh_quiet "cd '$REMOTE_DIR' && npm install && npm run build"; then
+      print_error "Échec du build"
+      exit 13
+    fi
+    print_success "Build OK"
+    
+    # 4. Restart PM2
+    print_info "Étape 4/4 : Redémarrage PM2"
+    if ! ssh_quiet "pm2 restart '$APP_NAME' && pm2 save"; then
+      print_error "Échec du restart"
+      exit 14
+    fi
+    print_success "Redémarrage OK"
+    
+    print_success "✨ Déploiement terminé avec succès !"
+    print_info "Vérifiez les logs avec: $0 logs"
+    ;;
+
+  build)
+    print_info "Build local"
+    if npm run build; then
+      print_success "Build local réussi"
+    else
+      print_error "Build local échoué"
+      exit 15
     fi
     ;;
 
   install)
     print_info "Installation des dépendances sur le serveur"
-    log "📥 Installation des dépendances"
-    if ssh_quiet "cd '$REMOTE_DIR' && npm ci"; then
-      print_success "Dépendances installées"
+    if ssh_quiet "cd '$REMOTE_DIR' && npm install"; then
+      print_success "Installation OK"
     else
-      print_error "Échec de l'installation (voir $LOGFILE)"
-      exit 12
-    fi
-    ;;
-
-  start)
-    print_info "Démarrage de l'application"
-    log "🚀 Démarrage de l'app"
-    if ssh_quiet "cd '$REMOTE_DIR' && pm2 start npm --name '$APP_NAME' -- run start && pm2 save"; then
-      print_success "Application démarrée"
-    else
-      print_error "Échec du démarrage (voir $LOGFILE)"
-      exit 11
-    fi
-    ;;
-
-  stop)
-    print_info "Arrêt de l'application"
-    log "🛑 Arrêt de l'app"
-    if ssh_quiet "pm2 stop '$APP_NAME'"; then
-      print_success "Application arrêtée"
-    else
-      print_error "Échec de l'arrêt (voir $LOGFILE)"
-      exit 11
-    fi
-    ;;
-
-  restart)
-    print_info "Redémarrage de l'application"
-    log "🔄 Redémarrage de l'app"
-    if ssh_quiet "pm2 restart '$APP_NAME' || (cd '$REMOTE_DIR' && pm2 start npm --name '$APP_NAME' -- run start && pm2 save)"; then
-      print_success "Application redémarrée"
-    else
-      print_error "Échec du redémarrage (voir $LOGFILE)"
-      exit 11
-    fi
-    ;;
-
-  deploy)
-    print_info "Déploiement complet sur le serveur"
-    log "📤 Début du déploiement"
-    
-    # Backup
-    create_backup || true
-    
-    # Copie des fichiers
-    print_info "Copie des fichiers..."
-    if ! scp_quiet; then
-      print_error "Échec de la copie (voir $LOGFILE)"
-      exit 13
-    fi
-    print_success "Fichiers copiés"
-    
-    # Installation, build et restart
-    print_info "Installation des dépendances..."
-    if ! ssh_quiet "cd '$REMOTE_DIR' && npm ci --omit=dev"; then
-      print_error "Échec de l'installation (voir $LOGFILE)"
-      exit 14
-    fi
-    print_success "Dépendances installées"
-    
-    print_info "Build distant..."
-    if ! ssh_quiet "cd '$REMOTE_DIR' && npm run build"; then
-      print_error "Échec du build distant (voir $LOGFILE)"
-      exit 15
-    fi
-    print_success "Build réussi"
-    
-    print_info "Redémarrage de l'application..."
-    if ssh_quiet "pm2 restart '$APP_NAME' || (cd '$REMOTE_DIR' && pm2 start npm --name '$APP_NAME' -- run start && pm2 save)"; then
-      print_success "Déploiement terminé avec succès !"
-      log "✅ Déploiement complet terminé"
-    else
-      print_error "Échec du redémarrage (voir $LOGFILE)"
+      print_error "Installation échouée"
       exit 16
     fi
     ;;
 
+  restart)
+    print_info "Redémarrage PM2"
+    if ssh_quiet "pm2 restart '$APP_NAME' && pm2 save"; then
+      print_success "Redémarrage OK"
+    else
+      print_error "Redémarrage échoué"
+      exit 17
+    fi
+    ;;
+
   status)
-    print_info "Récupération du statut"
-    log "📋 Vérification du statut"
-    ssh_cmd "cd '$REMOTE_DIR' && echo '=== PM2 Status ===' && pm2 status && echo && echo '=== Disk Usage ===' && df -h '$REMOTE_DIR' && echo && echo '=== Directory Info ===' && ls -lh"
+    print_info "Statut du serveur"
+    ssh_cmd "cd '$REMOTE_DIR' && echo '=== PM2 ===' && pm2 status && echo && echo '=== Git ===' && git log -1 --oneline && echo && echo '=== Disk ===' && df -h '$REMOTE_DIR'"
     ;;
 
   logs)
-    print_info "Affichage des logs (Ctrl+C pour quitter)"
+    print_info "Logs PM2 (Ctrl+C pour quitter)"
     ssh_cmd "pm2 logs '$APP_NAME'"
-    ;;
-
-  rollback)
-    if [[ ! -f .last_backup ]]; then
-      print_error "Aucun backup trouvé. Impossible de faire un rollback."
-      exit 20
-    fi
-    
-    local backup_name
-    backup_name=$(cat .last_backup)
-    print_warning "Rollback vers le backup : $backup_name"
-    read -rp "Confirmer le rollback ? (y/N) " confirm
-    
-    if [[ "$confirm" =~ ^[Yy]$ ]]; then
-      if ssh_quiet "cd $(dirname '$REMOTE_DIR') && rm -rf '$REMOTE_DIR' && mv '${REMOTE_DIR}_${backup_name}' '$REMOTE_DIR' && pm2 restart '$APP_NAME'"; then
-        print_success "Rollback effectué"
-        rm .last_backup
-      else
-        print_error "Échec du rollback"
-        exit 21
-      fi
-    else
-      print_info "Rollback annulé"
-    fi
     ;;
 
   *)
     print_error "Action inconnue : $ACTION"
-    echo
     show_help
     exit 1
     ;;

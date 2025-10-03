@@ -4,15 +4,15 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Animated from '../components/animated/Animated'
-import HeroSection from './components/home/HeroSection'
+import Animated from '@/components/animated/Animated'
+import HeroSection from '../components/home/HeroSection'
 
 // Dynamically import non-critical components
-const ServicesCards = dynamic(() => import('./components/home/ServicesCards'), { ssr: false })
-const ApproachSection = dynamic(() => import('./components/home/ApproachSection'), { ssr: false })
-const KeyFigures = dynamic(() => import('./components/home/KeyFigures'), { ssr: false })
-const Contact = dynamic(() => import('./components/home/Contact'), { ssr: false })
-const PortraitSVG = dynamic(() => import('./components/home/PortraitSVG'), { ssr: false })
+const ServicesCards = dynamic(() => import('../components/home/ServicesCards'), { ssr: false })
+const ApproachSection = dynamic(() => import('../components/home/ApproachSection'), { ssr: false })
+const KeyFigures = dynamic(() => import('../components/home/KeyFigures'), { ssr: false })
+const Contact = dynamic(() => import('../components/home/Contact'), { ssr: false })
+const PortraitSVG = dynamic(() => import('../components/home/PortraitSVG'), { ssr: false })
 
 
 export default function HomeMobile() {
