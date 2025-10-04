@@ -6,14 +6,15 @@ export const NavConfig = {
     description: 'Solutions patrimoniales institutionnelles',
     showTabs: true,
     tabs: [
-      { href: '/b2b/solutions', label: 'Solutions', alwaysVisible: true },
-      { href: '/b2b/partenaires', label: 'Partenaires', alwaysVisible: true },
-      { href: '/b2b/outils', label: 'Outils' },
-      { href: '/shared/contact', label: 'Contact', alwaysVisible: true },
+      { href: '/b2b',             label: 'Accueil',        alwaysVisible: true },
+      { href: '/b2b/solutions',   label: 'Solutions',      alwaysVisible: true },
+      { href: '/b2b/partenaires', label: 'Partenaires' },
+      { href: '/b2b/ressources',  label: 'Ressources' },
+      { href: '/b2b/contact',     label: 'Contact',        alwaysVisible: true },
     ]
   },
   
-  // Configuration Particuliers (votre config actuelle adaptée)
+  // Configuration Particuliers
   particulier: {
     title: 'NavBar',
     description: 'Vision libre et sans filtre du patrimoine – articles, vidéos et réflexions.',
@@ -25,7 +26,7 @@ export const NavConfig = {
       { href: '/particulier/services', label: 'Services' },
       { href: '/particulier/approchepersonnalisee', label: 'Approche' },
       { href: '/particulier/a-propos', label: 'A-propos' },
-      { href: '/shared/contact', label: 'Contact', alwaysVisible: true },
+      { href: '/shared/contact', label: 'Contact', alwaysVisible: true }
     ]
   }
 }

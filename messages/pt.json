@@ -109,4 +109,319 @@
     "response": "Resposta em 24h • Primeira consulta gratuita",
     "quote": "A nossa missão: transformar a sua ambição europeia em realidade comercial. Sem promessas vazias, apenas conexões qualificadas e uma estratégia clara."
   }
+
+  ,
+  "solutions": {
+    "meta": {
+      "title": "Parcerias de distribuição institucional | Alforis TPM",
+      "description": "Construamos juntos a sua estratégia de distribuição em 4 mercados europeus. Abordagem de parceria, seletiva e transparente."
+    },
+    "nav": {
+      "approach": "Abordagem",
+      "engagement": "Compromisso",
+      "process": "Processo",
+      "results": "Resultados",
+      "contact": "Começar"
+    },
+    "hero": {
+      "badge": "Parcerias de distribuição institucional",
+      "title": "Construamos juntos o seu desenvolvimento na Europa do Sul",
+      "subtitle": "Um parceiro TPM seletivo para crescimento sustentável",
+      "intro": "Procura mais do que um distribuidor pontual. Quer um parceiro que compreenda o seu ADN, represente fielmente a sua abordagem de investimento e se comprometa a longo prazo. É exatamente isso que oferecemos."
+    },
+    "partnership": {
+      "title": "A nossa visão de parceria",
+      "subtitle": "3 pilares para uma colaboração bem-sucedida a longo prazo",
+      "pillars": {
+        "selectivity": {
+          "title": "Seletividade assumida",
+          "desc": "Máximo 3-5 mandatos simultâneos. Recusamos a dispersão para garantir qualidade e profundidade a cada parceiro."
+        },
+        "alignment": {
+          "title": "Alinhamento estratégico",
+          "desc": "Contratos plurianuais com objetivos partilhados, governança clara e reporting transparente. Temos sucesso juntos."
+        },
+        "independence": {
+          "title": "Independência total",
+          "desc": "Sem acionistas bancários. As nossas recomendações são guiadas por uma única prioridade: o sucesso dos nossos parceiros."
+        }
+      }
+    },
+    "ideal": {
+      "title": "Os nossos parceiros ideais",
+      "subtitle": "Com quem construímos relações duradouras?",
+      "profiles": {
+        "boutiques": {
+          "title": "Boutiques de gestão internacionais",
+          "desc": "Entre 200M€ e 5.000M€ de ativos, com filosofia de investimento diferenciadora e track record sólido. Procura diversificar a sua base de investidores na Europa do Sul."
+        },
+        "specialists": {
+          "title": "Especialistas temáticos",
+          "desc": "Gestores focados (equity setorial, crédito especializado, estratégias alternativas) que procuram acesso a investidores institucionais francófonos sem diluir o seu posicionamento."
+        },
+        "emerging": {
+          "title": "Atores emergentes ambiciosos",
+          "desc": "Equipas recentemente separadas ou novos entrantes com proposta convincente, prontos para investir numa relação de longo prazo para construir a sua presença europeia."
+        }
+      }
+    },
+    "engagement": {
+      "title": "O nosso modelo de compromisso de parceria",
+      "subtitle": "Uma relação estruturada em 3 fases durante 24-36 meses",
+      "phases": {
+        "foundation": {
+          "tag": "Meses 1-6",
+          "title": "Fundamentos e alinhamento estratégico",
+          "objectives": "Diagnóstico aprofundado, posicionamento de mercado, preparação comercial",
+          "deliverables": [
+            "Auditoria completa da sua oferta e documentação (conformidade SFDR/MiFID II)",
+            "Cartografia de decisores de 30-50 contas objetivo prioritárias",
+            "Storytelling localizado por mercado (FR/ES/PT) e segmento",
+            "Roteiro de distribuição de 24 meses com marcos trimestrais"
+          ]
+        },
+        "acceleration": {
+          "tag": "Meses 7-18",
+          "title": "Desenvolvimento comercial acelerado",
+          "objectives": "Penetração de mercado, construção de pipeline, primeiros mandatos",
+          "deliverables": [
+            "≥ 60 reuniões qualificadas com decisores institucionais",
+            "Organização de roadshows temáticos (3-4 por ano)",
+            "Gestão de processos de due diligence e referenciação",
+            "Primeiros mandatos institucionais e/ou inclusões em plataformas"
+          ]
+        },
+        "maturity": {
+          "tag": "Meses 19-36",
+          "title": "Consolidação e crescimento sustentável",
+          "objectives": "Alargamento, fidelização, autonomização progressiva",
+          "deliverables": [
+            "Extensão a novos segmentos (family offices, banca privada)",
+            "Acompanhamento de lançamentos de produtos nos nossos mercados",
+            "Transferência progressiva de competências para as suas equipas internas",
+            "Balanço anual e ajuste estratégico"
+          ]
+        }
+      }
+    },
+    "how": {
+      "title": "Como trabalhamos no dia a dia?",
+      "subtitle": "Transparência, rigor e colaboração estreita",
+      "practices": [
+        {
+          "title": "Governança mensal",
+          "desc": "Ponto estratégico com as suas equipas: revisão do pipeline, feedback de mercado, ajustes táticos, preparação do mês seguinte."
+        },
+        {
+          "title": "CRM partilhado em tempo real",
+          "desc": "Visibilidade total sobre cada interação, relatórios de reuniões, estado de oportunidades. Mantém o controlo."
+        },
+        {
+          "title": "Reporting estruturado",
+          "desc": "Dashboard trimestral: KPIs comerciais, análise qualitativa de retornos de mercado, recomendações de ajuste."
+        },
+        {
+          "title": "Co-construção permanente",
+          "desc": "Não somos meros executores. Cada estratégia é co-construída, desafiada e refinada em conjunto."
+        }
+      ]
+    },
+    "results": {
+      "title": "Resultados esperados em 24 meses",
+      "subtitle": "Marcos concretos para medir o nosso impacto conjunto",
+      "milestones": [
+        "6-10 novos parceiros institucionais (bancos privados, family offices, seguradoras)",
+        "30-80M€ de ativos adicionais conforme o seu posicionamento e capacidades",
+        "Inclusão em 2-4 plataformas de distribuição principais (França/Luxemburgo)",
+        "Presença estabelecida e credível em 3-4 mercados estratégicos",
+        "Equipa interna formada e capaz de continuar o desenvolvimento"
+      ]
+    },
+    "cases": {
+      "title": "Parcerias em curso",
+      "subtitle": "Exemplos de colaborações duradouras (detalhes sob NDA)",
+      "items": [
+        {
+          "type": "Boutique Equity (UK)",
+          "challenge": "Zero presença institucional na Europa do Sul, processo de venda não estruturado",
+          "approach": "Parceria de 36 meses com acompanhamento completo: reposicionamento de storytelling, documentação SFDR, roadshows direcionados",
+          "results": "18 meses: 55M€ captados de 7 institucionais, pipeline de 120M€, equipa comercial formada"
+        },
+        {
+          "type": "Crédito Alternativo (CH)",
+          "challenge": "Estratégia complexa, difícil de explicar, necessidade de penetrar o mercado institucional francês",
+          "approach": "Co-construção de narrativa simplificada, foco seletivo em 15 contas institucionais grandes",
+          "results": "24 meses: 3 mandatos institucionais (85M€), presença estabelecida, discussões avançadas com 4 outros"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Modelo económico transparente",
+      "subtitle": "Alinhamento total de interesses",
+      "model": {
+        "retainer": {
+          "title": "Retainer mensal",
+          "desc": "Cobre custos operacionais (deslocações, marketing, infraestrutura). Compromisso mínimo 12 meses.",
+          "amount": "A partir de 5K€/mês sem IVA"
+        },
+        "success": {
+          "title": "Success fee",
+          "desc": "Remuneração sobre ativos captados e/ou mandatos ganhos. Detalhes à medida segundo o seu modelo económico.",
+          "amount": "Variável por acordo"
+        },
+        "note": "Privilegiamos as parcerias de longo prazo (24-36 meses) para construir resultados duradouros. Sem missões pontuais < 12 meses."
+      }
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "items": [
+        {
+          "q": "Quantos parceiros gerem simultaneamente?",
+          "a": "Máximo 5 mandatos ativos. Atualmente temos 2 vagas disponíveis para 2025. Esta seletividade garante qualidade e disponibilidade."
+        },
+        {
+          "q": "Qual é a duração mínima de compromisso?",
+          "a": "12 meses mínimo, mas os nossos melhores resultados obtêm-se em 24-36 meses. A distribuição institucional é uma maratona, não um sprint."
+        },
+        {
+          "q": "Trabalham em exclusividade geográfica?",
+          "a": "Sim, nos nossos 4 mercados (FR/ES/PT/LU). Pode ter outros parceiros TPM noutras partes da Europa, mas somos o seu único representante na nossa zona."
+        },
+        {
+          "q": "Quais são os vossos critérios de seleção?",
+          "a": "Track record ≥ 3 anos, AUM ≥ 200M€, filosofia de investimento clara, equipa estável, vontade de investir na relação. Recusamos 70% dos pedidos."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Pronto para explorar uma parceria?",
+      "subtitle": "Comecemos com uma conversa exploratória de 45 minutos",
+      "process": "Discutimos os seus objetivos, avaliamos o alinhamento mútuo e determinamos se uma parceria faz sentido para ambas as partes.",
+      "commitment": "Sem compromisso, confidencial e franco.",
+      "btn": "Reservar um primeiro contacto",
+      "alternative": "Ou descarregue o nosso deck de parceiros (PDF)"
+    }
+  }
+  ,
+  "partenaires": {
+  "meta": {
+    "title": "Tornar-se parceiro de distribuição | Alforis TPM",
+    "description": "Junte-se às gestoras que representamos. Seletividade, alinhamento estratégico e transparência para uma colaboração duradoura."
+  },
+  "nav": {
+  "philosophy": "Filosofia",
+  "eligibility": "Critérios",
+  "onboarding": "Processo",
+  "testimonial": "Testemunhos",
+  "contact": "Candidatar"
+},
+  "hero": {
+    "badge": "Recrutamento de parceiros • AFTPM",
+    "title": "Junte-se às 3 a 5 gestoras que representamos por mercado",
+    "subtitle": "Seletividade, alinhamento, transparência: a assinatura Alforis TPM",
+    "intro": "Não somos um distribuidor oportunista que acumula mandatos. Construímos parcerias duradouras com um punhado de gestoras cuidadosamente selecionadas."
+  },
+  "philosophy": {
+    "title": "A nossa filosofia de parceria",
+    "subtitle": "Privilegiamos relações duradouras, não mandatos acumulados",
+    "pillars": {
+      "selectivity": {
+        "title": "Seletividade assumida",
+        "desc": "Máximo 3-5 mandatos simultâneos por mercado. Esta limitação voluntária garante um verdadeiro foco estratégico e atenção inabalável a cada parceiro."
+      },
+      "alignment": {
+        "title": "Alinhamento estratégico",
+        "desc": "Trabalhamos exclusivamente com firmas cuja filosofia de investimento compreendemos e partilhamos. Sem representação 'catálogo'."
+      },
+      "independence": {
+        "title": "Independência total",
+        "desc": "Sem acionistas bancários, sem viés de distribuição. A nossa única prioridade: o sucesso comercial dos nossos parceiros nos nossos mercados."
+      }
+    },
+    "quote": "« Trabalhar com a Alforis significa ser escolhido, não simplesmente representado. »"
+  },
+  "eligibility": {
+    "title": "Critérios de elegibilidade",
+    "subtitle": "Os fundamentos para uma colaboração bem-sucedida",
+    "criteria": {
+      "ucits": {
+        "title": "Fundos UCITS ou AIFM registados",
+        "desc": "A sua estrutura deve ser regulada (UCITS V, AIFMD) com autorização de comercialização na Europa. Apoiamos a conformidade se necessário."
+      },
+      "aum": {
+        "title": "Mínimo 100M€ de ativos",
+        "desc": "Limiar indicativo garantindo estrutura operacional sólida. Exceções possíveis para spin-offs de equipas reconhecidas ou estratégias altamente diferenciadas."
+      },
+      "philosophy": {
+        "title": "Tese de investimento clara",
+        "desc": "Filosofia diferenciadora, track record demonstrável, processo de investimento explicável. Recusamos produtos 'me-too' sem valor acrescentado."
+      },
+      "marketing": {
+        "title": "Suporte marketing & compliance disponível",
+        "desc": "Documentação de produto (factsheets, KIID/KID, SFDR), apresentações para investidores, material de due diligence. Ajudamos na adaptação local mas não partimos do zero."
+      },
+      "commitment": {
+        "title": "Compromisso a longo prazo (>12 meses)",
+        "desc": "A distribuição institucional é uma maratona. Procuramos parceiros dispostos a investir numa relação plurianual, não mandatos oportunistas de 6 meses."
+      }
+    },
+    "note": "Nota: Estes critérios são indicativos. Cada candidatura é avaliada individualmente. Recusamos aproximadamente 70% dos pedidos para garantir a qualidade do nosso acompanhamento."
+  },
+  "onboarding": {
+    "title": "Processo de onboarding",
+    "subtitle": "Da candidatura ao lançamento comercial: 6 a 8 semanas",
+    "steps": {
+      "initial": {
+        "number": "Etapa 1",
+        "title": "Primeiro contacto confidencial",
+        "desc": "Chamada exploratória de 45 min para compreender os seus objetivos, validar o alinhamento mútuo, apresentar a nossa abordagem."
+      },
+      "review": {
+        "number": "Etapa 2",
+        "title": "Revisão do material marketing",
+        "desc": "Auditoria dos seus materiais (factsheets, apresentações, track record). Identificação das adaptações necessárias para os nossos mercados."
+      },
+      "compliance": {
+        "number": "Etapa 3",
+        "title": "Validação compliance & AFTPM",
+        "desc": "Verificação de passaportes europeus, conformidade SFDR/MiFID II, cumprimento de códigos AFTPM. Due diligence mútua."
+      },
+      "contract": {
+        "number": "Etapa 4",
+        "title": "Assinatura do contrato TPM",
+        "desc": "Finalização de termos comerciais (retainer, success fee, exclusividade geográfica), assinatura do mandato de distribuição."
+      },
+      "launch": {
+        "number": "Etapa 5",
+        "title": "Lançamento do plano de mercado",
+        "desc": "Cartografia de objetivos, planeamento de roadshows, integração no CRM, primeiras reuniões institucionais. Vamos começar!"
+      }
+    }
+  },
+  "testimonial": {
+    "title": "Confiaram em nós",
+    "subtitle": "Testemunhos de parceiros atuais",
+    "quote": "Em 18 meses, o nosso representante Alforis abriu 7 portas institucionais em Espanha e Portugal, das quais 4 resultaram em mandatos. O seu conhecimento do terreno e a sua abordagem seletiva fazem toda a diferença.",
+    "author": "Boutique Equity (UK)",
+    "position": "Head of Distribution • €800M AUM",
+    "partners": "Parceiros atuais (sob NDA)"
+  },
+  "cta": {
+    "title": "Pronto para candidatar?",
+    "subtitle": "Comecemos com um contacto exploratório de 45 minutos",
+    "description": "Avaliamos juntos o alinhamento estratégico e determinamos se uma parceria faz sentido para ambas as partes.",
+    "process": {
+      "title": "O que pode esperar do primeiro contacto:",
+      "steps": [
+        "Apresentação da sua gestora e objetivos de distribuição",
+        "Avaliação da adequação com a nossa abordagem e mercados",
+        "Discussão franca sobre expectativas mútuas e modelo económico",
+        "Próximos passos se o alinhamento for confirmado (ou feedback transparente se não houver adequação)"
+      ]
+    },
+    "btn": "Candidatar como parceiro",
+    "alternative": "Saber mais sobre a nossa abordagem",
+    "commitment": "Sem compromisso • Confidencial • Resposta em 48h"
+  }
+}
 }

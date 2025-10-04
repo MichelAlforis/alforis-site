@@ -4,7 +4,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import PageLayout from '@/components/page/PageLayout';
+import PageLayout from '@/components/pageParticulier/PageLayout';
 import PremiumButton from '@/components/ui/PremiumButton';
 import { pageConfig } from './pageConfig';
 import { SVGConfig } from '@/components/Navbar/navbarLogoConfig';

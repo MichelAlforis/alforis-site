@@ -2,7 +2,7 @@
 // app/mentionslegales/PageClient.jsx
 
 import React, { useState } from 'react'
-import PageLayout from '@/components/page/PageLayout'           // ton layout global
+import PageLayout from '@/components/pageParticulier/PageLayout'           // ton layout global
 import { pageConfig } from './pageConfig'                            // title, tabs, etc.
 import MentionsLegalesContent from './MentionsLegalesContent'
 
