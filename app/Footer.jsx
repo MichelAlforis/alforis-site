@@ -11,7 +11,7 @@ import FooterDesktop from './components/footer/FooterDesktop'
 import FooterMobileB2B from './components/footer/FooterMobileB2B'
 import FooterDesktopB2B from './components/footer/FooterDesktopB2B'
 
-export default function Footer() {
+export default function Footer({ messages }) {
   const [isMobile, setIsMobile] = useState(false)
   const [isB2B, setIsB2B] = useState(false)
   const pathname = usePathname()
@@ -57,11 +57,11 @@ export default function Footer() {
 
   // Logique de rendu : 4 cas possibles
   if (isB2B && !isMobile) {
-    return <FooterDesktopB2B />
+    return <FooterDesktopB2B messages={messages} />
   }
 
   if (isB2B && isMobile) {
-    return <FooterMobileB2B />
+    return <FooterMobileB2B messages={messages}/>
   }
 
   if (!isB2B && !isMobile) {
