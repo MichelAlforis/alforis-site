@@ -1,136 +1,150 @@
 {
-
-    "meta": {
-      "title": "Recursos e ferramentas institucionais | Alforis TPM",
-      "description": "Documentos, ferramentas de conformidade, calendário de eventos e FAQ para gestoras e investidores institucionais."
+  "meta": {
+    "title": "Recursos e Ferramentas Institucionais | Alforis TPM",
+    "description": "Documentos, ferramentas de compliance, calendário de eventos e FAQ para gestoras de ativos e investidores institucionais."
+  },
+  "hero": {
+    "badge": "Data Room Pública",
+    "title": "Tudo o que precisa para entender o nosso modelo",
+    "subtitle": "Documentos, referências e ferramentas de compliance",
+    "intro": "Acesse todos os recursos necessários para a sua due diligence e para compreender melhor a nossa abordagem Third Party Marketing."
+  },
+  "status": {
+    "comingSoon": "Em breve"
+  },
+  "modal": {
+    "document": {
+      "title": "Documentos em preparação",
+      "description": "Os nossos documentos estão atualmente em fase de finalização. Pode contactar-nos para receber uma versão preliminar."
     },
-    "hero": {
-      "badge": "Data Room Pública",
-      "title": "Tudo o que precisa para compreender o nosso modelo",
-      "subtitle": "Documentos, referências e ferramentas de conformidade",
-      "intro": "Aceda a todos os recursos necessários para a sua due diligence e para compreender melhor a nossa abordagem de Third Party Marketing."
-    },
-    "documents": {
-      "title": "Documentos para descarregar",
-      "subtitle": "Toda a documentação essencial num só lugar",
-      "pages": "páginas",
-      "note": "Todos os documentos são regularmente atualizados. Para a última versão ou informação específica, contacte-nos diretamente.",
-      "items": {
-        "capabilities": {
-          "title": "Capabilities Deck Alforis",
-          "desc": "Apresentação completa dos nossos serviços, experiência e abordagem de distribuição europeia."
-        },
-        "onepager": {
-          "title": "One-Pager TPM",
-          "desc": "Síntese do nosso modelo Third Party Marketing, os nossos mercados e o nosso processo de compromisso tipo."
-        },
-        "reporting": {
-          "title": "Modelo de Reporting Mensal",
-          "desc": "Formato padrão dos nossos relatórios de atividade: KPIs, reuniões, pipeline e feedback de mercado."
-        },
-        "checklist": {
-          "title": "Checklist RFI/RFP",
-          "desc": "Questionário completo para facilitar a sua due diligence e avaliar o nosso alinhamento com as suas necessidades."
-        },
-        "vendor": {
-          "title": "Vendor Pack (KYC + Certificados)",
-          "desc": "Dossiê administrativo completo: informação da empresa, certificados de seguro, adesão AFTPM, compliance."
-        },
-        "compliance": {
-          "title": "Ficha de Conformidade AFTPM / CNCGP",
-          "desc": "Detalhes sobre o nosso cumprimento dos códigos profissionais e normas regulamentares nos nossos mercados."
-        }
-      }
-    },
-    "events": {
-      "title": "Calendário e Eventos",
-      "subtitle": "Encontre-nos nos principais eventos do setor",
-      "cta": "Agendar um encontro no evento",
-      "mainCta": "Ver calendário completo de eventos",
-      "types": {
-        "salon": "Salão",
-        "conference": "Conferência",
-        "forum": "Fórum",
-        "summit": "Cimeira"
-      },
-      "items": {
-        "patrimonia": {
-          "name": "Patrimonia Lyon",
-          "desc": "Evento de referência da gestão patrimonial em França. Ocasião ideal para discutir estratégias de distribuição locais."
-        },
-        "fundspeople": {
-          "name": "FundsPeople Lisboa",
-          "desc": "Evento de referência do asset management ibérico. Foco nas tendências de distribuição na Europa do Sul."
-        },
-        "parisff": {
-          "name": "Paris Fund Forum",
-          "desc": "Reunião de investidores institucionais internacionais. Discussões estratégicas sobre distribuição europeia."
-        },
-        "iberian": {
-          "name": "Cimeira Ibérica de Asset Management",
-          "desc": "Evento especializado para os mercados de Espanha e Portugal. Sessões aprofundadas sobre desafios de distribuição locais."
-        }
-      }
-    },
-    "faq": {
-      "title": "FAQ TPM",
-      "subtitle": "Respostas às perguntas mais frequentes",
-      "moreQuestions": "Tem mais perguntas?",
-      "contactCta": "Contactar a nossa equipa",
-      "items": {
-        "tpm": {
-          "question": "O que é um mandato TPM?",
-          "answer": "Um mandato Third Party Marketing (TPM) é um acordo de distribuição pelo qual a Alforis representa a sua gestora em mercados específicos (França, Luxemburgo, Espanha, Portugal). Atuamos como uma extensão da sua equipa, abrindo portas com distribuidores locais e investidores institucionais, enquanto mantém o controlo total sobre as decisões de investimento e as relações com clientes."
-        },
-        "remuneration": {
-          "question": "Como se estrutura a remuneração?",
-          "answer": "O nosso modelo combina um retainer mensal (cobrindo custos operacionais: deslocações, marketing, infraestrutura) e uma success fee sobre ativos captados e/ou mandatos ganhos. O retainer começa a partir de 5K€/mês sem IVA com um compromisso mínimo de 12 meses. Os detalhes da success fee são adaptados ao seu modelo económico e discutidos de forma transparente durante as negociações iniciais."
-        },
-        "timelines": {
-          "question": "Quais são os prazos médios de acesso ao mercado?",
-          "answer": "A distribuição institucional é uma maratona, não um sprint. Primeiras reuniões qualificadas: 1-2 meses. Primeiros processos de due diligence: 3-6 meses. Primeiros mandatos/listings: 6-12 meses. Tração significativa: 18-24 meses. Estes prazos variam conforme a complexidade do seu produto, o seu track record e a recetividade do mercado."
-        },
-        "marketing": {
-          "question": "Que materiais de marketing fornecer?",
-          "answer": "Essenciais: Factsheets, KIID/KID, apresentações de fundos, relatórios de track record, biografias da equipa de investimento. Recomendados: Case studies, respostas a questionários de due diligence, documentação SFDR/ESG. Ajudamos a adaptar estes materiais para os mercados locais (tradução, conformidade regulamentar, nuances culturais), mas precisamos de materiais base sólidos para começar."
-        }
-      }
-    },
-    "press": {
-      "title": "Imprensa e Publicações",
-      "subtitle": "A nossa presença mediática e liderança de opinião",
-      "cta": "Ver todas as publicações",
-      "articles": {
-        "0": {
-          "title": "O futuro da distribuição europeia para boutiques de asset management",
-          "excerpt": "Análise de tendências de distribuição e oportunidades para asset managers independentes na Europa do Sul.",
-          "source": "FundsPeople Magazine",
-          "date": "Março 2025"
-        },
-        "1": {
-          "title": "A seletividade em TPM: qualidade sobre quantidade",
-          "excerpt": "Porque limitar os mandatos cria melhores resultados para asset managers e investidores.",
-          "source": "IPE.com",
-          "date": "Fevereiro 2025"
-        },
-        "2": {
-          "title": "Mercados ibéricos: potencial por explorar para fundos internacionais",
-          "excerpt": "Análise aprofundada das oportunidades de distribuição em Espanha e Portugal para asset managers estrangeiros.",
-          "source": "Citywire",
-          "date": "Janeiro 2025"
-        },
-        "3": {
-          "title": "Conformidade SFDR e distribuição: o que os asset managers precisam de saber",
-          "excerpt": "Guia prático para navegar as regulamentações europeias de sustentabilidade na sua estratégia de distribuição.",
-          "source": "Funds Europe",
-          "date": "Dezembro 2024"
-        }
-      }
-    },
-    "finalCta": {
-      "title": "Precisa de informação adicional?",
-      "subtitle": "A nossa equipa está aqui para responder a todas as suas perguntas",
-      "primary": "Agendar um contacto",
-      "secondary": "Descarregar o pack completo"
+    "article": {
+      "title": "Artigos em breve",
+      "description": "Os nossos artigos de imprensa estarão disponíveis em breve. Volte mais tarde!"
     }
+  },
+  "documents": {
+    "title": "Documentos para Download",
+    "subtitle": "Toda a documentação essencial num só lugar",
+    "pages": "páginas",
+    "note": "Todos os documentos são atualizados regularmente. Para a versão mais recente ou informação específica, contacte-nos diretamente.",
+    "notAvailable": "📋 Documentos atualmente em finalização. Contacte-nos para receber uma versão preliminar adaptada às suas necessidades.",
+    "items": {
+      "capabilities": {
+        "title": "Capabilities Deck Alforis",
+        "desc": "Apresentação completa dos nossos serviços, experiência e abordagem de distribuição europeia."
+      },
+      "onepager": {
+        "title": "One-Pager TPM",
+        "desc": "Resumo do nosso modelo Third Party Marketing, os nossos mercados e o nosso processo de engagement típico."
+      },
+      "reporting": {
+        "title": "Modelo de Reporting Mensal",
+        "desc": "Formato padrão dos nossos relatórios de atividade: KPIs, reuniões, pipeline e feedback do mercado."
+      },
+      "checklist": {
+        "title": "Checklist RFI/RFP",
+        "desc": "Questionário completo para facilitar a sua due diligence e avaliar o nosso alinhamento com as suas necessidades."
+      },
+      "vendor": {
+        "title": "Vendor Pack (KYC + Certificações)",
+        "desc": "Dossiê administrativo completo: informações corporativas, certificados de seguros, adesão profissional, compliance."
+      },
+      "compliance": {
+        "title": "Ficha de Compliance",
+        "desc": "Detalhes sobre a nossa conformidade com códigos profissionais e padrões regulamentares nos nossos mercados."
+      }
+    }
+  },
+  "events": {
+    "title": "Calendário e Eventos",
+    "subtitle": "Encontre-nos nos principais eventos do setor",
+    "cta": "Agendar reunião no evento",
+    "mainCta": "Ver calendário completo de eventos",
+    "types": {
+      "salon": "Feira",
+      "conference": "Conferência",
+      "forum": "Fórum",
+      "summit": "Cimeira"
+    },
+    "items": {
+      "patrimonia": {
+        "name": "Patrimonia Lyon",
+        "desc": "Evento de referência de gestão patrimonial em França. Oportunidade ideal para discutir estratégias de distribuição locais."
+      },
+      "fundspeople": {
+        "name": "FundsPeople Lisboa",
+        "desc": "Evento de referência de asset management ibérico. Foco em tendências de distribuição no sul da Europa."
+      },
+      "parisff": {
+        "name": "Paris Fund Forum",
+        "desc": "Encontro de investidores institucionais internacionais. Discussões estratégicas sobre distribuição europeia."
+      },
+      "iberian": {
+        "name": "Iberian Asset Management Summit",
+        "desc": "Evento especializado para mercados de Espanha e Portugal. Sessões aprofundadas sobre desafios de distribuição locais."
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQ TPM",
+    "subtitle": "Respostas às perguntas mais frequentes",
+    "moreQuestions": "Tem mais perguntas?",
+    "contactCta": "Contactar a nossa equipa",
+    "items": {
+      "tpm": {
+        "question": "O que é um mandato TPM?",
+        "answer": "Um mandato Third Party Marketing (TPM) é um acordo de distribuição através do qual a Alforis representa a sua gestora em mercados específicos (França, Luxemburgo, Espanha, Portugal). Atuamos como uma extensão da sua equipa, abrindo portas junto de distribuidores locais e investidores institucionais, enquanto mantém o controlo total sobre as decisões de investimento e as relações com clientes."
+      },
+      "remuneration": {
+        "question": "Como é estruturada a remuneração?",
+        "answer": "O nosso modelo combina um retainer mensal (cobrindo custos operacionais: deslocações, marketing, infraestrutura) e uma success fee sobre ativos captados e/ou mandatos ganhos. O retainer começa a partir de 5K€/mês mais IVA com um compromisso mínimo de 12 meses. Os detalhes da success fee são adaptados ao seu modelo de negócio e discutidos de forma transparente durante as negociações iniciais."
+      },
+      "timelines": {
+        "question": "Quais são os prazos médios de acesso ao mercado?",
+        "answer": "A distribuição institucional é uma maratona, não um sprint. Primeiras reuniões qualificadas: 1-2 meses. Primeiros processos de due diligence: 3-6 meses. Primeiros mandatos/listings: 6-12 meses. Tração significativa: 18-24 meses. Estes prazos variam consoante a complexidade do seu produto, o seu track record e a recetividade do mercado."
+      },
+      "marketing": {
+        "question": "Que materiais de marketing devem ser fornecidos?",
+        "answer": "Essenciais: Factsheets, KIID/KID, apresentações de fundos, relatórios de track record, biografias da equipa de investimento. Recomendados: Estudos de caso, respostas a questionários de due diligence, documentação SFDR/ESG. Ajudamos a adaptar estes materiais para mercados locais (tradução, compliance regulamentar, nuances culturais), mas precisamos de materiais base sólidos para começar."
+      }
+    }
+  },
+  "press": {
+    "title": "Imprensa e Publicações",
+    "subtitle": "A nossa presença mediática e liderança de pensamento",
+    "subtitleComingSoon": "Os nossos artigos de imprensa estarão disponíveis em breve. Mantenha-se atento!",
+    "cta": "Ver todas as publicações",
+    "articles": {
+      "0": {
+        "title": "O futuro da distribuição europeia para boutiques de asset management",
+        "excerpt": "Análise de tendências de distribuição e oportunidades para gestoras independentes no sul da Europa.",
+        "source": "FundsPeople Magazine",
+        "date": "Março 2025"
+      },
+      "1": {
+        "title": "Seletividade em TPM: qualidade em vez de quantidade",
+        "excerpt": "Porque limitar mandatos cria melhores resultados para gestoras e investidores.",
+        "source": "IPE.com",
+        "date": "Fevereiro 2025"
+      },
+      "2": {
+        "title": "Mercados ibéricos: potencial inexplorado para fundos internacionais",
+        "excerpt": "Análise aprofundada de oportunidades de distribuição em Espanha e Portugal para gestoras estrangeiras.",
+        "source": "Citywire",
+        "date": "Janeiro 2025"
+      },
+      "3": {
+        "title": "Compliance SFDR e distribuição: o que as gestoras precisam de saber",
+        "excerpt": "Guia prático para navegar as regulamentações europeias de sustentabilidade na sua estratégia de distribuição.",
+        "source": "Funds Europe",
+        "date": "Dezembro 2024"
+      }
+    }
+  },
+  "finalCta": {
+    "title": "Precisa de informações adicionais?",
+    "subtitle": "A nossa equipa está aqui para responder a todas as suas perguntas",
+    "primary": "Agendar uma chamada",
+    "secondary": "Descarregar pack completo"
   }
+}

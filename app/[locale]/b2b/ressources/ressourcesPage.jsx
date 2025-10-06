@@ -20,27 +20,60 @@ import {
   BarChart3,
   FileCheck,
   Users,
-  Award
+  Award,
+  Mail,
+  AlertCircle
 } from 'lucide-react'
 
 export default function RessourcesPage() {
   const t = useTranslations('ressources')
+  const tCommon = useTranslations('common')
   const [openFaq, setOpenFaq] = useState(null)
+  const [showComingSoon, setShowComingSoon] = useState(false)
+  const [comingSoonType, setComingSoonType] = useState('')
+
+  // Configuration : activer quand les documents sont prêts
+  const DOCUMENTS_AVAILABLE = false
+  const PRESS_ARTICLES_AVAILABLE = false
 
   const documents = [
-    { key: 'capabilities', icon: FileText, size: '2.4 MB', pages: 12 },
-    { key: 'onepager', icon: FileCheck, size: '850 KB', pages: 1 },
-    { key: 'reporting', icon: BarChart3, size: '450 KB', pages: 2 },
-    { key: 'checklist', icon: CheckCircle, size: '320 KB', pages: 3 },
-    { key: 'vendor', icon: Shield, size: '1.8 MB', pages: 8 },
-    { key: 'compliance', icon: Award, size: '680 KB', pages: 4 }
+    { key: 'capabilities', icon: FileText, size: '2.4 MB', pages: 12, url: '/documents/capabilities.pdf' },
+    { key: 'onepager', icon: FileCheck, size: '850 KB', pages: 1, url: '/documents/onepager.pdf' },
+    { key: 'reporting', icon: BarChart3, size: '450 KB', pages: 2, url: '/documents/reporting.pdf' },
+    { key: 'checklist', icon: CheckCircle, size: '320 KB', pages: 3, url: '/documents/checklist.pdf' },
+    { key: 'vendor', icon: Shield, size: '1.8 MB', pages: 8, url: '/documents/vendor.pdf' },
+    { key: 'compliance', icon: Award, size: '680 KB', pages: 4, url: '/documents/compliance.pdf' }
   ]
 
   const events = [
-    { key: 'patrimonia', date: '2025-10-15', location: 'Lyon', type: 'salon' },
-    { key: 'fundspeople', date: '2025-11-20', location: 'Lisbonne', type: 'conference' },
-    { key: 'parisff', date: '2025-12-10', location: 'Paris', type: 'forum' },
-    { key: 'iberian', date: '2026-02-05', location: 'Madrid', type: 'summit' }
+    { 
+      key: 'patrimonia', 
+      date: '2025-10-15', 
+      location: 'Lyon', 
+      type: 'salon',
+      registrationUrl: 'https://www.patrimonia.fr'
+    },
+    { 
+      key: 'fundspeople', 
+      date: '2025-11-20', 
+      location: 'Lisbonne', 
+      type: 'conference',
+      registrationUrl: 'https://www.fundspeople.com'
+    },
+    { 
+      key: 'parisff', 
+      date: '2025-12-10', 
+      location: 'Paris', 
+      type: 'forum',
+      registrationUrl: 'https://www.parisfundforum.com'
+    },
+    { 
+      key: 'iberian', 
+      date: '2026-02-05', 
+      location: 'Madrid', 
+      type: 'summit',
+      registrationUrl: 'https://www.iberiansummit.com'
+    }
   ]
 
   const faqItems = ['tpm', 'remuneration', 'timelines', 'marketing']
@@ -49,6 +82,81 @@ export default function RessourcesPage() {
     setOpenFaq(openFaq === idx ? null : idx)
   }
 
+  const handleDocumentClick = (doc) => {
+    if (DOCUMENTS_AVAILABLE) {
+      // Télécharger le document
+      window.open(doc.url, '_blank')
+    } else {
+      // Afficher modal "Bientôt disponible"
+      setComingSoonType('document')
+      setShowComingSoon(true)
+    }
+  }
+
+  const handleEventRegister = (event) => {
+    // Ouvrir la page d'inscription de l'événement
+    window.open(event.registrationUrl, '_blank')
+  }
+
+  const handleCalendarClick = () => {
+    // Rediriger vers la page de planification (Cal.com ou autre)
+    window.open('https://cal.com/alforis', '_blank')
+  }
+
+  const handleContactClick = () => {
+    // Rediriger vers la page contact
+    window.location.href = '/contact'
+  }
+
+  const handlePressArticleClick = (idx) => {
+    if (PRESS_ARTICLES_AVAILABLE) {
+      // Ouvrir l'article (URL à récupérer depuis les traductions si besoin)
+      window.open('#', '_blank')
+    } else {
+      setComingSoonType('article')
+      setShowComingSoon(true)
+    }
+  }
+
+  const handleAllPressClick = () => {
+    if (PRESS_ARTICLES_AVAILABLE) {
+      window.location.href = '/presse'
+    } else {
+      setComingSoonType('article')
+      setShowComingSoon(true)
+    }
+  }
+
+  const handleRequestDocument = () => {
+    // Rediriger vers contact avec pré-remplissage
+    window.location.href = '/contact?sujet=demande-documents'
+  }
+
+  // Textes de la modal en fonction de la langue
+  const getModalContent = () => {
+    if (comingSoonType === 'document') {
+      return {
+        title: t('modal.document.title', { defaultValue: 'Documents en préparation' }),
+        description: t('modal.document.description', { 
+          defaultValue: 'Nos documents sont actuellement en cours de finalisation. Vous pouvez nous contacter pour recevoir une version préliminaire.' 
+        }),
+        close: tCommon('buttons.close', { defaultValue: 'Fermer' }),
+        contact: tCommon('buttons.contact', { defaultValue: 'Nous contacter' })
+      }
+    } else {
+      return {
+        title: t('modal.article.title', { defaultValue: 'Articles à venir' }),
+        description: t('modal.article.description', { 
+          defaultValue: 'Nos articles de presse seront bientôt disponibles. Revenez prochainement !' 
+        }),
+        close: tCommon('buttons.close', { defaultValue: 'Fermer' }),
+        contact: null
+      }
+    }
+  }
+
+  const modalContent = getModalContent()
+
   return (
     <PageLayoutB2B
       title={t('hero.title')}
@@ -56,6 +164,47 @@ export default function RessourcesPage() {
       description={t('hero.subtitle')}
       introHeight="12vh"
     >
+      {/* Modal "Bientôt disponible" */}
+      {showComingSoon && (
+        <div 
+          className="fixed inset-0 bg-anthracite/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowComingSoon(false)}
+        >
+          <div 
+            className="bg-white dark:bg-anthracite rounded-2xl p-8 max-w-md w-full border-2 border-doré shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-center">
+              <div className="bg-doré/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <AlertCircle className="h-8 w-8 text-doré" />
+              </div>
+              <h3 className="text-2xl font-title font-bold text-ardoise dark:text-vertSauge mb-3">
+                {modalContent.title}
+              </h3>
+              <p className="text-acier dark:text-ivoire/70 mb-6">
+                {modalContent.description}
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowComingSoon(false)}
+                  className="flex-1 px-6 py-3 rounded-lg border-2 border-acier/30 text-acier dark:text-ivoire/70 hover:bg-acier/10 transition-colors"
+                >
+                  {modalContent.close}
+                </button>
+                {modalContent.contact && (
+                  <button
+                    onClick={handleRequestDocument}
+                    className="flex-1 btn-alforis-primary"
+                  >
+                    {modalContent.contact}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-ardoise via-anthracite to-acier text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,8 +237,15 @@ export default function RessourcesPage() {
               return (
                 <div 
                   key={doc.key}
-                  className="bg-ivoire dark:bg-acier/20 rounded-xl p-6 border-2 border-doré/20 hover:border-doré/50 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  onClick={() => handleDocumentClick(doc)}
+                  className="bg-ivoire dark:bg-acier/20 rounded-xl p-6 border-2 border-doré/20 hover:border-doré/50 hover:shadow-xl transition-all duration-300 group cursor-pointer relative"
                 >
+                  {!DOCUMENTS_AVAILABLE && (
+                    <div className="absolute top-3 right-3 bg-doré/90 text-ardoise text-xs font-bold px-2 py-1 rounded-full">
+                      {t('status.comingSoon', { defaultValue: 'Bientôt' })}
+                    </div>
+                  )}
+                  
                   <div className="flex items-start justify-between mb-4">
                     <div className="bg-doré/10 dark:bg-doré/20 w-12 h-12 rounded-lg flex items-center justify-center">
                       <Icon className="h-6 w-6 text-doré" />
@@ -117,7 +273,11 @@ export default function RessourcesPage() {
 
           <div className="mt-12 text-center">
             <p className="text-sm text-acier dark:text-ivoire/60 italic bg-ivoire dark:bg-acier/20 rounded-lg p-6 max-w-3xl mx-auto">
-              {t('documents.note')}
+              {DOCUMENTS_AVAILABLE 
+                ? t('documents.note')
+                : t('documents.notAvailable', { 
+                    defaultValue: '📋 Documents en cours de finalisation. Contactez-nous pour recevoir une version préliminaire adaptée à vos besoins.' 
+                  })}
             </p>
           </div>
         </div>
@@ -173,7 +333,10 @@ export default function RessourcesPage() {
                     </div>
                   </div>
 
-                  <button className="btn-alforis-outline flex items-center justify-center space-x-2 whitespace-nowrap">
+                  <button 
+                    onClick={() => handleEventRegister(event)}
+                    className="btn-alforis-outline flex items-center justify-center space-x-2 whitespace-nowrap"
+                  >
                     <Users className="h-4 w-4" />
                     <span>{t('events.cta')}</span>
                   </button>
@@ -183,7 +346,10 @@ export default function RessourcesPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <button className="btn-alforis-retro inline-flex items-center space-x-2">
+            <button 
+              onClick={handleCalendarClick}
+              className="btn-alforis-retro inline-flex items-center space-x-2"
+            >
               <Calendar className="h-5 w-5" />
               <span>{t('events.mainCta')}</span>
               <ExternalLink className="h-4 w-4" />
@@ -249,7 +415,11 @@ export default function RessourcesPage() {
             <p className="text-sm text-acier dark:text-ivoire/60 mb-4">
               {t('faq.moreQuestions')}
             </p>
-            <button className="btn-alforis-outline inline-flex items-center space-x-2">
+            <button 
+              onClick={handleContactClick}
+              className="btn-alforis-outline inline-flex items-center space-x-2"
+            >
+              <Mail className="h-4 w-4" />
               <span>{t('faq.contactCta')}</span>
               <ExternalLink className="h-4 w-4" />
             </button>
@@ -265,7 +435,11 @@ export default function RessourcesPage() {
               {t('press.title')}
             </h2>
             <p className="text-lg text-ivoire/80 max-w-3xl mx-auto">
-              {t('press.subtitle')}
+              {PRESS_ARTICLES_AVAILABLE 
+                ? t('press.subtitle')
+                : t('press.subtitleComingSoon', { 
+                    defaultValue: 'Nos articles de presse seront bientôt disponibles. Restez connectés !' 
+                  })}
             </p>
           </div>
 
@@ -273,8 +447,15 @@ export default function RessourcesPage() {
             {Array.from({ length: 4 }, (_, idx) => (
               <div 
                 key={idx}
-                className="bg-acier/20 backdrop-blur-sm rounded-xl p-6 border border-doré/20 hover:border-doré/50 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                onClick={() => handlePressArticleClick(idx)}
+                className="bg-acier/20 backdrop-blur-sm rounded-xl p-6 border border-doré/20 hover:border-doré/50 hover:shadow-xl transition-all duration-300 group cursor-pointer relative"
               >
+                {!PRESS_ARTICLES_AVAILABLE && (
+                  <div className="absolute top-3 right-3 bg-doré/90 text-ardoise text-xs font-bold px-2 py-1 rounded-full">
+                    {t('status.comingSoon', { defaultValue: 'Bientôt' })}
+                  </div>
+                )}
+                
                 <div className="flex items-start justify-between mb-4">
                   <div className="bg-doré/20 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Newspaper className="h-6 w-6 text-doré" />
@@ -298,7 +479,10 @@ export default function RessourcesPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <button className="btn-alforis-retro inline-flex items-center space-x-2">
+            <button 
+              onClick={handleAllPressClick}
+              className="btn-alforis-retro inline-flex items-center space-x-2"
+            >
               <Newspaper className="h-5 w-5" />
               <span>{t('press.cta')}</span>
             </button>
@@ -307,21 +491,20 @@ export default function RessourcesPage() {
       </section>
 
       {/* CTA Final */}
+      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
+            {t('finalCta.title')}
+          </h2>
+          <p className="text-lg md:text-xl mb-8 text-acier dark:text-ivoire/80">
+            {t('finalCta.subtitle')}
+          </p>
 
-<section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
-      {t('finalCta.title')}
-    </h2>
-    <p className="text-lg md:text-xl mb-8 text-acier dark:text-ivoire/80">
-      {t('finalCta.subtitle')}
-    </p>
-
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <CalComButtonB2B type="info" />
-    </div>
-  </div>
-</section>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CalComButtonB2B type="info" />
+          </div>
+        </div>
+      </section>
     </PageLayoutB2B>
   )
 }

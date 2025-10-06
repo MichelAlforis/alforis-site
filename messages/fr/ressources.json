@@ -39,7 +39,9 @@
         "compliance": {
           "title": "Fiche de Conformité AFTPM / CNCGP",
           "desc": "Détails sur notre respect des codes professionnels et normes réglementaires sur nos marchés."
-        }
+        },
+        "notAvailable": "📋 Documents en cours de finalisation. Contactez-nous pour recevoir une version préliminaire adaptée à vos besoins."
+  
       }
     },
     "events": {
@@ -124,7 +126,8 @@
           "excerpt": "Guide pratique pour naviguer les réglementations européennes de durabilité dans votre stratégie de distribution.",
           "source": "Funds Europe",
           "date": "Décembre 2024"
-        }
+        },
+        "subtitleComingSoon": "Nos articles de presse seront bientôt disponibles. Restez connectés !"
       }
     },
     "finalCta": {
@@ -132,5 +135,18 @@
       "subtitle": "Notre équipe est là pour répondre à toutes vos questions",
       "primary": "Planifier un échange",
       "secondary": "Télécharger le pack complet"
+    },
+  "status": {
+    "comingSoon": "Bientôt"
+  },
+    "modal": {
+      "document": {
+        "title": "Documents en préparation",
+        "description": "Nos documents sont actuellement en cours de finalisation. Vous pouvez nous contacter pour recevoir une version préliminaire."
+      },
+      "article": {
+        "title": "Articles à venir",
+        "description": "Nos articles de presse seront bientôt disponibles. Revenez prochainement !"
+      }
     }
   }
