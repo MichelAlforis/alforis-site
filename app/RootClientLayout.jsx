@@ -5,7 +5,8 @@ import React, { useState, useCallback, useEffect } from 'react'
 import Script from 'next/script'
 import ClientSideScrollRestorer from './ClientSideScrollRestorer'
 import Navbar from './Navbar'
-import Footer from './Footer'
+import Footer from '@/app/Footer'
+import { usePathname } from 'next/navigation'
 import CookieBannerOffsetHandler from '@/components/cookie/CookieBannerOffsetHandler'
 import { ThemeProvider } from '@/styles/ThemeDark'
 import { ToastContainer } from 'react-toastify'
@@ -13,7 +14,13 @@ import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function RootClientLayout({ children }) {
-
+    const pathname = usePathname()
+  
+  // Liste des routes qui gèrent leur propre Footer
+  const hasOwnFooter = ['/b2b', '/pro', '/entreprises'].some(route => 
+    pathname?.includes(route)
+  )
+  
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
 
   const handleBannerHeight = useCallback((height) => {
@@ -114,6 +121,7 @@ export default function RootClientLayout({ children }) {
       </main>
 
       {/* Pied de page */}
+      {!hasOwnFooter && <Footer />}
 
       {/* Notifications toast */}
       <ToastContainer
