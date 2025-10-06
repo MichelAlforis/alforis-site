@@ -143,8 +143,12 @@ export default function NavbarDesktop({ links }) {
                     onClick={() => setShowLanguages(false)}
                   />
                   
-                  <div className="absolute top-full mt-2 right-0 bg-anthracite/98 backdrop-blur-xl 
-                                  rounded-xl shadow-2xl border border-doré/20 overflow-hidden 
+                  <div className="absolute top-full mt-2 right-0 
+                                  bg-anthracite dark:bg-anthracite 
+                                  backdrop-blur-xl 
+                                  rounded-xl shadow-2xl 
+                                  border border-doré/20 
+                                  overflow-hidden 
                                   min-w-[200px] z-50">
                     {languages.map((lang) => (
                       <button

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Contacto | Alforis TPM",
+    "description": "Contacte a nossa equipa para discutir a sua estratégia de distribuição europeia. Resposta em 24h."
+  },
+  "hero": {
+    "badge": "Contacto B2B",
+    "title": "Falemos sobre o seu desenvolvimento na Europa",
+    "subtitle": "Primeira troca confidencial e sem compromisso",
+    "intro": "Seja uma gestora estabelecida ou uma boutique emergente, estamos aqui para discutir as suas ambições de distribuição."
+  },
+  "form": {
+    "title": "Envie-nos uma mensagem",
+    "prenom": "Nome",
+    "nom": "Apelido",
+    "email": "Email profissional",
+    "telephone": "Telefone",
+    "societe": "Empresa",
+    "message": "A sua mensagem",
+    "submit": "Enviar mensagem"
+  },
+  "info": {
+    "title": "Contactos",
+    "phone": "Telefone",
+    "email": "Email",
+    "location": "Presença",
+    "note": "Estamos sediados em França com presença ativa em 4 mercados europeus. Todas as nossas trocas são confidenciais e comprometemo-nos a responder em 24h."
+  }
+}
