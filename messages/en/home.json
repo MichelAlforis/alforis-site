@@ -5,7 +5,32 @@
     "title": "Alforis: Your European distribution accelerator",
     "countries": "France • Luxembourg • Spain • Portugal",
     "description": "We connect international asset managers to local and institutional distributors with a selective and independent approach.",
-    "cta": "Schedule a strategic meeting"
+    "cta": "Schedule a strategic meeting",
+    "contactModal": {
+        "title": "How would you prefer to contact us?",
+        "subtitle": "Choose the channel that suits you best",
+        "selectButton": "Choose this option",
+        "note": "⚡ All our responses are guaranteed within 24 hours",
+        "options": {
+          "calendar": {
+            "title": "Book a call",
+            "description": "30 min to discuss your project"
+          },
+          "email": {
+            "title": "Send an email",
+            "description": "Response within 24h"
+          },
+          "chat": {
+            "title": "WhatsApp / WeChat",
+            "description": "Instant direct chat",
+            "whatsappMessage": "Hello, I would like to learn more about your B2B services"
+          },
+          "phone": {
+            "title": "Call now",
+            "description": "+33 6 46 46 22 91"
+          }
+        }
+      }
   },
   "role": {
     "title": "Our role",

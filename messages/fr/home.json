@@ -4,7 +4,32 @@
     "title": "Alforis : votre accélérateur de distribution en Europe",
     "countries": "France • Luxembourg • Espagne • Portugal",
     "description": "Nous connectons les sociétés de gestion internationales aux distributeurs locaux et institutionnels avec une approche sélective et indépendante.",
-    "cta": "Planifier une réunion stratégique"
+    "cta": "Planifier une réunion stratégique",
+     "contactModal": {
+        "title": "Comment préférez-vous nous contacter ?",
+        "subtitle": "Choisissez le canal qui vous convient le mieux",
+        "selectButton": "Choisir cette option",
+        "note": "⚡ Toutes nos réponses sont garanties sous 24h",
+        "options": {
+          "calendar": {
+            "title": "Réserver un appel",
+            "description": "30 min pour discuter de votre projet"
+          },
+          "email": {
+            "title": "Envoyer un email",
+            "description": "Réponse sous 24h"
+          },
+          "chat": {
+            "title": "WhatsApp / WeChat",
+            "description": "Chat direct instantané",
+            "whatsappMessage": "Bonjour, je souhaite en savoir plus sur vos services B2B"
+          },
+          "phone": {
+            "title": "Appeler maintenant",
+            "description": "+33 6 46 46 22 91"
+          }
+        }
+        }
   },
   "role": {
     "title": "Notre rôle",

@@ -7584,3 +7584,106 @@ https://nextjs.org/docs/messages/module-not-found
 
 > Build failed because of webpack errors
 [2025-10-06 18:14:57] 🚀 Déploiement complet
+Updating 8b1cbd6..1615dff
+Fast-forward
+ app/Footer.jsx                                   |  58 +++----
+ app/RootClientLayout.jsx                         |  13 +-
+ app/[locale]/b2b/contact/ContactPage.jsx         |   2 +-
+ app/[locale]/b2b/partenaires/PartenairesPage.jsx |  75 ++++-----
+ app/[locale]/b2b/ressources/ressourcesPage.jsx   |  38 ++---
+ app/[locale]/b2b/solutions/solutionsPage.jsx     |  41 ++---
+ app/[locale]/layout.jsx                          |  21 ++-
+ app/api/rdv-confirm-b2b/route.js                 |  89 ++++++++++
+ app/api/test-airtable-b2b/route.js               |  41 +++++
+ app/components/footer/FooterConfigB2B.js         | 145 ++++++++++++++++
+ app/components/footer/FooterDesktopB2B.jsx       | 115 +++++++++++++
+ app/components/footer/FooterMobileB2B.jsx        | 118 +++++++++++++
+ app/layout.jsx                                   |  80 +++------
+ components/b2b/CalComButtonB2B.jsx               |  39 +++++
+ components/{pageB2B => b2b}/HeaderFixedB2B.jsx   |   0
+ components/{pageB2B => b2b}/PageLayoutB2B.jsx    |   0
+ components/b2b/RDVFormB2B.jsx                    |  91 +++++++++++
+ deploy.log                                       | 149 +++++++++++++++++
+ i18n.js                                          |   2 +-
+ lib/airtable/EmailServiceRDV_B2B.js              | 200 +++++++++++++++++++++++
+ lib/airtable/saveRDV_B2B.js                      |  54 ++++++
+ messages/en/footer.json                          |  87 ++++++++++
+ messages/es/footer.json                          |  87 ++++++++++
+ messages/fr/footer.json                          |  87 ++++++++++
+ messages/pt/footer.json                          |  87 ++++++++++
+ package-lock.json                                |   8 +-
+ package.json                                     |   2 +-
+ styles/components/footer-b2b.css                 | 156 ++++++++++++++++++
+ styles/globals.css                               |   1 +
+ 29 files changed, 1692 insertions(+), 194 deletions(-)
+ create mode 100644 app/api/rdv-confirm-b2b/route.js
+ create mode 100644 app/api/test-airtable-b2b/route.js
+ create mode 100644 app/components/footer/FooterConfigB2B.js
+ create mode 100644 app/components/footer/FooterDesktopB2B.jsx
+ create mode 100644 app/components/footer/FooterMobileB2B.jsx
+ create mode 100644 components/b2b/CalComButtonB2B.jsx
+ rename components/{pageB2B => b2b}/HeaderFixedB2B.jsx (100%)
+ rename components/{pageB2B => b2b}/PageLayoutB2B.jsx (100%)
+ create mode 100644 components/b2b/RDVFormB2B.jsx
+ create mode 100644 lib/airtable/EmailServiceRDV_B2B.js
+ create mode 100644 lib/airtable/saveRDV_B2B.js
+ create mode 100644 messages/en/footer.json
+ create mode 100644 messages/es/footer.json
+ create mode 100644 messages/fr/footer.json
+ create mode 100644 messages/pt/footer.json
+ create mode 100644 styles/components/footer-b2b.css
+From github.com:MichelAlforis/alforis-site
+ * branch            main       -> FETCH_HEAD
+   8b1cbd6..1615dff  main       -> origin/main
+
+changed 1 package, and audited 1001 packages in 4s
+
+336 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (4 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/[locale]/b2b/ressources/page.jsx
+Module not found: Can't resolve './RessourcesPage'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [alforis-site](ids: [ 0 ])
+[PM2] [alforis-site](0) ✓
+┌────┬─────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name            │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ alforis-site    │ default     │ 0.39.6  │ fork    │ 1100958  │ 0s     │ 2    │ online    │ 0%       │ 2.1mb    │ root     │ disabled │
+└────┴─────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [alforis-site](ids: [ 0 ])
+[PM2] [alforis-site](0) ✓
+┌────┬─────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name            │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ alforis-site    │ default     │ 0.39.6  │ fork    │ 1101827  │ 0s     │ 18   │ online    │ 0%       │ 25.5mb   │ root     │ disabled │
+└────┴─────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2

@@ -1,12 +1,24 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
-export default function ContactB2BSection({ extraClass = '', buttonClass = '', onMouseEnter = () => {}, onMouseLeave = () => {} }) {
+export default function ContactB2BSection({ 
+  extraClass = '', 
+  buttonClass = '', 
+  onMouseEnter = () => {}, 
+  onMouseLeave = () => {} 
+}) {
   const t = useTranslations('home.contact')
+  const router = useRouter()
+  const locale = useLocale()
+  
+  const handleContactClick = () => {
+    router.push(`/${locale}/b2b/contact`)
+  }
   
   return (
     <section className={`py-24 ${extraClass}`}>
@@ -26,11 +38,24 @@ export default function ContactB2BSection({ extraClass = '', buttonClass = '', o
           </p>
           
           <motion.button
+            onClick={handleContactClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            className={`${buttonClass} bg-doré text-anthracite px-12 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all inline-flex items-center gap-3 group mb-10`}
+            className={`
+              ${buttonClass} 
+              relative z-50
+              bg-doré text-anthracite 
+              px-12 py-5 rounded-full 
+              font-bold text-lg 
+              shadow-2xl hover:shadow-3xl 
+              transition-all 
+              inline-flex items-center gap-3 
+              group mb-10
+              cursor-pointer
+              hover:bg-doré/90
+            `}
           >
             {t('cta')}
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
