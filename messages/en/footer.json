@@ -1,0 +1,88 @@
+{
+  "footer": {
+
+      "title": "Alforis",
+      "description": "Wealth management solutions for professionals",
+      "contact": {
+        "phone": "+33 6 46 46 22 91",
+        "email": "pro@alforis.fr",
+        "support": "support@alforis.fr",
+        "address": "France • Spain • Portugal",
+        "label": "Contact"
+      },
+      "social": {
+        "linkedin": "Follow Alforis on LinkedIn",
+        "youtube": "Follow Alforis on YouTube"
+      },
+      "sections": {
+        "solutions": {
+          "title": "Solutions",
+          "wealth": "Wealth Management",
+          "advisory": "Financial Advisory",
+          "tax": "Tax Optimization",
+          "transmission": "Estate Planning"
+        },
+        "partners": {
+          "title": "Partners",
+          "become": "Become a Partner",
+          "space": "Partner Portal",
+          "affiliation": "Affiliate Program",
+          "api": "API & Integrations"
+        },
+        "resources": {
+          "title": "Resources",
+          "documentation": "Documentation",
+          "cases": "Case Studies",
+          "webinars": "Webinars",
+          "blog": "Professional Blog"
+        },
+        "company": {
+          "title": "Company",
+          "about": "About Us",
+          "team": "Team",
+          "careers": "Careers",
+          "press": "Press"
+        }
+      },
+      "links": {
+        "legal": "Legal Notice",
+        "legalAria": "View legal notice",
+        "cgu": "Professional Terms",
+        "cguAria": "View professional terms",
+        "privacy": "Privacy Policy",
+        "privacyAria": "View our privacy policy",
+        "rgpd": "Personal Data (GDPR)",
+        "rgpdAria": "Learn about data processing",
+        "cookies": "Manage Cookies",
+        "cookiesAria": "Manage cookie preferences"
+      },
+      "certifications": {
+        "title": "Certified by:",
+        "orias": "ORIAS",
+        "cncp": "CNCP",
+        "iso": "ISO 27001"
+      },
+      "compliance": {
+        "chamber": "Member of the National Chamber of Wealth Management Advisors",
+        "iso": "ISO 27001 Certified",
+        "rgpd": "GDPR Compliant"
+      },
+      "legal": {
+        "copyright": "© {year} Alforis. All rights reserved.",
+        "name": "Alforis",
+        "status": "SARL with capital of €10,000",
+        "rcs": "RCS Paris 123 456 789",
+        "orias": "ORIAS No.: 12345678",
+        "siret": "SIRET: 123 456 789 00010",
+        "tva": "VAT: FR12345678901"
+      },
+      "newsletter": {
+        "title": "Stay informed on professional news",
+        "description": "Receive our market analyses, studies and advice for professionals.",
+        "placeholder": "Professional email",
+        "button": "Subscribe",
+        "consent": "By subscribing, you agree to receive our professional communications and privacy policy."
+      },
+      "contactPro": "Professional Contact"
+    }
+  }

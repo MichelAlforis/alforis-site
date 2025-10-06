@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import PageLayoutB2B from '@/components/pageB2B/PageLayoutB2B'
+import PageLayoutB2B from '@/components/b2b/PageLayoutB2B'
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
 
 export default function ContactPage() {

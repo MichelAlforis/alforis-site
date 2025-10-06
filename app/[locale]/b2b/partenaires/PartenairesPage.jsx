@@ -2,8 +2,9 @@
 
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import PageLayoutB2B from '@/components/pageB2B/PageLayoutB2B'
+import PageLayoutB2B from '@/components/b2b/PageLayoutB2B'
 import { CheckCircle, Handshake, Shield, Target, TrendingUp, Award, FileCheck, MessageSquare, ClipboardCheck, Rocket, ChevronRight, Phone, ArrowRight } from 'lucide-react'
+import CalComButtonB2B from '@/components/b2b/CalComButtonB2B'
 
 export default function PartenairesPage() {
   const t = useTranslations('partenaires')
@@ -241,49 +242,41 @@ export default function PartenairesPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
-            {t('cta.title')}
-          </h2>
-          
-          <p className="text-xl mb-4 text-acier dark:text-ivoire/80">{t('cta.subtitle')}</p>
-          <p className="text-base mb-8 text-anthracite dark:text-ivoire/70">{t('cta.description')}</p>
 
-          <div className="bg-white dark:bg-anthracite/80 rounded-2xl p-8 border-2 border-doré/20 mb-8">
-            <h3 className="text-lg font-title font-bold text-ardoise dark:text-vertSauge mb-4">
-              {t('cta.process.title')}
-            </h3>
-            <ul className="space-y-3 text-left max-w-2xl mx-auto">
-              {Array.from({ length: 4 }, (_, idx) => (
-                <li key={idx} className="flex items-start space-x-3">
-                  <CheckCircle className="h-5 w-5 text-vertSauge flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-anthracite dark:text-ivoire/70">
-                    {t(`cta.process.steps.${idx}`)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+<section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
+      {t('cta.title')}
+    </h2>
+    
+    <p className="text-xl mb-4 text-acier dark:text-ivoire/80">{t('cta.subtitle')}</p>
+    <p className="text-base mb-8 text-anthracite dark:text-ivoire/70">{t('cta.description')}</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-alforis-retro flex items-center justify-center space-x-2 hover:scale-105 transition-transform">
-              <Phone className="h-5 w-5" />
-              <span>{t('cta.btn')}</span>
-              <ChevronRight className="h-5 w-5" />
-            </button>
-            
-            <button className="btn-alforis-outline flex items-center justify-center space-x-2 hover:scale-105 transition-transform">
-              <ArrowRight className="h-5 w-5" />
-              <span>{t('cta.alternative')}</span>
-            </button>
-          </div>
+    <div className="bg-white dark:bg-anthracite/80 rounded-2xl p-8 border-2 border-doré/20 mb-8">
+      <h3 className="text-lg font-title font-bold text-ardoise dark:text-vertSauge mb-4">
+        {t('cta.process.title')}
+      </h3>
+      <ul className="space-y-3 text-left max-w-2xl mx-auto">
+        {Array.from({ length: 4 }, (_, idx) => (
+          <li key={idx} className="flex items-start space-x-3">
+            <CheckCircle className="h-5 w-5 text-vertSauge flex-shrink-0 mt-0.5" />
+            <span className="text-sm text-anthracite dark:text-ivoire/70">
+              {t(`cta.process.steps.${idx}`)}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-          <p className="text-sm italic text-acier dark:text-ivoire/60 mt-8">
-            {t('cta.commitment')}
-          </p>
-        </div>
-      </section>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <CalComButtonB2B type="partnership" />
+    </div>
+
+    <p className="text-sm italic text-acier dark:text-ivoire/60 mt-8">
+      {t('cta.commitment')}
+    </p>
+  </div>
+</section>
     </PageLayoutB2B>
   )
 }

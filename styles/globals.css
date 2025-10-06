@@ -5,6 +5,7 @@
 @import './components/prose.css';
 @import './components/toast.css';
 @import './components/button.css';
+@import './components/footer-b2b.css';
 
 @tailwind base;
 @tailwind components;

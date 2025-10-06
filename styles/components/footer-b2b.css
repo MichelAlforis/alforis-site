@@ -1,0 +1,156 @@
+/* components/footer-b2b.css */
+
+/* Animation pour les sections accordéon mobile */
+@layer components {
+  .footer-accordion-content {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover effect pour les liens du footer */
+  .footer-link {
+    @apply relative;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(242 158 76); /* doré */
+    transition: width 0.3s ease;
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  /* Badge de certification avec animation */
+  .certification-badge {
+    @apply text-xs font-sans text-vertSauge border border-vertSauge/40 px-4 py-2 rounded-lg;
+    @apply transition-all duration-200 hover:border-doré hover:text-doré hover:shadow-lg;
+  }
+
+  /* Section footer avec séparateur stylisé */
+  .footer-divider {
+    @apply border-t border-vertSauge/20;
+    position: relative;
+  }
+
+  .footer-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgb(242 158 76),
+      transparent
+    );
+  }
+
+  /* Animation du chevron accordéon */
+  .accordion-chevron {
+    @apply transition-transform duration-300;
+  }
+
+  .accordion-chevron.open {
+    @apply rotate-180;
+  }
+
+  /* Effet de hover pour les icônes réseaux sociaux */
+  .social-icon {
+    @apply transition-all duration-200;
+  }
+
+  .social-icon:hover {
+    @apply scale-110 drop-shadow-doré;
+  }
+
+  /* Grille responsive optimisée */
+  .footer-grid {
+    @apply grid gap-8;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      @apply grid-cols-5;
+    }
+  }
+
+  /* Effet de focus pour l'accessibilité */
+  .footer-link:focus-visible,
+  .footer-button:focus-visible {
+    @apply outline-none ring-2 ring-doré ring-offset-2 ring-offset-ardoise rounded;
+  }
+
+  /* Badge de compliance avec checkmark */
+  .compliance-item {
+    @apply flex items-start gap-2;
+  }
+
+  .compliance-checkmark {
+    @apply text-doré flex-shrink-0;
+  }
+}
+
+/* Animations optionnelles */
+@layer utilities {
+  /* Fade in pour le contenu de l'accordéon */
+  @keyframes fadeInAccordion {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .accordion-content-visible {
+    animation: fadeInAccordion 0.3s ease-out;
+  }
+
+  /* Pulse subtil pour les certifications */
+  @keyframes pulseCertification {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .certification-pulse {
+    animation: pulseCertification 2s ease-in-out infinite;
+  }
+}
+
+/* Dark mode optimisations (si nécessaire) */
+@media (prefers-color-scheme: dark) {
+  .footer-b2b {
+    @apply bg-ardoise text-ivoire;
+  }
+}
+
+/* Print styles */
+@media print {
+  footer {
+    @apply bg-white text-anthracite;
+  }
+
+  .social-icon,
+  .accordion-chevron {
+    @apply hidden;
+  }
+
+  .footer-link::after {
+    @apply hidden;
+  }
+}

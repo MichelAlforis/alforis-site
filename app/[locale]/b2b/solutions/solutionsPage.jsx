@@ -2,8 +2,9 @@
 
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import PageLayoutB2B from '@/components/pageB2B/PageLayoutB2B'
+import PageLayoutB2B from '@/components/b2b/PageLayoutB2B'
 import { CheckCircle, Handshake, Shield, Target, TrendingUp, Award, Users, BarChart3, ChevronRight, Phone, Download } from 'lucide-react'
+import CalComButtonB2B from '@/components/b2b/CalComButtonB2B'
 
 export default function SolutionsPage() {
   const t = useTranslations('solutions')
@@ -274,30 +275,22 @@ export default function SolutionsPage() {
       </section>
 
       {/* CTA Final */}
-      <section id="contact" className="py-16 md:py-24 bg-gradient-to-r from-ardoise via-acier to-ardoise text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-doré">
-            {t('cta.title')}
-          </h2>
-          
-          <p className="text-xl mb-4 text-ivoire/90">{t('cta.subtitle')}</p>
-          <p className="text-base mb-6 text-ivoire/70">{t('cta.process')}</p>
-          <p className="text-sm italic text-ivoire/60 mb-10">{t('cta.commitment')}</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-alforis-retro flex items-center justify-center space-x-2 hover:scale-105 transition-transform">
-              <Phone className="h-5 w-5" />
-              <span>{t('cta.btn')}</span>
-              <ChevronRight className="h-5 w-5" />
-            </button>
-            
-            <button className="btn-alforis-outline flex items-center justify-center space-x-2 hover:scale-105 transition-transform">
-              <Download className="h-5 w-5" />
-              <span>{t('cta.alternative')}</span>
-            </button>
-          </div>
-        </div>
-      </section>
+<section id="contact" className="py-16 md:py-24 bg-gradient-to-r from-ardoise via-acier to-ardoise text-white">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-doré">
+      {t('cta.title')}
+    </h2>
+    
+    <p className="text-xl mb-4 text-ivoire/90">{t('cta.subtitle')}</p>
+    <p className="text-base mb-6 text-ivoire/70">{t('cta.process')}</p>
+    <p className="text-sm italic text-ivoire/60 mb-10">{t('cta.commitment')}</p>
+
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <CalComButtonB2B type="discovery" />
+    </div>
+  </div>
+</section>
     </PageLayoutB2B>
   )
 }

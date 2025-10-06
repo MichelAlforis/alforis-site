@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import PageLayoutB2B from '@/components/pageB2B/PageLayoutB2B'
+import PageLayoutB2B from '@/components/b2b/PageLayoutB2B'
+import CalComButtonB2B from '@/components/b2b/CalComButtonB2B'
 import { 
   Download, 
   FileText, 
@@ -306,28 +307,21 @@ export default function RessourcesPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
-            {t('finalCta.title')}
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-acier dark:text-ivoire/80">
-            {t('finalCta.subtitle')}
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-alforis-retro inline-flex items-center space-x-2">
-              <Users className="h-5 w-5" />
-              <span>{t('finalCta.primary')}</span>
-            </button>
-            
-            <button className="btn-alforis-outline inline-flex items-center space-x-2">
-              <Download className="h-5 w-5" />
-              <span>{t('finalCta.secondary')}</span>
-            </button>
-          </div>
-        </div>
-      </section>
+<section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-ardoise dark:text-vertSauge">
+      {t('finalCta.title')}
+    </h2>
+    <p className="text-lg md:text-xl mb-8 text-acier dark:text-ivoire/80">
+      {t('finalCta.subtitle')}
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <CalComButtonB2B type="info" />
+    </div>
+  </div>
+</section>
     </PageLayoutB2B>
   )
 }

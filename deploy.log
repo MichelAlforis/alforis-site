@@ -7435,3 +7435,151 @@ Use --update-env to update environment variables
 [PM2] Saving current process list...
 [PM2] Successfully saved in /root/.pm2/dump.pm2
 [2025-10-06 09:31:42] 🚀 Déploiement complet
+From github.com:MichelAlforis/alforis-site
+ * branch            main       -> FETCH_HEAD
+   4fabb51..8b1cbd6  main       -> origin/main
+Updating 4fabb51..8b1cbd6
+Fast-forward
+ .../b2b/Components/Home/ContactB2BSection.jsx      |    2 +-
+ .../b2b/Components/Home/CountriesSection.jsx       |    2 +-
+ .../b2b/Components/Home/DifferentiatorsSection.jsx |    2 +-
+ .../b2b/Components/Home/HeroB2BSection.jsx         |    2 +-
+ app/[locale]/b2b/Components/Home/RoleSection.jsx   |    2 +-
+ .../b2b/Components/Home/ServicesB2BSection.jsx     |    2 +-
+ .../b2b/Components/Home/TargetsSection.jsx         |    2 +-
+ app/[locale]/b2b/contact/ContactPage.jsx           |  211 ++
+ app/[locale]/b2b/contact/page.jsx                  |   28 +
+ app/[locale]/b2b/page.jsx                          |   21 +-
+ app/[locale]/b2b/partenaires/PartenairesPage.jsx   |  289 ++
+ app/[locale]/b2b/partenaires/page.jsx              |   52 +
+ app/[locale]/b2b/ressources/page.jsx               |   33 +
+ app/[locale]/b2b/ressources/ressourcesPage.jsx     |  333 +++
+ app/[locale]/b2b/solutions/page.jsx                |   52 +
+ app/[locale]/b2b/solutions/solutionsPage.jsx       |  303 ++
+ app/[locale]/layout.jsx                            |   19 +-
+ app/[locale]/page.jsx                              |    1 +
+ app/api/contact-b2b/route.js                       |  109 +
+ app/components/navbar/NavbarConfig.jsx             |   13 +-
+ app/components/navbar/NavbarDesktop.jsx            |    8 +-
+ app/particulier/a-propos/AProposPageDesktop.jsx    |    2 +-
+ app/particulier/a-propos/PageClient.jsx            |    2 +-
+ .../approchepersonnalisee/PageClient.jsx           |    2 +-
+ app/particulier/blog-studio/PageClient.jsx         |    2 +-
+ app/particulier/faq/PageClient.jsx                 |    2 +-
+ app/particulier/marketplace/PageClient.jsx         |    2 +-
+ app/particulier/parcours/PageClient.jsx            |    2 +-
+ app/particulier/prendre-rendez-vous/PageClient.jsx |    2 +-
+ app/particulier/services/PageClient.jsx            |    2 +-
+ app/shared/contact/PageClient.jsx                  |    2 +-
+ app/shared/mentionslegales/PageClient.jsx          |    2 +-
+ .../politique-de-confidentialite/PageClient.jsx    |    2 +-
+ components/pageB2B/HeaderFixedB2B.jsx              |  132 +
+ components/pageB2B/PageLayoutB2B.jsx               |   41 +
+ .../AnimatedBackground.jsx                         |    0
+ .../{page => pageParticulier}/HeaderFixed copy.jsx |    0
+ .../{page => pageParticulier}/HeaderFixed.jsx      |    0
+ .../{page => pageParticulier}/PageLayout.jsx       |    0
+ components/{page => pageParticulier}/TabsBar.jsx   |    0
+ deploy.log                                         | 2918 ++++++++++++++++++++
+ i18n.js                                            |   66 +-
+ lib/rateLimit.js                                   |   18 +
+ messages/en/common.json                            |   64 +
+ messages/en/contact.json                           |   29 +
+ messages/{en.json => en/home.json}                 |    6 +-
+ messages/en/partenaires.json                       |  123 +
+ messages/en/ressources.json                        |  136 +
+ messages/en/solutions.json                         |  193 ++
+ messages/es/common.json                            |   64 +
+ messages/es/contact.json                           |   29 +
+ messages/{es.json => es/home.json}                 |    5 -
+ messages/es/partenaires.json                       |  122 +
+ messages/es/ressources.json                        |  136 +
+ messages/es/solutions.json                         |  192 ++
+ messages/fr/common.json                            |   64 +
+ messages/fr/contact.json                           |   29 +
+ messages/{fr.json => fr/home.json}                 |    8 +-
+ messages/fr/partenaires.json                       |  122 +
+ messages/fr/ressources.json                        |  136 +
+ messages/fr/solutions.json                         |  193 ++
+ messages/pt/common.json                            |   64 +
+ messages/pt/contact.json                           |   29 +
+ messages/{pt.json => pt/home.json}                 |    5 -
+ messages/pt/partenaires.json                       |  122 +
+ messages/pt/ressources.json                        |  136 +
+ messages/pt/solutions.json                         |  192 ++
+ package-lock.json                                  |   22 +-
+ package.json                                       |    4 +-
+ 69 files changed, 6821 insertions(+), 89 deletions(-)
+ create mode 100644 app/[locale]/b2b/contact/ContactPage.jsx
+ create mode 100644 app/[locale]/b2b/contact/page.jsx
+ create mode 100644 app/[locale]/b2b/partenaires/PartenairesPage.jsx
+ create mode 100644 app/[locale]/b2b/partenaires/page.jsx
+ create mode 100644 app/[locale]/b2b/ressources/page.jsx
+ create mode 100644 app/[locale]/b2b/ressources/ressourcesPage.jsx
+ create mode 100644 app/[locale]/b2b/solutions/page.jsx
+ create mode 100644 app/[locale]/b2b/solutions/solutionsPage.jsx
+ create mode 100644 app/api/contact-b2b/route.js
+ create mode 100644 components/pageB2B/HeaderFixedB2B.jsx
+ create mode 100644 components/pageB2B/PageLayoutB2B.jsx
+ rename components/{page => pageParticulier}/AnimatedBackground.jsx (100%)
+ rename components/{page => pageParticulier}/HeaderFixed copy.jsx (100%)
+ rename components/{page => pageParticulier}/HeaderFixed.jsx (100%)
+ rename components/{page => pageParticulier}/PageLayout.jsx (100%)
+ rename components/{page => pageParticulier}/TabsBar.jsx (100%)
+ create mode 100644 lib/rateLimit.js
+ create mode 100644 messages/en/common.json
+ create mode 100644 messages/en/contact.json
+ rename messages/{en.json => en/home.json} (88%)
+ create mode 100644 messages/en/partenaires.json
+ create mode 100644 messages/en/ressources.json
+ create mode 100644 messages/en/solutions.json
+ create mode 100644 messages/es/common.json
+ create mode 100644 messages/es/contact.json
+ rename messages/{es.json => es/home.json} (89%)
+ create mode 100644 messages/es/partenaires.json
+ create mode 100644 messages/es/ressources.json
+ create mode 100644 messages/es/solutions.json
+ create mode 100644 messages/fr/common.json
+ create mode 100644 messages/fr/contact.json
+ rename messages/{fr.json => fr/home.json} (88%)
+ create mode 100644 messages/fr/partenaires.json
+ create mode 100644 messages/fr/ressources.json
+ create mode 100644 messages/fr/solutions.json
+ create mode 100644 messages/pt/common.json
+ create mode 100644 messages/pt/contact.json
+ rename messages/{pt.json => pt/home.json} (89%)
+ create mode 100644 messages/pt/partenaires.json
+ create mode 100644 messages/pt/ressources.json
+ create mode 100644 messages/pt/solutions.json
+
+added 2 packages, and audited 1001 packages in 5s
+
+336 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (4 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/[locale]/b2b/ressources/page.jsx
+Module not found: Can't resolve './RessourcesPage'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors

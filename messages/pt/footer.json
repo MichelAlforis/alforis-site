@@ -1,0 +1,88 @@
+{
+  "footer": {
+
+      "title": "Alforis",
+      "description": "Soluções patrimoniais para profissionais",
+      "contact": {
+        "phone": "+33 6 46 46 22 91",
+        "email": "pro@alforis.fr",
+        "support": "support@alforis.fr",
+        "address": "França • Espanha • Portugal",
+        "label": "Contacto"
+      },
+      "social": {
+        "linkedin": "Siga a Alforis no LinkedIn",
+        "youtube": "Siga a Alforis no YouTube"
+      },
+      "sections": {
+        "solutions": {
+          "title": "Soluções",
+          "wealth": "Gestão de património",
+          "advisory": "Consultoria financeira",
+          "tax": "Otimização fiscal",
+          "transmission": "Transmissão"
+        },
+        "partners": {
+          "title": "Parceiros",
+          "become": "Tornar-se parceiro",
+          "space": "Espaço parceiro",
+          "affiliation": "Programa de afiliação",
+          "api": "API e integrações"
+        },
+        "resources": {
+          "title": "Recursos",
+          "documentation": "Documentação",
+          "cases": "Estudos de caso",
+          "webinars": "Webinars",
+          "blog": "Blog profissional"
+        },
+        "company": {
+          "title": "Empresa",
+          "about": "Sobre nós",
+          "team": "Equipa",
+          "careers": "Carreiras",
+          "press": "Imprensa"
+        }
+      },
+      "links": {
+        "legal": "Aviso legal",
+        "legalAria": "Consultar o aviso legal",
+        "cgu": "Condições de Utilização Profissionais",
+        "cguAria": "Consultar as condições de utilização",
+        "privacy": "Política de privacidade",
+        "privacyAria": "Consultar a nossa política de privacidade",
+        "rgpd": "Dados pessoais (RGPD)",
+        "rgpdAria": "Saiba mais sobre tratamento de dados",
+        "cookies": "Gerir cookies",
+        "cookiesAria": "Gerir preferências de cookies"
+      },
+      "certifications": {
+        "title": "Certificado por:",
+        "orias": "ORIAS",
+        "cncp": "CNCP",
+        "iso": "ISO 27001"
+      },
+      "compliance": {
+        "chamber": "Membro da Câmara Nacional de Consultores de Gestão de Património",
+        "iso": "Certificado ISO 27001",
+        "rgpd": "Conforme com o RGPD"
+      },
+      "legal": {
+        "copyright": "© {year} Alforis. Todos os direitos reservados.",
+        "name": "Alforis",
+        "status": "SARL com capital de 10.000€",
+        "rcs": "RCS Paris 123 456 789",
+        "orias": "N° ORIAS: 12345678",
+        "siret": "SIRET: 123 456 789 00010",
+        "tva": "IVA intracomunitário: FR12345678901"
+      },
+      "newsletter": {
+        "title": "Mantenha-se informado sobre as notícias profissionais",
+        "description": "Receba as nossas análises de mercado, estudos e conselhos para profissionais.",
+        "placeholder": "E-mail profissional",
+        "button": "Subscrever",
+        "consent": "Ao subscrever, aceita receber as nossas comunicações profissionais e a nossa política de privacidade."
+      },
+      "contactPro": "Contacto profissional"
+    }
+  }
