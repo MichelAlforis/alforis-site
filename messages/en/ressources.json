@@ -1,0 +1,136 @@
+{
+
+    "meta": {
+      "title": "Resources & institutional tools | Alforis TPM",
+      "description": "Documents, compliance tools, event calendar and FAQ for asset managers and institutional investors."
+    },
+    "hero": {
+      "badge": "Public Data Room",
+      "title": "Everything you need to understand our model",
+      "subtitle": "Documents, references and compliance tools",
+      "intro": "Access all the resources necessary for your due diligence and to better understand our Third Party Marketing approach."
+    },
+    "documents": {
+      "title": "Downloadable documents",
+      "subtitle": "All essential documentation in one place",
+      "pages": "pages",
+      "note": "All documents are regularly updated. For the latest version or specific information, contact us directly.",
+      "items": {
+        "capabilities": {
+          "title": "Alforis Capabilities Deck",
+          "desc": "Complete presentation of our services, expertise and European distribution approach."
+        },
+        "onepager": {
+          "title": "TPM One-Pager",
+          "desc": "Summary of our Third Party Marketing model, our markets and our typical engagement process."
+        },
+        "reporting": {
+          "title": "Monthly Reporting Template",
+          "desc": "Standard format for our activity reports: KPIs, meetings, pipeline and market feedback."
+        },
+        "checklist": {
+          "title": "RFI/RFP Checklist",
+          "desc": "Complete questionnaire to facilitate your due diligence and assess our alignment with your needs."
+        },
+        "vendor": {
+          "title": "Vendor Pack (KYC + Certificates)",
+          "desc": "Complete administrative file: company information, insurance certificates, AFTPM membership, compliance."
+        },
+        "compliance": {
+          "title": "AFTPM / CNCGP Compliance Sheet",
+          "desc": "Details on our adherence to professional codes and regulatory standards in our markets."
+        }
+      }
+    },
+    "events": {
+      "title": "Calendar & Events",
+      "subtitle": "Meet us at major industry events",
+      "cta": "Schedule a meeting at the event",
+      "mainCta": "View full events calendar",
+      "types": {
+        "salon": "Trade Show",
+        "conference": "Conference",
+        "forum": "Forum",
+        "summit": "Summit"
+      },
+      "items": {
+        "patrimonia": {
+          "name": "Patrimonia Lyon",
+          "desc": "Leading wealth management event in France. Ideal opportunity to discuss local distribution strategies."
+        },
+        "fundspeople": {
+          "name": "FundsPeople Lisbon",
+          "desc": "Iberian asset management reference event. Focus on Southern European distribution trends."
+        },
+        "parisff": {
+          "name": "Paris Fund Forum",
+          "desc": "International institutional investors gathering. Strategic discussions on European distribution."
+        },
+        "iberian": {
+          "name": "Iberian Asset Management Summit",
+          "desc": "Specialized event for Spain & Portugal markets. In-depth sessions on local distribution challenges."
+        }
+      }
+    },
+    "faq": {
+      "title": "TPM FAQ",
+      "subtitle": "Answers to the most common questions",
+      "moreQuestions": "Still have questions?",
+      "contactCta": "Contact our team",
+      "items": {
+        "tpm": {
+          "question": "What is a TPM mandate?",
+          "answer": "A Third Party Marketing (TPM) mandate is a distribution agreement where Alforis represents your asset management firm in specific markets (France, Luxembourg, Spain, Portugal). We act as an extension of your team, opening doors with local distributors and institutional investors while you maintain full control over investment decisions and client relationships."
+        },
+        "remuneration": {
+          "question": "How is compensation structured?",
+          "answer": "Our model combines a monthly retainer (covering operational costs: travel, marketing, infrastructure) and a success fee on assets raised and/or mandates won. The retainer starts from €5K/month excluding VAT with a minimum 12-month commitment. Success fee details are tailored to your business model and discussed transparently during initial negotiations."
+        },
+        "timelines": {
+          "question": "What are typical market access timelines?",
+          "answer": "Institutional distribution is a marathon, not a sprint. First qualified meetings: 1-2 months. First due diligence processes: 3-6 months. First mandates/listings: 6-12 months. Significant traction: 18-24 months. These timelines vary based on your product complexity, track record, and market receptiveness."
+        },
+        "marketing": {
+          "question": "What marketing materials should we provide?",
+          "answer": "Essential: Factsheets, KIID/KID, fund presentations, track record reports, investment team bios. Recommended: Case studies, due diligence questionnaire responses, SFDR/ESG documentation. We help adapt these materials for local markets (translation, regulatory compliance, cultural nuances), but we need solid foundational materials to start from."
+        }
+      }
+    },
+    "press": {
+      "title": "Press & Publications",
+      "subtitle": "Our media presence and thought leadership",
+      "cta": "View all publications",
+      "articles": {
+        "0": {
+          "title": "The future of European distribution for boutique asset managers",
+          "excerpt": "Analysis of distribution trends and opportunities for independent asset managers in Southern Europe.",
+          "source": "FundsPeople Magazine",
+          "date": "March 2025"
+        },
+        "1": {
+          "title": "Selectivity in TPM: quality over quantity",
+          "excerpt": "Why limiting mandates creates better outcomes for asset managers and investors.",
+          "source": "IPE.com",
+          "date": "February 2025"
+        },
+        "2": {
+          "title": "Iberian markets: untapped potential for international funds",
+          "excerpt": "Deep dive into distribution opportunities in Spain and Portugal for foreign asset managers.",
+          "source": "Citywire",
+          "date": "January 2025"
+        },
+        "3": {
+          "title": "SFDR compliance and distribution: what asset managers need to know",
+          "excerpt": "Practical guide to navigating European sustainability regulations in your distribution strategy.",
+          "source": "Funds Europe",
+          "date": "December 2024"
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Need additional information?",
+      "subtitle": "Our team is here to answer all your questions",
+      "primary": "Schedule a discussion",
+      "secondary": "Download complete pack"
+    }
+  }

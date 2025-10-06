@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 
 export default function CountriesSection({ extraClass = '' }) {
-  const t = useTranslations('countries')
+  const t = useTranslations('home.countries')
   const [activeCountry, setActiveCountry] = useState(null)
 
   const countries = [

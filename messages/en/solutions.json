@@ -1,0 +1,193 @@
+{
+
+    "meta": {
+      "title": "Institutional Distribution Partnerships | Alforis TPM",
+      "description": "Let's build your distribution strategy across 4 European markets together. Partnership-driven, selective and transparent approach."
+    },
+    "nav": {
+      "approach": "Approach",
+      "engagement": "Engagement",
+      "process": "Process",
+      "results": "Results",
+      "contact": "Get Started"
+    },
+    "hero": {
+      "badge": "Institutional distribution partnerships",
+      "title": "Let's build your European growth together",
+      "subtitle": "A selective TPM partner for sustainable growth",
+      "intro": "You're looking for more than a one-off distributor. You want a partner who understands your DNA, faithfully represents your investment approach, and commits for the long term. That's exactly what we offer."
+    },
+    "partnership": {
+      "title": "Our partnership vision",
+      "subtitle": "3 pillars for successful long-term collaboration",
+      "pillars": {
+        "selectivity": {
+          "title": "Deliberate selectivity",
+          "desc": "Maximum 3-5 simultaneous mandates. We refuse dispersion to guarantee quality and depth for each partner."
+        },
+        "alignment": {
+          "title": "Strategic alignment",
+          "desc": "Multi-year contracts with shared objectives, clear governance and transparent reporting. We succeed together."
+        },
+        "independence": {
+          "title": "Total independence",
+          "desc": "No banking shareholders. Our recommendations are guided by one priority only: our partners' success."
+        }
+      }
+    },
+    "ideal": {
+      "title": "Our ideal partners",
+      "subtitle": "With whom do we build lasting relationships?",
+      "profiles": {
+        "boutiques": {
+          "title": "International asset management boutiques",
+          "desc": "Between €200M and €5bn in assets, with a differentiating investment philosophy and solid track record. You're looking to diversify your investor base in Southern Europe."
+        },
+        "specialists": {
+          "title": "Thematic specialists",
+          "desc": "Focused managers (sector equity, specialized credit, alternative strategies) seeking institutional investor access in French-speaking markets without diluting their positioning."
+        },
+        "emerging": {
+          "title": "Ambitious emerging players",
+          "desc": "Recently spun-off teams or new entrants with a compelling proposition, ready to invest in a long-term relationship to build their European presence."
+        }
+      }
+    },
+    "engagement": {
+      "title": "Our partnership engagement model",
+      "subtitle": "A structured relationship over 24-36 months in 3 phases",
+      "phases": {
+        "foundation": {
+          "tag": "Months 1-6",
+          "title": "Foundations & strategic alignment",
+          "objectives": "In-depth diagnostic, market positioning, commercial preparation",
+          "deliverables": [
+            "Complete audit of your offering and documentation (SFDR/MiFID II compliance)",
+            "Decision-maker mapping of 30-50 priority target accounts",
+            "Localized storytelling by market (FR/ES/PT) and segment",
+            "24-month distribution roadmap with quarterly milestones"
+          ]
+        },
+        "acceleration": {
+          "tag": "Months 7-18",
+          "title": "Accelerated commercial development",
+          "objectives": "Market penetration, pipeline building, first mandates",
+          "deliverables": [
+            "≥ 60 qualified meetings with institutional decision-makers",
+            "Thematic roadshow hosting (3-4 per year)",
+            "Due diligence and listing process management",
+            "First institutional mandates and/or platform listings"
+          ]
+        },
+        "maturity": {
+          "tag": "Months 19-36",
+          "title": "Consolidation & sustainable growth",
+          "objectives": "Expansion, retention, progressive empowerment",
+          "deliverables": [
+            "Extension to new segments (family offices, private banks)",
+            "Product launch support in our markets",
+            "Progressive skills transfer to your internal teams",
+            "Annual review and strategic adjustment"
+          ]
+        }
+      }
+    },
+    "how": {
+      "title": "How do we work day-to-day?",
+      "subtitle": "Transparency, rigor and close collaboration",
+      "practices": [
+        {
+          "title": "Monthly governance",
+          "desc": "Strategic checkpoint with your teams: pipeline review, market feedback, tactical adjustments, next month preparation."
+        },
+        {
+          "title": "Real-time shared CRM",
+          "desc": "Full visibility on every interaction, meeting reports, opportunity status. You stay in control."
+        },
+        {
+          "title": "Structured reporting",
+          "desc": "Quarterly dashboard: commercial KPIs, qualitative market feedback analysis, adjustment recommendations."
+        },
+        {
+          "title": "Continuous co-construction",
+          "desc": "We're not mere executors. Every strategy is co-built, challenged and refined together."
+        }
+      ]
+    },
+    "results": {
+      "title": "Expected results over 24 months",
+      "subtitle": "Concrete milestones to measure our joint impact",
+      "milestones": [
+        "6-10 new institutional partners (private banks, family offices, insurers)",
+        "€30-80M additional AUM depending on your positioning and capacity",
+        "Listing on 2-4 major distribution platforms (France/Luxembourg)",
+        "Established and credible presence in 3-4 strategic markets",
+        "Internal team trained and able to continue development"
+      ]
+    },
+    "cases": {
+      "title": "Ongoing partnerships",
+      "subtitle": "Examples of lasting collaborations (details under NDA)",
+      "items": [
+        {
+          "type": "Equity Boutique (UK)",
+          "challenge": "Zero institutional presence in Southern Europe, unstructured sales process",
+          "approach": "36-month partnership with full support: storytelling repositioning, SFDR documentation, targeted roadshows",
+          "results": "18 months: €55M raised from 7 institutions, €120M pipeline, commercial team trained"
+        },
+        {
+          "type": "Alternative Credit (CH)",
+          "challenge": "Complex strategy, difficult to explain, need to penetrate French institutional market",
+          "approach": "Co-constructed simplified narrative, selective focus on 15 large institutional accounts",
+          "results": "24 months: 3 institutional mandates (€85M), established presence, advanced discussions with 4 others"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Transparent economic model",
+      "subtitle": "Total interest alignment",
+      "model": {
+        "retainer": {
+          "title": "Monthly retainer",
+          "desc": "Covers operational costs (travel, marketing, infrastructure). Minimum 12-month commitment.",
+          "amount": "From €5K/month excl. VAT"
+        },
+        "success": {
+          "title": "Success fee",
+          "desc": "Compensation on assets raised and/or mandates won. Tailored details based on your economic model.",
+          "amount": "Variable by agreement"
+        },
+        "note": "We favor long-term partnerships (24-36 months) to build lasting results. No one-off assignments < 12 months."
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "How many partners do you manage simultaneously?",
+          "a": "Maximum 5 active mandates. Currently, we have 2 available slots for 2025. This selectivity guarantees quality and availability."
+        },
+        {
+          "q": "What is the minimum commitment period?",
+          "a": "12 months minimum, but our best results come over 24-36 months. Institutional distribution is a marathon, not a sprint."
+        },
+        {
+          "q": "Do you work on geographic exclusivity?",
+          "a": "Yes, in our 4 markets (FR/ES/PT/LU). You can have other TPM partners elsewhere in Europe, but we are your sole representative in our zone."
+        },
+        {
+          "q": "What are your selection criteria?",
+          "a": "Track record ≥ 3 years, AUM ≥ €200M, clear investment philosophy, stable team, willingness to invest in the relationship. We decline 70% of requests."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to explore a partnership?",
+      "subtitle": "Let's start with a 45-minute exploratory conversation",
+      "process": "We discuss your objectives, assess mutual alignment, and determine if a partnership makes sense for both parties.",
+      "commitment": "No obligation, confidential, and candid.",
+      "btn": "Book an initial conversation",
+      "alternative": "Or download our partnership deck (PDF)"
+    }
+  }
+ 

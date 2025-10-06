@@ -1,0 +1,192 @@
+{
+
+    "meta": {
+      "title": "Alianzas de distribución institucional | Alforis TPM",
+      "description": "Construyamos juntos su estrategia de distribución en 4 mercados europeos. Enfoque de alianza, selectivo y transparente."
+    },
+    "nav": {
+      "approach": "Enfoque",
+      "engagement": "Compromiso",
+      "process": "Proceso",
+      "results": "Resultados",
+      "contact": "Comenzar"
+    },
+    "hero": {
+      "badge": "Alianzas de distribución institucional",
+      "title": "Construyamos juntos su desarrollo en Europa del Sur",
+      "subtitle": "Un socio TPM selectivo para un crecimiento sostenible",
+      "intro": "Busca más que un distribuidor puntual. Quiere un socio que comprenda su ADN, represente fielmente su enfoque de inversión y se comprometa a largo plazo. Eso es exactamente lo que ofrecemos."
+    },
+    "partnership": {
+      "title": "Nuestra visión de alianza",
+      "subtitle": "3 pilares para una colaboración exitosa a largo plazo",
+      "pillars": {
+        "selectivity": {
+          "title": "Selectividad asumida",
+          "desc": "Máximo 3-5 mandatos simultáneos. Rechazamos la dispersión para garantizar calidad y profundidad a cada socio."
+        },
+        "alignment": {
+          "title": "Alineación estratégica",
+          "desc": "Contratos plurianuales con objetivos compartidos, gobernanza clara y reporting transparente. Tenemos éxito juntos."
+        },
+        "independence": {
+          "title": "Independencia total",
+          "desc": "Sin accionistas bancarios. Nuestras recomendaciones se guían por una sola prioridad: el éxito de nuestros socios."
+        }
+      }
+    },
+    "ideal": {
+      "title": "Nuestros socios ideales",
+      "subtitle": "¿Con quién construimos relaciones duraderas?",
+      "profiles": {
+        "boutiques": {
+          "title": "Boutiques de gestión internacionales",
+          "desc": "Entre 200M€ y 5.000M€ de activos, con una filosofía de inversión diferenciadora y track record sólido. Busca diversificar su base de inversores en Europa del Sur."
+        },
+        "specialists": {
+          "title": "Especialistas temáticos",
+          "desc": "Gestores enfocados (equity sectorial, crédito especializado, estrategias alternativas) que buscan acceso a inversores institucionales francófonos sin diluir su posicionamiento."
+        },
+        "emerging": {
+          "title": "Actores emergentes ambiciosos",
+          "desc": "Equipos recientemente separados o nuevos entrantes con propuesta convincente, dispuestos a invertir en relación de largo plazo para construir su presencia europea."
+        }
+      }
+    },
+    "engagement": {
+      "title": "Nuestro modelo de compromiso de alianza",
+      "subtitle": "Una relación estructurada en 3 fases durante 24-36 meses",
+      "phases": {
+        "foundation": {
+          "tag": "Meses 1-6",
+          "title": "Fundamentos y alineación estratégica",
+          "objectives": "Diagnóstico profundo, posicionamiento de mercado, preparación comercial",
+          "deliverables": [
+            "Auditoría completa de su oferta y documentación (conformidad SFDR/MiFID II)",
+            "Cartografía de decisores de 30-50 cuentas objetivo prioritarias",
+            "Storytelling localizado por mercado (FR/ES/PT) y segmento",
+            "Hoja de ruta de distribución de 24 meses con hitos trimestrales"
+          ]
+        },
+        "acceleration": {
+          "tag": "Meses 7-18",
+          "title": "Desarrollo comercial acelerado",
+          "objectives": "Penetración de mercado, construcción de pipeline, primeros mandatos",
+          "deliverables": [
+            "≥ 60 reuniones cualificadas con decisores institucionales",
+            "Organización de roadshows temáticos (3-4 al año)",
+            "Gestión de procesos de due diligence y referencias",
+            "Primeros mandatos institucionales y/o inclusiones en plataformas"
+          ]
+        },
+        "maturity": {
+          "tag": "Meses 19-36",
+          "title": "Consolidación y crecimiento sostenible",
+          "objectives": "Ampliación, fidelización, autonomización progresiva",
+          "deliverables": [
+            "Extensión a nuevos segmentos (family offices, banca privada)",
+            "Acompañamiento de lanzamientos de productos en nuestros mercados",
+            "Transferencia progresiva de competencias a sus equipos internos",
+            "Balance anual y ajuste estratégico"
+          ]
+        }
+      }
+    },
+    "how": {
+      "title": "¿Cómo trabajamos día a día?",
+      "subtitle": "Transparencia, rigor y colaboración estrecha",
+      "practices": [
+        {
+          "title": "Gobernanza mensual",
+          "desc": "Punto estratégico con sus equipos: revisión del pipeline, feedback de mercado, ajustes tácticos, preparación del mes siguiente."
+        },
+        {
+          "title": "CRM compartido en tiempo real",
+          "desc": "Visibilidad total sobre cada interacción, informes de reuniones, estado de oportunidades. Usted mantiene el control."
+        },
+        {
+          "title": "Reporting estructurado",
+          "desc": "Dashboard trimestral: KPIs comerciales, análisis cualitativo de retornos de mercado, recomendaciones de ajuste."
+        },
+        {
+          "title": "Co-construcción permanente",
+          "desc": "No somos simples ejecutores. Cada estrategia se co-construye, se desafía y se refina juntos."
+        }
+      ]
+    },
+    "results": {
+      "title": "Resultados esperados en 24 meses",
+      "subtitle": "Hitos concretos para medir nuestro impacto conjunto",
+      "milestones": [
+        "6-10 nuevos socios institucionales (bancos privados, family offices, aseguradoras)",
+        "30-80M€ de activos adicionales según su posicionamiento y capacidades",
+        "Inclusión en 2-4 plataformas de distribución principales (Francia/Luxemburgo)",
+        "Presencia establecida y creíble en 3-4 mercados estratégicos",
+        "Equipo interno formado y capaz de continuar el desarrollo"
+      ]
+    },
+    "cases": {
+      "title": "Alianzas en curso",
+      "subtitle": "Ejemplos de colaboraciones duraderas (detalles bajo NDA)",
+      "items": [
+        {
+          "type": "Boutique Equity (UK)",
+          "challenge": "Cero presencia institucional en Europa del Sur, proceso de venta no estructurado",
+          "approach": "Alianza de 36 meses con acompañamiento completo: reposicionamiento de storytelling, documentación SFDR, roadshows dirigidos",
+          "results": "18 meses: 55M€ captados de 7 institucionales, pipeline de 120M€, equipo comercial formado"
+        },
+        {
+          "type": "Crédito Alternativo (CH)",
+          "challenge": "Estrategia compleja, difícil de explicar, necesidad de penetrar el mercado institucional francés",
+          "approach": "Co-construcción de narrativa simplificada, enfoque selectivo en 15 cuentas institucionales grandes",
+          "results": "24 meses: 3 mandatos institucionales (85M€), presencia establecida, discusiones avanzadas con 4 más"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Modelo económico transparente",
+      "subtitle": "Alineación total de intereses",
+      "model": {
+        "retainer": {
+          "title": "Retainer mensual",
+          "desc": "Cubre costes operacionales (desplazamientos, marketing, infraestructura). Compromiso mínimo 12 meses.",
+          "amount": "Desde 5K€/mes sin IVA"
+        },
+        "success": {
+          "title": "Success fee",
+          "desc": "Remuneración sobre activos captados y/o mandatos ganados. Detalles a medida según su modelo económico.",
+          "amount": "Variable según acuerdo"
+        },
+        "note": "Privilegiamos las alianzas de largo plazo (24-36 meses) para construir resultados duraderos. No misiones puntuales < 12 meses."
+      }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Cuántos socios gestionan simultáneamente?",
+          "a": "Máximo 5 mandatos activos. Actualmente tenemos 2 plazas disponibles para 2025. Esta selectividad garantiza calidad y disponibilidad."
+        },
+        {
+          "q": "¿Cuál es la duración mínima de compromiso?",
+          "a": "12 meses mínimo, pero nuestros mejores resultados se obtienen en 24-36 meses. La distribución institucional es un maratón, no un sprint."
+        },
+        {
+          "q": "¿Trabajan en exclusividad geográfica?",
+          "a": "Sí, en nuestros 4 mercados (FR/ES/PT/LU). Puede tener otros socios TPM en otras partes de Europa, pero somos su único representante en nuestra zona."
+        },
+        {
+          "q": "¿Cuáles son sus criterios de selección?",
+          "a": "Track record ≥ 3 años, AUM ≥ 200M€, filosofía de inversión clara, equipo estable, voluntad de invertir en la relación. Rechazamos el 70% de solicitudes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para explorar una alianza?",
+      "subtitle": "Comencemos con una conversación exploratoria de 45 minutos",
+      "process": "Discutimos sus objetivos, evaluamos la alineación mutua y determinamos si una alianza tiene sentido para ambas partes.",
+      "commitment": "Sin compromiso, confidencial y franco.",
+      "btn": "Reservar un primer intercambio",
+      "alternative": "O descargue nuestro deck de socios (PDF)"
+    }
+  }

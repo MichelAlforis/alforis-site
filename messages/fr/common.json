@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "siteName": "Alforis",
+    "defaultTitle": "Alforis B2B - Distribution Asset Management Europe",
+    "defaultDescription": "Accélérateur de distribution pour asset managers internationaux. Connectez votre offre aux distributeurs locaux et institutionnels avec une approche sélective et indépendante. Membre AFTPM.",
+    "keywords": "third party marketing, distribution asset management, Luxembourg, France, Espagne, Portugal, AFTPM, institutionnel, conseillers financiers indépendants, banque privée"
+  },
+  "nav": {
+    "home": "Accueil",
+    "solutions": "Solutions",
+    "partners": "Partenaires",
+    "resources": "Ressources",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "contact": "Nous contacter",
+    "schedule": "Planifier un rendez-vous",
+    "download": "Télécharger",
+    "learnMore": "En savoir plus",
+    "apply": "Candidater",
+    "viewMore": "Voir plus"
+  },
+  "common": {
+    "aftpmMember": "Membre AFTPM",
+    "confidential": "Confidentiel",
+    "nda": "sous NDA",
+    "response24h": "Réponse sous 24h",
+    "response48h": "Réponse sous 48h",
+    "noObligation": "Sans engagement",
+    "freeConsultation": "Première consultation gratuite"
+  },
+  "markets": {
+    "france": "France",
+    "luxembourg": "Luxembourg",
+    "spain": "Espagne",
+    "portugal": "Portugal",
+    "allMarkets": "France • Luxembourg • Espagne • Portugal"
+  },
+  "footer": {
+    "tagline": "Votre accélérateur de distribution en Europe",
+    "copyright": "© 2025 Alforis TPM. Tous droits réservés.",
+    "member": "Membre AFTPM",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "contact": {
+      "title": "Contact",
+      "email": "michel.marques@alforis.fr",
+      "phone": "+33 (0)6 46 46 22 91"
+    },
+    "social": {
+      "linkedin": "Suivez-nous sur LinkedIn"
+    }
+  },
+  "loading": {
+    "default": "Chargement...",
+    "documents": "Chargement des documents...",
+    "content": "Chargement du contenu..."
+  },
+  "errors": {
+    "generic": "Une erreur est survenue",
+    "notFound": "Page non trouvée",
+    "tryAgain": "Veuillez réessayer"
+  }
+}

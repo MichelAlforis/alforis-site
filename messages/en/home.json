@@ -1,0 +1,108 @@
+{
+  
+  "hero": {
+    "badge": "AFTPM Member • Institutional B2B Distribution",
+    "title": "Alforis: Your European distribution accelerator",
+    "countries": "France • Luxembourg • Spain • Portugal",
+    "description": "We connect international asset managers to local and institutional distributors with a selective and independent approach.",
+    "cta": "Schedule a strategic meeting"
+  },
+  "role": {
+    "title": "Our role",
+    "subtitle": "Not just a \"third party marketer\"",
+    "description": "but a cross-border distribution strategy designer",
+    "institutional": "Institutional",
+    "institutionalCountries": "Luxembourg, France",
+    "retail": "High-end retail",
+    "retailDescription": "IFAs, bancassurance, family offices Spain & Portugal",
+    "independence": "An independent, selective and credible player, AFTPM member"
+  },
+  "countries": {
+    "title": "Coverage areas",
+    "subtitle": "4 strategic markets in Europe",
+    "france": {
+      "name": "France",
+      "description": "IFA & institutional market requiring compliance and product education",
+      "highlights": [
+        "CNCGP aligned",
+        "IFA networks",
+        "Institutional focus"
+      ]
+    },
+    "luxembourg": {
+      "name": "Luxembourg",
+      "description": "Pan-European hub, UCITS & private assets, international anchor point",
+      "highlights": [
+        "UCITS expertise",
+        "Pan-European hub",
+        "Private assets"
+      ]
+    },
+    "spain": {
+      "name": "Spain",
+      "description": "Powerful banking networks, private banking and unit-linked platforms",
+      "highlights": [
+        "Banking networks",
+        "Private banking",
+        "Unit-linked platforms"
+      ]
+    },
+    "portugal": {
+      "name": "Portugal",
+      "description": "Agile market, strong growth in family offices and private investors",
+      "highlights": [
+        "Family offices",
+        "Growth market",
+        "Private investors"
+      ]
+    }
+  },
+  "differentiators": {
+    "title": "Our differentiators",
+    "subtitle": "What sets us apart from competitors",
+    "selectivity": {
+      "title": "Selectivity",
+      "description": "Deliberately limited representation to offer genuine strategic focus to each partner."
+    },
+    "dualCulture": {
+      "title": "Dual product & distribution culture",
+      "description": "Former markets banker (EMTN, structured funds), able to explain complex solutions."
+    },
+    "independence": {
+      "title": "Total independence",
+      "description": "No banking shareholders, no distribution bias. Only priority: your success."
+    },
+    "integrated": {
+      "title": "Integrated approach",
+      "description": "Commercial strategy, local marketing support, regulatory monitoring."
+    }
+  },
+  "services": {
+    "title": "Services offered to Asset Managers",
+    "subtitle": "Complete support for your development",
+    "items": [
+      "Multi-country distribution strategy with clear roadmap across 4 markets",
+      "Qualified access to key networks: bancassurance, private banks, family offices, platforms",
+      "Targeted roadshows and events with pre-qualified decision-makers",
+      "Regulatory support and distributor onboarding assistance",
+      "Translation & marketing adaptation EN/FR/ES/PT (no \"copy-paste\")"
+    ]
+  },
+  "targets": {
+    "title": "Our target contacts",
+    "subtitle": "The players we connect to your offering",
+    "items": [
+      "Financial institutions (private banks, Luxembourg platforms)",
+      "Structured wealth networks (France / Spain)",
+      "Independent IFAs & family offices (Portugal / France)",
+      "Insurers and unit-linked platforms"
+    ]
+  },
+  "contact": {
+    "title": "Accelerate your European development",
+    "description": "Alforis supports you from Luxembourg to Lisbon, via Paris and Madrid.",
+    "cta": "Talk to Alforis",
+    "response": "Response within 24h • First consultation free",
+    "quote": "Our mission: transform your European ambition into commercial reality. No empty promises, only qualified connections and a clear strategy."
+  }
+}

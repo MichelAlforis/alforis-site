@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import SignatureSVG from '@/assets/illustrations/SignatureSVG'
 
 export default function ContactB2BSection({ extraClass = '', buttonClass = '', onMouseEnter = () => {}, onMouseLeave = () => {} }) {
-  const t = useTranslations('contact')
+  const t = useTranslations('home.contact')
   
   return (
     <section className={`py-24 ${extraClass}`}>

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "siteName": "Alforis",
+    "defaultTitle": "Alforis B2B - Distribuição Asset Management Europa",
+    "defaultDescription": "Acelerador de distribuição para gestoras internacionais. Conecte a sua oferta aos distribuidores locais e institucionais com uma abordagem seletiva e independente. Membro AFTPM.",
+    "keywords": "third party marketing, distribuição asset management, Luxemburgo, França, Espanha, Portugal, AFTPM, institucionais, consultores financeiros, banca privada"
+  },
+  "nav": {
+    "home": "Início",
+    "solutions": "Soluções",
+    "partners": "Parceiros",
+    "resources": "Recursos",
+    "contact": "Contacto"
+  },
+  "buttons": {
+    "contact": "Contactar",
+    "schedule": "Agendar reunião",
+    "download": "Descarregar",
+    "learnMore": "Saber mais",
+    "apply": "Candidatar",
+    "viewMore": "Ver mais"
+  },
+  "common": {
+    "aftpmMember": "Membro AFTPM",
+    "confidential": "Confidencial",
+    "nda": "sob NDA",
+    "response24h": "Resposta em 24h",
+    "response48h": "Resposta em 48h",
+    "noObligation": "Sem compromisso",
+    "freeConsultation": "Primeira consulta gratuita"
+  },
+  "markets": {
+    "france": "França",
+    "luxembourg": "Luxemburgo",
+    "spain": "Espanha",
+    "portugal": "Portugal",
+    "allMarkets": "França • Luxemburgo • Espanha • Portugal"
+  },
+  "footer": {
+    "tagline": "O seu acelerador de distribuição na Europa",
+    "copyright": "© 2025 Alforis TPM. Todos os direitos reservados.",
+    "member": "Membro AFTPM",
+    "legal": "Aviso legal",
+    "privacy": "Política de privacidade",
+    "contact": {
+      "title": "Contacto",
+      "email": "michel.marques@alforis.fr",
+      "phone": "+33 (0)6 46 46 22 91"
+    },
+    "social": {
+      "linkedin": "Siga-nos no LinkedIn"
+    }
+  },
+  "loading": {
+    "default": "A carregar...",
+    "documents": "A carregar documentos...",
+    "content": "A carregar conteúdo..."
+  },
+  "errors": {
+    "generic": "Ocorreu um erro",
+    "notFound": "Página não encontrada",
+    "tryAgain": "Por favor, tente novamente"
+  }
+}

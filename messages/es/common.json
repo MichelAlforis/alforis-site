@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "siteName": "Alforis",
+    "defaultTitle": "Alforis B2B - Distribución Asset Management Europa",
+    "defaultDescription": "Acelerador de distribución para gestoras internacionales. Conecte su oferta con distribuidores locales e institucionales con un enfoque selectivo e independiente. Miembro AFTPM.",
+    "keywords": "third party marketing, distribución asset management, Luxemburgo, Francia, España, Portugal, AFTPM, institucionales, asesores financieros, banca privada"
+  },
+  "nav": {
+    "home": "Inicio",
+    "solutions": "Soluciones",
+    "partners": "Socios",
+    "resources": "Recursos",
+    "contact": "Contacto"
+  },
+  "buttons": {
+    "contact": "Contactar",
+    "schedule": "Programar reunión",
+    "download": "Descargar",
+    "learnMore": "Saber más",
+    "apply": "Aplicar",
+    "viewMore": "Ver más"
+  },
+  "common": {
+    "aftpmMember": "Miembro AFTPM",
+    "confidential": "Confidencial",
+    "nda": "bajo NDA",
+    "response24h": "Respuesta en 24h",
+    "response48h": "Respuesta en 48h",
+    "noObligation": "Sin compromiso",
+    "freeConsultation": "Primera consulta gratuita"
+  },
+  "markets": {
+    "france": "Francia",
+    "luxembourg": "Luxemburgo",
+    "spain": "España",
+    "portugal": "Portugal",
+    "allMarkets": "Francia • Luxemburgo • España • Portugal"
+  },
+  "footer": {
+    "tagline": "Su acelerador de distribución en Europa",
+    "copyright": "© 2025 Alforis TPM. Todos los derechos reservados.",
+    "member": "Miembro AFTPM",
+    "legal": "Aviso legal",
+    "privacy": "Política de privacidad",
+    "contact": {
+      "title": "Contacto",
+      "email": "michel.marques@alforis.fr",
+      "phone": "+33 (0)6 46 46 22 91"
+    },
+    "social": {
+      "linkedin": "Síguenos en LinkedIn"
+    }
+  },
+  "loading": {
+    "default": "Cargando...",
+    "documents": "Cargando documentos...",
+    "content": "Cargando contenido..."
+  },
+  "errors": {
+    "generic": "Ha ocurrido un error",
+    "notFound": "Página no encontrada",
+    "tryAgain": "Por favor, inténtelo de nuevo"
+  }
+}

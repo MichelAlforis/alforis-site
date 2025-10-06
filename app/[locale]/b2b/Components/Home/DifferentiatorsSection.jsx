@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Target, TrendingUp, Shield, Globe } from 'lucide-react'
 
 export default function DifferentiatorsSection({ extraClass = '' }) {
-  const t = useTranslations('differentiators')
+  const t = useTranslations('home.differentiators')
   const [hoveredCard, setHoveredCard] = useState(null)
 
   const differentiators = [

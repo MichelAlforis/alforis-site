@@ -1,0 +1,193 @@
+{
+
+    "meta": {
+      "title": "Partenariats de distribution institutionnelle | Alforis TPM",
+      "description": "Construisons ensemble votre stratégie de distribution sur 4 marchés européens. Approche partenariale, sélective et transparente."
+    },
+    "nav": {
+      "approach": "Approche",
+      "engagement": "Engagement",
+      "process": "Processus",
+      "results": "Résultats",
+      "contact": "Démarrer"
+    },
+    "hero": {
+      "badge": "Partenariats de distribution institutionnelle",
+      "title": "Construisons ensemble votre développement en Europe du Sud",
+      "subtitle": "Un partenaire TPM sélectif pour une croissance durable",
+      "intro": "Vous cherchez plus qu'un distributeur ponctuel. Vous voulez un partenaire qui comprend votre ADN, représente fidèlement votre approche d'investissement et s'engage sur la durée. C'est exactement ce que nous proposons."
+    },
+    "partnership": {
+      "title": "Notre vision du partenariat",
+      "subtitle": "3 piliers pour une collaboration réussie sur le long terme",
+      "pillars": {
+        "selectivity": {
+          "title": "Sélectivité assumée",
+          "desc": "3 à 5 mandats simultanés maximum. Nous refusons la dispersion pour garantir qualité et profondeur à chaque partenaire."
+        },
+        "alignment": {
+          "title": "Alignement stratégique",
+          "desc": "Contrats pluriannuels avec objectifs partagés, gouvernance claire et reporting transparent. Nous réussissons ensemble."
+        },
+        "independence": {
+          "title": "Indépendance totale",
+          "desc": "Aucun actionnaire bancaire. Nos recommandations sont guidées par une seule priorité : le succès de nos partenaires."
+        }
+      }
+    },
+    "ideal": {
+      "title": "Nos partenaires idéaux",
+      "subtitle": "Avec qui construisons-nous des relations durables ?",
+      "profiles": {
+        "boutiques": {
+          "title": "Boutiques de gestion internationales",
+          "desc": "Entre 200M€ et 5Mds€ d'actifs, avec une philosophie d'investissement différenciante et un track record solide. Vous cherchez à diversifier votre base d'investisseurs en Europe du Sud."
+        },
+        "specialists": {
+          "title": "Spécialistes thématiques",
+          "desc": "Gestionnaires focused (equity sectoriel, crédit spécialisé, stratégies alternatives) souhaitant accéder aux investisseurs institutionnels francophones sans diluer leur positionnement."
+        },
+        "emerging": {
+          "title": "Acteurs émergents ambitieux",
+          "desc": "Équipes récemment spin-off ou nouveaux entrants avec une proposition convaincante, prêts à investir dans une relation de long terme pour construire leur présence européenne."
+        }
+      }
+    },
+    "engagement": {
+      "title": "Notre modèle d'engagement partenarial",
+      "subtitle": "Une relation structurée en 3 phases sur 24-36 mois",
+      "phases": {
+        "foundation": {
+          "tag": "Mois 1-6",
+          "title": "Fondations & alignement stratégique",
+          "objectives": "Diagnostic approfondi, positionnement marché, préparation commerciale",
+          "deliverables": [
+            "Audit complet de votre offre et documentation (conformité SFDR/MiFID II)",
+            "Cartographie décisionnelle des 30-50 comptes cibles prioritaires",
+            "Storytelling localisé par marché (FR/ES/PT) et par segment",
+            "Roadmap de distribution sur 24 mois avec jalons trimestriels"
+          ]
+        },
+        "acceleration": {
+          "tag": "Mois 7-18",
+          "title": "Développement commercial accéléré",
+          "objectives": "Pénétration marché, construction du pipeline, premiers mandats",
+          "deliverables": [
+            "≥ 60 rendez-vous qualifiés avec décideurs institutionnels",
+            "Animation de roadshows thématiques (3-4 par an)",
+            "Pilotage des processus de due diligence et référencements",
+            "Premiers mandats institutionnels et/ou listings plateformes"
+          ]
+        },
+        "maturity": {
+          "tag": "Mois 19-36",
+          "title": "Consolidation & croissance durable",
+          "objectives": "Élargissement, fidélisation, autonomisation progressive",
+          "deliverables": [
+            "Extension à de nouveaux segments (family offices, private banks)",
+            "Accompagnement des lancements produits sur nos marchés",
+            "Transfert progressif de compétences à vos équipes internes",
+            "Bilan annuel et ajustement stratégique"
+          ]
+        }
+      }
+    },
+    "how": {
+      "title": "Comment travaillons-nous au quotidien ?",
+      "subtitle": "Transparence, rigueur et collaboration étroite",
+      "practices": [
+        {
+          "title": "Gouvernance mensuelle",
+          "desc": "Point stratégique avec vos équipes : revue du pipeline, feedback marché, ajustements tactiques, préparation du mois suivant."
+        },
+        {
+          "title": "CRM partagé en temps réel",
+          "desc": "Visibilité totale sur chaque interaction, comptes-rendus de meetings, statut des opportunités. Vous gardez le contrôle."
+        },
+        {
+          "title": "Reporting structuré",
+          "desc": "Dashboard trimestriel : KPIs commerciaux, analyse qualitative des retours marché, recommandations d'ajustement."
+        },
+        {
+          "title": "Co-construction permanente",
+          "desc": "Nous ne sommes pas de simples exécutants. Chaque stratégie est co-construite, challengée et affinée ensemble."
+        }
+      ]
+    },
+    "results": {
+      "title": "Résultats attendus sur 24 mois",
+      "subtitle": "Des jalons concrets pour mesurer notre impact commun",
+      "milestones": [
+        "6-10 nouveaux partenaires institutionnels (banques privées, family offices, assureurs)",
+        "30-80M€ d'encours additionnels selon votre positionnement et vos capacités",
+        "Référencement sur 2-4 plateformes de distribution majeures (France/Luxembourg)",
+        "Présence établie et crédible sur 3-4 marchés stratégiques",
+        "Équipe interne formée et capable de poursuivre le développement"
+      ]
+    },
+    "cases": {
+      "title": "Partenariats en cours",
+      "subtitle": "Exemples de collaborations durables (détails sous NDA)",
+      "items": [
+        {
+          "type": "Equity Boutique (UK)",
+          "challenge": "Zéro présence institutionnelle en Europe du Sud, processus de vente non structuré",
+          "approach": "Partenariat 36 mois avec accompagnement complet : repositionnement storytelling, documentation SFDR, roadshows ciblés",
+          "results": "18 mois : 55M€ levés auprès de 7 institutionnels, pipeline à 120M€, équipe commerciale formée"
+        },
+        {
+          "type": "Alternative Credit (CH)",
+          "challenge": "Stratégie complexe, difficile à expliquer, besoin de pénétrer le marché français institutionnel",
+          "approach": "Co-construction narrative simplifiée, focus sélectif sur 15 comptes grands institutionnels",
+          "results": "24 mois : 3 mandats institutionnels (85M€), présence établie, discussions avancées avec 4 autres"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Modèle économique transparent",
+      "subtitle": "Alignement d'intérêts total",
+      "model": {
+        "retainer": {
+          "title": "Retainer mensuel",
+          "desc": "Couvre les frais opérationnels (déplacements, marketing, infrastructure). Engagement minimal 12 mois.",
+          "amount": "À partir de 5K€/mois HT"
+        },
+        "success": {
+          "title": "Success fee",
+          "desc": "Rémunération sur les encours levés et/ou sur les mandats gagnés. Détails sur mesure selon votre modèle économique.",
+          "amount": "Variable selon accord"
+        },
+        "note": "Nous privilégions les partenariats long terme (24-36 mois) pour construire des résultats durables. Pas de mission ponctuelle < 12 mois."
+      }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Combien de partenaires gérez-vous simultanément ?",
+          "a": "Maximum 5 mandats actifs. Actuellement, nous avons 2 places disponibles pour 2025. Cette sélectivité garantit qualité et disponibilité."
+        },
+        {
+          "q": "Quelle est la durée minimale d'engagement ?",
+          "a": "12 mois minimum, mais nos meilleurs résultats s'obtiennent sur 24-36 mois. La distribution institutionnelle est un marathon, pas un sprint."
+        },
+        {
+          "q": "Travaillez-vous en exclusivité géographique ?",
+          "a": "Oui, sur nos 4 marchés (FR/ES/PT/LU). Vous pouvez avoir d'autres partenaires TPM ailleurs en Europe, mais nous sommes votre unique représentant sur notre zone."
+        },
+        {
+          "q": "Quels sont vos critères de sélection ?",
+          "a": "Track record ≥ 3 ans, AUM ≥ 200M€, philosophie d'investissement claire, équipe stable, volonté d'investir dans la relation. Nous refusons 70% des demandes."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à explorer un partenariat ?",
+      "subtitle": "Démarrons par un échange exploratoire de 45 minutes",
+      "process": "Nous discutons de vos objectifs, évaluons l'alignement mutuel, et déterminons si un partenariat a du sens pour les deux parties.",
+      "commitment": "Sans engagement, confidentiel, et franc.",
+      "btn": "Réserver un premier échange",
+      "alternative": "Ou téléchargez notre deck partenaires (PDF)"
+    }
+  }
+  

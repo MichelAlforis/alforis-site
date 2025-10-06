@@ -1,0 +1,123 @@
+{
+
+    "meta": {
+        "title": "Become a distribution partner | Alforis TPM",
+        "description": "Join the asset managers we represent. Selectivity, strategic alignment and transparency for lasting collaboration."
+    },
+    "nav": {
+    "philosophy": "Philosophy",
+    "eligibility": "Criteria",
+    "onboarding": "Process",
+    "testimonial": "Testimonials",
+    "contact": "Apply"
+    },
+    "hero": {
+        "badge": "Partner recruitment • AFTPM",
+        "title": "Join the 3 to 5 asset managers we represent per market",
+        "subtitle": "Selectivity, alignment, transparency: the Alforis TPM signature",
+        "intro": "We're not an opportunistic distributor stacking mandates. We build lasting partnerships with a handful of carefully selected asset managers."
+    },
+    "philosophy": {
+        "title": "Our partnership philosophy",
+        "subtitle": "We favor lasting relationships, not stacked mandates",
+        "pillars": {
+        "selectivity": {
+            "title": "Deliberate selectivity",
+            "desc": "Maximum 3-5 simultaneous mandates per market. This voluntary limitation guarantees genuine strategic focus and unwavering attention to each partner."
+        },
+        "alignment": {
+            "title": "Strategic alignment",
+            "desc": "We work exclusively with firms whose investment philosophy we understand and share. No 'catalog' representation."
+        },
+        "independence": {
+            "title": "Total independence",
+            "desc": "No banking shareholders, no distribution bias. Our only priority: our partners' commercial success in our markets."
+        }
+        },
+        "quote": "« Working with Alforis means being chosen, not simply represented. »"
+    },
+    "eligibility": {
+        "title": "Eligibility criteria",
+        "subtitle": "The fundamentals for successful collaboration",
+        "criteria": {
+        "ucits": {
+            "title": "Registered UCITS or AIFM funds",
+            "desc": "Your structure must be regulated (UCITS V, AIFMD) with authorization to market in Europe. We support compliance setup if needed."
+        },
+        "aum": {
+            "title": "Minimum €100M AUM",
+            "desc": "Indicative threshold ensuring solid operational structure. Exceptions possible for spin-offs from recognized teams or highly differentiating strategies."
+        },
+        "philosophy": {
+            "title": "Clear investment thesis",
+            "desc": "Differentiating philosophy, demonstrable track record, explainable investment process. We refuse 'me-too' products without added value."
+        },
+        "marketing": {
+            "title": "Marketing & compliance support available",
+            "desc": "Product documentation (factsheets, KIID/KID, SFDR), investor presentations, due diligence materials. We help with local adaptation but don't start from scratch."
+        },
+        "commitment": {
+            "title": "Long-term commitment (>12 months)",
+            "desc": "Institutional distribution is a marathon. We seek partners ready to invest in a multi-year relationship, not opportunistic 6-month mandates."
+        }
+        },
+        "note": "Note: These criteria are indicative. Each application is evaluated individually. We decline approximately 70% of requests to guarantee the quality of our support."
+    },
+    "onboarding": {
+        "title": "Onboarding process",
+        "subtitle": "From application to commercial launch: 6 to 8 weeks",
+        "steps": {
+        "initial": {
+            "number": "Step 1",
+            "title": "Initial confidential discussion",
+            "desc": "45-minute exploratory call to understand your objectives, validate mutual alignment, present our approach."
+        },
+        "review": {
+            "number": "Step 2",
+            "title": "Marketing materials review",
+            "desc": "Audit of your materials (factsheets, presentations, track record). Identification of necessary adaptations for our markets."
+        },
+        "compliance": {
+            "number": "Step 3",
+            "title": "Compliance & AFTPM validation",
+            "desc": "Verification of European passports, SFDR/MiFID II compliance, AFTPM code adherence. Mutual due diligence."
+        },
+        "contract": {
+            "number": "Step 4",
+            "title": "TPM contract signature",
+            "desc": "Finalization of commercial terms (retainer, success fee, geographic exclusivity), distribution mandate signature."
+        },
+        "launch": {
+            "number": "Step 5",
+            "title": "Market plan launch",
+            "desc": "Target mapping, roadshow planning, CRM integration, first institutional meetings. Let's go!"
+        }
+        }
+    },
+    "testimonial": {
+        "title": "They trusted us",
+        "subtitle": "Testimonials from current partners",
+        "quote": "In 18 months, our Alforis representative opened 7 institutional doors in Spain and Portugal, of which 4 resulted in mandates. Their market knowledge and selective approach make all the difference.",
+        "author": "Equity Boutique (UK)",
+        "position": "Head of Distribution • €800M AUM",
+        "partners": "Current partners (under NDA)"
+    },
+    "cta": {
+        "title": "Ready to apply?",
+        "subtitle": "Let's start with a 45-minute exploratory discussion",
+        "description": "Together we evaluate strategic alignment and determine if a partnership makes sense for both parties.",
+        "process": {
+        "title": "What you can expect from the first discussion:",
+        "steps": [
+            "Presentation of your asset management firm and distribution objectives",
+            "Assessment of fit with our approach and markets",
+            "Frank discussion about mutual expectations and economic model",
+            "Next steps if alignment confirmed (or transparent feedback if mismatch)"
+        ]
+        },
+        "btn": "Apply as partner",
+        "alternative": "Learn more about our approach",
+        "commitment": "No obligation • Confidential • Response within 48h"
+    }
+    }
+  

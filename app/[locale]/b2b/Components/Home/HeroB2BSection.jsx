@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export default function HeroB2BSection({ extraClass = '', buttonClass = '', onMouseEnter = () => {}, onMouseLeave = () => {} }) {
-  const t = useTranslations('hero')
+  const t = useTranslations('home.hero')
     console.log('Hero locale test:', t('title')) 
     
   return (

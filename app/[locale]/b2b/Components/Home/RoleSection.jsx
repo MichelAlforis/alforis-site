@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Shield } from 'lucide-react'
 
 export default function RoleSection({ extraClass = '' }) {
-  const t = useTranslations('role')
+  const t = useTranslations('home.role')
   
   return (
     <section className={`py-20 ${extraClass}`}>

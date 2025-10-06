@@ -1,3 +1,4 @@
+//app/[locale]/page.jsx
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'

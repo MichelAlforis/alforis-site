@@ -1,21 +1,24 @@
-// app/[locale]/layout.jsx
 import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import LanguagePersistence from './b2b/Components/LanguagePersistence';
+import { locales } from '@/i18n';
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
-  
-  const locales = ['fr', 'en', 'es', 'pt'];
-  if (!locales.includes(locale)) notFound();
 
-  // Import dynamique des messages
-  const messages = (await import(`@/messages/${locale}.json`)).default;
+  if (!locales.includes(locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages({ locale });
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <LanguagePersistence />
       {children}
     </NextIntlClientProvider>
   );
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }

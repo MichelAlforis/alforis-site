@@ -1,38 +1,39 @@
+// app/[locale]/b2b/page.jsx
 import HomeB2BResponsive from './HomeB2BResponsive'
 import { getTranslations } from 'next-intl/server'
 import { getBaseUrl } from '@/lib/url'
 
 export async function generateMetadata({ params }) {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'metadata' })
+  const t = await getTranslations({ locale, namespace: 'common' })
   const baseUrl = getBaseUrl()
   
   return {
-    title: t('title'),
-    description: t('description'),
-    keywords: t('keywords'),
+    title: t('metadata.defaultTitle'),
+    description: t('metadata.defaultDescription'),
+    keywords: t('metadata.keywords'),
     
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: t('metadata.defaultTitle'),
+      description: t('metadata.defaultDescription'),
       type: 'website',
       locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'pt_PT',
       url: `${baseUrl}/${locale}/b2b`,
-      siteName: 'Alforis B2B',
+      siteName: t('metadata.siteName'),
       images: [
         {
           url: `${baseUrl}/${locale}/b2b/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: t('title')
+          alt: t('metadata.defaultTitle')
         }
       ]
     },
     
     twitter: {
       card: 'summary_large_image',
-      title: t('title'),
-      description: t('description'),
+      title: t('metadata.defaultTitle'),
+      description: t('metadata.defaultDescription'),
       images: [`${baseUrl}/${locale}/b2b/opengraph-image`]
     },
     

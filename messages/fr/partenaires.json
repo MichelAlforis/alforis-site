@@ -1,0 +1,122 @@
+{
+
+  "meta": {
+    "title": "Devenir partenaire de distribution | Alforis TPM",
+    "description": "Rejoignez les sociétés de gestion que nous représentons. Sélectivité, alignement stratégique et transparence pour une collaboration durable."
+  },
+  "nav": {
+  "philosophy": "Philosophie",
+  "eligibility": "Critères",
+  "onboarding": "Processus",
+  "testimonial": "Témoignages",
+  "contact": "Candidater"
+  },
+  "hero": {
+    "badge": "Recrutement de partenaires • AFTPM",
+    "title": "Rejoignez les 3 à 5 sociétés de gestion que nous représentons par marché",
+    "subtitle": "Sélectivité, alignement, transparence : la signature Alforis TPM",
+    "intro": "Nous ne sommes pas un distributeur opportuniste empilant les mandats. Nous construisons des partenariats durables avec une poignée de sociétés de gestion triées sur le volet."
+  },
+  "philosophy": {
+    "title": "Notre philosophie de partenariat",
+    "subtitle": "Nous privilégions les relations durables, non les mandats empilés",
+    "pillars": {
+      "selectivity": {
+        "title": "Sélectivité assumée",
+        "desc": "3 à 5 mandats simultanés maximum par marché. Cette limitation volontaire garantit un vrai focus stratégique et une attention sans faille à chaque partenaire."
+      },
+      "alignment": {
+        "title": "Alignement stratégique",
+        "desc": "Nous travaillons exclusivement avec des sociétés dont nous comprenons et partageons la philosophie d'investissement. Pas de représentation 'catalogue'."
+      },
+      "independence": {
+        "title": "Indépendance totale",
+        "desc": "Aucun actionnaire bancaire, aucun biais de distribution. Notre seule priorité : le succès commercial de nos partenaires sur nos marchés."
+      }
+    },
+    "quote": "« Travailler avec Alforis, c'est être choisi, pas simplement représenté. »"
+  },
+  "eligibility": {
+    "title": "Critères d'éligibilité",
+    "subtitle": "Les fondamentaux pour une collaboration réussie",
+    "criteria": {
+      "ucits": {
+        "title": "Fonds UCITS ou AIFM enregistrés",
+        "desc": "Votre structure doit être régulée (UCITS V, AIFMD) avec autorisation de commercialisation en Europe. Nous accompagnons la mise en conformité si nécessaire."
+      },
+      "aum": {
+        "title": "Minimum 100M€ d'encours",
+        "desc": "Seuil indicatif garantissant structure opérationnelle solide. Des exceptions sont possibles pour les spin-offs d'équipes reconnues ou stratégies très différenciantes."
+      },
+      "philosophy": {
+        "title": "Thèse d'investissement claire",
+        "desc": "Philosophie différenciante, track record démontrable, processus d'investissement explicable. Nous refusons les 'me-too' products sans valeur ajoutée."
+      },
+      "marketing": {
+        "title": "Support marketing & compliance disponible",
+        "desc": "Documentation produit (factsheets, KIID/KID, SFDR), présentations investisseurs, matériel de due diligence. Nous aidons à l'adaptation locale mais ne partons pas de zéro."
+      },
+      "commitment": {
+        "title": "Engagement long terme (>12 mois)",
+        "desc": "La distribution institutionnelle est un marathon. Nous recherchons des partenaires prêts à investir dans une relation pluriannuelle, pas des mandats opportunistes de 6 mois."
+      }
+    },
+    "note": "Note : Ces critères sont indicatifs. Chaque candidature est évaluée individuellement. Nous refusons environ 70% des demandes pour garantir la qualité de notre accompagnement."
+  },
+  "onboarding": {
+    "title": "Processus d'onboarding",
+    "subtitle": "De la candidature au lancement commercial : 6 à 8 semaines",
+    "steps": {
+      "initial": {
+        "number": "Étape 1",
+        "title": "Premier échange confidentiel",
+        "desc": "Appel exploratoire 45 min pour comprendre vos objectifs, valider l'alignement mutuel, présenter notre approche."
+      },
+      "review": {
+        "number": "Étape 2",
+        "title": "Revue du matériel marketing",
+        "desc": "Audit de vos supports (factsheets, présentations, track record). Identification des adaptations nécessaires pour nos marchés."
+      },
+      "compliance": {
+        "number": "Étape 3",
+        "title": "Validation compliance & AFTPM",
+        "desc": "Vérification des passeports européens, conformité SFDR/MiFID II, respect des codes AFTPM. Due diligence mutuelle."
+      },
+      "contract": {
+        "number": "Étape 4",
+        "title": "Signature du contrat TPM",
+        "desc": "Finalisation des termes commerciaux (retainer, success fee, exclusivité géographique), signature du mandat de distribution."
+      },
+      "launch": {
+        "number": "Étape 5",
+        "title": "Lancement du plan marché",
+        "desc": "Cartographie des cibles, planification des roadshows, intégration au CRM, premiers rendez-vous institutionnels. C'est parti !"
+      }
+    }
+  },
+  "testimonial": {
+    "title": "Ils nous ont fait confiance",
+    "subtitle": "Témoignages de partenaires actuels",
+    "quote": "En 18 mois, notre représentant Alforis a ouvert 7 portes institutionnelles en Espagne et au Portugal, dont 4 se sont concrétisées en mandats. Leur connaissance du terrain et leur approche sélective font toute la différence.",
+    "author": "Equity Boutique (UK)",
+    "position": "Head of Distribution • €800M AUM",
+    "partners": "Partenaires actuels (sous NDA)"
+  },
+  "cta": {
+    "title": "Prêt à candidater ?",
+    "subtitle": "Démarrons par un échange exploratoire de 45 minutes",
+    "description": "Nous évaluons ensemble l'alignement stratégique et déterminons si un partenariat a du sens pour les deux parties.",
+    "process": {
+      "title": "Ce que vous pouvez attendre du premier échange :",
+      "steps": [
+        "Présentation de votre société de gestion et de vos objectifs de distribution",
+        "Évaluation de l'adéquation avec notre approche et nos marchés",
+        "Discussion franche sur les attentes mutuelles et le modèle économique",
+        "Prochaines étapes si alignement confirmé (ou feedback transparent si inadéquation)"
+      ]
+    },
+    "btn": "Candidater comme partenaire",
+    "alternative": "En savoir plus sur notre approche",
+    "commitment": "Sans engagement • Confidentiel • Réponse sous 48h"
+  }
+}

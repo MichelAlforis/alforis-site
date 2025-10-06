@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 
 export default function ServicesB2BSection({ extraClass = '' }) {
-  const t = useTranslations('services')
+  const t = useTranslations('home.services')
 
   // Les items sont un tableau dans le JSON
   const services = [

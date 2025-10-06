@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "siteName": "Alforis",
+    "defaultTitle": "Alforis B2B - Asset Management Distribution Europe",
+    "defaultDescription": "Distribution accelerator for international asset managers. Connect your offering to local and institutional distributors with a selective and independent approach. AFTPM Member.",
+    "keywords": "third party marketing, asset management distribution, Luxembourg, France, Spain, Portugal, AFTPM, institutional, independent financial advisors, private banking"
+  },
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "partners": "Partners",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "contact": "Contact us",
+    "schedule": "Schedule a meeting",
+    "download": "Download",
+    "learnMore": "Learn more",
+    "apply": "Apply",
+    "viewMore": "View more"
+  },
+  "common": {
+    "aftpmMember": "AFTPM Member",
+    "confidential": "Confidential",
+    "nda": "under NDA",
+    "response24h": "Response within 24h",
+    "response48h": "Response within 48h",
+    "noObligation": "No obligation",
+    "freeConsultation": "First consultation free"
+  },
+  "markets": {
+    "france": "France",
+    "luxembourg": "Luxembourg",
+    "spain": "Spain",
+    "portugal": "Portugal",
+    "allMarkets": "France • Luxembourg • Spain • Portugal"
+  },
+  "footer": {
+    "tagline": "Your European distribution accelerator",
+    "copyright": "© 2025 Alforis TPM. All rights reserved.",
+    "member": "AFTPM Member",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "contact": {
+      "title": "Contact",
+      "email": "michel.marques@alforis.fr",
+      "phone": "+33 (0)6 46 46 22 91"
+    },
+    "social": {
+      "linkedin": "Follow us on LinkedIn"
+    }
+  },
+  "loading": {
+    "default": "Loading...",
+    "documents": "Loading documents...",
+    "content": "Loading content..."
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "notFound": "Page not found",
+    "tryAgain": "Please try again"
+  }
+}

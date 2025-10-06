@@ -1,0 +1,122 @@
+{
+
+  "meta": {
+    "title": "Convertirse en socio de distribución | Alforis TPM",
+    "description": "Únase a las gestoras que representamos. Selectividad, alineación estratégica y transparencia para una colaboración duradera."
+  },
+  "nav": {
+  "philosophy": "Filosofía",
+  "eligibility": "Criterios",
+  "onboarding": "Proceso",
+  "testimonial": "Testimonios",
+  "contact": "Candidatar"
+},
+  "hero": {
+    "badge": "Reclutamiento de socios • AFTPM",
+    "title": "Únase a las 3 a 5 gestoras que representamos por mercado",
+    "subtitle": "Selectividad, alineación, transparencia: la firma Alforis TPM",
+    "intro": "No somos un distribuidor oportunista que acumula mandatos. Construimos alianzas duraderas con un puñado de gestoras cuidadosamente seleccionadas."
+  },
+  "philosophy": {
+    "title": "Nuestra filosofía de alianza",
+    "subtitle": "Privilegiamos las relaciones duraderas, no los mandatos acumulados",
+    "pillars": {
+      "selectivity": {
+        "title": "Selectividad asumida",
+        "desc": "Máximo 3-5 mandatos simultáneos por mercado. Esta limitación voluntaria garantiza un verdadero enfoque estratégico y atención sin fallas a cada socio."
+      },
+      "alignment": {
+        "title": "Alineación estratégica",
+        "desc": "Trabajamos exclusivamente con firmas cuya filosofía de inversión comprendemos y compartimos. Sin representación 'catálogo'."
+      },
+      "independence": {
+        "title": "Independencia total",
+        "desc": "Sin accionistas bancarios, sin sesgo de distribución. Nuestra única prioridad: el éxito comercial de nuestros socios en nuestros mercados."
+      }
+    },
+    "quote": "« Trabajar con Alforis significa ser elegido, no simplemente representado. »"
+  },
+  "eligibility": {
+    "title": "Criterios de elegibilidad",
+    "subtitle": "Los fundamentos para una colaboración exitosa",
+    "criteria": {
+      "ucits": {
+        "title": "Fondos UCITS o AIFM registrados",
+        "desc": "Su estructura debe estar regulada (UCITS V, AIFMD) con autorización de comercialización en Europa. Apoyamos la conformidad si es necesario."
+      },
+      "aum": {
+        "title": "Mínimo 100M€ de activos",
+        "desc": "Umbral indicativo que garantiza estructura operacional sólida. Excepciones posibles para spin-offs de equipos reconocidos o estrategias muy diferenciadas."
+      },
+      "philosophy": {
+        "title": "Tesis de inversión clara",
+        "desc": "Filosofía diferenciadora, track record demostrable, proceso de inversión explicable. Rechazamos productos 'me-too' sin valor agregado."
+      },
+      "marketing": {
+        "title": "Soporte marketing & compliance disponible",
+        "desc": "Documentación de producto (factsheets, KIID/KID, SFDR), presentaciones para inversores, material de due diligence. Ayudamos con la adaptación local pero no partimos de cero."
+      },
+      "commitment": {
+        "title": "Compromiso a largo plazo (>12 meses)",
+        "desc": "La distribución institucional es una maratón. Buscamos socios dispuestos a invertir en una relación plurianual, no mandatos oportunistas de 6 meses."
+      }
+    },
+    "note": "Nota: Estos criterios son indicativos. Cada candidatura se evalúa individualmente. Rechazamos aproximadamente el 70% de las solicitudes para garantizar la calidad de nuestro acompañamiento."
+  },
+  "onboarding": {
+    "title": "Proceso de onboarding",
+    "subtitle": "De la candidatura al lanzamiento comercial: 6 a 8 semanas",
+    "steps": {
+      "initial": {
+        "number": "Etapa 1",
+        "title": "Primer intercambio confidencial",
+        "desc": "Llamada exploratoria de 45 min para comprender sus objetivos, validar la alineación mutua, presentar nuestro enfoque."
+      },
+      "review": {
+        "number": "Etapa 2",
+        "title": "Revisión del material marketing",
+        "desc": "Auditoría de sus materiales (factsheets, presentaciones, track record). Identificación de adaptaciones necesarias para nuestros mercados."
+      },
+      "compliance": {
+        "number": "Etapa 3",
+        "title": "Validación compliance & AFTPM",
+        "desc": "Verificación de pasaportes europeos, conformidad SFDR/MiFID II, cumplimiento de códigos AFTPM. Due diligence mutua."
+      },
+      "contract": {
+        "number": "Etapa 4",
+        "title": "Firma del contrato TPM",
+        "desc": "Finalización de términos comerciales (retainer, success fee, exclusividad geográfica), firma del mandato de distribución."
+      },
+      "launch": {
+        "number": "Etapa 5",
+        "title": "Lanzamiento del plan de mercado",
+        "desc": "Cartografía de objetivos, planificación de roadshows, integración al CRM, primeras reuniones institucionales. ¡Adelante!"
+      }
+    }
+  },
+  "testimonial": {
+    "title": "Confiaron en nosotros",
+    "subtitle": "Testimonios de socios actuales",
+    "quote": "En 18 meses, nuestro representante Alforis abrió 7 puertas institucionales en España y Portugal, de las cuales 4 resultaron en mandatos. Su conocimiento del terreno y su enfoque selectivo marcan toda la diferencia.",
+    "author": "Boutique Equity (UK)",
+    "position": "Head of Distribution • €800M AUM",
+    "partners": "Socios actuales (bajo NDA)"
+  },
+  "cta": {
+    "title": "¿Listo para candidatar?",
+    "subtitle": "Comencemos con un intercambio exploratorio de 45 minutos",
+    "description": "Evaluamos juntos la alineación estratégica y determinamos si una alianza tiene sentido para ambas partes.",
+    "process": {
+      "title": "Lo que puede esperar del primer intercambio:",
+      "steps": [
+        "Presentación de su gestora y objetivos de distribución",
+        "Evaluación de la adecuación con nuestro enfoque y mercados",
+        "Discusión franca sobre expectativas mutuas y modelo económico",
+        "Próximos pasos si se confirma alineación (o feedback transparente si no hay adecuación)"
+      ]
+    },
+    "btn": "Candidatar como socio",
+    "alternative": "Conocer más sobre nuestro enfoque",
+    "commitment": "Sin compromiso • Confidencial • Respuesta en 48h"
+  }
+}

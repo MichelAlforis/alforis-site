@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Building2, Briefcase, Users, Shield } from 'lucide-react'
 
 export default function TargetsSection({ extraClass = '' }) {
-  const t = useTranslations('targets')
+  const t = useTranslations('home.targets')
 
   const targets = [
     { icon: <Building2 className="w-6 h-6" />, text: t('items.0') },
