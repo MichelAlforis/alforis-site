@@ -12,7 +12,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-export default function RootClientLayout({ children, footerMessages }) {
+export default function RootClientLayout({ children }) {
 
   const [cookieBannerHeight, setCookieBannerHeight] = useState(0)
 
@@ -114,7 +114,6 @@ export default function RootClientLayout({ children, footerMessages }) {
       </main>
 
       {/* Pied de page */}
-        <Footer messages={footerMessages} />
 
       {/* Notifications toast */}
       <ToastContainer
