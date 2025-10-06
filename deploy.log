@@ -7688,3 +7688,78 @@ Use --update-env to update environment variables
 [PM2] Saving current process list...
 [PM2] Successfully saved in /root/.pm2/dump.pm2
 [2025-10-06 21:34:36] 🚀 Déploiement complet
+From github.com:MichelAlforis/alforis-site
+ * branch            main       -> FETCH_HEAD
+   1615dff..f19f5d3  main       -> origin/main
+Updating 1615dff..f19f5d3
+Fast-forward
+ .../b2b/Components/Home/ContactB2BSection.jsx      |  31 ++-
+ .../b2b/Components/Home/HeroB2BSection.jsx         | 160 ++++++++++++-
+ app/[locale]/b2b/ressources/ressourcesPage.jsx     | 249 ++++++++++++++++---
+ deploy.log                                         | 104 ++++++++
+ messages/en/common.json                            |   3 +-
+ messages/en/home.json                              |  27 ++-
+ messages/en/ressources.json                        | 266 +++++++++++----------
+ messages/es/common.json                            |   3 +-
+ messages/es/home.json                              |  27 ++-
+ messages/es/ressources.json                        | 266 +++++++++++----------
+ messages/fr/common.json                            |   3 +-
+ messages/fr/home.json                              |  27 ++-
+ messages/fr/ressources.json                        |  20 +-
+ messages/pt/common.json                            |   3 +-
+ messages/pt/home.json                              |  27 ++-
+ messages/pt/ressources.json                        | 266 +++++++++++----------
+ 16 files changed, 1050 insertions(+), 432 deletions(-)
+
+up to date, audited 1001 packages in 4s
+
+336 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (4 low, 1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> alforis@8.0.0 build
+> next build
+
+   ▲ Next.js 15.3.1
+   - Environments: .env.local, .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/[locale]/b2b/ressources/page.jsx
+Module not found: Can't resolve './RessourcesPage'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [alforis-site](ids: [ 0 ])
+[PM2] [alforis-site](0) ✓
+┌────┬─────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name            │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ alforis-site    │ default     │ 0.39.6  │ fork    │ 1103314  │ 0s     │ 33   │ online    │ 0%       │ 21.5mb   │ root     │ disabled │
+└────┴─────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [alforis-site](ids: [ 0 ])
+[PM2] [alforis-site](0) ✓
+┌────┬─────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name            │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ alforis-site    │ default     │ 0.39.6  │ fork    │ 1103906  │ 0s     │ 48   │ online    │ 0%       │ 20.6mb   │ root     │ disabled │
+└────┴─────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Saving current process list...
+[PM2] Successfully saved in /root/.pm2/dump.pm2
+[2025-10-06 21:42:12] 🚀 Déploiement complet
