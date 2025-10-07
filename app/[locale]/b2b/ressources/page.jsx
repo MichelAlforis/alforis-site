@@ -1,6 +1,6 @@
 // app/[locale]/b2b/ressources/page.jsx
 import { getTranslations } from 'next-intl/server'
-import RessourcesPage from './RessourcesPage'
+import RessourcesPage from './ressourcesPage'
 
 export async function generateMetadata({ params }) {
   const { locale } = await params
