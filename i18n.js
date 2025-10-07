@@ -4,7 +4,7 @@ import {getRequestConfig} from 'next-intl/server';
 export const locales = ['fr', 'en', 'es', 'pt'];
 export const defaultLocale = 'fr';
 
-const namespaces = ['common', 'home', 'partenaires', 'ressources', 'solutions', 'contact','footer'];
+const namespaces = ['common', 'home', 'partenaires', 'ressources', 'solutions', 'contact','footer','mentionslegal','cgu','confidentialite'];
 
 async function loadMessages(locale) {
   const messages = {};

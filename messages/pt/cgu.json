@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Condições de utilização – Alforis TPM (B2B)",
+    "description": "Condições de acesso, utilização e responsabilidade do site institucional da Alforis TPM.",
+    "ogTitle": "Condições de utilização – Alforis TPM",
+    "ogDescription": "Condições de utilização do site Alforis TPM para utilizadores institucionais."
+  },
+  "object": {
+    "title": "Objeto",
+    "p1": "Estas condições definem as regras de acesso e utilização do site institucional (B2B) www.alforis.fr.",
+    "p2": "A navegação implica a aceitação plena destas condições."
+  },
+  "access": {
+    "title": "Acesso ao site",
+    "p1": "O acesso é livre e gratuito. Custos de ligação e equipamento são da responsabilidade do utilizador.",
+    "p2": "O site pode ser suspenso temporariamente para manutenção sem aviso prévio."
+  },
+  "use": {
+    "title": "Utilização do site",
+    "p1": "O utilizador compromete-se a utilizar o site de forma legal e abstém-se de:",
+    "items": {
+      "law": "usar o site para fins ilegais ou proibidos;",
+      "security": "perturbar ou tentar contornar a segurança do site;",
+      "content": "reproduzir ou explorar conteúdos sem autorização prévia."
+    }
+  },
+  "responsibility": {
+    "title": "Responsabilidade",
+    "p1": "A Alforis procura garantir a exatidão das informações, mas não assegura a sua integralidade.",
+    "p2": "O conteúdo é meramente informativo e não constitui recomendação ou oferta."
+  },
+  "links": {
+    "title": "Ligações externas",
+    "p1": "O site pode conter ligações para terceiros. A Alforis não é responsável pelo conteúdo desses sites."
+  },
+  "ip": {
+    "title": "Propriedade intelectual",
+    "p1": "Todo o conteúdo é protegido por direitos de autor e marcas registadas. É proibida a reprodução não autorizada.",
+    "p2": "Qualquer uso não autorizado pode originar ações judiciais."
+  },
+  "data": {
+    "title": "Dados pessoais",
+    "p1": "Os dados recolhidos são tratados de acordo com a Política de Privacidade.",
+    "p2": "Consulte a Política RGPD para mais detalhes."
+  },
+  "law": {
+    "title": "Lei aplicável e jurisdição",
+    "p1": "As presentes condições regem-se pela lei francesa. Jurisdição: Tribunal de Recurso de Paris."
+  }
+}

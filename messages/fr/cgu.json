@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Conditions générales d’utilisation – Alforis TPM (B2B)",
+    "description": "Conditions d'accès, d'utilisation et de responsabilité applicables au site institutionnel Alforis TPM (Third-Party Marketing).",
+    "ogTitle": "CGU – Alforis TPM",
+    "ogDescription": "Conditions d’utilisation du site Alforis pour les professionnels de la gestion d’actifs."
+  },
+  "object": {
+    "title": "Objet",
+    "p1": "Les présentes conditions générales d’utilisation (CGU) définissent les modalités d’accès et d’utilisation du site www.alforis.fr dans sa version institutionnelle (B2B).",
+    "p2": "Toute navigation sur le site implique l’acceptation pleine et entière des présentes conditions."
+  },
+  "access": {
+    "title": "Accès au site",
+    "p1": "L’accès au site est libre et gratuit pour tout utilisateur disposant d’un accès Internet. Les coûts liés à l’accès (matériel, logiciel, connexion) sont à la charge de l’utilisateur.",
+    "p2": "Le site peut faire l’objet d’interruptions temporaires pour maintenance ou mise à jour sans préavis."
+  },
+  "use": {
+    "title": "Utilisation du site",
+    "p1": "L’utilisateur s’engage à utiliser le site dans le respect des lois et règlements en vigueur et s’interdit notamment :",
+    "items": {
+      "law": "d’utiliser le site à des fins contraires à la loi ou portant atteinte à l’ordre public ;",
+      "security": "de perturber le bon fonctionnement du site ou d’accéder à des zones protégées sans autorisation ;",
+      "content": "de reproduire, copier ou exploiter tout contenu sans accord préalable d’Alforis Finance."
+    }
+  },
+  "responsibility": {
+    "title": "Responsabilité",
+    "p1": "Alforis s’efforce d’assurer l’exactitude et la mise à jour des informations diffusées. Néanmoins, elle ne saurait être tenue responsable des omissions, inexactitudes ou carences dans la mise à jour.",
+    "p2": "Le contenu du site a une vocation purement informative et ne constitue en aucun cas une recommandation, une sollicitation ou une offre commerciale."
+  },
+  "links": {
+    "title": "Liens externes",
+    "p1": "Le site peut contenir des liens vers d’autres sites. Alforis n’exerce aucun contrôle sur leur contenu et décline toute responsabilité à leur égard."
+  },
+  "ip": {
+    "title": "Propriété intellectuelle",
+    "p1": "Le site et l’ensemble de ses éléments sont protégés par le droit d’auteur et le droit des marques. Toute reproduction totale ou partielle sans autorisation est interdite.",
+    "p2": "Toute utilisation non autorisée du contenu est susceptible d’engager la responsabilité de son auteur."
+  },
+  "data": {
+    "title": "Données personnelles",
+    "p1": "Le site peut collecter certaines données via ses formulaires (contact, prise de rendez-vous). Ces données sont traitées conformément à la Politique de confidentialité.",
+    "p2": "L’utilisateur peut consulter la Politique de confidentialité RGPD pour plus d’informations."
+  },
+  "law": {
+    "title": "Droit applicable et juridiction compétente",
+    "p1": "Les présentes CGU sont régies par le droit français. En cas de litige, la juridiction compétente sera celle du ressort de la Cour d’appel de Paris."
+  }
+}

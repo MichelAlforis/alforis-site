@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Legal Notice – Alforis TPM (B2B)",
+    "description": "Alforis TPM legal information for institutional audiences: TPM status (AFTPM), intellectual property, GDPR data, and Hetzner hosting.",
+    "ogTitle": "Legal Notice – Alforis TPM",
+    "ogDescription": "Transparency & compliance: Third-Party Marketing (AFTPM), GDPR, intellectual property, EU hosting."
+  },
+  "editor": {
+    "title": "Publisher",
+    "l1": "Alforis Finance, SAS with share capital of €5,000",
+    "l2": "Registered office: 10 rue de la Bourse, 75002 Paris – France",
+    "l3": "Paris Trade & Companies Register (RCS): 943 007 229",
+    "l4": "EU VAT: FR 159 430 072 29",
+    "l5": "Editor-in-chief: Michel Marques",
+    "l6": "Contact: michel.marques@alforis.fr"
+  },
+  "activity": {
+    "title": "Activity",
+    "p1": "Alforis operates as an independent Third-Party Marketer (TPM), representing and promoting international asset managers and institutional players across Europe.",
+    "p2": "Alforis does not provide investment advice, portfolio management, or financial intermediation within the meaning of the French Monetary and Financial Code.",
+    "p3": "Alforis is a member of AFTPM (French Association of Third-Party Marketers). This website targets professional audiences only (B2B)."
+  },
+  "hosting": {
+    "title": "Hosting",
+    "p1": "The website is hosted on a dedicated server administered by Alforis and operated by Hetzner Online GmbH (Germany, EU).",
+    "p2": "Host website: hetzner.com",
+    "p3": "Data is stored within the European Union in compliance with GDPR."
+  },
+  "ip": {
+    "title": "Intellectual Property",
+    "p1": "The website www.alforis.fr and all of its elements (texts, visuals, logo, photos, videos, structure, code, design) are the exclusive property of Alforis Finance or its partners.",
+    "p2": "Any reproduction, representation, alteration, dissemination or use without prior written consent from Alforis is prohibited."
+  },
+  "privacy": {
+    "title": "Personal Data & Cookies",
+    "p1": "Data collected (contact, meetings, registrations) is processed to manage the professional relationship with Alforis.",
+    "p2": "Under GDPR, you have rights of access, rectification, objection, erasure and portability.",
+    "p3": "Exercise your rights: dpo@alforis.fr",
+    "p4": "This website uses technical and analytics cookies. Manage your preferences via the dedicated module."
+  },
+  "liability": {
+    "title": "Liability",
+    "p1": "Alforis strives for accuracy but provides no warranty regarding completeness or permanent updates.",
+    "p2": "The content is informational only and does not constitute a recommendation, offer or solicitation to subscribe to any financial product.",
+    "p3": "Users access the website at their own risk. Alforis declines any liability for direct or indirect damages."
+  },
+  "links": {
+    "title": "Hyperlinks",
+    "p1": "This website may contain links to third-party sites. Alforis has no control over these sites and declines any responsibility for their content."
+  },
+  "law": {
+    "title": "Governing Law",
+    "p1": "This website is governed by French law. In case of dispute, the competent courts are those within the jurisdiction of the Paris Court of Appeal."
+  }
+}

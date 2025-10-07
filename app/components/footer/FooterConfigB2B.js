@@ -76,28 +76,23 @@ export const FooterConfigB2B = {
   tabsLinks: [
     { 
       label: "Mentions légales", 
-      href: "/shared/mentionslegales",
+      href: "/b2b/mentionslegales",
       ariaLabel: "Consulter les mentions légales"
     },
     { 
       label: "CGU Professionnels", 
-      href: "/cgu-professionnels",
+      href: "/b2b/cgu",
       ariaLabel: "Consulter les CGU professionnels"
     },
     { 
       label: "Politique de confidentialité", 
-      href: "/shared/politique-de-confidentialite",
+      href: "/b2b/confidentialite",
       ariaLabel: "Consulter notre politique de confidentialité"
-    },
-    { 
-      label: "Données personnelles (RGPD)", 
-      href: "/rgpd",
-      ariaLabel: "En savoir plus sur le traitement des données"
     },
   { 
       label: "Gérer mes cookies", 
       href: "#",
-      onClick: openCookieSettings, // ← Fonction réelle, pas string
+       onClick: () => openCookieSettings(false), // ← Fonction réelle, pas string
       ariaLabel: "Gérer vos préférences de cookies"
     },
   ],
@@ -107,11 +102,10 @@ export const FooterConfigB2B = {
     copyright: `© ${new Date().getFullYear()} Alforis. Tous droits réservés.`,
     companyInfo: {
       name: "Alforis",
-      status: "SARL au capital de 10 000€",
-      rcs: "RCS Paris 123 456 789",
-      orias: "N° ORIAS : 12345678",
-      siret: "SIRET : 123 456 789 00010",
-      tva: "TVA intracommunautaire : FR12345678901"
+      status: "SAS au capital de 5 000€",
+      rcs: "Immatriculée au RCS de Paris : 943 007 229",
+      tva: "TVA intracommunautaire : FR 159 430 072 29",
+      director: "Directeur de publication : Michel Marques"
     },
     compliance: [
       "Membre de la Chambre Nationale des Conseils en Gestion de Patrimoine",

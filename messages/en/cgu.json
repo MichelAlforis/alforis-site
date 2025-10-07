@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Terms of Use – Alforis TPM (B2B)",
+    "description": "Terms and conditions governing access, use, and liability for Alforis TPM institutional website.",
+    "ogTitle": "Terms of Use – Alforis TPM",
+    "ogDescription": "Website terms and conditions for institutional users of Alforis TPM."
+  },
+  "object": {
+    "title": "Purpose",
+    "p1": "These Terms of Use define the conditions of access and use of the www.alforis.fr institutional (B2B) website.",
+    "p2": "Browsing the site constitutes full and unreserved acceptance of these terms."
+  },
+  "access": {
+    "title": "Website Access",
+    "p1": "Access is free for all users with Internet access. Connection costs and equipment are the user's responsibility.",
+    "p2": "Temporary interruptions for maintenance or updates may occur without notice."
+  },
+  "use": {
+    "title": "Use of the Website",
+    "p1": "Users agree to use the site lawfully and refrain from:",
+    "items": {
+      "law": "using the site for unlawful or prohibited purposes;",
+      "security": "interfering with or attempting to bypass site security;",
+      "content": "reproducing or exploiting content without prior written authorization."
+    }
+  },
+  "responsibility": {
+    "title": "Liability",
+    "p1": "Alforis strives for accuracy and timeliness of information but cannot guarantee completeness or absence of errors.",
+    "p2": "All content is for informational purposes only and does not constitute advice, solicitation, or an offer."
+  },
+  "links": {
+    "title": "External Links",
+    "p1": "The site may contain links to third-party websites. Alforis is not responsible for their content."
+  },
+  "ip": {
+    "title": "Intellectual Property",
+    "p1": "All content is protected by copyright and trademark laws. Unauthorized reproduction is prohibited.",
+    "p2": "Any unauthorized use may give rise to legal action."
+  },
+  "data": {
+    "title": "Personal Data",
+    "p1": "Data collected through contact or meeting forms are processed per our Privacy Policy.",
+    "p2": "Please refer to the GDPR Privacy Policy for details."
+  },
+  "law": {
+    "title": "Governing Law & Jurisdiction",
+    "p1": "These Terms of Use are governed by French law. Jurisdiction: Paris Court of Appeal."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Aviso legal – Alforis TPM (B2B)",
+    "description": "Información legal de Alforis TPM para público institucional: estatus TPM (AFTPM), propiedad intelectual, datos personales (RGPD) y alojamiento Hetzner.",
+    "ogTitle": "Aviso legal – Alforis TPM",
+    "ogDescription": "Transparencia y cumplimiento: Third-Party Marketing (AFTPM), RGPD, propiedad intelectual, alojamiento en la UE."
+  },
+  "editor": {
+    "title": "Editor del sitio",
+    "l1": "Alforis Finance, SAS con capital social de 5.000 €",
+    "l2": "Sede social: 10 rue de la Bourse, 75002 París – Francia",
+    "l3": "Registro Mercantil de París (RCS): 943 007 229",
+    "l4": "IVA intracomunitario: FR 159 430 072 29",
+    "l5": "Director de la publicación: Michel Marques",
+    "l6": "Contacto: michel.marques@alforis.fr"
+  },
+  "activity": {
+    "title": "Actividad",
+    "p1": "Alforis actúa como Third-Party Marketer (TPM) independiente, representando y promocionando gestoras internacionales y actores institucionales en Europa.",
+    "p2": "Alforis no presta asesoramiento en inversiones, gestión de carteras ni intermediación financiera en el sentido del Código Monetario y Financiero francés.",
+    "p3": "Alforis es miembro de AFTPM. Este sitio está dirigido exclusivamente a un público profesional (B2B)."
+  },
+  "hosting": {
+    "title": "Alojamiento",
+    "p1": "El sitio está alojado en un servidor dedicado administrado por Alforis y operado por Hetzner Online GmbH (Alemania, UE).",
+    "p2": "Sitio del proveedor: hetzner.com",
+    "p3": "Los datos se almacenan dentro de la Unión Europea en conformidad con el RGPD."
+  },
+  "ip": {
+    "title": "Propiedad intelectual",
+    "p1": "El sitio www.alforis.fr y todos sus elementos (textos, imágenes, logotipo, fotos, vídeos, estructura, código, diseño) son propiedad exclusiva de Alforis Finance o de sus socios.",
+    "p2": "Queda prohibida cualquier reproducción, representación, modificación, difusión o explotación sin autorización previa y por escrito de Alforis."
+  },
+  "privacy": {
+    "title": "Datos personales y cookies",
+    "p1": "Los datos recogidos (contacto, citas, inscripciones) se tratan para la relación profesional con Alforis.",
+    "p2": "De acuerdo con el RGPD, dispone de derechos de acceso, rectificación, oposición, supresión y portabilidad.",
+    "p3": "Ejercicio de derechos: dpo@alforis.fr",
+    "p4": "El sitio utiliza cookies técnicas y analíticas. Gestione sus preferencias mediante el módulo correspondiente."
+  },
+  "liability": {
+    "title": "Responsabilidad",
+    "p1": "Alforis procura la exactitud de la información, sin garantía de exhaustividad ni actualización permanente.",
+    "p2": "El contenido es informativo y no constituye recomendación, oferta ni solicitud de suscripción a productos financieros.",
+    "p3": "El usuario utiliza el sitio bajo su exclusiva responsabilidad. Alforis declina toda responsabilidad por daños directos o indirectos."
+  },
+  "links": {
+    "title": "Enlaces",
+    "p1": "El sitio puede contener enlaces a terceros. Alforis no controla dichos sitios y declina toda responsabilidad sobre su contenido."
+  },
+  "law": {
+    "title": "Ley aplicable",
+    "p1": "El sitio se rige por la legislación francesa. En caso de litigio, los tribunales competentes son los del ámbito del Tribunal de Apelación de París."
+  }
+}

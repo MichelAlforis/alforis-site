@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Política de Privacidade – Alforis TPM (B2B)",
+    "description": "A nossa política RGPD para o público institucional: finalidades, bases legais, conservação, subcontratantes (Hetzner, CRM, emailing, analytics) e os seus direitos.",
+    "ogTitle": "Política de Privacidade – Alforis TPM",
+    "ogDescription": "Transparência e conformidade RGPD para as nossas atividades de Third-Party Marketing (AFTPM)."
+  },
+  "intro": { "title": "Política de Privacidade", "p1": "Na Alforis Finance, a privacidade e a segurança dos dados são essenciais. Esta política descreve os nossos compromissos RGPD (UE 2016/679) aplicados às nossas atividades B2B de Third-Party Marketing (TPM)." },
+  "controller": { "title": "Responsável pelo tratamento", "p1": "Alforis Finance, SAS – 15 rue de la Bourse, 75002 Paris – França. DPO: dpo@alforis.fr", "p2": "Alojamento: servidor dedicado administrado pela Alforis e operado pela Hetzner Online GmbH (UE)." },
+  "purposes": {
+    "title": "Finalidades do tratamento",
+    "items": { "lead": "Gestão de pedidos e qualificação de leads B2B.", "meeting": "Marcação de reuniões e acompanhamento profissional.", "b2b": "Prospecção e relação comercial institucional.", "security": "Segurança, registo técnico e continuidade de serviço.", "analytics": "Medição de audiência e melhoria do produto (estatísticas agregadas)." }
+  },
+  "legalBases": {
+    "title": "Fundamentos jurídicos",
+    "items": { "consent": "Consentimento (ex.: cookies não essenciais, inscrições voluntárias).", "contract": "Execução pré-contratual/contratual (organização de reuniões, trocas).", "legit": "Interesse legítimo (desenvolvimento B2B, segurança, prevenção de fraude).", "legal": "Obrigações legais (contabilidade, compliance)." }
+  },
+  "recipients": {
+    "title": "Destinatários e subcontratantes",
+    "p1": "Acesso restrito ao pessoal autorizado da Alforis. Subcontratantes vinculados por cláusulas RGPD (art. 28):",
+    "items": { "hosting": "Alojamento: Hetzner Online GmbH (UE).", "crm": "CRM / pipeline (ferramenta UE ou CCT).", "emailing": "Email transacional / newsletters (UE ou CCT).", "analytics": "Analytics (dados agregados, IP truncado quando possível)." },
+    "p2": "A lista detalhada de subcontratantes pode ser fornecida mediante pedido."
+  },
+  "retention": {
+    "title": "Prazos de conservação",
+    "p1": "Conservamos os dados apenas pelo tempo necessário:",
+    "items": { "prospect": "Prospects B2B: 24 meses após o último contacto ativo.", "client": "Clientes/parceiros: duração do contrato e arquivo legal (até 10 anos).", "legal": "Registos legais/contabilísticos: conforme legislação aplicável.", "security": "Registos técnicos: 6–12 meses, salvo necessidade superior por segurança." }
+  },
+  "security": {
+    "title": "Segurança",
+    "p1": "Medidas técnicas e organizacionais:",
+    "items": { "access": "Controlo de acessos, MFA/SSH, princípio do menor privilégio.", "encryption": "Encriptação em trânsito (TLS) e em repouso quando aplicável.", "monitoring": "Registo, monitorização e backups encriptados.", "contract": "Cláusulas contratuais com subcontratantes, auditorias de conformidade." }
+  },
+  "cookies": {
+    "title": "Cookies e rastreadores",
+    "p1": "Utilizamos cookies técnicos (essenciais) e analíticos (dependentes de consentimento quando exigido).",
+    "items": { "technical": "Técnicos: autenticação, desempenho, segurança.", "analytics": "Analíticos: medição de audiência, melhoria contínua (IP truncado quando possível).", "preference": "Preferências: idioma, escolhas de consentimento." },
+    "p2": "Gerir preferências através do banner de cookies."
+  },
+  "transfers": {
+    "title": "Transferências internacionais",
+    "p1": "Não efetuamos transferências fora da UE por defeito. Se necessário, recorremos a:",
+    "items": { "adequacy": "Decisões de adequação da Comissão Europeia.", "scc": "Cláusulas Contratuais-Tipo (CCT) com medidas suplementares.", "consent": "Consentimento explícito como último recurso quando exigido." }
+  },
+  "rights": {
+    "title": "Os seus direitos",
+    "p1": "Dispõe dos direitos de acesso, retificação, apagamento, oposição, portabilidade e limitação.",
+    "items": { "access": "Acesso: obter cópia e informação.", "rectification": "Retificação: corrigir dados inexatos.", "erasure": "Apagamento: nos casos previstos pelo RGPD.", "object": "Oposição: nomeadamente ao marketing direto.", "portability": "Portabilidade: receber os seus dados num formato estruturado.", "restriction": "Limitação: suspensão temporária do tratamento." },
+    "p2": "Exerça os seus direitos: dpo@alforis.fr (resposta em 30 dias)."
+  },
+  "complaints": { "title": "Reclamações", "p1": "Pode contactar a CNIL (www.cnil.fr) se considerar que os seus direitos não foram respeitados." },
+  "minors": { "title": "Menores", "p1": "O nosso site e serviços destinam-se a um público profissional. Não recolhemos intencionalmente dados de menores." },
+  "changes": { "title": "Atualizações", "p1": "Esta política pode ser atualizada para refletir alterações no tratamento ou na lei. A data da última atualização é apresentada no rodapé." },
+  "contact": { "title": "Contacto", "p1": "Questões sobre esta política: dpo@alforis.fr" }
+}
