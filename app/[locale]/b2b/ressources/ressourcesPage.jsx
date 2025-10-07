@@ -105,7 +105,7 @@ export default function RessourcesPage() {
 
   const handleContactClick = () => {
     // Rediriger vers la page contact
-    window.location.href = '/contact'
+    window.location.href = '/b2b/contact'
   }
 
   const handlePressArticleClick = (idx) => {
