@@ -3,17 +3,6 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
-const handleCookiePrefs = () => {
-  if (window.cc_popup && typeof window.cc_popup.revokeChoice === 'function') {
-    window.cc_popup.revokeChoice()
-  } else {
-    setTimeout(() => {
-      if (window.cc_popup && typeof window.cc_popup.revokeChoice === 'function') {
-        window.cc_popup.revokeChoice()
-      }
-    }, 300)
-  }
-}
 
 export default function FooterDesktopB2B() {
   const t = useTranslations('footer.b2b')
@@ -71,7 +60,7 @@ export default function FooterDesktopB2B() {
           <p className="text-ivoire mb-2">© Alforis. {t('legal.copyright', { year })}</p>
           
           <Link
-            href="/mentionslegales"
+            href="/shared/mentionslegales"
             className="hover:text-doré transition-colors duration-200 text-right"
             aria-label={t('links.legalAria')}
           >
@@ -79,7 +68,7 @@ export default function FooterDesktopB2B() {
           </Link>
           
           <Link
-            href="/politique-de-confidentialite"
+            href="/shared/politique-de-confidentialite"
             className="hover:text-doré transition-colors duration-200 text-right"
             aria-label={t('links.privacyAria')}
           >

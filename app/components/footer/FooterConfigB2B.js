@@ -1,4 +1,6 @@
 // app/components/footer/FooterConfigB2B.js
+import { openCookieSettings } from '@/lib/cookieConsent';
+
 export const FooterConfigB2B = {
   title: 'Alforis',
   description: 'Solutions patrimoniales pour les professionnels',
@@ -74,7 +76,7 @@ export const FooterConfigB2B = {
   tabsLinks: [
     { 
       label: "Mentions légales", 
-      href: "/mentionslegales",
+      href: "/shared/mentionslegales",
       ariaLabel: "Consulter les mentions légales"
     },
     { 
@@ -84,7 +86,7 @@ export const FooterConfigB2B = {
     },
     { 
       label: "Politique de confidentialité", 
-      href: "/politique-de-confidentialite",
+      href: "/shared/politique-de-confidentialite",
       ariaLabel: "Consulter notre politique de confidentialité"
     },
     { 
@@ -92,12 +94,12 @@ export const FooterConfigB2B = {
       href: "/rgpd",
       ariaLabel: "En savoir plus sur le traitement des données"
     },
-    { 
+  { 
       label: "Gérer mes cookies", 
       href: "#",
-      onClick: "openCookieSettings",
+      onClick: openCookieSettings, // ← Fonction réelle, pas string
       ariaLabel: "Gérer vos préférences de cookies"
-    }
+    },
   ],
 
   // Informations légales professionnelles
@@ -139,7 +141,6 @@ export const FooterConfigB2B = {
   // Certifications et labels
   certifications: [
     { name: "ORIAS", logo: "/assets/certifications/orias.png" },
-    { name: "CNCP", logo: "/assets/certifications/cncp.png" },
     { name: "ISO 27001", logo: "/assets/certifications/iso27001.png" }
   ]
 };

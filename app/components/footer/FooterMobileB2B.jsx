@@ -74,7 +74,7 @@ export default function FooterMobileB2B() {
           <p className="text-ivoire mb-2">© Alforis. {t('legal.copyright', { year })}</p>
           
           <Link
-            href="/mentionslegales"
+            href="/shared/mentionslegales"
             className="hover:text-doré transition-colors duration-200 text-left"
             aria-label={t('links.legalAria')}
           >
@@ -82,7 +82,7 @@ export default function FooterMobileB2B() {
           </Link>
           
           <Link
-            href="/politique-de-confidentialite"
+            href="/shared/politique-de-confidentialite"
             className="hover:text-doré transition-colors duration-200 text-left"
             aria-label={t('links.privacyAria')}
           >

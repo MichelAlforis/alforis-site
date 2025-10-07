@@ -1,4 +1,6 @@
 // app/components/footer/FooterConfig.js
+import { openCookieSettings } from '@/lib/cookieConsent';
+
 export const FooterConfig = {
   title: 'Alforis',
   description: 'Le patrimoine commence par l\'humain.',
@@ -47,28 +49,28 @@ export const FooterConfig = {
   tabsLinks: [
     { 
       label: "Mentions légales", 
-      href: "/mentionslegales",
+      href: "/shared/mentionslegales",
       ariaLabel: "Consulter les mentions légales"
     },
     { 
       label: "Politique de confidentialité", 
-      href: "/politique-de-confidentialite",
+      href: "/shared/politique-de-confidentialite",
       ariaLabel: "Consulter notre politique de confidentialité"
     },
     { 
       label: "FAQ du Patrimoine", 
-      href: "/faq",
+      href: "/particulier/faq",
       ariaLabel: "Accéder à la FAQ du patrimoine"
     },
-    { 
+{ 
       label: "Gérer mes cookies", 
       href: "#",
-      onClick: "openCookieSettings", // Pour une fonction de gestion des cookies
+      onClick: openCookieSettings, // ← Fonction réelle, pas string
       ariaLabel: "Gérer vos préférences de cookies"
     },
     { 
       label: "Contact", 
-      href: "mailto:michel.marques@alforis.fr",
+      href: "mailto:contact@alforis.fr",
       ariaLabel: "Nous contacter par email"
     }
   ],
