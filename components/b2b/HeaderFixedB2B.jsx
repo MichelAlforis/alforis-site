@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import useScrollPosition from '@/hooks/useScrollPosition'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggleButton from '../ui/ThemeToggleButton'
 
@@ -17,6 +16,7 @@ export default function HeaderFixedB2B({
   mdTitle,
   description,
   introHeight = '12vh',
+  scrollY, // 👈 1. Accepter la prop scrollY
 }) {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -38,7 +38,7 @@ export default function HeaderFixedB2B({
   }, [])
 
   const chooseTitle = !isMobile && mdTitle ? mdTitle : title
-  const scrollY = useScrollPosition()
+  // const scrollY = useScrollPosition() // 👈 3. Supprimer cette ligne
 
   // ------ Seuils d'animation B2B ------
   

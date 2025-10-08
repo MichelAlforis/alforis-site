@@ -15,7 +15,7 @@ import { usePathname } from 'next/navigation'
  * - excludeHeaderOverride: bool ou fn(pathname) pour désactiver l’override header (ex: home B2B)
  */
 export default function useSectionContrast({
-  scrollRootSelectors = ['[data-scroll-root]', '#home-b2b-main', '#home-main'],
+  scrollRootSelectors = [],
   thresholds = [0.2, 0.4, 0.6, 0.8],
   watchDom = true,
   fallback = null,
@@ -77,13 +77,17 @@ export default function useSectionContrast({
 
       if (headerOverrideDisabled) {
         setOnDark(currentContrast === 'dark')
+        console.log('[useSectionContrast] headerOverrideDisabled, currentContrast:', currentContrast)
         return
       }
       if (scrollTop < headerPad) {
         // sous le header ivoire → logo foncé
         setOnDark(false)
+        console.log('[useSectionContrast] sous header, scrollTop:', scrollTop, 'headerPad:', headerPad)
       } else {
         setOnDark(currentContrast === 'dark')
+        console.log('[useSectionContrast] section contrast:', currentContrast)
+        console.log('[useSectionContrast] window.scrollY:', window.scrollY)
       }
     }
 
@@ -91,20 +95,22 @@ export default function useSectionContrast({
     const attach = () => {
       if (cancelled) return
 
-      const rootEl = getRootEl()
+      // 🔻 MODIFICATION : On cherche [data-scroll-root] en priorité 🔻
+      const rootEl = document.querySelector('[data-scroll-root]') || null;
       const sections = getSections()
 
-      // Si pas encore de sections, on retente au prochain frame (et on pose éventuellement un fallback)
+      console.log('[DEBUG] Root Element:', rootEl ? 'main[data-scroll-root]' : 'viewport');
+      console.log('[DEBUG] Sections trouvées:', sections.length)
+      console.log('[DEBUG] Sections:', sections.map(s => s.getAttribute('data-contrast')))
+  
       if (sections.length === 0) {
         if (typeof fallback === 'function') setOnDark(!!fallback())
         raf = requestAnimationFrame(attach)
         return
       }
 
-      // Premier passage: tenir compte du header dès maintenant
       applyContrast(rootEl)
 
-      // Observe les sections
       io = new IntersectionObserver(
         (entries) => {
           const vis = entries.filter((e) => e.isIntersecting)
@@ -114,23 +120,21 @@ export default function useSectionContrast({
           applyContrast(rootEl)
         },
         {
-          root: rootEl ?? null, // viewport si null
+          root: rootEl, // Utilise rootEl ou le viewport si rootEl est null
           rootMargin: '0px 0px 0px 0px',
           thresholds,
-          // NB: certains navigateurs utilisent "threshold" (singulier). On passe via param "thresholds" ci-dessus.
         }
       )
 
       sections.forEach((s) => io.observe(s))
 
-      // Bascule précise au franchissement du "coussin" header
+      // 🔻 MODIFICATION : N'écouter que le bon événement de scroll 🔻
       const onScroll = () => applyContrast(rootEl)
-      if (rootEl) rootEl.addEventListener('scroll', onScroll, { passive: true })
-      window.addEventListener('scroll', onScroll, { passive: true })
+      const scrollTarget = rootEl || window; // Cible le rootEl s'il existe, sinon window
+      scrollTarget.addEventListener('scroll', onScroll, { passive: true })
 
       cleanupScroll = () => {
-        if (rootEl) rootEl.removeEventListener('scroll', onScroll)
-        window.removeEventListener('scroll', onScroll)
+        scrollTarget.removeEventListener('scroll', onScroll)
       }
     }
 

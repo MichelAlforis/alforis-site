@@ -54,6 +54,8 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
   fallback: () => false
 })
 
+console.log('[NavbarLogoMobile] onDark:', onDark)
+
   // 🎨 Détermine la couleur finale
   let fillColor;
   if (revealed) {
@@ -63,6 +65,8 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
   } else {
     fillColor = couleurs.anthracite || couleurs.acier;
   }
+
+  console.log('[NavbarLogoMobile] fillColor:', fillColor)
 
   const fadeIn = { opacity: { duration: 0.8, ease: 'easeOut' } };
   const drawLogo = { pathLength: { duration: 1.4, ease: 'easeInOut' } };
