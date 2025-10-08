@@ -25,6 +25,7 @@ export default function PageLayoutB2B({
     <div
       className="min-h-screen bg-ivoire dark:bg-ardoise transition-colors duration-600"
       style={{ paddingTop }}
+      data-scroll-root
     >
       <HeaderFixedB2B
         title={title}

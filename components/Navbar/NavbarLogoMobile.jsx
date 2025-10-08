@@ -6,13 +6,13 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from '@/styles/ThemeDark';
 import { couleurs } from '@/styles/generated-colors.mjs';
 import { SVGConfig } from './navbarLogoConfig';
-import Color from 'colorjs.io';  // npm install colorjs.io
+import Color from 'colorjs.io';
+import useSectionContrast from '@/hooks/useSectionContrast'
 
 export default function NavbarLogoMobile({ className = '', isTransparent }) {
   const pathname = usePathname();
   const { dark: isDark } = useTheme();
 
-  // Open animation on home
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     if (isTransparent) {
@@ -22,18 +22,14 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
     setOpened(true);
   }, [isTransparent]);
 
-  // Tap interaction & draw
   const [revealed, setRevealed] = useState(false);
   const handleTap = () => setRevealed(r => !r);
   const pathLength = revealed ? 1 : opened ? 0.7 : 0;
 
-  // Prepare Color.js interpolation range
   const ivoryColor = new Color(couleurs.ivoire);
   const acierColor = new Color(couleurs.acier);
-  // Creates an interpolation function in OKLab, outputs sRGB string
   const range = ivoryColor.range(acierColor, { space: 'oklab', outputSpace: 'srgb' });
 
-  // Scroll-driven color on Home
   const [scrollColor, setScrollColor] = useState(couleurs.ivoire);
   useEffect(() => {
     if (pathname !== '/') return;
@@ -42,9 +38,7 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
     const onScroll = () => {
       const total = main.scrollHeight - main.clientHeight;
       const ratio = total > 0 ? main.scrollTop / total : 0;
-      // Triangular wave 0→1→0
       const t = ratio <= 0.5 ? ratio * 2 : 2 - ratio * 2;
-      // Interpolate using Color.js
       const col = range(t).toString();
       setScrollColor(ratio > 0.05 ? col : couleurs.ivoire);
     };
@@ -53,19 +47,23 @@ export default function NavbarLogoMobile({ className = '', isTransparent }) {
     return () => main.removeEventListener('scroll', onScroll);
   }, [pathname, range]);
 
-  // Determine final fill color
+  // 🌈 Nouvelle logique : détection du contraste de la section visible
+  const onDark = useSectionContrast({
+  watchDom: true,
+  excludeHeaderOverride: (pathname) => /^\/(fr|en|es|pt)\/b2b\/?$/.test(pathname),
+  fallback: () => false
+})
+
+  // 🎨 Détermine la couleur finale
   let fillColor;
   if (revealed) {
     fillColor = couleurs.doré;
-  } else if (pathname === '/') {
-    fillColor = scrollColor;
-  } else if (pathname.includes('apropos')) {
+  } else if (onDark) {
     fillColor = couleurs.ivoire;
   } else {
-    fillColor = isDark || isTransparent ? couleurs.ivoire : couleurs.acier;
+    fillColor = couleurs.anthracite || couleurs.acier;
   }
 
-  // Transitions
   const fadeIn = { opacity: { duration: 0.8, ease: 'easeOut' } };
   const drawLogo = { pathLength: { duration: 1.4, ease: 'easeInOut' } };
   const drawText = { pathLength: { duration: 1.0, ease: 'easeInOut' }, strokeWidth: { duration: 0.3 } };

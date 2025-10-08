@@ -21,7 +21,7 @@ export default function SolutionsPage() {
       introHeight="12vh"
     >
 {/* Hero Section */}
-<section className="bg-gradient-to-br from-ardoise via-anthracite to-acier text-white py-16 md:py-24">
+<section data-contrast="dark" className="bg-gradient-to-br from-ardoise via-anthracite to-acier text-white py-16 md:py-24">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="max-w-4xl mx-auto text-center">
       <div className="inline-block bg-doré/20 border border-doré/50 rounded-full px-4 py-2 mb-6">
@@ -36,7 +36,7 @@ export default function SolutionsPage() {
 </section>
 
       {/* Partnership Vision */}
-      <section className="py-16 md:py-24 bg-white dark:bg-anthracite">
+      <section data-contrast="light" className="py-16 md:py-24 bg-white dark:bg-anthracite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -68,7 +68,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Ideal Partners */}
-      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+      <section data-contrast="light" className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -98,7 +98,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Engagement Model */}
-      <section id="engagement" className="py-16 md:py-24 bg-white dark:bg-anthracite">
+      <section id="engagement" data-contrast="light" className="py-16 md:py-24 bg-white dark:bg-anthracite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -140,7 +140,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* How We Work */}
-      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+      <section data-contrast="light" className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -165,7 +165,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Expected Results */}
-      <section id="results" className="py-16 md:py-24 bg-gradient-to-br from-ardoise via-anthracite to-ardoise text-white">
+      <section id="results" data-contrast="dark" className="py-16 md:py-24 bg-gradient-to-br from-ardoise via-anthracite to-ardoise text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-bold mb-4 text-doré">
@@ -188,7 +188,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-16 md:py-24 bg-white dark:bg-anthracite">
+      <section data-contrast="light" className="py-16 md:py-24 bg-white dark:bg-anthracite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -221,7 +221,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
+      <section data-contrast="light" className="py-16 md:py-24 bg-ivoire dark:bg-ardoise/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-4">
@@ -253,7 +253,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 bg-white dark:bg-anthracite">
+      <section data-contrast="light" className="py-16 md:py-24 bg-white dark:bg-anthracite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-4xl font-title font-semibold text-ardoise dark:text-vertSauge mb-12 text-center">
             {t('faq.title')}
@@ -276,7 +276,7 @@ export default function SolutionsPage() {
 
       {/* CTA Final */}
 
-<section id="contact" className="py-16 md:py-24 bg-gradient-to-r from-ardoise via-acier to-ardoise text-white">
+<section id="contact" data-contrast="dark" className="py-16 md:py-24 bg-gradient-to-r from-ardoise via-acier to-ardoise text-white">
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 className="text-2xl md:text-4xl font-title font-bold mb-6 text-doré">
       {t('cta.title')}

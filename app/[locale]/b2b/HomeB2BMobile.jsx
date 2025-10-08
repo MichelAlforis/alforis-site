@@ -24,12 +24,14 @@ export default function HomeB2BMobile() {
     <Animated.Page>
       <main
         id="home-b2b-main"
+        data-scroll-root
         ref={mainRef}
         className="h-screen snap-y snap-mandatory overflow-y-auto scrollbar-hide"
       >
         {/* 1. Hero Section */}
         <motion.section
           id="hero"
+          data-contrast="dark"
           className="snap-start h-screen relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -58,6 +60,7 @@ export default function HomeB2BMobile() {
         {/* 2. Notre rôle */}
         <motion.section
           id="role"
+          data-contrast="light"
           className="snap-start relative h-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +75,7 @@ export default function HomeB2BMobile() {
         {/* 3. Zones couvertes */}
         <motion.section
           id="countries"
+          data-contrast="dark"
           className="snap-start bg-gradient-to-br from-ardoise to-anthracite py-16 relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -86,6 +90,7 @@ export default function HomeB2BMobile() {
         {/* 4. Différenciateurs */}
         <motion.section
           id="differentiators"
+          data-contrast="light"
           className="snap-start relative px-3 py-16"
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -100,6 +105,7 @@ export default function HomeB2BMobile() {
         {/* 5. Services */}
         <motion.section
           id="services"
+          data-contrast="dark"
           className="snap-start bg-gradient-to-br from-anthracite to-ardoise py-16 relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -114,6 +120,7 @@ export default function HomeB2BMobile() {
         {/* 6. Interlocuteurs */}
         <motion.section
           id="targets"
+          data-contrast="light"
           className="snap-start relative py-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,6 +135,7 @@ export default function HomeB2BMobile() {
         {/* 7. Contact CTA */}
         <motion.section
           id="contact"
+          data-contrast="dark"
           className="snap-start relative py-16 bg-gradient-to-b from-ardoise to-anthracite"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
