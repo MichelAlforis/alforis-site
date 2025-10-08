@@ -13,15 +13,16 @@ import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 export default function NavbarMobile({ links }) {
   const pathname = usePathname();
   const router = useRouter();
-const getLocaleFromPath = () => {
+  const getLocaleFromPath = () => {
   const segments = pathname.split('/')
   const possibleLocale = segments[1]
   return ['fr', 'en', 'es', 'pt'].includes(possibleLocale) ? possibleLocale : 'fr'
 }
 
-const locale = getLocaleFromPath()
+  const locale = getLocaleFromPath()
   const isTransparent = pathname === '/' || pathname === '/a-propos';
   const ctx = pathname.startsWith('/b2b') || pathname.includes('/b2b') ? 'b2b' : 'particulier';
+  const homePath = ctx === 'b2b' ? `/${locale}/b2b` : '/'
   const isActive = useCallback((href) => pathname === href, [pathname]);
   const [isOpen, setIsOpen] = useState(false);
   const firstLinkRef = useRef(null);
@@ -102,7 +103,10 @@ const locale = getLocaleFromPath()
           )}
           style={{ height: 'var(--nav-height)' }}
         >
-          <NavbarLogoMobile className={'h-full w-auto'} isTransparent={isTransparent} />
+          <Link href={homePath} className="h-full w-auto flex items-center">
+            <NavbarLogoMobile className="h-full w-auto" isTransparent={isTransparent} />
+          </Link>
+
 
           <button
             onClick={() => setIsOpen(true)}
@@ -162,7 +166,7 @@ const locale = getLocaleFromPath()
                 </a>
 
                 <Link
-                  href="/"
+                  href={homePath}
                   onClick={handleLinkClick}
                   className="flex items-center"
                 >
@@ -185,20 +189,7 @@ const locale = getLocaleFromPath()
                 variants={containerVariants}
               >
                 <ul className="space-y-6">
-                  {/* Accueil */}
-                  <motion.li variants={itemVariants}>
-                    <Link
-                      href="/"
-                      onClick={handleLinkClick}
-                      ref={firstLinkRef}
-                      className={clsx(
-                        'block text-xl space-y-1 uppercase font-semibold',
-                        isActive('/') ? 'text-doré' : 'text-acier dark:text-ivoire'
-                      )}
-                    >
-                      Accueil
-                    </Link>
-                  </motion.li>
+
 
                   {/* Liens dynamiques */}
                   {links.map(({ href, label }) => (

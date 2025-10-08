@@ -5,16 +5,16 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import Animated from '@/components/animated/Animated'
-import HeroB2BSection from './Components/Home/HeroB2BSection'
+import HeroB2BSection from '../b2b/Components/Home/HeroB2BSection'
 import useButtonHover from '@/hooks/useButtonHover'
 
 // Dynamic imports
-const CountriesSection = dynamic(() => import('./Components/Home/CountriesSection'), { ssr: false })
-const RoleSection = dynamic(() => import('./Components/Home/RoleSection'), { ssr: false })
-const DifferentiatorsSection = dynamic(() => import('./Components/Home/DifferentiatorsSection'), { ssr: false })
-const ServicesB2BSection = dynamic(() => import('./Components/Home/ServicesB2BSection'), { ssr: false })
-const TargetsSection = dynamic(() => import('./Components/Home/TargetsSection'), { ssr: false })
-const ContactB2BSection = dynamic(() => import('./Components/Home/ContactB2BSection'), { ssr: false })
+const CountriesSection = dynamic(() => import('../b2b/Components/Home/CountriesSection'), { ssr: false })
+const RoleSection = dynamic(() => import('../b2b/Components/Home/RoleSection'), { ssr: false })
+const DifferentiatorsSection = dynamic(() => import('../b2b/Components/Home/DifferentiatorsSection'), { ssr: false })
+const ServicesB2BSection = dynamic(() => import('../b2b/Components/Home/ServicesB2BSection'), { ssr: false })
+const TargetsSection = dynamic(() => import('../b2b/Components/Home/TargetsSection'), { ssr: false })
+const ContactB2BSection = dynamic(() => import('../b2b/Components/Home/ContactB2BSection'), { ssr: false })
 
 export default function HomeB2BMobile() {
   const mainRef = useRef(null)
@@ -64,15 +64,6 @@ export default function HomeB2BMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div className="absolute inset-0">
-            <Image
-              src="/assets/img/b2b/M_role_b2b.webp"
-              alt=""
-              fill
-              style={{ objectFit: "cover" }}
-              loading="lazy"
-            />
-          </motion.div>
           <div className="relative z-base bg-ivoire/90 dark:bg-anthracite/90 px-3 py-12">
             <RoleSection extraClass="" />
           </div>
@@ -101,15 +92,6 @@ export default function HomeB2BMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div className="absolute inset-0">
-            <Image
-              src="/assets/img/b2b/M_differentiators_b2b.webp"
-              alt=""
-              fill
-              style={{ objectFit: "cover" }}
-              loading="lazy"
-            />
-          </motion.div>
           <div className="relative z-base max-w-md mx-auto">
             <DifferentiatorsSection extraClass="px-3 bg-ivoire/90 dark:bg-acier/80 rounded-2xl shadow-2xl py-6" />
           </div>
@@ -138,15 +120,6 @@ export default function HomeB2BMobile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div className="absolute inset-0">
-            <Image
-              src="/assets/img/b2b/M_targets_b2b.webp"
-              alt=""
-              fill
-              style={{ objectFit: "cover" }}
-              loading="lazy"
-            />
-          </motion.div>
           <div className="relative z-base bg-ivoire/90 dark:bg-anthracite/90 px-3 py-12">
             <TargetsSection extraClass="" />
           </div>

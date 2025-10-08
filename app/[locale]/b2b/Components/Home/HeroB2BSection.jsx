@@ -22,14 +22,14 @@ export default function HeroB2BSection({
       icon: Calendar,
       title: tModal('options.calendar.title'),
       description: tModal('options.calendar.description'),
-      action: () => window.open('https://calendly.com/votre-lien', '_blank'),
+      action: () => window.open('https://cal.com/alforis/decouverte-solution', '_blank'),
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: Mail,
       title: tModal('options.email.title'),
       description: tModal('options.email.description'),
-      action: () => router.push('/contact'),
+      action: () => router.push('/b2b/contact'),
       color: 'from-doré to-yellow-600'
     },
     {
@@ -128,7 +128,7 @@ export default function HeroB2BSection({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+            className="fixed inset-0 z-[100] grid place-items-center bg-black/60 backdrop-blur-sm px-4 py-6 overflow-y-auto"
             onClick={() => setShowOptions(false)}
           >
             <motion.div
@@ -137,7 +137,9 @@ export default function HeroB2BSection({
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-gradient-to-br from-anthracite to-ardoise rounded-3xl p-8 md:p-12 max-w-3xl w-full shadow-2xl border border-doré/30"
+              className="relative bg-gradient-to-br from-anthracite to-ardoise rounded-3xl
+              p-5 md:p-10 w-full max-w-lg md:max-w-3xl shadow-2xl border border-doré/30
+              max-h-[90svh] overflow-y-auto"
             >
               {/* Bouton Fermer */}
               <button
@@ -148,17 +150,17 @@ export default function HeroB2BSection({
               </button>
 
               {/* Titre */}
-              <div className="text-center mb-10">
-                <h3 className="text-3xl md:text-4xl font-bold text-ivoire mb-3">
+              <div className="text-center mb-6 md:mb-10">
+                <h3 className="text-2xl md:text-4xl font-bold text-ivoire mb-2 md:mb-3">
                   {tModal('title')}
                 </h3>
-                <p className="text-ivoire/70 text-lg">
+                <p className="text-ivoire/70 text-base md:text-lg">
                   {tModal('subtitle')}
                 </p>
               </div>
 
               {/* Grille d'Options */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 {contactOptions.map((option, index) => (
                   <motion.button
                     key={option.title}
@@ -181,7 +183,7 @@ export default function HeroB2BSection({
                         <option.icon className="w-6 h-6 text-white" />
                       </div>
                       
-                      <h4 className="text-xl font-bold text-ivoire mb-2 group-hover:text-doré transition-colors">
+                      <h4 className="text-lg md:text-xl font-bold text-ivoire mb-2 group-hover:text-doré transition-colors">
                         {option.title}
                       </h4>
                       
@@ -199,7 +201,7 @@ export default function HeroB2BSection({
               </div>
 
               {/* Note */}
-              <p className="text-center text-ivoire/50 text-sm mt-8">
+              <p className="text-center text-ivoire/50 text-xs md:text-sm mt-6 md:mt-8">
                 {tModal('note')}
               </p>
             </motion.div>
