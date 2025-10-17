@@ -14,6 +14,11 @@ export default function middleware(request) {
   const url = request.nextUrl
   const { pathname } = url
 
+  // Bypass CRM subdomain requests (no locale handling)
+  if (url.hostname?.startsWith('crm.alforis.fr')) {
+    return NextResponse.next()
+  }
+
   // 0) Bypass assets & API
   const isAsset =
     pathname.startsWith('/_next') ||

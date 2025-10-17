@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartes de visite Michel Marques - Alforis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #2a2a2a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .card {
+      width: 85mm;
+      height: 55mm;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Face française */
+    .card-fr {
+      background: linear-gradient(135deg, #F9F9F9 0%, #FFFFFF 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-fr::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #E39F70;
+    }
+
+    .card-header {
+      margin-left: 10px;
+    }
+
+    .card-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2E3A48;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .card-badge {
+      font-size: 9px;
+      color: #9D3A66;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .card-separator {
+      width: 60px;
+      height: 2px;
+      background: #E39F70;
+      margin-bottom: 12px;
+    }
+
+    .card-countries {
+      margin-left: 10px;
+      margin-bottom: 15px;
+      font-size: 10px;
+      color: #6C757D;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .country {
+      background: rgba(227, 159, 112, 0.1);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #9D3A66;
+      font-weight: 600;
+    }
+
+    .card-contact {
+      background: #FFFFFF;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #F0F0F0;
+      margin-left: 10px;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 10px;
+      color: #2E3A48;
+    }
+
+    .contact-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 12px;
+      height: 12px;
+      margin-right: 6px;
+      opacity: 0.7;
+    }
+
+    .contact-link {
+      color: #2E3A48;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: #9D3A66;
+    }
+
+    .website-link {
+      color: #E39F70;
+      font-weight: 600;
+    }
+
+    /* Face anglaise */
+    .card-en {
+      background: linear-gradient(135deg, #2E3A48 0%, #1F3B4D 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .card-en::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #E39F70;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .logo-placeholder {
+      width: 50px;
+      height: 50px;
+      background: rgba(227, 159, 112, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #E39F70;
+      font-size: 20px;
+      border: 2px solid #E39F70;
+    }
+
+    .logo-text {
+      flex: 1;
+    }
+
+    .company-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #E39F70;
+      margin-bottom: 2px;
+    }
+
+    .company-tagline {
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-en .card-name {
+      color: white;
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+
+    .card-en .card-badge {
+      color: #E39F70;
+      margin-bottom: 8px;
+    }
+
+    .card-en .card-separator {
+      background: rgba(227, 159, 112, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .card-en .position-title {
+      color: #E39F70;
+    }
+
+    .card-en .position-location {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .card-en .card-contact {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(227, 159, 112, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .card-en .contact-line {
+      color: white;
+    }
+
+    .card-en .contact-link {
+      color: white;
+    }
+
+    .card-en .contact-link:hover {
+      color: #E39F70;
+    }
+
+    .card-en .website-link {
+      color: #E39F70;
+    }
+
+    .label {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .card {
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="card-container">
+    <!-- Face française (recto) -->
+    <div class="card card-fr">
+      <div>
+        <div class="card-header">
+          <div class="card-name">Michel Marques</div>
+          <div class="card-badge">Expert Financement B2B</div>
+          <div class="card-separator"></div>
+        </div>
+
+        <div class="card-positions">
+          <div class="position">
+            <span class="position-title">Fondateur — Alforis</span><br>
+            <span class="position-location">France & Luxembourg</span>
+          </div>
+          <div class="position">
+            <span class="position-title">Représentant Ursus-3 Capital</span><br>
+            <span class="position-location">Espagne & Portugal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-contact">
+        <div class="contact-line">
+          <span class="contact-icon">📞</span>
+          <a href="tel:+33646462291" class="contact-link">+33 6 46 46 22 91</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon">✉️</span>
+          <a href="mailto:michel.marques@alforis.fr" class="contact-link">michel.marques@alforis.fr</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon">🌐</span>
+          <a href="https://www.alforis.fr" class="website-link">alforis.fr</a>
+          <span style="color: #D0D0D0; margin: 0 4px;">•</span>
+          <a href="https://ursus-3capital.com" class="website-link">ursus-3capital.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="label">Recto (Français)</div>
+  </div>
+
+  <div class="card-container">
+    <!-- Face anglaise (verso) -->
+    <div class="card card-en">
+      <div>
+        <div class="logo-section">
+          <div class="logo-placeholder">A</div>
+          <div class="logo-text">
+            <div class="company-name">ALFORIS</div>
+            <div class="company-tagline">B2B Financing Solutions</div>
+          </div>
+        </div>
+
+        <div class="card-header">
+          <div class="card-name">Michel Marques</div>
+          <div class="card-badge">B2B Financing Expert</div>
+          <div class="card-separator"></div>
+        </div>
+
+        <div class="card-positions">
+          <div class="position">
+            <span class="position-title">Founder — Alforis</span><br>
+            <span class="position-location">France & Luxembourg</span>
+          </div>
+          <div class="position">
+            <span class="position-title">Representative Ursus-3 Capital</span><br>
+            <span class="position-location">Spain & Portugal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-contact">
+        <div class="contact-line">
+          <span class="contact-icon">📞</span>
+          <a href="tel:+33646462291" class="contact-link">+33 6 46 46 22 91</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon">✉️</span>
+          <a href="mailto:michel.marques@alforis.fr" class="contact-link">michel.marques@alforis.fr</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-icon">🌐</span>
+          <a href="https://www.alforis.fr" class="website-link">alforis.fr</a>
+          <span style="color: rgba(255,255,255,0.3); margin: 0 4px;">•</span>
+          <a href="https://ursus-3capital.com" class="website-link">ursus-3capital.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="label">Verso (English)</div>
+  </div>
+
+</body>
+</html>

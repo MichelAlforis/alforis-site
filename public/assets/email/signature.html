@@ -1,159 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
+  <!--[if mso]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
   <style>
+    /* Reset Outlook */
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+    a { text-decoration: none; }
+    
+    /* Dark mode */
     @media (prefers-color-scheme: dark) {
       .dm-bg { background-color:#1A1A1A !important; }
       .dm-card { background-color:#2C2C2C !important; border-color:#3F3F3F !important; }
       .dm-text, .dm-text a { color:#EDEDED !important; }
       .dm-sub, .dm-sub a { color:#A7A7A7 !important; }
       .dm-pill { background-color:#393939 !important; border-color:#555 !important; }
-      .dm-shadow { box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important; }
+      .dm-contact-box { background-color:#252525 !important; border-color:#3A3A3A !important; }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; background:#FFFFFF;" class="dm-bg">
+<body style="margin:0; padding:0; background:#FFFFFF; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;" class="dm-bg">
 
   <!--[if mso]>
-  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0">
-  <tr><td>
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr><td style="padding:20px 0;">
   <![endif]-->
 
-  <!-- Spacer top -->
+  <!-- Spacer -->
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr><td height="20" style="height:20px;line-height:20px;font-size:0;">&nbsp;</td></tr>
+    <tr><td height="20" style="height:20px;line-height:20px;font-size:1px;mso-line-height-rule:exactly;">&nbsp;</td></tr>
   </table>
 
-  <!-- WRAPPER -->
+  <!-- Container principal -->
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td align="left" style="padding:0;">
+      <td align="center" style="padding:0 10px;">
 
-        <!-- TABLE 580 px : CARTE -->
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0"
-               align="left" width="580" style="border-collapse:collapse;width:580px;">
+        <!-- Carte signature 580px -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580"
+               style="width:580px;max-width:580px;background:#F9F9F9;border:1px solid #EDEDED;"
+               bgcolor="#F9F9F9" class="dm-card">
+          
           <tr>
-            <td style="padding:0;">
+            <!-- Barre accent gauche -->
+            <td width="6" style="width:6px;background:#E39F70;" bgcolor="#E39F70">&nbsp;</td>
 
-              <!-- Carte avec ombre -->
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0"
-                     align="left"
-                     style="border-collapse:collapse;width:580px;max-width:580px;background:#F9F9F9;border:1px solid #EDEDED;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);"
-                     bgcolor="#F9F9F9" class="dm-card dm-shadow">
+            <!-- Contenu -->
+            <td style="padding:20px 18px;font-family:'Segoe UI','Segoe',Tahoma,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.4;color:#2E3A48;mso-line-height-rule:exactly;" class="dm-text">
+              
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
                 <tr>
-                  <!-- Barre accent avec dégradé subtil -->
-                  <td width="6" style="width:6px;background:linear-gradient(180deg, #E39F70 0%, #D88A5A 100%);background-color:#E39F70;border-radius:12px 0 0 12px;" bgcolor="#E39F70">&nbsp;</td>
-                  
-                  <td style="padding:20px;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.4;color:#2E3A48;" class="dm-text">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;width:100%;">
+                  <!-- Logo -->
+                  <td width="90" valign="middle" style="width:90px;padding-right:18px;vertical-align:middle;">
+                    <a href="https://www.alforis.fr" target="_blank" style="text-decoration:none;display:block;">
+                      <img src="https://www.alforis.fr/assets/email/icons/Logo-80.png" 
+                           width="80" height="80" alt="Alforis"
+                           style="display:block;width:80px;height:80px;border:0;outline:none;-ms-interpolation-mode:bicubic;">
+                    </a>
+                  </td>
+
+                  <!-- Informations -->
+                  <td valign="middle" style="vertical-align:middle;padding-right:18px;">
+                    
+                    <!-- Nom -->
+                    <div style="font-size:14px;font-weight:700;color:#2E3A48;margin:0 0 2px 0;mso-line-height-rule:exactly;line-height:18px;" class="dm-text">
+                      Michel Marques
+                    </div>
+                    
+                    <!-- Badge -->
+                    <div style="font-size:10px;color:#9D3A66;font-weight:600;margin:0 0 8px 0;letter-spacing:0.3px;text-transform:uppercase;mso-line-height-rule:exactly;line-height:14px;">
+                      Expert Financement B2B
+                    </div>
+                    
+                    <!-- Séparateur -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 10px 0;">
                       <tr>
-                        <!-- Logo -->
-                        <td style="width:90px;padding-right:18px;vertical-align:middle;">
-                          <a href="https://www.alforis.fr" target="_blank" style="text-decoration:none;display:block;">
-                            <img src="https://www.alforis.fr/assets/email/icons/Logo-80.png" width="80" height="80" alt="Alforis"
-                                 style="display:block;border:0;outline:none;border-radius:8px;">
-                          </a>
+                        <td height="2" width="80" style="height:2px;width:80px;background:#E39F70;font-size:1px;line-height:1px;mso-line-height-rule:exactly;" bgcolor="#E39F70">&nbsp;</td>
+                      </tr>
+                    </table>
+
+                    <!-- Postes -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 12px 0;">
+                      <tr>
+                        <td style="font-size:12px;color:#9D3A66;font-weight:600;padding:0 8px 4px 0;mso-line-height-rule:exactly;line-height:16px;">
+                          Fondateur – Alforis
                         </td>
-
-                        <!-- Infos -->
-                        <td style="vertical-align:middle;">
-                          <!-- Nom + badge -->
-                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;width:100%;">
-                            <tr>
-                              <td style="font-size:14px;font-weight:700;letter-spacing:0.3px;padding:0 0 2px 0;color:#2E3A48;" class="dm-text">
-                                Michel Marques
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="font-size:10.5px;color:#9D3A66;font-weight:600;padding:0 0 8px 0;letter-spacing:0.2px;">
-                                EXPERT FINANCEMENT B2B
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="height:2px;background:linear-gradient(90deg, #E39F70 0%, rgba(227,159,112,0.3) 100%);background-color:#E39F70;width:80px;line-height:2px;font-size:0;">&nbsp;</td>
-                            </tr>
-                          </table>
-
-                          <!-- Postes avec meilleure structure -->
-                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin-top:10px;">
-                            <tr>
-                              <td style="font-size:12px;color:#9D3A66;font-weight:600;padding:0 8px 5px 0;">Fondateur – Alforis</td>
-                              <td style="font-size:11.5px;color:#6C757D;padding:0 0 5px 0;" class="dm-sub">France & Luxembourg</td>
-                            </tr>
-                            <tr>
-                              <td style="font-size:12px;color:#2E3A48;padding:0 8px 12px 0;" class="dm-text">
-                                Représentant <strong style="color:#9D3A66;font-weight:700;">Ursus-3 Capital</strong>
-                              </td>
-                              <td style="font-size:11.5px;color:#6C757D;padding:0 0 12px 0;" class="dm-sub">Espagne & Portugal</td>
-                            </tr>
-                          </table>
-
-                          <!-- Contacts avec icônes améliorées -->
-                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;background:#FFFFFF;padding:10px 12px;border-radius:8px;border:1px solid #F0F0F0;" class="dm-pill">
-                            <tr>
-                              <td style="padding:0 20px 5px 0;white-space:nowrap;">
-                                <img src="https://www.alforis.fr/assets/email/icons/phone.png" width="14" height="14" alt="📱"
-                                     style="vertical-align:middle;margin-right:7px;border:0;opacity:0.85;">
-                                <a href="tel:+33646462291" style="color:#2E3A48;text-decoration:none;font-size:11.5px;" class="dm-text">+33 6 46 46 22 91</a>
-                              </td>
-                              <td style="padding:0 0 5px 0;white-space:nowrap;">
-                                <img src="https://www.alforis.fr/assets/email/icons/mail.png" width="14" height="14" alt="✉️"
-                                     style="vertical-align:middle;margin-right:7px;border:0;opacity:0.85;">
-                                <a href="mailto:michel.marques@alforis.fr" style="color:#2E3A48;text-decoration:none;font-size:11.5px;" class="dm-text">michel.marques@alforis.fr</a>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td colspan="2" style="padding:5px 0 0 0;">
-                                <img src="https://www.alforis.fr/assets/email/icons/web.png" width="14" height="14" alt="🌐"
-                                     style="vertical-align:middle;margin-right:7px;border:0;opacity:0.85;">
-                                <a href="https://www.alforis.fr/fr/b2b" style="color:#E39F70;text-decoration:none;font-weight:600;font-size:11.5px;">alforis.fr</a>
-                                <span style="color:#D0D0D0;margin:0 6px;">•</span>
-                                <a href="https://ursus-3capital.com" style="color:#E39F70;text-decoration:none;font-weight:600;font-size:11.5px;">ursus-3capital.com</a>
-                              </td>
-                            </tr>
-                          </table>
+                        <td style="font-size:11px;color:#6C757D;padding:0 0 4px 0;mso-line-height-rule:exactly;line-height:16px;" class="dm-sub">
+                          France &amp; Luxembourg
                         </td>
-
-                        <!-- Bouton LinkedIn amélioré -->
-                        <td style="width:120px;padding-left:18px;text-align:center;vertical-align:middle;">
-                          <a href="https://www.linkedin.com/company/alforis" target="_blank"
-                             style="display:inline-block;padding:10px 16px;border:1.5px solid #0A66C2;border-radius:20px;text-decoration:none;background:#FFFFFF;box-shadow:0 2px 6px rgba(10,102,194,0.15);"
-                             class="dm-pill">
-                            <img src="https://www.alforis.fr/assets/email/icons/linkedin-20.png" width="16" height="16" alt="LinkedIn"
-                                 style="vertical-align:middle;margin-right:6px;border:0;">
-                            <span style="font-size:12px;color:#0A66C2;font-weight:700;vertical-align:middle;letter-spacing:0.2px;">Connecter</span>
-                          </a>
-                          <!-- Mini badge sous le bouton -->
+                      </tr>
+                      <tr>
+                        <td style="font-size:12px;color:#2E3A48;padding:0 8px 0 0;mso-line-height-rule:exactly;line-height:16px;" class="dm-text">
+                          Représentant <strong style="color:#9D3A66;font-weight:700;">Ursus-3 Capital</strong>
+                        </td>
+                        <td style="font-size:11px;color:#6C757D;padding:0;mso-line-height-rule:exactly;line-height:16px;" class="dm-sub">
+                          Espagne &amp; Portugal
                         </td>
                       </tr>
                     </table>
-                  </td>
-                </tr>
-              </table>
-              <!-- /Carte -->
-            </td>
-          </tr>
 
-          <!-- DISCLAIMER -->
-          <tr>
-            <td style="padding-top:12px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;">
-                <tr>
-                  <td style="font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;color:#8A96A3;text-align:center;line-height:1.5;padding:8px 0;" class="dm-sub">
-                    <em>Ce message et ses pièces jointes sont confidentiels et établis à l'attention exclusive de leur destinataire.</em>
-                    <br>
-                    <span style="color:#B0B0B0;font-size:9px;">🌱 Pensez à l'environnement avant d'imprimer</span>
+                    <!-- Contact box -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" 
+                           style="background:#FFFFFF;padding:10px 12px;border:1px solid #F0F0F0;margin:0;"
+                           bgcolor="#FFFFFF" class="dm-contact-box">
+                      <tr>
+                        <td style="padding:0 16px 4px 0;white-space:nowrap;mso-line-height-rule:exactly;line-height:18px;">
+                          <img src="https://www.alforis.fr/assets/email/icons/phone.png" 
+                               width="14" height="14" alt="Tel"
+                               style="vertical-align:middle;margin-right:6px;border:0;display:inline-block;width:14px;height:14px;">
+                          <a href="tel:+33646462291" 
+                             style="color:#2E3A48;text-decoration:none;font-size:11px;vertical-align:middle;" 
+                             class="dm-text">+33 6 46 46 22 91</a>
+                        </td>
+                        <td style="padding:0 0 4px 0;white-space:nowrap;mso-line-height-rule:exactly;line-height:18px;">
+                          <img src="https://www.alforis.fr/assets/email/icons/mail.png" 
+                               width="14" height="14" alt="Email"
+                               style="vertical-align:middle;margin-right:6px;border:0;display:inline-block;width:14px;height:14px;">
+                          <a href="mailto:michel.marques@alforis.fr" 
+                             style="color:#2E3A48;text-decoration:none;font-size:11px;vertical-align:middle;" 
+                             class="dm-text">michel.marques@alforis.fr</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" style="padding:4px 0 0 0;mso-line-height-rule:exactly;line-height:18px;">
+                          <img src="https://www.alforis.fr/assets/email/icons/web.png" 
+                               width="14" height="14" alt="Web"
+                               style="vertical-align:middle;margin-right:6px;border:0;display:inline-block;width:14px;height:14px;">
+                          <a href="https://www.alforis.fr/fr/b2b" 
+                             style="color:#E39F70;text-decoration:none;font-weight:600;font-size:11px;vertical-align:middle;">alforis.fr</a>
+                          <span style="color:#D0D0D0;margin:0 6px;font-size:11px;">•</span>
+                          <a href="https://ursus-3capital.com" 
+                             style="color:#E39F70;text-decoration:none;font-weight:600;font-size:11px;vertical-align:middle;">ursus-3capital.com</a>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+
+                  <!-- Bouton LinkedIn -->
+                  <td width="110" valign="middle" style="width:110px;padding-left:10px;vertical-align:middle;text-align:center;">
+                    
+                    <!-- Bouton simple sans border-radius pour Outlook -->
+                    <a href="https://www.linkedin.com/company/alforis" target="_blank"
+                       style="display:inline-block;padding:10px 16px;background:#FFFFFF;border:2px solid #0A66C2;text-decoration:none;color:#0A66C2;font-size:12px;font-weight:700;font-family:'Segoe UI','Segoe',Tahoma,Helvetica,Arial,sans-serif;mso-line-height-rule:exactly;line-height:16px;mso-padding-alt:10px 16px;"
+                       bgcolor="#FFFFFF">
+                      <img src="https://www.alforis.fr/assets/email/icons/linkedin-20.png" 
+                           width="16" height="16" alt=""
+                           style="vertical-align:middle;margin-right:5px;border:0;display:inline-block;width:16px;height:16px;"><span style="vertical-align:middle;letter-spacing:0.2px;color:#0A66C2;">Connecter</span>
+                    </a>
+
                   </td>
                 </tr>
               </table>
+
             </td>
           </tr>
 
         </table>
-        <!-- /TABLE 580 px -->
+        <!-- /Carte -->
+
+        <!-- Disclaimer -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="width:580px;max-width:580px;margin-top:12px;">
+          <tr>
+            <td align="center" style="font-family:'Segoe UI','Segoe',Tahoma,Helvetica,Arial,sans-serif;font-size:10px;color:#8A96A3;text-align:center;line-height:1.5;padding:8px 10px;mso-line-height-rule:exactly;" class="dm-sub">
+              <em>Ce message et ses pièces jointes sont confidentiels et établis à l'attention exclusive de leur destinataire.</em>
+              <br>
+              <span style="color:#B0B0B0;font-size:9px;">🌱 Pensez à l'environnement avant d'imprimer</span>
+            </td>
+          </tr>
+        </table>
+
       </td>
     </tr>
   </table>
