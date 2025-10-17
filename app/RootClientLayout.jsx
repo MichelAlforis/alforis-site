@@ -13,7 +13,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-export default function RootClientLayout({ children }) {
+export default function RootClientLayout({ children, footerMessages, initialContext = 'particulier' }) {
+    void footerMessages
     const pathname = usePathname()
   
   // Liste des routes qui gèrent leur propre Footer
@@ -110,7 +111,7 @@ export default function RootClientLayout({ children }) {
 
 
       {/* En-tête globale */}
-        <Navbar />
+        <Navbar initialContext={initialContext} />
 
       {/* Contenu des routes */}
       <main

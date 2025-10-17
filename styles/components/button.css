@@ -1,48 +1,118 @@
 @tailwind components;
 
 /* ====================== */
-/* 🎛️ BOUTONS PERSONNALISÉS Alforis améliorés */
+/* 🎛️ BOUTONS PERSONNALISÉS Alforis - UX améliorée */
 /* ====================== */
 @layer components {
+    /* Base commune pour tous les boutons */
+    .btn-base {
+      @apply font-title inline-flex items-center justify-center gap-2 text-center
+        transition-all duration-300 ease-premium cursor-pointer select-none
+        focus-visible:outline-none focus-visible:ring-4 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
     /* Bouton rétro : ambiance vintage, léger skew et ombre portée */
     .btn-alforis-retro {
-      @apply font-title uppercase tracking-widest text-base inline-block text-center
+      @apply btn-base uppercase tracking-widest text-base
         text-ivoire bg-gradient-to-br from-ardoise to-acier
         px-8 py-4 rounded-lg border-2 border-doré
-        shadow-lg transform hover:-rotate-1 hover:scale-105 active:scale-95
-        transition-all duration-300 ease-in-out;
+        shadow-lg-soft hover:shadow-xl-soft
+        transform hover:-rotate-1 hover:scale-105 active:scale-98
+        focus-visible:ring-doré/50;
       position: relative;
+      overflow: hidden;
     }
     .btn-alforis-retro::before {
       content: '';
       @apply absolute inset-0 rounded-lg bg-gradient-to-tr from-doré/30 to-yellow-400/20;
       transform: skew(-3deg, -1deg);
       z-index: -1;
+      transition: opacity 0.3s ease;
     }
-  
+    .btn-alforis-retro:hover::before {
+      opacity: 0.8;
+    }
+
     /* Bouton outline : épuré, animation de fond doré en hover */
     .btn-alforis-outline {
-      @apply font-title uppercase tracking-widest text-base inline-block text-center
+      @apply btn-base uppercase tracking-widest text-base
         text-doré bg-transparent px-8 py-4 rounded-lg border-2 border-doré
-        hover:text-ivoire hover:bg-doré focus:ring-4 focus:ring-doré/50
-        transition bg-clip-padding duration-200 ease-in-out;
+        hover:text-ivoire hover:bg-doré hover:shadow-glow-doré
+        focus-visible:ring-doré/50;
+      position: relative;
+      overflow: hidden;
     }
-  
-    /* Bouton RDV : forme pill, couleur de marque accentuée, effet pulse */
+    .btn-alforis-outline::after {
+      content: '';
+      @apply absolute inset-0 bg-doré;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      z-index: -1;
+    }
+    .btn-alforis-outline:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Bouton RDV : forme pill, couleur de marque accentuée, effet premium */
     .btn-alforis-rdv {
-      @apply font-title uppercase tracking-widest text-sm inline-block text-center
-        text-ivoire bg-doré px-6 py-3 rounded-full border-none
-        shadow-xl transform hover:scale-105 active:scale-95
-        focus:outline-none focus:ring-4 focus:ring-doré/40
-        transition-all duration-200 ease-out;
+      @apply btn-base uppercase tracking-widest text-sm
+        text-ivoire bg-doré px-8 py-4 rounded-full border-none
+        shadow-md-soft hover:shadow-glow-doré
+        transform hover:scale-105 hover:translate-y-[-2px] active:scale-98
+        focus-visible:ring-doré/40;
+      background: linear-gradient(135deg, rgb(242, 158, 76) 0%, rgb(232, 143, 90) 100%);
     }
-    .btn-alforis-rdv:hover {
-      animation: pulse 1.5s infinite;
+
+    /* Bouton primaire simple */
+    .btn-primary {
+      @apply btn-base px-6 py-3 rounded-lg
+        text-ivoire bg-ardoise
+        hover:bg-ardoise/90 hover:shadow-md-soft
+        active:scale-98
+        focus-visible:ring-ardoise/50;
     }
-  
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+
+    /* Bouton secondaire */
+    .btn-secondary {
+      @apply btn-base px-6 py-3 rounded-lg
+        text-anthracite bg-ivoire border border-acier/30
+        hover:border-acier hover:shadow-sm-soft
+        active:scale-98
+        focus-visible:ring-acier/50;
+    }
+
+    /* Bouton ghost */
+    .btn-ghost {
+      @apply btn-base px-6 py-3 rounded-lg
+        text-ardoise bg-transparent
+        hover:bg-ardoise/5 hover:text-ardoise/90
+        active:scale-98
+        focus-visible:ring-ardoise/30;
+    }
+
+    /* Bouton avec effet shimmer pour CTA important */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.5s ease;
+    }
+    .btn-shimmer:hover::after {
+      left: 100%;
     }
   }
   

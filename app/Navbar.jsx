@@ -7,31 +7,37 @@ import { NavConfig } from './components/navbar/NavbarConfig'
 import NavbarDesktop from './components/navbar/NavbarDesktop'
 import NavbarMobile from './components/navbar/NavbarMobile'
 
-export default function Navbar() {
-  const [isMobile, setIsMobile] = useState(false)
+export default function Navbar({ initialContext = 'particulier' }) {
   const pathname = usePathname()
-  
-  // Déterminer le contexte actuel
-  const getContext = () => {
-    // Gérer les URLs avec locale (/fr/b2b, /en/b2b, etc.)
-    if (pathname.includes('/b2b')) return 'b2b'  // ← CHANGEMENT ICI
-    if (pathname.includes('/particulier')) return 'particulier'  // ← ET ICI
-    
-    // Pour pages partagées et racine, utiliser contexte mémorisé
-    if (typeof window !== 'undefined') {
-      const savedChoice = localStorage.getItem('alforis-client-type')
-      if (savedChoice === 'b2b' || savedChoice === 'particulier') {
-        return savedChoice
+  const [isMobile, setIsMobile] = useState(false)
+  const [context, setContext] = useState(initialContext)
+
+  useEffect(() => {
+    const determineContext = () => {
+      if (!pathname) return initialContext
+
+      const segments = pathname.split('/').filter(Boolean)
+      if (segments.includes('b2b')) return 'b2b'
+      if (segments.includes('particulier')) return 'particulier'
+
+      if (typeof window !== 'undefined') {
+        const savedChoice = window.localStorage.getItem('alforis-client-type')
+        if (savedChoice === 'b2b' || savedChoice === 'particulier') {
+          return savedChoice
+        }
       }
+
+      return 'particulier'
     }
-    
-    // Défaut : particulier
-    return 'particulier'
-  }
-  
-  const context = getContext()
-  const config = NavConfig[context]
-  const links = config.tabs
+
+    const nextContext = determineContext()
+    if (nextContext !== context) {
+      setContext(nextContext)
+    }
+  }, [pathname, initialContext, context])
+
+  const config = NavConfig[context] ?? NavConfig.particulier
+  const links = config.tabs ?? []
 
   // Détection taille du mobile
   useEffect(() => {

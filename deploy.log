@@ -25852,3 +25852,8 @@ Route (app)                                                  Size  First Load JS
 [PM2] Saving current process list...
 [PM2] Successfully saved in /root/.pm2/dump.pm2
 [2025-10-17 14:43:39] 🚀 Déploiement complet
+HEAD is now at 6f03727 CRM
+From github.com:MichelAlforis/alforis-site
+ * branch            main       -> FETCH_HEAD
+   99b62cf..6f03727  main       -> origin/main
+[2025-10-17 15:13:40] 🚀 Déploiement complet

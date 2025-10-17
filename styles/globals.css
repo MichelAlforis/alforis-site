@@ -61,37 +61,87 @@
     @apply block text-anthracite font-semibold mb-1;
   }
 
-  /* TITRES */
+  /* TITRES - Hiérarchie visuelle améliorée */
   h1, h2, h3 {
     font-family: 'Neue Montreal', serif;
-    color: rgb(var(--doré)); /* accent doré */
+    letter-spacing: -0.02em; /* Tracking plus serré pour les titres */
+    line-height: 1.2;
   }
+
 h1 {
-  @apply text-3xl sm:text-3xl md:text-5xl text-anthracite dark:text-doré font-semibold font-title text-center;
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-anthracite dark:text-doré font-bold font-title text-center;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  @apply text-2xl sm:text-3xl md:text-4xl text-ardoise dark:text-vertSauge font-semibold;
+  @apply text-3xl sm:text-4xl md:text-5xl text-ardoise dark:text-vertSauge font-semibold;
+  line-height: 1.15;
 }
 
 h3 {
-  @apply text-md sm:text-xl md:text-2xl font-semibold text-ardoise dark:text-vertSauge dark:text-ivoire ;
+  @apply text-xl sm:text-2xl md:text-3xl font-semibold text-ardoise dark:text-vertSauge;
+  line-height: 1.3;
+}
+
+h4 {
+  @apply text-lg sm:text-xl md:text-2xl font-medium text-anthracite dark:text-ivoire;
+  line-height: 1.4;
 }
 
 
-  /* PARAGRAPHES */
+  /* PARAGRAPHES - Amélioration de la lisibilité */
   p {
-    @apply text-sm md:text-md text-base text-anthracite dark:text-ivoire ;
+    @apply text-base md:text-lg text-anthracite dark:text-ivoire;
+    line-height: 1.7;
+    max-width: 75ch; /* Largeur optimale pour la lisibilité */
   }
 
-  /* LIENS */
+  /* Texte de petite taille avec meilleure lisibilité */
+  .text-small {
+    @apply text-sm md:text-base;
+    line-height: 1.6;
+  }
+
+  /* Lead text pour les introductions */
+  .text-lead {
+    @apply text-lg md:text-xl lg:text-2xl;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* LIENS - Accessibilité améliorée */
   a {
     color: rgb(var(--acier));
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.3s ease, outline 0.2s ease;
+    position: relative;
   }
   a:hover {
     color: rgb(var(--ardoise));
+  }
+  a:focus-visible {
+    outline: 2px solid rgb(var(--doré));
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Focus visible global pour accessibilité */
+  *:focus-visible {
+    outline: 2px solid rgb(var(--doré));
+    outline-offset: 2px;
+  }
+
+  /* Amélioration des états interactifs */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid rgb(var(--doré));
+    outline-offset: 2px;
+  }
+
+  /* Désactiver les effets de focus pour les clics souris */
+  *:focus:not(:focus-visible) {
+    outline: none;
   }
 
   /* CLASSES ANIMÉES */
@@ -102,18 +152,85 @@ h3 {
     @apply text-acier dark:text-ivoire;
   }
   .animated-wrapper {
-    @apply bg-ivoire text-anthracite rounded-xl shadow-md px-6 py-12 md:px-10 md:py-16;
+    @apply bg-ivoire text-anthracite rounded-xl shadow-md-soft px-6 py-12 md:px-10 md:py-16;
   }
   .border-dynamic {
-  @apply border-2 rounded-xl shadow-lg;
-  border-color: var(--clap-border-color);
+    @apply border-2 rounded-xl shadow-lg-soft;
+    border-color: var(--clap-border-color);
   }
-    /* Cookies */
+
+  /* CLASSES UTILITAIRES UX/UI AMÉLIORÉES */
+
+  /* Effet de survol pour les liens soulignés */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: rgb(var(--doré));
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Container avec effet de glass morphism */
+  .glass-effect {
+    background: rgba(243, 243, 243, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Effet de gradient animé pour les CTA */
+  .gradient-animate {
+    background: linear-gradient(
+      270deg,
+      rgb(242, 158, 76),
+      rgb(31, 59, 77),
+      rgb(242, 158, 76)
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Smooth scrolling pour toute la page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Amélioration du scroll snap */
+  .scroll-snap-y {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+
+  /* Effet de parallaxe léger */
+  .parallax-slow {
+    transform: translateZ(-1px) scale(2);
+  }
+
+  /* Cookies */
   .cc-revoke {
-  display: none !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
-}
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
 
   /* HERO FULL-SCREEN (sous nav) */
 /* components/home/hero.css */

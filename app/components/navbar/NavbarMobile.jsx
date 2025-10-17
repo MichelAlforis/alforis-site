@@ -10,7 +10,7 @@ import Button from '@/components/ui/Button';
 import NavbarLogoMobile from '@/components/Navbar/NavbarLogoMobile';
 import SwitchDarkMode from '@/components/ui/SwitchDarkMode';
 
-export default function NavbarMobile({ links }) {
+export default function NavbarMobile({ links, context: providedContext }) {
   const pathname = usePathname();
   const router = useRouter();
   const getLocaleFromPath = () => {
@@ -21,7 +21,8 @@ export default function NavbarMobile({ links }) {
 
   const locale = getLocaleFromPath()
   const isTransparent = pathname === '/' || pathname === '/a-propos';
-  const ctx = pathname.startsWith('/b2b') || pathname.includes('/b2b') ? 'b2b' : 'particulier';
+  const fallbackContext = pathname.startsWith('/b2b') || pathname.includes('/b2b') ? 'b2b' : 'particulier';
+  const ctx = providedContext ?? fallbackContext;
   const homePath = ctx === 'b2b' ? `/${locale}/b2b` : '/'
   const isActive = useCallback((href) => pathname === href, [pathname]);
   const [isOpen, setIsOpen] = useState(false);

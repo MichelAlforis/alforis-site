@@ -12,7 +12,7 @@ import NavbarLogo from '@/components/Navbar/NavbarLogo'
 import NavLink from '@/components/Navbar/NavLink'
 import { scrollToTop } from '@/hooks/scrollToTop'
 
-export default function NavbarDesktop({ links }) {
+export default function NavbarDesktop({ links, context: providedContext }) {
   const pathname = usePathname()
   const router = useRouter()
 
@@ -24,8 +24,8 @@ export default function NavbarDesktop({ links }) {
   
   const locale = getLocaleFromPath()
   
-  // Déterminer le contexte
-  const ctx = pathname.includes('/b2b') ? 'b2b' : 'particulier'
+  const fallbackContext = pathname.includes('/b2b') ? 'b2b' : 'particulier'
+  const ctx = providedContext ?? fallbackContext
   
   // Home path selon le contexte
   const homePath = ctx === 'b2b' ? `/${locale}/b2b` : '/'

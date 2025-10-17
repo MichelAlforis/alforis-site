@@ -5,6 +5,7 @@ import RootClientLayout from './RootClientLayout'
 import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
+import { headers } from 'next/headers'
 
 export const metadata = {
   metadataBase: new URL('https://www.alforis.fr'),
@@ -15,6 +16,16 @@ export const metadata = {
 export default async function Layout({ children, params = {} }) {
   const locale = typeof params.locale === 'string' ? params.locale : 'fr'
   const messages = await getMessages({ locale })
+  const headerList = headers()
+  const matchedPath =
+    headerList.get('x-invoke-path') ??
+    headerList.get('x-matched-path') ??
+    ''
+  const initialContext = matchedPath.includes('/b2b')
+    ? 'b2b'
+    : matchedPath.includes('/particulier')
+      ? 'particulier'
+      : 'particulier'
 
   return (
     <html lang={locale}>
@@ -31,7 +42,10 @@ export default async function Layout({ children, params = {} }) {
       <body className="scroll-smooth font-roboto">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Suspense fallback={null}>
-            <RootClientLayout footerMessages={messages?.footer}>
+            <RootClientLayout
+              footerMessages={messages?.footer}
+              initialContext={initialContext}
+            >
               {children}
             </RootClientLayout>
           </Suspense>
