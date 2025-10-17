@@ -13,9 +13,13 @@ const intlMiddleware = createMiddleware({
 export default function middleware(request) {
   const url = request.nextUrl
   const { pathname } = url
+  // Normalise host from forwarded headers (Vercel/Nginx) to detect CRM subdomains reliably.
+  const headerHost = request.headers.get('x-forwarded-host') || request.headers.get('host')
+  const hostname = (headerHost || url.hostname || '').split(':')[0].toLowerCase()
+  const isCrmDomain = hostname === 'crm.alforis.fr' || hostname.endsWith('.crm.alforis.fr')
 
   // Bypass CRM subdomain requests (no locale handling)
-  if (url.hostname?.startsWith('crm.alforis.fr')) {
+  if (isCrmDomain) {
     return NextResponse.next()
   }
 
@@ -82,5 +86,15 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+  matcher: [
+    {
+      source: '/((?!api|_next|_vercel|.*\\..*).*)',
+      missing: [
+        {
+          type: 'host',
+          value: '(?:^|\\.)crm\\.alforis\\.fr$'
+        }
+      ]
+    }
+  ]
 }
