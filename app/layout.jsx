@@ -16,7 +16,7 @@ export const metadata = {
 export default async function Layout({ children, params = {} }) {
   const locale = typeof params.locale === 'string' ? params.locale : 'fr'
   const messages = await getMessages({ locale })
-  const headerList = headers()
+  const headerList = await headers()
   const matchedPath =
     headerList.get('x-invoke-path') ??
     headerList.get('x-matched-path') ??
