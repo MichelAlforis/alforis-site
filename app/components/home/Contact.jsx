@@ -37,7 +37,7 @@ export default function Contact({ extraClass = '', hideForm = false }) {
 
         {/* CTA Calendrier */}
         <motion.a
-          href="https://calendly.com/votre-lien-calendly"
+          href="https://cal.com/alforis/visio"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
