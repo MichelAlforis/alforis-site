@@ -17,7 +17,7 @@ export default function ParcoursContent({ content }) {
   
   // Lorsque l'utilisateur clique sur une carte, on navigue vers la page slug
   const handleCardClick = (item) => {
-    router.push(`/parcours/${item.slug}`)
+    router.push(`/particulier/parcours/${item.slug}`)
   }
 
   return (
