@@ -62,18 +62,18 @@ export default function ClapDeFin({
 
   if (!data) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-slate-corporate/5">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-anthracite/5">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-center p-12 bg-white dark:bg-slate-corporate/60 rounded-3xl shadow-2xl"
+          className="text-center p-12 bg-white dark:bg-anthracite/60 rounded-3xl shadow-2xl"
         >
-          <p className="text-2xl text-slate-corporate dark:text-white">
+          <p className="text-2xl text-anthracite dark:text-ivoire">
             Profil introuvable
           </p>
           <Link
             href="/particulier/parcours"
-            className="mt-6 inline-block text-trust-blue hover:underline"
+            className="mt-6 inline-block text-ardoise hover:underline"
           >
             Revenir à la sélection
           </Link>
@@ -142,7 +142,7 @@ export default function ClapDeFin({
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-white via-powder-blue/10 to-gold-classic/5 dark:from-slate-corporate dark:via-slate-corporate/95 dark:to-slate-corporate/90 pt-[calc(var(--nav-height)+2rem)] pb-20 overflow-hidden relative">
+    <section className="min-h-screen bg-gradient-to-br from-white via-acier/10 to-doré/5 dark:from-anthracite dark:via-anthracite/95 dark:to-anthracite/90 pt-[calc(var(--nav-height)+2rem)] pb-20 overflow-hidden relative">
       {/* Particules décoratives */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -161,7 +161,7 @@ export default function ClapDeFin({
               repeat: Infinity,
               repeatDelay: 2,
             }}
-            className="absolute w-2 h-2 bg-gold-classic rounded-full"
+            className="absolute w-2 h-2 bg-doré rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -176,22 +176,22 @@ export default function ClapDeFin({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="sticky top-[var(--nav-height)] z-50 bg-white/95 dark:bg-slate-corporate/95 backdrop-blur-xl rounded-2xl shadow-lg border border-gold-classic/30 p-6"
+          className="sticky top-[var(--nav-height)] z-50 bg-white/95 dark:bg-anthracite/95 backdrop-blur-xl rounded-2xl shadow-lg border border-doré/30 p-6"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-classic to-trust-blue text-white flex items-center justify-center font-bold text-lg shadow-lg"
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-doré to-ardoise text-white flex items-center justify-center font-bold text-lg shadow-lg"
               >
                 {currentPhase}
               </motion.div>
               <div>
-                <p className="text-sm text-slate-corporate/60 dark:text-powder-blue/60 font-medium">
+                <p className="text-sm text-anthracite/60 dark:text-acier/60 font-medium">
                   Phase {currentPhase}/{totalPhases}
                 </p>
-                <p className="text-lg font-semibold text-gold-classic">
+                <p className="text-lg font-semibold text-doré">
                   Votre profil complet
                 </p>
               </div>
@@ -205,7 +205,7 @@ export default function ClapDeFin({
           variants={container}
           initial="hidden"
           animate="show"
-          className="bg-white dark:bg-slate-corporate/60 backdrop-blur-sm rounded-3xl shadow-2xl border-4 p-8 md:p-16 space-y-10"
+          className="bg-white dark:bg-anthracite/60 backdrop-blur-sm rounded-3xl shadow-2xl border-4 p-8 md:p-16 space-y-10"
           style={{ borderColor: color || '#D4AF37' }}
         >
           {/* Badge "Terminé" */}
@@ -241,28 +241,28 @@ export default function ClapDeFin({
                   opacity: [0.5, 0, 0.5],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute inset-0 bg-gold-classic/20 rounded-full blur-3xl"
+                className="absolute inset-0 bg-doré/20 rounded-full blur-3xl"
               />
             </div>
           </motion.div>
 
           {/* Titre profil */}
           <motion.div variants={item} className="text-center space-y-4">
-            <h1 className="text-4xl md:text-6xl font-title font-bold text-slate-corporate dark:text-white leading-tight">
+            <h1 className="text-4xl md:text-6xl font-title font-bold text-anthracite dark:text-ivoire leading-tight">
               {title}
             </h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: '100%' }}
               transition={{ delay: 1, duration: 1 }}
-              className="h-1 bg-gradient-to-r from-transparent via-gold-classic to-transparent mx-auto max-w-md"
+              className="h-1 bg-gradient-to-r from-transparent via-doré to-transparent mx-auto max-w-md"
             />
           </motion.div>
 
           {/* Description */}
           <motion.p
             variants={item}
-            className="text-xl md:text-2xl text-center text-slate-corporate/80 dark:text-powder-blue/90 leading-relaxed max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-center text-anthracite/80 dark:text-acier/90 leading-relaxed max-w-3xl mx-auto"
           >
             {description}
           </motion.p>
@@ -270,9 +270,9 @@ export default function ClapDeFin({
           {/* Badge profil secondaire */}
           {profilSecondaire && (
             <motion.div variants={item} className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-trust-blue/10 border-2 border-trust-blue/30 rounded-full">
-                <Award className="w-5 h-5 text-trust-blue" />
-                <span className="text-trust-blue font-semibold">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-ardoise/10 border-2 border-ardoise/30 rounded-full">
+                <Award className="w-5 h-5 text-ardoise" />
+                <span className="text-ardoise font-semibold">
                   Profil secondaire : <strong>{profilSecondaire}</strong>
                 </span>
               </div>
@@ -288,9 +288,9 @@ export default function ClapDeFin({
               <motion.div
                 key={i}
                 variants={item}
-                className="p-6 bg-gradient-to-br from-trust-blue/5 to-powder-blue/5 dark:from-trust-blue/10 dark:to-powder-blue/10 rounded-2xl border border-trust-blue/10"
+                className="p-6 bg-gradient-to-br from-ardoise/5 to-acier/5 dark:from-ardoise/10 dark:to-acier/10 rounded-2xl border border-ardoise/10"
               >
-                <p className="text-lg text-slate-corporate/90 dark:text-powder-blue/90 leading-relaxed">
+                <p className="text-lg text-anthracite/90 dark:text-acier/90 leading-relaxed">
                   {p}
                 </p>
               </motion.div>
@@ -301,7 +301,7 @@ export default function ClapDeFin({
           {citation && (
             <motion.blockquote
               variants={item}
-              className="relative p-8 bg-gradient-to-br from-gold-classic/10 to-gold-classic/5 rounded-2xl border-l-4 italic text-lg text-slate-corporate/80 dark:text-powder-blue/80"
+              className="relative p-8 bg-gradient-to-br from-doré/10 to-doré/5 rounded-2xl border-l-4 italic text-lg text-anthracite/80 dark:text-acier/80"
               style={{ borderColor: color || '#D4AF37' }}
             >
               <span className="text-4xl absolute top-4 left-4 opacity-20">
@@ -324,7 +324,7 @@ export default function ClapDeFin({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="group flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-trust-blue to-powder-blue text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-trust-blue/50 transition-all duration-300"
+                className="group flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-ardoise to-doré text-ivoire font-bold text-xl rounded-2xl shadow-2xl hover:shadow-doré/50 transition-all duration-300"
               >
                 {cta?.label || 'Prendre rendez-vous'}
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
@@ -334,7 +334,7 @@ export default function ClapDeFin({
                 <motion.div
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-trust-blue to-powder-blue text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-trust-blue/50 transition-all duration-300 cursor-pointer"
+                  className="group flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-ardoise to-doré text-ivoire font-bold text-xl rounded-2xl shadow-2xl hover:shadow-doré/50 transition-all duration-300 cursor-pointer"
                 >
                   {cta?.label || 'Prendre rendez-vous'}
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
@@ -347,7 +347,7 @@ export default function ClapDeFin({
               onClick={handleShare}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 bg-slate-corporate/10 dark:bg-powder-blue/10 text-slate-corporate dark:text-powder-blue font-semibold rounded-xl hover:bg-slate-corporate/20 dark:hover:bg-powder-blue/20 transition-all duration-300"
+              className="flex items-center gap-2 px-6 py-3 bg-acier/10 dark:bg-acier/20 text-anthracite dark:text-ivoire font-semibold rounded-xl hover:bg-acier/20 dark:hover:bg-acier/30 transition-all duration-300"
             >
               <Share2 className="w-5 h-5" />
               {copied ? 'Copié !' : 'Partager'}
@@ -361,14 +361,14 @@ export default function ClapDeFin({
           >
             <Link
               href="/contact"
-              className="flex items-center gap-2 text-trust-blue hover:text-powder-blue font-medium transition-colors"
+              className="flex items-center gap-2 text-ardoise dark:text-acier hover:text-doré font-medium transition-colors"
             >
               <Mail className="w-5 h-5" />
               Nous contacter
             </Link>
             <Link
               href="/particulier/parcours"
-              className="flex items-center gap-2 text-slate-corporate/60 dark:text-powder-blue/60 hover:text-slate-corporate dark:hover:text-powder-blue font-medium transition-colors"
+              className="flex items-center gap-2 text-acier dark:text-ivoire/70 hover:text-anthracite dark:hover:text-ivoire font-medium transition-colors"
             >
               ← Refaire un parcours
             </Link>
@@ -377,21 +377,21 @@ export default function ClapDeFin({
           {/* Ligne de séparation dorée */}
           <motion.div
             variants={item}
-            className="h-px bg-gradient-to-r from-transparent via-gold-classic to-transparent"
+            className="h-px bg-gradient-to-r from-transparent via-doré to-transparent"
           />
 
           {/* Message de confirmation email */}
           <motion.div
             variants={item}
-            className="text-center p-6 bg-trust-blue/5 dark:bg-trust-blue/10 rounded-2xl border border-trust-blue/20"
+            className="text-center p-6 bg-ardoise/5 dark:bg-ardoise/10 rounded-2xl border border-ardoise/20"
           >
             <div className="flex items-center justify-center gap-3 mb-2">
-              <Mail className="w-6 h-6 text-trust-blue" />
-              <p className="font-bold text-lg text-trust-blue">
+              <Mail className="w-6 h-6 text-ardoise" />
+              <p className="font-bold text-lg text-ardoise">
                 Vérifiez vos emails !
               </p>
             </div>
-            <p className="text-slate-corporate/70 dark:text-powder-blue/70">
+            <p className="text-acier dark:text-ivoire/70">
               Votre profil complet et nos recommandations personnalisées vous
               ont été envoyés par email.
             </p>

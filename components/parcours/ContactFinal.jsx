@@ -18,7 +18,7 @@ export default function ContactFinal({
 
   const mappedAnswers = Array.isArray(answers)
     ? answers.reduce((acc, val, i) => ({ ...acc, [`Q${i + 1}`]: val }), {})
-    : answers;
+    : answers
 
   const [formData, setFormData] = useState({
     Nom: '',
@@ -141,30 +141,30 @@ export default function ContactFinal({
   const totalPhases = 3
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-white via-powder-blue/5 to-slate-corporate/5 dark:from-slate-corporate dark:via-slate-corporate/90 dark:to-slate-corporate/80 pt-[calc(var(--nav-height)+2rem)] pb-20">
+    <section className="min-h-screen bg-gradient-to-b from-ivoire via-ivoire to-acier/5 dark:from-anthracite dark:via-anthracite/90 dark:to-acier/20 pt-[calc(var(--nav-height)+2rem)] pb-20">
       <div className="max-w-4xl mx-auto px-4 space-y-6">
 
         {/* Indicateur Phase 2 */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="sticky top-[var(--nav-height)] z-50 bg-white/95 dark:bg-slate-corporate/95 backdrop-blur-xl rounded-2xl shadow-lg border border-trust-blue/20 p-6"
+          className="sticky top-[var(--nav-height)] z-50 bg-ivoire/95 dark:bg-anthracite/95 backdrop-blur-xl rounded-2xl shadow-lg border border-ardoise/20 dark:border-acier/30 p-6"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-trust-blue text-white flex items-center justify-center font-bold text-lg shadow-lg">
+              <div className="w-10 h-10 rounded-full bg-ardoise dark:bg-acier text-ivoire flex items-center justify-center font-bold text-lg shadow-lg">
                 {currentPhase}
               </div>
               <div>
-                <p className="text-sm text-slate-corporate/60 dark:text-powder-blue/60 font-medium">
+                <p className="text-sm text-acier dark:text-ivoire/70 font-medium">
                   Phase {currentPhase}/{totalPhases}
                 </p>
-                <p className="text-lg font-semibold text-trust-blue">
+                <p className="text-lg font-semibold text-ardoise dark:text-ivoire">
                   Vos coordonnées
                 </p>
               </div>
             </div>
-            <Sparkles className="w-8 h-8 text-gold-classic" />
+            <Sparkles className="w-8 h-8 text-doré" />
           </div>
         </motion.div>
 
@@ -174,24 +174,24 @@ export default function ContactFinal({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
-          className="bg-white dark:bg-slate-corporate/60 backdrop-blur-sm rounded-3xl shadow-2xl border border-trust-blue/10 p-8 md:p-12 space-y-8"
+          className="bg-ivoire dark:bg-anthracite/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-ardoise/10 dark:border-acier/20 p-8 md:p-12 space-y-8"
         >
           {/* En-tête avec profil */}
-          <div className="text-center space-y-4 pb-8 border-b-2 border-gold-classic/20">
+          <div className="text-center space-y-4 pb-8 border-b-2 border-doré/20">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
             >
-              <Sparkles className="w-16 h-16 mx-auto text-gold-classic" />
+              <Sparkles className="w-16 h-16 mx-auto text-doré" />
             </motion.div>
-            <h2 className="text-2xl md:text-3xl font-title text-slate-corporate dark:text-white">
+            <h2 className="text-2xl md:text-3xl font-title text-anthracite dark:text-ivoire">
               Votre profil détecté :
             </h2>
             <p className="text-4xl md:text-5xl font-bold">
               <GoldText>{profilPrincipal}</GoldText>
             </p>
-            <p className="text-slate-corporate/70 dark:text-powder-blue/70 text-lg">
+            <p className="text-acier dark:text-ivoire/70 text-lg">
               Complétez vos coordonnées pour recevoir votre analyse complète
             </p>
           </div>
@@ -199,15 +199,15 @@ export default function ContactFinal({
           {/* Section Identité */}
           <div className="space-y-6">
             <div className="flex items-center gap-3 mb-4">
-              <User className="w-6 h-6 text-trust-blue" />
-              <h3 className="text-xl font-bold text-slate-corporate dark:text-white">
+              <User className="w-6 h-6 text-ardoise dark:text-acier" />
+              <h3 className="text-xl font-bold text-anthracite dark:text-ivoire">
                 Identité
               </h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-slate-corporate dark:text-powder-blue font-medium mb-2">
+                <label className="block text-anthracite dark:text-ivoire/80 font-medium mb-2">
                   Nom complet *
                 </label>
                 <input
@@ -219,16 +219,16 @@ export default function ContactFinal({
                   className={`w-full p-4 border-2 rounded-xl transition-all duration-300
                     ${errorFields.Nom
                       ? 'border-red-500 ring-4 ring-red-500/20'
-                      : 'border-slate-corporate/20 dark:border-powder-blue/30 focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20'
+                      : 'border-acier/30 dark:border-acier/50 focus:border-doré focus:ring-4 focus:ring-doré/20'
                     }
-                    bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white`}
+                    bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire`}
                   placeholder="Jean Dupont"
                 />
                 {errorFields.Nom && <p className="text-red-500 text-sm mt-1 flex items-center gap-1">⚠️ {errorFields.Nom}</p>}
               </div>
 
               <div>
-                <label className="block text-slate-corporate dark:text-powder-blue font-medium mb-2">
+                <label className="block text-anthracite dark:text-ivoire/80 font-medium mb-2">
                   Âge *
                 </label>
                 <input
@@ -240,9 +240,9 @@ export default function ContactFinal({
                   className={`w-full p-4 border-2 rounded-xl transition-all duration-300
                     ${errorFields.Age
                       ? 'border-red-500 ring-4 ring-red-500/20'
-                      : 'border-slate-corporate/20 dark:border-powder-blue/30 focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20'
+                      : 'border-acier/30 dark:border-acier/50 focus:border-doré focus:ring-4 focus:ring-doré/20'
                     }
-                    bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white`}
+                    bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire`}
                   placeholder="45"
                   min="18"
                 />
@@ -251,8 +251,8 @@ export default function ContactFinal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-slate-corporate dark:text-powder-blue font-medium mb-2">
-                <Mail className="w-5 h-5 text-trust-blue" />
+              <label className="flex items-center gap-2 text-anthracite dark:text-ivoire/80 font-medium mb-2">
+                <Mail className="w-5 h-5 text-ardoise dark:text-acier" />
                 Email *
               </label>
               <input
@@ -264,17 +264,17 @@ export default function ContactFinal({
                 className={`w-full p-4 border-2 rounded-xl transition-all duration-300
                   ${errorFields.Email
                     ? 'border-red-500 ring-4 ring-red-500/20'
-                    : 'border-slate-corporate/20 dark:border-powder-blue/30 focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20'
+                    : 'border-acier/30 dark:border-acier/50 focus:border-doré focus:ring-4 focus:ring-doré/20'
                   }
-                  bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white`}
+                  bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire`}
                 placeholder="jean.dupont@email.com"
               />
               {errorFields.Email && <p className="text-red-500 text-sm mt-1 flex items-center gap-1">⚠️ {errorFields.Email}</p>}
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-slate-corporate dark:text-powder-blue font-medium mb-2">
-                <Phone className="w-5 h-5 text-trust-blue" />
+              <label className="flex items-center gap-2 text-anthracite dark:text-ivoire/80 font-medium mb-2">
+                <Phone className="w-5 h-5 text-ardoise dark:text-acier" />
                 Téléphone *
               </label>
               <input
@@ -286,9 +286,9 @@ export default function ContactFinal({
                 className={`w-full p-4 border-2 rounded-xl transition-all duration-300
                   ${errorFields.NumeroTelephone
                     ? 'border-red-500 ring-4 ring-red-500/20'
-                    : 'border-slate-corporate/20 dark:border-powder-blue/30 focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20'
+                    : 'border-acier/30 dark:border-acier/50 focus:border-doré focus:ring-4 focus:ring-doré/20'
                   }
-                  bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white`}
+                  bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire`}
                 placeholder="+33 6 12 34 56 78"
               />
               {errorFields.NumeroTelephone && <p className="text-red-500 text-sm mt-1 flex items-center gap-1">⚠️ {errorFields.NumeroTelephone}</p>}
@@ -296,16 +296,16 @@ export default function ContactFinal({
           </div>
 
           {/* Section Situation */}
-          <div className="space-y-6 pt-6 border-t-2 border-slate-corporate/10 dark:border-powder-blue/10">
+          <div className="space-y-6 pt-6 border-t-2 border-acier/20 dark:border-acier/40">
             <div className="flex items-center gap-3 mb-4">
-              <TrendingUp className="w-6 h-6 text-trust-blue" />
-              <h3 className="text-xl font-bold text-slate-corporate dark:text-white">
+              <TrendingUp className="w-6 h-6 text-ardoise dark:text-acier" />
+              <h3 className="text-xl font-bold text-anthracite dark:text-ivoire">
                 Situation patrimoniale
               </h3>
             </div>
 
             <div>
-              <label className="block text-slate-corporate dark:text-powder-blue font-medium mb-2">
+              <label className="block text-anthracite dark:text-ivoire/80 font-medium mb-2">
                 Situation actuelle *
               </label>
               <select
@@ -316,9 +316,9 @@ export default function ContactFinal({
                 className={`w-full p-4 border-2 rounded-xl transition-all duration-300
                   ${errorFields.SituationActuelle
                     ? 'border-red-500 ring-4 ring-red-500/20'
-                    : 'border-slate-corporate/20 dark:border-powder-blue/30 focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20'
+                    : 'border-acier/30 dark:border-acier/50 focus:border-doré focus:ring-4 focus:ring-doré/20'
                   }
-                  bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white`}
+                  bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire`}
               >
                 <option value="">Sélectionnez...</option>
                 <option value="Célibataire">Célibataire</option>
@@ -333,7 +333,7 @@ export default function ContactFinal({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {['PatrimoineActuel', 'RevenusAnnuels'].map((key) => (
                 <div key={key}>
-                  <label className="block text-slate-corporate dark:text-powder-blue font-medium mb-2">
+                  <label className="block text-anthracite dark:text-ivoire/80 font-medium mb-2">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </label>
                   <input
@@ -342,16 +342,16 @@ export default function ContactFinal({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={key === 'PatrimoineActuel' ? '500 000 €' : '80 000 €'}
-                    className="w-full p-4 border-2 border-slate-corporate/20 dark:border-powder-blue/30 rounded-xl
-                      focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20 transition-all duration-300
-                      bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white"
+                    className="w-full p-4 border-2 border-acier/30 dark:border-acier/50 rounded-xl
+                      focus:border-doré focus:ring-4 focus:ring-doré/20 transition-all duration-300
+                      bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire"
                   />
                 </div>
               ))}
             </div>
 
             <div>
-              <label className="block text-slate-corporate dark:text-powder-blue font-medium mb-2">
+              <label className="block text-anthracite dark:text-ivoire/80 font-medium mb-2">
                 Perception du risque
               </label>
               <input
@@ -360,24 +360,24 @@ export default function ContactFinal({
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Prudent, Équilibré, Dynamique..."
-                className="w-full p-4 border-2 border-slate-corporate/20 dark:border-powder-blue/30 rounded-xl
-                  focus:border-trust-blue focus:ring-4 focus:ring-trust-blue/20 transition-all duration-300
-                  bg-white dark:bg-slate-corporate/40 text-slate-corporate dark:text-white"
+                className="w-full p-4 border-2 border-acier/30 dark:border-acier/50 rounded-xl
+                  focus:border-doré focus:ring-4 focus:ring-doré/20 transition-all duration-300
+                  bg-ivoire dark:bg-anthracite/60 text-anthracite dark:text-ivoire"
               />
             </div>
           </div>
 
           {/* RGPD */}
-          <div className="space-y-3 pt-6 border-t-2 border-slate-corporate/10 dark:border-powder-blue/10">
+          <div className="space-y-3 pt-6 border-t-2 border-acier/20 dark:border-acier/40">
             <label className="flex items-start gap-3 cursor-pointer group">
               <input
                 type="checkbox"
                 name="RGPD"
                 checked={formData.RGPD}
                 onChange={handleChange}
-                className="mt-1 w-5 h-5 text-trust-blue border-slate-corporate/30 rounded focus:ring-2 focus:ring-trust-blue/50"
+                className="mt-1 w-5 h-5 text-doré border-acier/30 rounded focus:ring-2 focus:ring-doré/50"
               />
-              <span className="text-sm text-slate-corporate/80 dark:text-powder-blue/80 group-hover:text-slate-corporate dark:group-hover:text-white transition">
+              <span className="text-sm text-acier dark:text-ivoire/70 group-hover:text-anthracite dark:group-hover:text-ivoire transition">
                 J'accepte la politique de confidentialité et le traitement de mes données personnelles *
               </span>
             </label>
@@ -389,9 +389,9 @@ export default function ContactFinal({
                 name="MarketingOk"
                 checked={formData.MarketingOk}
                 onChange={handleChange}
-                className="mt-1 w-5 h-5 text-gold-classic border-slate-corporate/30 rounded focus:ring-2 focus:ring-gold-classic/50"
+                className="mt-1 w-5 h-5 text-doré border-acier/30 rounded focus:ring-2 focus:ring-doré/50"
               />
-              <span className="text-sm text-slate-corporate/80 dark:text-powder-blue/80 group-hover:text-slate-corporate dark:group-hover:text-white transition">
+              <span className="text-sm text-acier dark:text-ivoire/70 group-hover:text-anthracite dark:group-hover:text-ivoire transition">
                 Je souhaite recevoir des conseils personnalisés et l'actualité patrimoniale
               </span>
             </label>
@@ -404,8 +404,8 @@ export default function ContactFinal({
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             className="w-full mt-8 flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-bold text-xl
-              bg-gradient-to-r from-trust-blue to-powder-blue text-white
-              shadow-2xl hover:shadow-trust-blue/50 transition-all duration-300
+              bg-gradient-to-r from-ardoise to-doré text-ivoire
+              shadow-2xl hover:shadow-doré/50 transition-all duration-300
               disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
@@ -413,7 +413,7 @@ export default function ContactFinal({
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                  className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full"
+                  className="w-6 h-6 border-4 border-ivoire/30 border-t-ivoire rounded-full"
                 />
                 Envoi en cours...
               </>
