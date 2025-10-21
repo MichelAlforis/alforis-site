@@ -57,7 +57,7 @@ export default function CountriesSection({ extraClass = '' }) {
   ]
 
   return (
-    <section className={`py-20 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -76,10 +76,10 @@ export default function CountriesSection({ extraClass = '' }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -8 }}
+                whileHover={{ scale: 1.02, y: -4 }}
                 onHoverStart={() => setActiveCountry(country.code)}
                 onHoverEnd={() => setActiveCountry(null)}
-                className="bg-acier/30 backdrop-blur-sm p-6 rounded-2xl border-2 border-doré/20 hover:border-doré transition-all cursor-pointer"
+                className="bg-acier/30 backdrop-blur-sm p-6 rounded-2xl border-2 border-doré/20 hover:border-doré transition-all duration-300 cursor-pointer shadow-md-soft hover:shadow-lg-soft"
               >
                 <div className="text-6xl mb-4 text-center">{country.flag}</div>
                 <h3 className="text-2xl font-bold mb-3 text-center text-doré">{country.name}</h3>

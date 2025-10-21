@@ -8,7 +8,7 @@ export default function RoleSection({ extraClass = '' }) {
   const t = useTranslations('home.role')
   
   return (
-    <section className={`py-20 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,19 +25,19 @@ export default function RoleSection({ extraClass = '' }) {
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 mt-10">
-              <motion.div 
-                className="bg-ivoire dark:bg-acier/40 p-8 rounded-xl shadow-lg border border-acier/20"
-                whileHover={{ scale: 1.02, y: -5 }}
+              <motion.div
+                className="bg-ivoire dark:bg-acier/40 p-8 rounded-xl shadow-md-soft hover:shadow-lg-soft border border-acier/20"
+                whileHover={{ scale: 1.01, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-5xl mb-4">💼</div>
                 <h3 className="mb-3 text-doré">{t('institutional')}</h3>
                 <p className="text-acier dark:text-ivoire">{t('institutionalCountries')}</p>
               </motion.div>
-              
-              <motion.div 
-                className="bg-ivoire dark:bg-acier/40 p-8 rounded-xl shadow-lg border border-acier/20"
-                whileHover={{ scale: 1.02, y: -5 }}
+
+              <motion.div
+                className="bg-ivoire dark:bg-acier/40 p-8 rounded-xl shadow-md-soft hover:shadow-lg-soft border border-acier/20"
+                whileHover={{ scale: 1.01, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-5xl mb-4">🌐</div>

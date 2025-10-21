@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Calendar, Mail, MessageCircle, Phone, X } from 'lucide-react'
+import { ArrowRight, Calendar, Mail, X } from 'lucide-react'
 
 export default function HeroB2BSection({ 
   extraClass = '', 
@@ -31,23 +31,6 @@ export default function HeroB2BSection({
       description: tModal('options.email.description'),
       action: () => router.push('/b2b/contact'),
       color: 'from-doré to-yellow-600'
-    },
-    {
-      icon: MessageCircle,
-      title: tModal('options.chat.title'),
-      description: tModal('options.chat.description'),
-      action: () => {
-        const message = encodeURIComponent(tModal('options.chat.whatsappMessage'))
-        window.open(`https://wa.me/33646462291?text=${message}`, '_blank')
-      },
-      color: 'from-green-500 to-green-600'
-    },
-    {
-      icon: Phone,
-      title: tModal('options.phone.title'),
-      description: tModal('options.phone.description'),
-      action: () => window.location.href = 'tel:+33646462291',
-      color: 'from-purple-500 to-purple-600'
     }
   ]
 
@@ -99,18 +82,18 @@ export default function HeroB2BSection({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         className={`
           ${buttonClass} 
           relative z-50
-          bg-doré text-anthracite 
-          px-10 py-4 rounded-full 
-          font-bold text-lg 
-          shadow-xl hover:shadow-2xl 
-          transition-all 
+          bg-doré text-anthracite
+          px-10 py-4 rounded-full
+          font-bold text-lg
+          shadow-lg-soft hover:shadow-premium
+          transition-all duration-300 
           inline-flex items-center gap-3 
           group
           cursor-pointer
@@ -159,16 +142,16 @@ export default function HeroB2BSection({
                 </p>
               </div>
 
-              {/* Grille d'Options */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+              {/* Grille d'Options - 2 colonnes optimisées */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto">
                 {contactOptions.map((option, index) => (
                   <motion.button
                     key={option.title}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ scale: 1.01, y: -1 }}
+                    whileTap={{ scale: 0.99 }}
                     onClick={() => {
                       option.action()
                       setShowOptions(false)

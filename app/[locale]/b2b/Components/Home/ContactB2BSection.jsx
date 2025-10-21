@@ -21,7 +21,7 @@ export default function ContactB2BSection({
   }
   
   return (
-    <section className={`py-24 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,18 +39,18 @@ export default function ContactB2BSection({
           
           <motion.button
             onClick={handleContactClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             className={`
               ${buttonClass} 
               relative z-50
-              bg-doré text-anthracite 
-              px-12 py-5 rounded-full 
-              font-bold text-lg 
-              shadow-2xl hover:shadow-3xl 
-              transition-all 
+              bg-doré text-anthracite
+              px-12 py-5 rounded-full
+              font-bold text-lg
+              shadow-lg-soft hover:shadow-premium
+              transition-all duration-300 
               inline-flex items-center gap-3 
               group mb-10
               cursor-pointer
@@ -58,7 +58,7 @@ export default function ContactB2BSection({
             `}
           >
             {t('cta')}
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </motion.button>
           
           <p className="text-ivoire/60 text-sm mb-8">

@@ -15,7 +15,7 @@ export default function TargetsSection({ extraClass = '' }) {
   ]
 
   return (
-    <section className={`py-20 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -34,8 +34,8 @@ export default function TargetsSection({ extraClass = '' }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="flex items-center gap-4 p-6 bg-ivoire dark:bg-acier/40 rounded-xl shadow-lg border border-acier/20 dark:border-vertSauge/20 hover:border-doré dark:hover:border-doré transition-all"
+                whileHover={{ scale: 1.01, y: -2 }}
+                className="flex items-center gap-4 p-6 bg-ivoire dark:bg-acier/40 rounded-xl shadow-md-soft hover:shadow-lg-soft border border-acier/20 dark:border-vertSauge/20 hover:border-doré dark:hover:border-doré transition-all duration-300"
               >
                 <div className="text-doré flex-shrink-0">
                   {target.icon}

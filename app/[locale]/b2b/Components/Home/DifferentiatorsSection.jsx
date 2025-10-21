@@ -33,7 +33,7 @@ export default function DifferentiatorsSection({ extraClass = '' }) {
   ]
 
   return (
-    <section className={`py-20 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -52,10 +52,10 @@ export default function DifferentiatorsSection({ extraClass = '' }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 onHoverStart={() => setHoveredCard(index)}
                 onHoverEnd={() => setHoveredCard(null)}
-                className="flex gap-6 p-6 md:p-8 bg-ivoire dark:bg-acier/40 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-acier/20 dark:border-vertSauge/20"
+                className="flex gap-6 p-6 md:p-8 bg-ivoire dark:bg-acier/40 rounded-2xl shadow-md-soft hover:shadow-lg-soft transition-all duration-300 border border-acier/20 dark:border-vertSauge/20"
               >
                 <div className="text-doré flex-shrink-0">
                   {item.icon}

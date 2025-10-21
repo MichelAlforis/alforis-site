@@ -17,7 +17,7 @@ export default function ServicesB2BSection({ extraClass = '' }) {
   ]
 
   return (
-    <section className={`py-20 ${extraClass}`}>
+    <section className={`py-24 md:py-32 ${extraClass}`}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
