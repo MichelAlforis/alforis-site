@@ -12,10 +12,10 @@ export default function HeroSection({ extraClass = '' }) {
 <section className={`relative w-full min-h-screen overflow-hidden ${extraClass}`}>
   <div className="absolute md:top-1/3 left-0 w-full translate-y-16 flex flex-col text-center">
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="font-bold uppercase leading-snug mb-6"
         >
           Comprendre la finance, en tirer le meilleur : <br/>
@@ -25,7 +25,7 @@ export default function HeroSection({ extraClass = '' }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
           className="text-md md:text-xl font-normal text-acier dark:text-acier font-light mb-8 max-w-7xl mx-auto leading-relaxed"
         >
           15 ans à conseiller et structurer des solutions financières complexes au plus haut niveau du secteur bancaire privé. Aujourd'hui indépendant, j'apporte à mes clients ce qu'ils recherchent vraiment : clarté, maîtrise et sérénité dans la gestion de leur patrimoine.

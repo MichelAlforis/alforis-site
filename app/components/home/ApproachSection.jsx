@@ -37,24 +37,24 @@ export default function ApproachSection({ extraClass = '' }) {
    const { dark } = useTheme();
    
   return (
-    <section id="approach" className={`w-full py-16 ${extraClass}`}>      
+    <section id="approach" className={`w-full py-20 md:py-28 ${extraClass}`}>
       <div className="space-y-8 px-4 md:px-0 max-w-4xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          Expérience, indépendance et vision entrepreneuriale 
+          Expérience, indépendance et vision entrepreneuriale
         </motion.h2>
         {cards.map((c, i) => (
-          <Link key={c.href} href={c.href} className="group block">
+          <Link key={c.href} href={c.href} className="group block cursor-pointer">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 dark:bg-acier/60 shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition-transform"
+              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+              className="flex flex-col md:flex-row items-center bg-ivoire bg-opacity-90 dark:bg-acier/60 shadow-lg rounded-2xl overflow-hidden hover:scale-[1.02] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-out"
             >
               <div className="hidden sm:flex flex-shrink-0 p-6 items-center justify-center">
                 <AnimatedSVGRenderer
@@ -63,17 +63,17 @@ export default function ApproachSection({ extraClass = '' }) {
                   strokecolor={dark ? couleurs.ivoire : couleurs.acier}
                   fillColor={couleurs.doré}
                   strokeWidth={c.stroke}
-                  duration={3}
-                  delayStep={0.8}
-                  tiltIntensity={1.5}
+                  duration={1.8}
+                  delayStep={0.4}
+                  tiltIntensity={0.8}
                   preserveAspectRatio="xMidYMid meet"
                 />
               </div>
               <div className="flex-1 p-6">
                 <motion.h3
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
                   className="text-2xl md:text-3xl font-semibold text-doré mb-2 leading-snug"
                 >
                   {c.title}
@@ -81,7 +81,7 @@ export default function ApproachSection({ extraClass = '' }) {
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
                   className="text-base md:text-lg text-acier leading-relaxed"
                 >
                   {c.text}

@@ -19,20 +19,20 @@ export default function KeyFigures({ extraClass = '' }) {
   const counts = figures.map(fig => useCountUp(fig.value, 1500, inView))
 
   return (
-    <section id="chiffres" className={`py-20 ${extraClass}`}>      
+    <section id="chiffres" className={`py-20 md:py-28 ${extraClass}`}>
       <div ref={ref} className="bg-ardoise bg-opacity-40 rounded-2xl shadow-lg space-y-16 max-w-5xl mx-auto py-20 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="space-y-6 text-center"
         >
           <h2 className="text-doré text-3xl md:text-5xl font-bold drop-shadow-lg">
-            L’Expertise derrière Alforis
+            L'Expertise derrière Alforis
           </h2>
           <p className="text-ivoire text-base md:text-lg leading-relaxed">
-            Plus de 15 ans d’expérience dans la structuration d’investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.
+            Plus de 15 ans d'expérience dans la structuration d'investissements, la construction de solutions personnalisées et la défense des intérêts patrimoniaux les plus exigeants.
           </p>
         </motion.div>
 
@@ -40,10 +40,10 @@ export default function KeyFigures({ extraClass = '' }) {
           {figures.map((fig, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
               className="space-y-2"
             >
               <p className="text-4xl text-ivoire font-bold drop-shadow-md">

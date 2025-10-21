@@ -21,31 +21,31 @@ export default function ServicesCards({ extraClass = '' }) {
   }, [dark])
 
   return (
-    <section className={`py-16 ${extraClass}`}>      
+    <section className={`py-20 md:py-28 ${extraClass}`}>
       <div className="max-w-7xl mx-auto px-4 text-center">
         <motion.h2
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           Une méthode pour sécuriser et développer votre patrimoine
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {services.map((s, i) => (
             <MotionLink
               key={s.title}
               href="/services"
-              className="bg-ivoire bg-opacity-90 dark:bg-acier/60 rounded-2xl p-6 shadow-md hover:shadow-lg transition group block"
-              initial={{ opacity: 0, y: 30 }}
+              className="bg-ivoire bg-opacity-90 dark:bg-acier/60 rounded-2xl p-6 shadow-md hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out group block cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: i * 0.2, duration: 0.6 }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: 'easeOut' }}
             >
               <div className="flex items-start gap-4">
-                <img src={s.icon} alt={s.alt || ''} className="w-20 h-20 object-contain hidden sm:block" loading="lazy" decoding="async"/>
-                <div className="flex-1">
-                  <h3 className="text-xl font-serif text-doré group-hover:text-doré transition">{s.title}</h3>
+                <img src={s.icon} alt={s.alt || ''} className="w-24 h-24 object-contain hidden sm:block" loading="lazy" decoding="async"/>
+                <div className="flex-1 text-left">
+                  <h3 className="text-xl font-serif text-doré group-hover:text-doré transition-colors duration-300">{s.title}</h3>
                   <p className="text-sm text-acier mt-2 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
