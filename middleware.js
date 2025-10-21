@@ -7,7 +7,7 @@ const intlMiddleware = createMiddleware({
   locales: SUPPORTED_LOCALES,
   defaultLocale: 'fr',
   localePrefix: 'always',
-  localeDetection: true
+  localeDetection: false
 })
 
 export default function middleware(request) {
