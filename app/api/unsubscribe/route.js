@@ -1,16 +1,16 @@
 // app/api/unsubscribe/route.js
-import crypto from 'crypto'
+import jwt from 'jsonwebtoken'
 
 export async function POST(req) {
   try {
-    const { token, email } = await req.json()
+    const { token } = await req.json()
 
-    console.log('📧 Demande de désabonnement:', { token, email })
+    console.log('📧 Demande de désabonnement avec token JWT')
 
     // Validation
-    if (!token && !email) {
+    if (!token) {
       return new Response(JSON.stringify({
-        error: 'Token ou email requis',
+        error: 'Token requis',
         success: false
       }), {
         status: 400,
@@ -18,26 +18,62 @@ export async function POST(req) {
       })
     }
 
-    // Décoder le token si fourni (le token peut être l'email encodé en base64)
-    let emailToUnsubscribe = email
-    if (token && !email) {
-      try {
-        emailToUnsubscribe = Buffer.from(token, 'base64').toString('utf-8')
-      } catch (e) {
-        console.error('❌ Token invalide:', e)
+    // Décoder et vérifier le token JWT
+    let decoded
+    try {
+      const jwtSecret = process.env.JWT_SECRET
+      if (!jwtSecret) {
+        console.error('❌ JWT_SECRET non configuré')
         return new Response(JSON.stringify({
-          error: 'Token invalide',
+          error: 'Configuration serveur incorrecte',
+          success: false
+        }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
+      decoded = jwt.verify(token, jwtSecret)
+      console.log('✅ Token JWT décodé:', decoded)
+    } catch (err) {
+      console.error('❌ Token JWT invalide:', err.message)
+
+      if (err.name === 'TokenExpiredError') {
+        return new Response(JSON.stringify({
+          error: 'Le lien de désabonnement a expiré',
           success: false
         }), {
           status: 400,
           headers: { 'Content-Type': 'application/json' },
         })
       }
+
+      return new Response(JSON.stringify({
+        error: 'Token invalide',
+        success: false
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
+    // Extraire les données du JWT
+    const { email, send_id, type } = decoded
+
+    // Validation du type
+    if (type !== 'unsubscribe') {
+      return new Response(JSON.stringify({
+        error: 'Type de token invalide',
+        success: false
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
     }
 
     // Validation email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(emailToUnsubscribe)) {
+    if (!emailRegex.test(email)) {
       return new Response(JSON.stringify({
         error: 'Email invalide',
         success: false
@@ -47,7 +83,7 @@ export async function POST(req) {
       })
     }
 
-    console.log('✅ Email à désabonner:', emailToUnsubscribe)
+    console.log('✅ Email à désabonner:', email, 'send_id:', send_id)
 
     // Envoi au CRM pour désabonnement
     try {
@@ -62,7 +98,8 @@ export async function POST(req) {
           'Authorization': `Bearer ${crmApiKey}`,
         },
         body: JSON.stringify({
-          email: emailToUnsubscribe,
+          email: email,
+          send_id: send_id,
           unsubscribed_at: new Date().toISOString(),
           source: 'web',
         }),
@@ -74,7 +111,7 @@ export async function POST(req) {
         return new Response(JSON.stringify({
           success: true,
           message: 'Désabonnement réussi',
-          email: emailToUnsubscribe
+          email: email
         }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
@@ -134,13 +171,36 @@ export async function GET(req) {
 
     // Décoder le token pour vérifier qu'il est valide
     try {
-      const email = Buffer.from(token, 'base64').toString('utf-8')
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      const jwtSecret = process.env.JWT_SECRET
+      if (!jwtSecret) {
+        return new Response(JSON.stringify({
+          valid: false,
+          error: 'Configuration serveur incorrecte'
+        }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
 
+      const decoded = jwt.verify(token, jwtSecret)
+      const { email, send_id, type } = decoded
+
+      if (type !== 'unsubscribe') {
+        return new Response(JSON.stringify({
+          valid: false,
+          error: 'Type de token invalide'
+        }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       if (emailRegex.test(email)) {
         return new Response(JSON.stringify({
           valid: true,
-          email: email
+          email: email,
+          send_id: send_id
         }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
@@ -148,16 +208,27 @@ export async function GET(req) {
       } else {
         return new Response(JSON.stringify({
           valid: false,
-          error: 'Token invalide'
+          error: 'Email invalide dans le token'
         }), {
           status: 400,
           headers: { 'Content-Type': 'application/json' },
         })
       }
-    } catch (e) {
+    } catch (err) {
+      if (err.name === 'TokenExpiredError') {
+        return new Response(JSON.stringify({
+          valid: false,
+          error: 'Token expiré',
+          expired: true
+        }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
       return new Response(JSON.stringify({
         valid: false,
-        error: 'Token corrompu'
+        error: 'Token corrompu ou invalide'
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
