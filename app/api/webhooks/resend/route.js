@@ -140,7 +140,8 @@ export async function POST(req) {
 
     // 4. Envoi direct au CRM via API
     try {
-      const crmUrl = process.env.CRM_API_URL || 'https://crm.alforis.fr/api/webhooks/resend'
+      const crmBaseUrl = process.env.CRM_API_URL || 'https://crm.alforis.fr/api/v1'
+      const crmUrl = `${crmBaseUrl}/webhooks/email-events`
       const crmApiKey = process.env.CRM_API_KEY
 
       const response = await fetch(crmUrl, {

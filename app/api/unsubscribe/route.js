@@ -51,8 +51,8 @@ export async function POST(req) {
 
     // Envoi au CRM pour désabonnement
     try {
-      const crmUrl = process.env.CRM_API_URL?.replace('/webhooks/resend', '/unsubscribe')
-        || 'https://crm.alforis.fr/api/unsubscribe'
+      const crmBaseUrl = process.env.CRM_API_URL || 'https://crm.alforis.fr/api/v1'
+      const crmUrl = `${crmBaseUrl}/unsubscribe`
       const crmApiKey = process.env.CRM_API_KEY
 
       const response = await fetch(crmUrl, {
