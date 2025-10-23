@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Unsubscribe | Alforis",
+    "description": "Manage your Alforis communication preferences."
+  },
+  "header": {
+    "title": "Unsubscribe",
+    "subtitle": "We're sorry to see you go"
+  },
+  "info": {
+    "message": "By unsubscribing, you will no longer receive our professional communications, news and exclusive offers."
+  },
+  "form": {
+    "emailLabel": "Email address",
+    "emailPlaceholder": "your@email.com",
+    "emailHint": "Email pre-filled from unsubscribe link",
+    "submitButton": "Confirm unsubscription",
+    "submitting": "Processing..."
+  },
+  "success": {
+    "title": "Unsubscription confirmed",
+    "message": "You have been successfully unsubscribed.",
+    "note": "You will no longer receive our professional communications. We're sorry to see you go."
+  },
+  "error": {
+    "title": "Error",
+    "message": "An error occurred during unsubscription. Please try again.",
+    "retryButton": "Try again"
+  },
+  "invalid": {
+    "title": "Invalid link",
+    "message": "The unsubscribe link is invalid or has expired."
+  },
+  "loading": {
+    "validating": "Validating..."
+  },
+  "footer": {
+    "changed": "Changed your mind?",
+    "backHome": "Back to homepage"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Cancelar suscripción | Alforis",
+    "description": "Gestione sus preferencias de comunicación de Alforis."
+  },
+  "header": {
+    "title": "Cancelar suscripción",
+    "subtitle": "Lamentamos que te vayas"
+  },
+  "info": {
+    "message": "Al darse de baja, ya no recibirá nuestras comunicaciones profesionales, noticias y ofertas exclusivas."
+  },
+  "form": {
+    "emailLabel": "Dirección de correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "emailHint": "Email prellenado desde el enlace de baja",
+    "submitButton": "Confirmar cancelación",
+    "submitting": "Procesando..."
+  },
+  "success": {
+    "title": "Baja confirmada",
+    "message": "Se ha dado de baja correctamente.",
+    "note": "Ya no recibirá nuestras comunicaciones profesionales. Lamentamos que te vayas."
+  },
+  "error": {
+    "title": "Error",
+    "message": "Se produjo un error durante la cancelación. Por favor, inténtelo de nuevo.",
+    "retryButton": "Intentar de nuevo"
+  },
+  "invalid": {
+    "title": "Enlace inválido",
+    "message": "El enlace de baja no es válido o ha expirado."
+  },
+  "loading": {
+    "validating": "Validando..."
+  },
+  "footer": {
+    "changed": "¿Cambió de opinión?",
+    "backHome": "Volver a inicio"
+  }
+}

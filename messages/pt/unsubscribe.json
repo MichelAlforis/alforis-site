@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Cancelar inscrição | Alforis",
+    "description": "Gerencie suas preferências de comunicação da Alforis."
+  },
+  "header": {
+    "title": "Cancelar inscrição",
+    "subtitle": "Lamentamos que você esteja saindo"
+  },
+  "info": {
+    "message": "Ao cancelar sua inscrição, você não receberá mais nossas comunicações profissionais, notícias e ofertas exclusivas."
+  },
+  "form": {
+    "emailLabel": "Endereço de e-mail",
+    "emailPlaceholder": "seu@email.com",
+    "emailHint": "E-mail pré-preenchido pelo link de cancelamento",
+    "submitButton": "Confirmar cancelamento",
+    "submitting": "Processando..."
+  },
+  "success": {
+    "title": "Cancelamento confirmado",
+    "message": "Você foi descadastrado com sucesso.",
+    "note": "Você não receberá mais nossas comunicações profissionais. Lamentamos que você esteja saindo."
+  },
+  "error": {
+    "title": "Erro",
+    "message": "Ocorreu um erro durante o cancelamento. Por favor, tente novamente.",
+    "retryButton": "Tentar novamente"
+  },
+  "invalid": {
+    "title": "Link inválido",
+    "message": "O link de cancelamento é inválido ou expirou."
+  },
+  "loading": {
+    "validating": "Validando..."
+  },
+  "footer": {
+    "changed": "Mudou de ideia?",
+    "backHome": "Voltar para o início"
+  }
+}

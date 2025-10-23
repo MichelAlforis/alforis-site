@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Désabonnement | Alforis",
+    "description": "Gérez vos préférences d'abonnement aux communications Alforis."
+  },
+  "header": {
+    "title": "Se désabonner",
+    "subtitle": "Nous sommes désolés de vous voir partir"
+  },
+  "info": {
+    "message": "En vous désabonnant, vous ne recevrez plus nos communications professionnelles, actualités et offres exclusives."
+  },
+  "form": {
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "votre@email.com",
+    "emailHint": "Email pré-rempli depuis le lien de désabonnement",
+    "submitButton": "Confirmer le désabonnement",
+    "submitting": "Traitement en cours..."
+  },
+  "success": {
+    "title": "Désabonnement confirmé",
+    "message": "Vous avez été désabonné avec succès.",
+    "note": "Vous ne recevrez plus nos communications professionnelles. Nous sommes désolés de vous voir partir."
+  },
+  "error": {
+    "title": "Erreur",
+    "message": "Une erreur est survenue lors du désabonnement. Veuillez réessayer.",
+    "retryButton": "Réessayer"
+  },
+  "invalid": {
+    "title": "Lien invalide",
+    "message": "Le lien de désabonnement est invalide ou a expiré."
+  },
+  "loading": {
+    "validating": "Vérification en cours..."
+  },
+  "footer": {
+    "changed": "Vous avez changé d'avis ?",
+    "backHome": "Retour à l'accueil"
+  }
+}
